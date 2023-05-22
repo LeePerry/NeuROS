@@ -1,0 +1,5 @@
+{
+    "name" : "tennis-example",
+    "player_1" : { "node" : "#player.py", "image" : "osrf/ros:foxy-desktop" },
+    "player_2" : { "node" : "#player.py", "image" : "osrf/ros:foxy-desktop" }
+}
