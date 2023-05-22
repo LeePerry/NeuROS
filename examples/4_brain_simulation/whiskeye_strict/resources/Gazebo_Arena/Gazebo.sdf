@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="Floor">
+    <static>true</static>
+    <link name="main">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Arena/gazebo_floor.dae</uri>
+			</mesh>
+		</geometry>
+      </visual>
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Arena/gazebo_floor.dae</uri>
+			</mesh>
+		</geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+  </model>
+  <model name="Columns">
+    <static>true</static>
+    <link name="main">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Arena/gazebo_columns.dae</uri>
+			</mesh>
+		</geometry>
+      </visual>
+    </link>
+  </model>
+    <model name="Top">
+    <static>true</static>
+    <link name="main">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Arena/gazebo_top.dae</uri>
+			</mesh>
+		</geometry>
+      </visual>
+    </link>
+  </model>
+    <model name="Background">
+    <static>true</static>
+    <link name="main">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Arena/background.dae</uri>
+			</mesh>
+		</geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

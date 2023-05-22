@@ -1,0 +1,8 @@
+{
+    "nodes" : [
+    {
+        "name"      : "clock",
+        "container" : "neuros_python",
+        "plugin"    : "clock.py"
+    }]
+}

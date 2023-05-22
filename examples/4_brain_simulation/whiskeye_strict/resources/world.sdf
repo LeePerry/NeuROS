@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+	<world name="default">
+
+        <plugin
+            filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
+        </plugin>
+
+		<plugin
+			filename="gz-sim-physics-system"
+			name="gz::sim::systems::Physics">
+		</plugin>
+
+		<plugin
+			filename="gz-sim-scene-broadcaster-system"
+			name="gz::sim::systems::SceneBroadcaster">
+		</plugin>
+
+		<plugin
+			filename="gz-sim-sensors-system"
+			name="gz::sim::systems::Sensors">
+			<render_engine>ogre2</render_engine>
+		</plugin>
+
+		<plugin
+			filename="gz-sim-imu-system"
+			name="gz::sim::systems::Imu">
+		</plugin>
+
+        <plugin
+		    filename="gz-sim-velocity-control-system"
+			name="gz::sim::systems::VelocityControl">
+		</plugin>
+
+		<light name="sun" type="directional">
+			<pose frame="">7.485 -12.379 17.2198 0 -0 0</pose>
+			<diffuse>0.7 0.7 0.7 1</diffuse>
+			<specular>0.2 0.2 0.2 1</specular>
+			<direction>-0.1698 0.1 -0.3</direction>
+			<attenuation>
+				<range>1000</range>
+				<constant>0.9</constant>
+				<linear>0.01</linear>
+				<quadratic>0.001</quadratic>
+			</attenuation>
+			<cast_shadows>1</cast_shadows>
+		</light>
+
+		<model name='Background'>
+			<pose>0 0 6 0 0 0</pose>
+			<static>true</static>
+			<include>
+				<uri>model://Gazebo_Background</uri>
+			</include>
+		</model>
+
+		<model name='Gazebo_Columns'>
+			<pose>0 0 0 0 0 0</pose>
+			<static>true</static>
+			<include>
+				<uri>model://Gazebo_Columns</uri>
+			</include>
+		</model>
+
+		<model name='Gazebo_Floor'>
+			<pose>0 0 0 0 0 0</pose>
+			<static>true</static>
+			<include>
+				<uri>model://Gazebo_Floor</uri>
+			</include>
+		</model>
+
+		<model name='Gazebo_Top'>
+			<pose>0 0 0 0 0 0</pose>
+			<static>true</static>
+			<include>
+				<uri>model://Gazebo_Top</uri>
+			</include>
+		</model>
+
+	</world>
+</sdf>
