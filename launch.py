@@ -1,21 +1,25 @@
 #!/usr/bin/env python3
 
-import multiprocessing
+from multiprocessing import Process
 
-import src.cli
-import src.config
-import src.container
+from src.cli import parse_cli_args
+from src.config import Config
+from src.container import Container
 
-def main(config, name):
-    src.container.Container(config, name).run_and_wait()
+def containerised_node(config, name):
+    Container(config).run_node(name)
 
-if __name__ == '__main__':
-    args = src.cli.parse_cli_args()
-    config = src.config.Config.from_file(args.project_path)
+def main():
+    args = parse_cli_args()
+    config = Config.from_file(args.project_path)
+    Container(config).build_workspace()
     nodes = []
     for name in args.node:
-        node = multiprocessing.Process(target=main, args=(config, name))
+        node = Process(target=containerised_node, args=(config, name))
         nodes.append(node)
         node.start()
     for node in nodes:
         node.join()
+
+if __name__ == '__main__':
+    main()

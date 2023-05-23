@@ -1,5 +1,26 @@
 {
-    "name" : "tennis-example",
-    "player_1" : { "node" : "#player.py", "image" : "osrf/ros:foxy-desktop" },
-    "player_2" : { "node" : "#player.py", "image" : "osrf/ros:foxy-desktop" }
+    "name" : "tennis",
+    "nodes" : [
+        {
+            "name" : "player_1",
+            "implementation" : "player.py",
+            "container" : "osrf/ros:foxy-desktop"
+        },
+        {
+            "name" : "player_2",
+            "implementation" : "player.py",
+            "container" : "osrf/ros:foxy-desktop"
+        }
+    ],
+    "connections" : [
+        {
+            "name" : "ball",
+            "sender" : "player_1",
+            "receiver" : "player_2" },
+        {
+            "name" : "ball",
+            "sender" : "player_2",
+            "receiver" : "player_1"
+        }
+    ]
 }

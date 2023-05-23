@@ -3,7 +3,7 @@ import os
 import sys
 
 def parse_cli_args():
-   
+
     parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
                                      description="NeuROS\n"+
                                                  "An Integration Framework for Heterogenous Systems Neuroscience")
@@ -20,7 +20,7 @@ def parse_cli_args():
                         help="The name of a node as specified in the project configuration (multiple allowed)")
     args = parser.parse_args()
 
-    if not os.path.exists(args.project_path):
+    if not os.path.isfile(args.project_path):
         parser.print_help()
         print("\n\nPlease provide a valid project path!\n\n")
         sys.exit(1)
