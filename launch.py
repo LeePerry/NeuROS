@@ -13,13 +13,11 @@ def main():
     args = parse_cli_args()
     config = Config.from_file(args.project_path)
     Container(config).build_workspace()
-    nodes = []
-    for name in args.node:
-        node = Process(target=containerised_node, args=(config, name))
-        nodes.append(node)
-        node.start()
-    for node in nodes:
-        node.join()
+    nodes = [Process(target=containerised_node,
+                     args=(config, name))
+                     for name in args.node]
+    for node in nodes: node.start()
+    for node in nodes: node.join()
 
 if __name__ == '__main__':
     main()

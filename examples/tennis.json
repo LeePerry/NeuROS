@@ -15,10 +15,12 @@
     "connections" : [
         {
             "name" : "ball",
+            "message" : "Int8",
             "sender" : "player_1",
             "receiver" : "player_2" },
         {
             "name" : "ball",
+            "message" : "Int8",
             "sender" : "player_2",
             "receiver" : "player_1"
         }

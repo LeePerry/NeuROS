@@ -17,13 +17,22 @@ class Config:
 
     def __init__(self, data):
         self.standard_workspace_dir = "/home/neuros/workspace"
-        self.standard_project_dir = "/home/neuros/project"
-        self.standard_node_dir = "/home/neuros/node"
+        self.standard_project_dir = NodeConfig.standard_project_dir
+        self.standard_node_dir = NodeConfig.standard_dir
         self.standard_container = "osrf/ros:foxy-desktop"
         self.name = data["name"]
         self.workspace_dir = data["workspace_directory"]
         self.project_dir = data["project_directory"]
-        self._nodes = [NodeConfig(d) for d in data["nodes"]]
+        self._nodes = []
+        for node in data["nodes"]:
+            name = node["name"]
+            connections = [c for c in data["connections"]
+                           if c["sender"] == name or c["receiver"] == name]
+            self._nodes.append(NodeConfig(
+                {
+                    "node" : node,
+                    "connections" : connections
+                }))
 
     def node_config_by_name(self, name):
         for n in self._nodes:
