@@ -1,31 +1,16 @@
 
-class DecoratoredFunctions:
-
-    def __init__(self):
-        self._initialise_hooks = []
-        self._connection_hooks = {}
-
-    def register_initialise_hook(self, func):
-        print(f"Registered for initialisation: {func.__name__}")
-        self._initialise_hooks.append(func)
-
-    def register_connection_hook(self, name, func):
-        print(f"Registered connection {name}: {func.__name__}")
-        if name not in self._connection_hooks:
-            self._connection_hooks[name] = []
-        self._connection_hooks[name].append(func)
-
-decorated_functions = DecoratoredFunctions()
+initialise_hooks = []
+receive_hooks = []
 
 def neuros_initialise(func):
-    decorated_functions.register_initialise_hook(func)
+    initialise_hooks.append(func)
     def process_func(*args, **kwargs):
         return func(*args, **kwargs)
     return process_func
 
-def neuros_connection(name):
+def neuros_receive(name):
     def process_args(func):
-        decorated_functions.register_connection_hook(name, func)
+        receive_hooks.append((name, func))
         def process_func(*args, **kwargs):
             return func(*args, **kwargs)
         return process_func

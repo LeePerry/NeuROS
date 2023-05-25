@@ -3,7 +3,7 @@
 from multiprocessing import Process
 
 from src.cli import parse_cli_args
-from src.config import Config
+from src.project_config import ProjectConfig
 from src.container import Container
 
 def containerised_node(config, name):
@@ -11,8 +11,7 @@ def containerised_node(config, name):
 
 def main():
     args = parse_cli_args()
-    config = Config.from_file(args.project_path)
-    Container(config).build_workspace()
+    config = ProjectConfig.from_file(args.project_path)
     nodes = [Process(target=containerised_node,
                      args=(config, name))
                      for name in args.node]

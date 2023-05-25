@@ -30,8 +30,8 @@ class Container:
 
     def run_node(self, name):
         with tempfile.TemporaryDirectory() as temporary_dir:
-            self._config.node_config_by_name(name).write_to(temporary_dir)
-            self._docker_command(self._config.container_for_node(name),
+            self._config.get_node_config_by_name(name).write_to(temporary_dir)
+            self._docker_command(self._config.get_container_for_node(name),
                                 f"cd {self._config.standard_workspace_dir}; " +
                                 ". install/setup.bash > /dev/null 2>&1; " +
                                 f"ros2 run nodes node",

@@ -1,28 +1,11 @@
 {
     "name" : "tennis",
     "nodes" : [
-        {
-            "name" : "player_1",
-            "implementation" : "player.py",
-            "container" : "osrf/ros:foxy-desktop"
-        },
-        {
-            "name" : "player_2",
-            "implementation" : "player.py",
-            "container" : "osrf/ros:foxy-desktop"
-        }
+        { "name" : "player_1", "source" : "player.py", "container" : "osrf/ros:foxy-desktop", "first_to_serve" : 1 },
+        { "name" : "player_2", "source" : "player.py", "container" : "osrf/ros:foxy-desktop" }
     ],
     "connections" : [
-        {
-            "name" : "ball",
-            "message" : "Int8",
-            "sender" : "player_1",
-            "receiver" : "player_2" },
-        {
-            "name" : "ball",
-            "message" : "Int8",
-            "sender" : "player_2",
-            "receiver" : "player_1"
-        }
+        { "name" : "ball", "message" : "std_msgs.msg.Int8", "sender" : "player_1", "receiver" : "player_2" },
+        { "name" : "ball", "message" : "std_msgs.msg.Int8", "sender" : "player_2", "receiver" : "player_1" }
     ]
 }
