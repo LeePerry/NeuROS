@@ -12,8 +12,8 @@ def warm_up(node):
 
 @neuros_receive("ball")
 def hit_the_ball(node, input):
-    time.sleep(2)
-    #node.get_logger().info(f"Whack {input.data}")
+    time.sleep(1)
+    node.get_logger().info(f"Whack {input.data}")
     msg = Int8()
     msg.data = input.data + 1
     node.send("ball", msg)

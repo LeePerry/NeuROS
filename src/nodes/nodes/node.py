@@ -20,13 +20,12 @@ class Node(RosNode):
         def __init__(self, node, connection):
             self._node = node
             self._topic = f"{connection.get_receiver()}/{connection.get_name()}"
-            self._publisher = node.create_publisher(
-                plugin_message_type(connection.get_message_type_name()),
-                self._topic, 10)
+            self._message_type = plugin_message_type(connection.get_message_type_name())
+            self._publisher = node.create_publisher(self._message_type, self._topic, 10)
 
         def send(self, output):
             # todo this should block until all recipients have announced they're ready
-            self._node.get_logger().info(f"sending {output.data} to {self._topic}")
+            #self._node.get_logger().info(f"sending {output.data} to {self._topic}")
             self._publisher.publish(output)
 
     class Receiver:
@@ -41,15 +40,13 @@ class Node(RosNode):
 
         def __init__(self, node, connection):
             self._node = node
-            self._subscription = node.create_subscription(
-                plugin_message_type(connection.get_message_type_name()),
-                f"{connection.get_receiver()}/{connection.get_name()}",
-                self._receive, 10)
-            self._hooks = [
-                h for n, h in receive_hooks if n == connection.get_name()]
+            self._hooks = [h for n, h in receive_hooks if n == connection.get_name()]
+            self._topic = f"{connection.get_receiver()}/{connection.get_name()}"
+            self._message_type = plugin_message_type(connection.get_message_type_name())
+            self._subscription = node.create_subscription(self._message_type, self._topic, self._receive, 10)
 
         def _receive(self, input):
-            self._node.get_logger().info(f"received {input.data}")
+            #self._node.get_logger().info(f"received {input.data}")
             for hook in self._hooks:
                 hook(self._node, input)
 
