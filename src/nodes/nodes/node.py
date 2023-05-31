@@ -13,12 +13,15 @@ class Node(RosNode):
         plugin_import(NodeConfig.standard_project_dir, config.get_source())
         self._config = config
         self._senders = Sender.for_node(self)
-        self._receivers = Receiver.for_node(self)
         for hook in initialise_hooks:
             hook(self)
+        self._receivers = Receiver.for_node(self)
 
-    def send(self, connection, message):
-        self._senders[connection].send(message)
+    def get_connection_output(self, name):
+        return self._senders[name]
+
+    def get_connection_input(self, name):
+        return self._receivers[name]
 
     def get_config(self):
         return self._config
