@@ -1,3 +1,5 @@
+# TODO potentially rename package to neuros?
+# That way clients will import neuros.hooks, which reads far better
 
 initialise_hooks = []
 receive_hooks = []

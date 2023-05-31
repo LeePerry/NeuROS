@@ -1,4 +1,3 @@
-import pathlib
 import subprocess
 import tempfile
 
@@ -19,8 +18,10 @@ class Container:
         if node_dir:
             full_command += ["-v", f"{node_dir}:" +
                                    f"{self._config.standard_node_dir}"]
-        full_command += ["-it", container]
-        self._run(full_command + ["bash", "-c", command])
+        full_command += ["-it"] # this handles ctrl-c (but only appears to work for the first container)
+        full_command += [container]
+        full_command += ["bash", "-c", command]
+        self._run(full_command)
 
     def build_workspace(self):
         print("Building workspace")

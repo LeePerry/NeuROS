@@ -28,7 +28,6 @@ class ProjectConfig:
 
     def __init__(self, data):
         self.name = data["name"]
-        print(f"Launching {self.name}...")
         self.standard_workspace_dir = "/home/neuros/workspace"
         self.standard_project_dir = NodeConfig.standard_project_dir
         self.standard_node_dir = NodeConfig.standard_dir

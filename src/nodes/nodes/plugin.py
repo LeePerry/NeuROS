@@ -1,8 +1,7 @@
-import std_msgs.msg
-
-import builtins
 import importlib.util
 import os
+
+import std_msgs.msg
 
 def plugin_import(directory, filename):
     module_name = os.path.splitext(filename)[0]
