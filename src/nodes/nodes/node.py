@@ -1,10 +1,11 @@
 import rclpy
 from rclpy.node import Node as RosNode
 
-from nodes.endpoints import Sender, Receiver
-from nodes.node_config import NodeConfig
 from nodes.hooks import initialise_hooks
+from nodes.node_config import NodeConfig
 from nodes.plugin import plugin_import
+from nodes.receiver import Receiver
+from nodes.sender import Sender
 
 class Node(RosNode):
 
@@ -17,10 +18,10 @@ class Node(RosNode):
             hook(self)
         self._receivers = Receiver.for_node(self)
 
-    def get_connection_output(self, name):
+    def get_outgoing(self, name):
         return self._senders[name]
 
-    def get_connection_input(self, name):
+    def get_incoming(self, name):
         return self._receivers[name]
 
     def get_config(self):

@@ -42,7 +42,7 @@ class ProjectConfig:
         for n in self._node_configs:
             if n.get_name() == name:
                 return n
-        raise Exception(f"No node called {name}")
+        raise Exception(f"No node called {name}!")
 
     def get_container_for_node(self, node):
         container = self.get_node_config_by_name(node).get_container()

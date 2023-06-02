@@ -10,11 +10,12 @@ def plugin_import(directory, filename):
     impl = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(impl)
 
-def plugin_message_type(name):
+# TODO need a version of this that performs an import first
+def plugin_packet_type(name):
     try:
         obj = eval(name)
         if isinstance(obj, type):
             return obj
     except Exception:
         pass
-    raise Exception(f"Invalid message type: {name}") from None
+    raise Exception(f"Invalid message type: {name}!") from None

@@ -1,31 +1,43 @@
 import json
 import os
 
+# Note: Cannot import neuros files, as this config is used in 2 different
+# contexts.
+# i.e. all dependencies must be contained within this file.
+
 class ConnectionConfig:
 
     @classmethod
     def filter_by_node(cls, name, data):
         return [cls(c) for c in data
-                if c["sender"] == name or c["receiver"] == name]
+                if c["sender"] == name or name in c["receivers"]]
 
     def __init__(self, data):
         self._raw_data = data
         self._name = data["name"]
-        self._message = data["message"]
+        self._packet_type = data["packet_type"]
         self._sender = data["sender"]
-        self._receiver = data["receiver"]
+        self._receivers = data["receivers"]
+        self._synchronisation = data.get("synchronisation", "null")
+        self._max_permitted_no_ack = data.get("max_permitted_no_ack", 0)
 
     def get_name(self):
         return self._name
 
-    def get_message_type_name(self):
-        return self._message
+    def get_packet_type_name(self):
+        return self._packet_type
 
     def get_sender(self):
         return self._sender
 
-    def get_receiver(self):
-        return self._receiver
+    def get_receivers(self):
+        return self._receivers
+
+    def get_synchronisation(self):
+        return self._synchronisation
+
+    def get_max_permitted_no_ack(self):
+        return self._max_permitted_no_ack
 
 class NodeConfig:
 
@@ -45,12 +57,11 @@ class NodeConfig:
     def __init__(self, data, connections):
         self._name = data["name"]
         self._source = data["source"]
-        self._container = data.get("container")
+        self._container = data.get("container", "osrf/ros:foxy-desktop")
         self._connections = connections
         self._raw_data = {
             "node" : data,
-            "connections" : [c._raw_data for c in connections]
-        }
+            "connections" : [c._raw_data for c in connections]}
 
     def get_name(self):
         return self._name
@@ -64,7 +75,7 @@ class NodeConfig:
     def get_connections(self):
         return self._connections
 
-    def get_node_parameter(self, name):
+    def get_parameter(self, name):
         return self._raw_data["node"].get(name)
 
     def write_to(self, node_dir):

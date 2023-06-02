@@ -17,3 +17,16 @@ def neuros_receive(name):
             return func(*args, **kwargs)
         return process_func
     return process_args
+
+# TODO consider
+#
+# neuros_fixed_interval(milliseconds)
+#
+# neuros_received_any(...)
+# neuros_received_all(...)
+#
+# where ... is a list of connections,
+# any=triggers after any of those connections fire,
+# all=triggers after all connections have recived new data
+#
+# neuros_receive_accumulate(connection, count)

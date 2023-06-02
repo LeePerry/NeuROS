@@ -1,11 +1,11 @@
 {
     "name" : "tennis",
     "nodes" : [
-        { "name" : "federer", "source" : "player.py", "container" : "osrf/ros:foxy-desktop", "first_to_serve" : 1 },
-        { "name" : "nadal", "source" : "player.py", "container" : "osrf/ros:foxy-desktop" }
+        { "name" : "federer", "source" : "player.py", "first_to_serve" : 1 },
+        { "name" : "nadal", "source" : "player.py" }
     ],
     "connections" : [
-        { "name" : "ball", "message" : "std_msgs.msg.Int8", "sender" : "federer", "receiver" : "nadal" },
-        { "name" : "ball", "message" : "std_msgs.msg.Int8", "sender" : "nadal", "receiver" : "federer" }
+        { "name" : "ball", "packet_type" : "std_msgs.msg.Int8", "sender" : "federer", "receivers" : ["nadal"] },
+        { "name" : "ball", "packet_type" : "std_msgs.msg.Int8", "sender" : "nadal", "receivers" : ["federer"] }
     ]
 }
