@@ -1,4 +1,4 @@
-from nodes.acknowledge import AckServer, AckClient
+from neuros.acknowledge import AckServer, AckClient
 
 class SynchronisationServer:
 

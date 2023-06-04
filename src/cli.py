@@ -4,9 +4,11 @@ import sys
 
 def parse_cli_args():
 
-    parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter,
-                                     description="NeuROS\n"+
-                                                 "An Integration Framework for Heterogenous Systems Neuroscience")
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter,
+        description="NeuROS\n\n" +
+            "An Integration Framework for Heterogenous Systems Neuroscience")
+
     parser.add_argument("-p",
                         "--project_path",
                         type=str,
@@ -15,9 +17,10 @@ def parse_cli_args():
     parser.add_argument("-n",
                         "--node",
                         type=str,
-                        required=True,
+                        required=False,
                         action="append",
-                        help="The name of a node as specified in the project configuration (multiple allowed)")
+                        help="The name of a node as specified in the project " +
+                             "configuration (multiple allowed, defaults to all)")
     args = parser.parse_args()
 
     if not os.path.isfile(args.project_path):

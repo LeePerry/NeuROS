@@ -1,11 +1,16 @@
+#!/usr/bin/env python3
+
+import signal
+import os
+
 import rclpy
 from rclpy.node import Node as RosNode
 
-from nodes.hooks import initialise_hooks
-from nodes.node_config import NodeConfig
-from nodes.plugin import plugin_import
-from nodes.receiver import Receiver
-from nodes.sender import Sender
+from neuros.hooks import initialise_hooks
+from neuros.node_config import NodeConfig
+from neuros.plugin import plugin_import
+from neuros.receiver import Receiver
+from neuros.sender import Sender
 
 class Node(RosNode):
 
@@ -29,7 +34,10 @@ class Node(RosNode):
 
 def main():
     rclpy.init()
-    rclpy.spin(Node(NodeConfig.from_standard()))
+    node = Node(NodeConfig.from_standard())
+    while rclpy.ok():
+        rclpy.spin_once(node)
+    node.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':

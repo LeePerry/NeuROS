@@ -1,9 +1,9 @@
 from std_msgs.msg import String as String
 
-from nodes.hooks import receive_hooks
-from nodes.plugin import plugin_packet_type
-from nodes.quality_of_service import standard_quality
-from nodes.synchronisation import SynchronisationClient
+from neuros.hooks import receive_hooks
+from neuros.plugin import plugin_packet_type
+from neuros.quality_of_service import standard_quality
+from neuros.synchronisation import SynchronisationClient
 
 class Receiver:
 

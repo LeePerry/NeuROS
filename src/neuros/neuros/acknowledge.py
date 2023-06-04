@@ -2,7 +2,7 @@ from threading import Semaphore
 
 from std_msgs.msg import String as String
 
-from nodes.quality_of_service import standard_quality
+from neuros.quality_of_service import standard_quality
 
 class AckServer:
 

@@ -1,6 +1,6 @@
-from nodes.plugin import plugin_packet_type
-from nodes.quality_of_service import standard_quality
-from nodes.synchronisation import SynchronisationServer
+from neuros.plugin import plugin_packet_type
+from neuros.quality_of_service import standard_quality
+from neuros.synchronisation import SynchronisationServer
 
 class Sender:
 

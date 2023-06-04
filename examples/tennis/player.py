@@ -1,6 +1,6 @@
 import time
 
-from nodes.hooks import neuros_initialise, neuros_receive
+from neuros.hooks import neuros_initialise, neuros_receive
 
 @neuros_initialise
 def arrive_at_centre_court(node):
