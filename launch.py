@@ -2,7 +2,7 @@
 
 import multiprocessing
 
-from src.cli import parse_cli_args
+from src.cli import CommandLineInterface
 from src.project_config import ProjectConfig
 from src.container import Container
 
@@ -10,7 +10,7 @@ def launch_node(config, name):
     Container(config).run_node(name)
 
 def main():
-    args = parse_cli_args()
+    args = CommandLineInterface.from_command_line()
     config = ProjectConfig.from_file(args.project_path)
     print(f"Launching {config.get_name()}...")
     nodes = [multiprocessing.Process(target=launch_node, args=(config, name))
