@@ -30,7 +30,8 @@ class ProjectConfig:
         self._workspace_dir = data["workspace_directory"]
         self._project_dir = data["project_directory"]
         self._node_configs = [NodeConfig(n,
-            ConnectionConfig.filter_by_node(n["name"], data["connections"]))
+            ConnectionConfig.filter_by_node(
+                n["name"], data.get("connections", [])))
             for n in data["nodes"]]
 
     def get_name(self):

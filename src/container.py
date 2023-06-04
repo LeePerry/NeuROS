@@ -15,7 +15,7 @@ class Container:
         if node_dir:
             full_command += ["-v", f"{node_dir}:{self._config.get_standard_node_dir()}"]
         full_command += ["--workdir", self._config.get_standard_workspace_dir()]
-        full_command += ["-it", "--init"]
+        full_command += ["-it", "--init", "--rm"]
         if not container:
             container = self._config.get_standard_container()
         full_command += [container]

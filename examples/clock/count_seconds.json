@@ -1,0 +1,4 @@
+{
+    "name" : "clock",
+    "nodes" : [{ "name" : "clock", "source" : "clock.py" }]
+}

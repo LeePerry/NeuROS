@@ -1,6 +1,6 @@
 from std_msgs.msg import String as String
 
-from neuros.hooks import receive_hooks
+from neuros.hooks import Hooks
 from neuros.plugin import plugin_packet_type
 from neuros.quality_of_service import standard_quality
 from neuros.synchronisation import SynchronisationClient
@@ -17,7 +17,7 @@ class Receiver:
 
     def __init__(self, node, connection):
         self._node = node
-        self._hooks = [h for n, h in receive_hooks if n == connection.get_name()]
+        self._hooks = [h for n, h in Hooks.on_receive if n == connection.get_name()]
         self._data_subscription = self._node.create_subscription(
             plugin_packet_type(connection.get_packet_type_name()),
             f"{connection.get_sender()}/{connection.get_name()}/data",

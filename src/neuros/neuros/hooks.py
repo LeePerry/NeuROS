@@ -1,22 +1,33 @@
-# TODO potentially rename package to neuros?
-# That way clients will import neuros.hooks, which reads far better
+class Hooks:
 
-initialise_hooks = []
-receive_hooks = []
+    on_initialise = []
+    on_receive = []
+    on_tick = []
 
-def neuros_initialise(func):
-    initialise_hooks.append(func)
-    def process_func(*args, **kwargs):
-        return func(*args, **kwargs)
-    return process_func
-
-def neuros_receive(name):
-    def process_args(func):
-        receive_hooks.append((name, func))
+    @classmethod
+    def no_arg(cls, hooks, func):
+        hooks.append(func)
         def process_func(*args, **kwargs):
             return func(*args, **kwargs)
         return process_func
-    return process_args
+
+    @classmethod
+    def single_arg(cls, hooks, arg):
+        def process_args(func):
+            hooks.append((arg, func))
+            def process_func(*args, **kwargs):
+                return func(*args, **kwargs)
+            return process_func
+        return process_args
+
+def neuros_initialise(func):
+    return Hooks.no_arg(Hooks.on_initialise, func)
+
+def neuros_receive(connection_name):
+    return Hooks.single_arg(Hooks.on_receive, connection_name)
+
+def neuros_tick(seconds):
+    return Hooks.single_arg(Hooks.on_tick, seconds)
 
 # TODO consider
 #

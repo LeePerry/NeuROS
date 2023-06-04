@@ -1,10 +1,6 @@
 import json
 import os
 
-# Note: Cannot import neuros files, as this config is used in 2 different
-# contexts.
-# i.e. all dependencies must be contained within this file.
-
 class ConnectionConfig:
 
     @classmethod
