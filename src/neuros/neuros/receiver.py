@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 from std_msgs.msg import String as String
 
 from neuros.hooks import Hooks

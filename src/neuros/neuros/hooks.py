@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 class Hooks:
 
     on_initialise = []

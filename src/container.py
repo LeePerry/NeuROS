@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 import subprocess
 import tempfile
 

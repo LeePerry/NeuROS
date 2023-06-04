@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 from neuros.acknowledge import AckServer, AckClient
 
 class SynchronisationServer:

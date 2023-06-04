@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 import rclpy.qos as qos
 from rclpy.qos import QoSProfile
 

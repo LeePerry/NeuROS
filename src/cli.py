@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 import argparse
 import os
 import sys

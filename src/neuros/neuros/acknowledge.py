@@ -1,3 +1,5 @@
+# Copyright (c) 2023 Lee Perry
+
 from threading import Semaphore
 
 from std_msgs.msg import String as String

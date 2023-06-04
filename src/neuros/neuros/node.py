@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Copyright (c) 2023 Lee Perry
 
 import rclpy
 from rclpy.node import Node as RosNode
