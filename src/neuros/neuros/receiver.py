@@ -92,7 +92,8 @@ class Receiver:
             plugin_packet_type(connection.get_packet_type_name()),
             f"{connection.get_sender()}/{connection.get_name()}/data",
             self._receive,
-            standard_quality())
+            standard_quality(),
+            callback_group=node.get_hook_callback_group())
         self._synchronisation = SynchronisationClient.for_connection(
             node, connection)
         self._hooks = Hooks.filter_by_connection(

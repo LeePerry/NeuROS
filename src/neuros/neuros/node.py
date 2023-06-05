@@ -6,6 +6,7 @@ from threading import Thread
 import rclpy
 from rclpy.node import Node as RosNode
 from rclpy.executors import MultiThreadedExecutor
+from rclpy.callback_groups import MutuallyExclusiveCallbackGroup as CallbackGroup
 
 from neuros.hooks import Hooks
 from neuros.node_config import NodeConfig
@@ -20,8 +21,16 @@ class Node(RosNode):
         super().__init__(config.get_name())
         plugin_import(NodeConfig.standard_project_dir, config.get_source())
         self._config = config
+        self._hook_callback_group = CallbackGroup()
         self._senders = Sender.for_node(self)
         self._receivers = Receiver.for_node(self)
+        self._timers = None
+        self._init_timer = self.create_timer(0.2,
+                                             self._initialise,
+                                             callback_group=self._hook_callback_group)
+
+    def _initialise(self):
+        self._init_timer.cancel()
         for hook in Hooks.on_initialise:
             hook(self)
         self._timers = Timer.for_node(self)
@@ -34,6 +43,9 @@ class Node(RosNode):
 
     def get_config(self):
         return self._config
+
+    def get_hook_callback_group(self):
+        return self._hook_callback_group
 
 def main():
     rclpy.init()

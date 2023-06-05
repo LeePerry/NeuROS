@@ -15,13 +15,13 @@ class SynchronisationServer:
             return Parallel(node, connection, callback_group)
         raise Exception(f"Invalid synchronisation {synchronisation}!")
 
-    def __init__(self, node, connection, callback_group):
+    def __init__(self, node, connection, ack_callback_group):
         self._first_send = True
         self._registration = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/register",
             connection.get_receivers(),
-            callback_group)
+            ack_callback_group)
 
     def pre_send(self):
         if self._first_send:
@@ -41,13 +41,13 @@ class SynchronisationServer:
 
 class Sequential(SynchronisationServer):
 
-    def __init__(self, node, connection, callback_group):
-        super().__init__(node, connection, callback_group)
+    def __init__(self, node, connection, ack_callback_group):
+        super().__init__(node, connection, ack_callback_group)
         self._acknowledgement = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/acknowledge",
             connection.get_receivers(),
-            callback_group)
+            ack_callback_group)
 
     def _post_impl(self):
         self._acknowledgement.wait_for_all()
@@ -55,13 +55,13 @@ class Sequential(SynchronisationServer):
 
 class Parallel(SynchronisationServer):
 
-    def __init__(self, node, connection, callback_group):
-        super().__init__(node, connection, callback_group)
+    def __init__(self, node, connection, ack_callback_group):
+        super().__init__(node, connection, ack_callback_group)
         self._acknowledgement = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/acknowledge",
             connection.get_receivers(),
-            callback_group,
+            ack_callback_group,
             max_permitted_no_ack=connection.get_max_permitted_no_ack())
 
     def _pre_impl(self):

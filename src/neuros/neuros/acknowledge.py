@@ -15,17 +15,18 @@ class AckServer:
             self.no_acks = 0
             self.semaphore = Semaphore(1)
 
-    def __init__(self, node, topic, members, callback_group, max_permitted_no_ack=0):
+    def __init__(self, node, topic, members, ack_callback_group, max_permitted_no_ack=0):
         self._all_members = { name : AckServer.Session(name) for name in members }
         self._subscriber = node.create_subscription(
             String,
             topic,
             self._register,
             standard_quality(),
-            callback_group=callback_group)
+            callback_group=ack_callback_group)
         self._max_permitted_no_ack = max_permitted_no_ack
 
     def _register(self, name):
+        print(f"AckServer {name.data} : {self._all_members.keys()}")
         self._all_members[name.data].semaphore.release()
 
     def wait_for_all(self):
@@ -41,13 +42,12 @@ class AckClient:
         self._node = node
         self._timer = None
         self._registration_publisher = self._node.create_publisher(
-            String,
-            topic,
-            standard_quality())
+            String, topic, standard_quality())
 
     def send(self):
         packet = String()
         packet.data = self._node.get_name()
+        print("AckClient " + packet.data)
         self._registration_publisher.publish(packet)
 
     def start_timer(self, interval):
