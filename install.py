@@ -75,7 +75,7 @@ def main():
     print("Success!")
     print("")
     print("You're ready to start using NeuROS. Run an example with:")
-    print("    ./launch.py --project ./examples/tennis/wimbledon.json")
+    print("    ./launch.py --project ./examples/receive_any/tennis.json")
     print("")
 
 if __name__ == '__main__':

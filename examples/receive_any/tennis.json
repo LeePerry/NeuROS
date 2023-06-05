@@ -1,5 +1,5 @@
 {
-    "name" : "tennis",
+    "name" : "Wimbledon Final",
     "nodes" : [
         { "name" : "federer", "source" : "player.py", "first_to_serve" : 1 },
         { "name" : "nadal", "source" : "player.py" }

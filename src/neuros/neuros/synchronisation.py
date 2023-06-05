@@ -5,22 +5,23 @@ from neuros.acknowledge import AckServer, AckClient
 class SynchronisationServer:
 
     @classmethod
-    def for_connection(cls, node, connection):
+    def for_connection(cls, node, connection, callback_group):
         synchronisation = connection.get_synchronisation()
         if synchronisation == "null":
-            return cls(node, connection)
+            return cls(node, connection, callback_group)
         if synchronisation == "sequential":
-            return Sequential(node, connection)
+            return Sequential(node, connection, callback_group)
         if synchronisation == "parallel":
-            return Parallel(node, connection)
+            return Parallel(node, connection, callback_group)
         raise Exception(f"Invalid synchronisation {synchronisation}!")
 
-    def __init__(self, node, connection):
+    def __init__(self, node, connection, callback_group):
         self._first_send = True
         self._registration = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/register",
-            connection.get_receivers())
+            connection.get_receivers(),
+            callback_group)
 
     def pre_send(self):
         if self._first_send:
@@ -40,12 +41,13 @@ class SynchronisationServer:
 
 class Sequential(SynchronisationServer):
 
-    def __init__(self, node, connection):
-        super().__init__(node, connection)
+    def __init__(self, node, connection, callback_group):
+        super().__init__(node, connection, callback_group)
         self._acknowledgement = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/acknowledge",
-            connection.get_receivers())
+            connection.get_receivers(),
+            callback_group)
 
     def _post_impl(self):
         self._acknowledgement.wait_for_all()
@@ -53,13 +55,14 @@ class Sequential(SynchronisationServer):
 
 class Parallel(SynchronisationServer):
 
-    def __init__(self, node, connection):
-        super().__init__(node, connection)
+    def __init__(self, node, connection, callback_group):
+        super().__init__(node, connection, callback_group)
         self._acknowledgement = AckServer(
             node,
             f"{connection.get_sender()}/{connection.get_name()}/acknowledge",
             connection.get_receivers(),
-            connection.get_max_permitted_no_ack())
+            callback_group,
+            max_permitted_no_ack=connection.get_max_permitted_no_ack())
 
     def _pre_impl(self):
         self._acknowledgement.wait_for_all()
@@ -72,16 +75,16 @@ class SynchronisationClient:
         return cls(node, connection)
 
     def __init__(self, node, connection):
-        self._registration = AckClient(
-            node,
-            f"{connection.get_sender()}/{connection.get_name()}/register")
-        self._acknowledgement = AckClient(
-            node,
-            f"{connection.get_sender()}/{connection.get_name()}/acknowledge")
+        topic = f"{connection.get_sender()}/{connection.get_name()}"
+        self._registration = AckClient(node, f"{topic}/register")
+        self._acknowledgement = (None
+            if connection.get_synchronisation() == "null"
+            else AckClient(node, f"{topic}/acknowledge"))
         self._registration.start_timer(0.2)
 
     def stop_registration(self):
         self._registration.stop_timer()
 
     def acknowledge_packet(self):
-        self._acknowledgement.send()
+        if self._acknowledgement:
+            self._acknowledgement.send()

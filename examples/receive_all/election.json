@@ -1,0 +1,15 @@
+{
+    "name" : "General Election",
+    "nodes" : [
+        { "name" : "authority", "source" : "authority.py" },
+        { "name" : "voter_1", "source" : "voter.py" },
+        { "name" : "voter_2", "source" : "voter.py" },
+        { "name" : "voter_3", "source" : "voter.py" }
+    ],
+    "connections" : [
+        { "name" : "polling_day", "packet_type" : "std_msgs.msg.Empty", "sender" : "authority", "receivers" : ["voter_1", "voter_2", "voter_3"] },
+        { "name" : "vote", "packet_type" : "std_msgs.msg.String", "sender" : "voter_1", "receivers" : ["authority"] },
+        { "name" : "vote", "packet_type" : "std_msgs.msg.String", "sender" : "voter_2", "receivers" : ["authority"] },
+        { "name" : "vote", "packet_type" : "std_msgs.msg.String", "sender" : "voter_3", "receivers" : ["authority"] }
+    ]
+}

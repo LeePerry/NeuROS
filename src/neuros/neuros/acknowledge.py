@@ -13,15 +13,16 @@ class AckServer:
         def __init__(self, name):
             self.name = name
             self.no_acks = 0
-            self.semaphore = Semaphore()
+            self.semaphore = Semaphore(1)
 
-    def __init__(self, node, topic, members, max_permitted_no_ack=0):
+    def __init__(self, node, topic, members, callback_group, max_permitted_no_ack=0):
         self._all_members = { name : AckServer.Session(name) for name in members }
         self._subscriber = node.create_subscription(
             String,
             topic,
             self._register,
-            standard_quality())
+            standard_quality(),
+            callback_group=callback_group)
         self._max_permitted_no_ack = max_permitted_no_ack
 
     def _register(self, name):

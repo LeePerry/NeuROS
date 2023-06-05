@@ -1,6 +1,8 @@
+# Copyright (c) 2023 Lee Perry
+
 import time
 
-from neuros.hooks import neuros_initialise, neuros_receive
+from neuros.hooks import neuros_initialise, neuros_receive_any
 
 @neuros_initialise
 def arrive_at_centre_court(node):
@@ -11,10 +13,10 @@ def arrive_at_centre_court(node):
         ball.data = 1
         serve.send(ball)
 
-@neuros_receive("ball")
+@neuros_receive_any("ball")
 def whack_the_ball(node):
     time.sleep(0.5)
-    ball = node.get_incoming("ball").latest()
+    ball = node.get_incoming("ball").get_latest()
     node.get_logger().info(f"whack {ball.data}")
     ball.data += 1
     node.get_outgoing("ball").send(ball)
