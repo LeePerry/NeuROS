@@ -4,7 +4,7 @@
 import multiprocessing
 
 from src.cli import CommandLineInterface
-from src.project_config import ProjectConfig
+from src.config import ProjectConfig
 from src.container import Container
 
 def launch_node(config, name):
@@ -12,10 +12,10 @@ def launch_node(config, name):
 
 def main():
     args = CommandLineInterface.from_command_line()
+    print(f"Launching {args.project_path}...")
     config = ProjectConfig.from_file(args.project_path)
-    print(f"Launching {config.get_name()}...")
     nodes = [multiprocessing.Process(target=launch_node, args=(config, name))
-            for name in (args.node if args.node else config.get_all_nodes())]
+            for name in (args.node if args.node else config.nodes.keys())]
     for node in nodes: node.start()
     for node in nodes: node.join()
 

@@ -4,7 +4,7 @@
 import subprocess
 import sys
 
-from src.project_config import ProjectConfig
+from src.config import ProjectConfig
 from src.container import Container
 
 def check_docker_installation():

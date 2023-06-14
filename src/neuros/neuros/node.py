@@ -1,66 +1,105 @@
 #!/usr/bin/env python3
 # Copyright (c) 2023 Lee Perry
 
-from threading import Thread
+import importlib.util
+import os
 
 import rclpy
-from rclpy.node import Node as RosNode
-from rclpy.executors import MultiThreadedExecutor
-from rclpy.callback_groups import MutuallyExclusiveCallbackGroup as CallbackGroup
+import rclpy.node
+import std_msgs.msg
 
 from neuros.hooks import Hooks
-from neuros.node_config import NodeConfig
-from neuros.plugin import plugin_import
-from neuros.receiver import Receiver
-from neuros.sender import Sender
-from neuros.timer import Timer
+from neuros.config import NodeConfig
 
-class Node(RosNode):
+class Node(rclpy.node.Node):
+
+    @classmethod
+    def _make_neuros_qos(cls, reliable):
+        return rclpy.qos.QoSProfile(
+            reliability = rclpy.qos.ReliabilityPolicy.RELIABLE
+                          if reliable else
+                          rclpy.qos.ReliabilityPolicy.BEST_EFFORT,
+            durability  = rclpy.qos.DurabilityPolicy.TRANSIENT_LOCAL,
+            history     = rclpy.qos.HistoryPolicy.KEEP_LAST,
+            depth       = 1)
 
     def __init__(self, config):
-        super().__init__(config.get_name())
-        plugin_import(NodeConfig.standard_project_dir, config.get_source())
+        super().__init__(config.name)
         self._config = config
-        self._hook_callback_group = CallbackGroup()
-        self._senders = Sender.for_node(self)
-        self._receivers = Receiver.for_node(self)
-        self._timers = None
-        self._init_timer = self.create_timer(0.2,
-                                             self._initialise,
-                                             callback_group=self._hook_callback_group)
+        self._plugins = set()
+        self._hooks = Hooks(self, config)
 
-    def _initialise(self):
-        self._init_timer.cancel()
-        for hook in Hooks.on_initialise:
-            hook(self)
-        self._timers = Timer.for_node(self)
+    def get_neuros_parameter(self, name):
+        return self._config.raw_data["node"].get(name)
 
-    def get_outgoing(self, name):
-        return self._senders[name]
+    def load_neuros_plugin(self, directory, filename):
+        module_name = os.path.splitext(filename)[0]
+        full_path = os.path.join(directory, filename)
+        if full_path not in self._plugins:
+            spec = importlib.util.spec_from_file_location(module_name, full_path)
+            impl = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(impl)
+        self._plugins.add(full_path)
 
-    def get_incoming(self, name):
-        return self._receivers[0][name]
+    def find_neuros_type_by_name(self, name):
+        try:
+            obj = eval(name)
+            if isinstance(obj, type):
+                return obj
+        except Exception:
+            pass
+        raise Exception(f"Invalid plugin type: {name}") from None
 
-    def get_config(self):
-        return self._config
+    def make_neuros_packet(self, output_name=None):
+        return (std_msgs.msg.Empty()
+                if output_name is None else
+                self._hooks.outputs[output_name].create_packet())
 
-    def get_hook_callback_group(self):
-        return self._hook_callback_group
+    def make_neuros_input(self, connection, packet_type, callback):
+        topic = "/".join([connection.source_node,
+                          connection.source_output,
+                          connection.destination_node])
+        return (self.create_subscription(
+                    packet_type,
+                    f"{topic}/data",
+                    callback,
+                    Node._make_neuros_qos(connection.is_reliable)),
+                self.create_publisher(
+                    std_msgs.msg.Empty,
+                    f"{topic}/ack",
+                    Node._make_neuros_qos(True))
+                    if connection.is_reliable else None,
+                self.create_publisher(
+                    std_msgs.msg.Empty,
+                    f"{topic}/reg",
+                    Node._make_neuros_qos(True)))
+
+    def make_neuros_output(self, connection, packet_type, ack_cb, reg_cb):
+        topic = "/".join([connection.source_node,
+                          connection.source_output,
+                          connection.destination_node])
+        return (self.create_publisher(
+                    packet_type,
+                    f"{topic}/data",
+                    Node._make_neuros_qos(connection.is_reliable)),
+                self.create_subscription(
+                    std_msgs.msg.Empty,
+                    f"{topic}/ack",
+                    ack_cb,
+                    Node._make_neuros_qos(True)),
+                self.create_subscription(
+                    std_msgs.msg.Empty,
+                    f"{topic}/reg",
+                    reg_cb,
+                    Node._make_neuros_qos(True)))
+
+    def make_neuros_timer(self, seconds, callback):
+        return self.create_timer(seconds, callback)
 
 def main():
     rclpy.init()
-    node = Node(NodeConfig.from_standard())
-
-    #while rclpy.ok():
-    #    rclpy.spin_once(node)
-
-    executor = MultiThreadedExecutor()
-    executor.add_node(node)
-
-    spin_thread = Thread(target=executor.spin, args=())
-    spin_thread.start()
-    spin_thread.join()
-
+    node = Node(NodeConfig.from_standard_node_dir())
+    rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
 

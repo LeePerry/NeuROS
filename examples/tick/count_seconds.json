@@ -1,4 +1,9 @@
 {
     "name" : "clock",
-    "nodes" : [{ "name" : "clock", "source" : "clock.py" }]
+    "nodes" : [
+    {
+        "name"      : "clock",
+        "container" : "osrf/ros:foxy-desktop",
+        "plugin"    : "clock.py"
+    }]
 }
