@@ -41,9 +41,18 @@ def download_latest_ros2():
 def build_neuros_docker_images():
     if confirmation("Allow NeuROS to build and install custom Docker images?"):
         print("Building and installing NeuROS images...")
-        build = ["docker", "build", "-t"]
-        docker_dir = pathlib.Path(__file__).parent.parent.resolve() / "docker"
-        subprocess.run(build + ["neuros_python:latest", docker_dir / "neuros_python"])
+        def _image(name):
+            print("")
+            print(f"Building and installing Docker image: {name}...")
+            print("")
+            workspace = pathlib.Path(__file__).parent.parent.resolve()
+            subprocess.run(["docker", "build", "-t", f"{name}:latest",
+                            workspace / "docker" / name])
+            print("... OK.")
+        _image("neuros_python")
+        _image("neuros_nest")
+        _image("neuros_tensorflow")
+        _image("neuros_gazebo")
     else:
         print("... NeuROS nodes will be limited to existing Docker images.")
 
