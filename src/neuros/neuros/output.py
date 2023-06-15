@@ -7,6 +7,7 @@ class Publisher:
     def __init__(self, node, connection, packet_type, reg_cb, ack_cb):
         self.is_registered = False
         self.is_blocked = False
+        self._is_reliable = connection.is_reliable
         self._discard_limit = connection.discard_limit
         self._acks_pending = 0
         self._reg_cb = reg_cb
@@ -25,8 +26,9 @@ class Publisher:
 
     def publish(self, packet):
         self._data_pub.publish(packet)
-        self._acks_pending += 1
-        self.is_blocked = self._acks_pending > self._discard_limit
+        if self._is_reliable:
+            self._acks_pending += 1
+            self.is_blocked = self._acks_pending > self._discard_limit
 
 class Output:
 

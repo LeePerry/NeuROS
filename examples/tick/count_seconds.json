@@ -3,7 +3,7 @@
     "nodes" : [
     {
         "name"      : "clock",
-        "container" : "osrf/ros:foxy-desktop",
+        "container" : "neuros_python",
         "plugin"    : "clock.py"
     }]
 }

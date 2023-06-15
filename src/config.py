@@ -7,6 +7,8 @@ from src.neuros.neuros.config import ConnectionConfig, NodeConfig
 
 class ProjectConfig:
 
+    default_container = "osrf/ros:foxy-desktop"
+
     @classmethod
     def build_environment(cls):
         workspace_dir = pathlib.Path(__file__).parent.parent.resolve()
@@ -28,6 +30,7 @@ class ProjectConfig:
             return cls(data)
 
     def __init__(self, data):
+        self.container = ProjectConfig.default_container
         self.workspace_dir = data["workspace_directory"]
         self.project_dir = data["project_directory"]
         self.nodes = {n["name"] : NodeConfig(n,

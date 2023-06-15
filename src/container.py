@@ -28,11 +28,11 @@ class Container:
         return subprocess.run(full_command)
 
     def build_workspace(self):
-        return self._docker_command("colcon build --symlink-install")
+        return self.docker_command("colcon build --symlink-install")
 
     def list_executables(self):
-        return self._docker_command(". install/setup.bash > /dev/null 2>&1; " +
-                                    "exec ros2 pkg executables neuros")
+        return self.docker_command(". install/setup.bash > /dev/null 2>&1; " +
+                                   "exec ros2 pkg executables neuros")
 
     def run_node(self, name):
         with tempfile.TemporaryDirectory() as temporary_dir:
