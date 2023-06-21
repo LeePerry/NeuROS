@@ -188,6 +188,7 @@ class Hooks:
                                   for inout, func in Hooks._on_idle]
 
         self._cycle_hooks = cycle(self._hooks)
+        self._fire_hooks()
 
     def _reg_cb(self):
         self._registration_complete = all(o.is_registered
@@ -223,7 +224,7 @@ class Hooks:
 
 def neuros_initialise(**params):
     return Hooks.add(Hooks._on_init,
-                     params["outputs"])
+                     params.get("outputs", []))
 
 def neuros_tick(**params):
     return Hooks.add(Hooks._on_tick,
@@ -231,4 +232,4 @@ def neuros_tick(**params):
 
 def neuros_function(**params):
     return Hooks.add(Hooks._on_idle,
-                     (params["inputs"], params["outputs"]))
+                     (params.get("inputs", []), params.get("outputs", [])))

@@ -1,6 +1,6 @@
 FROM osrf/ros:foxy-desktop
 MAINTAINER Lee Perry leeperryis@hotmail.com
 
-# WORKDIR ?
-# . install/setup.bash > /dev/null 2>&1;  ?
-# entry point?
+WORKDIR "/home/neuros/workspace"
+COPY ./setup_neuros.sh /home/neuros
+ENTRYPOINT ["/home/neuros/setup_neuros.sh"]

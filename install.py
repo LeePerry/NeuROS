@@ -1,12 +1,23 @@
 #!/usr/bin/env python3
 # Copyright (c) 2023 Lee Perry
 
+import argparse
 import pathlib
 import subprocess
 import sys
 
 from src.config import ProjectConfig
 from src.container import Container
+
+def assume_yes():
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter,
+        description="NeuROS\n\n" +
+                "An Integration Framework for Heterogenous Systems Neuroscience")
+    parser.add_argument('-y', '--yes',
+                        help='Automatic installation.',
+                        action="store_true")
+    return parser.parse_args().yes
 
 def check_docker_installation():
     print("Checking Docker...")
@@ -26,9 +37,9 @@ def confirmation(question):
         elif choice in no : return False
         else: sys.stdout.write("Please enter 'yes' or 'no'")
 
-def download_latest_ros2():
-    if confirmation("Allow NeuROS to download the latest ROS2 image?"):
-        print("Download ROS2 image...")
+def download_latest_ros2(yes):
+    if yes or confirmation("Allow NeuROS to download the latest ROS2 Docker image?"):
+        print("Downloading ROS2 Docker image...")
         process = subprocess.run([
             "docker", "pull", ProjectConfig.default_container])
         if process.returncode > 0:
@@ -38,8 +49,8 @@ def download_latest_ros2():
     else:
         print("... NeuROS will attempt to use any existing ROS2 image.")
 
-def build_neuros_docker_images():
-    if confirmation("Allow NeuROS to build and install custom Docker images?"):
+def build_neuros_docker_images(yes):
+    if yes or confirmation("Allow NeuROS to build and install custom Docker images?"):
         print("Building and installing NeuROS images...")
         def _image(name):
             print("")
@@ -64,15 +75,8 @@ def build_neuros():
         sys.exit(1)
     print("... OK.")
 
-def list_neuros_executables():
-    print("Inspecting NeuROS...")
-    process = Container(ProjectConfig.build_environment()).list_executables()
-    if process.returncode > 0:
-        print(f"Failed to inspect NeuROS package: error {process.returncode}")
-        sys.exit(1)
-    print("... OK.")
-
 def main():
+    yes = assume_yes()
     print("")
     print("+-------------------------+")
     print("|    Welcome to NeuROS    |")
@@ -86,13 +90,11 @@ def main():
     print("")
     check_docker_installation()
     print("")
-    download_latest_ros2()
-    print("")
-    build_neuros_docker_images()
+    download_latest_ros2(yes)
     print("")
     build_neuros()
     print("")
-    list_neuros_executables()
+    build_neuros_docker_images(yes)
     print("")
     print("Success!")
     print("")

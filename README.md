@@ -15,4 +15,4 @@ To build and install NeuROS and it's dependencies, simply run:
 
 Several example projects are provided in the examples directory. These can be
 launched with e.g.:
-    ./launch.py --project ./examples/tennis/wimbledon.json
+    ./launch.py --project ./examples/tennis/tennis.json
