@@ -1,4 +1,4 @@
-FROM neuros_python
+FROM --platform=linux/amd64 neuros_python
 MAINTAINER Lee Perry leeperryis@hotmail.com
 
 RUN apt update \
