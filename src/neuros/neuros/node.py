@@ -30,7 +30,7 @@ class Node(rclpy.node.Node):
         self._hooks = Hooks(self, config)
 
     def get_neuros_parameter(self, name):
-        return self._config.raw_data["node"].get(name)
+        return self._config.raw_data["node"].get("parameters", {}).get(name)
 
     def load_neuros_plugin(self, directory, filename):
         module_name = os.path.splitext(filename)[0]

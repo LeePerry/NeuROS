@@ -1,10 +1,9 @@
 {
     "nodes" : [
     {
-        "name"      : "simulation",
-        "container" : "neuros_gazebo",
-        "plugin"    : "simulation.py",
-        "world"     : "whiskeye.world",
-        "model"     : "whiskeye.sdf"
+        "name"       : "simulation",
+        "container"  : "neuros_gazebo",
+        "plugin"     : "simulation.py",
+        "parameters" : { "world" : "whiskeye.world", "model" : "whiskeye.sdf" }
     }]
 }

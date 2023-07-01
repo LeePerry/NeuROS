@@ -1,12 +1,12 @@
 {
     "nodes" : [
     {
-        "name"           : "federer",
-        "container"      : "neuros_python",
-        "plugin"         : "player.py",
-        "inputs"         : [{ "name" : "ball", "type" : "std_msgs.msg.Empty" }],
-        "outputs"        : [{ "name" : "ball", "type" : "std_msgs.msg.Empty" }],
-        "first_to_serve" : 1
+        "name"       : "federer",
+        "container"  : "neuros_python",
+        "plugin"     : "player.py",
+        "inputs"     : [{ "name" : "ball", "type" : "std_msgs.msg.Empty" }],
+        "outputs"    : [{ "name" : "ball", "type" : "std_msgs.msg.Empty" }],
+        "parameters" : { "first_to_serve" : 1 }
     }, {
         "name"           : "nadal",
         "container"      : "neuros_python",
