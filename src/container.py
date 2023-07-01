@@ -19,9 +19,9 @@ class Container:
         if node_dir:
             full_command += ["-v", f"{node_dir}:" +
                                    f"{FileSystem.standard_node_dir}"]
+        full_command += ["-it", "--init", "--rm", "--platform", "linux/amd64"]
         if work_dir:
             full_command += ["--workdir", work_dir]
-        full_command += ["-it", "--init", "--rm"]
         if not container:
             container = self.config.container
         full_command += [container]

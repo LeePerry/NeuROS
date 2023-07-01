@@ -56,9 +56,12 @@ def build_neuros_docker_images(yes):
             print("")
             print(f"Building and installing Docker image: {name}...")
             print("")
-            workspace = pathlib.Path(__file__).parent.parent.resolve()
-            subprocess.run(["docker", "build", "-t", f"{name}:latest",
-                            workspace / "docker" / name])
+            workspace = pathlib.Path(__file__).parent.resolve()
+            process = subprocess.run(["docker", "build", "-t", f"{name}:latest",
+                                workspace / "docker" / name])
+            if process.returncode > 0:
+                raise Exception(f"Failed to build Docker image {name}: " +
+                                f"error {process.returncode}")
             print("... OK.")
         _image("neuros_python")
         _image("neuros_nest")
