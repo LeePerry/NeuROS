@@ -12,7 +12,7 @@ class Publisher:
         self._acks_pending = 0
         self._reg_cb = reg_cb
         self._ack_cb = ack_cb
-        self._data_pub, self._ack_sub, self._reg_sub = node.make_neuros_output(
+        self._data_pub, self._ack_sub, self._reg_sub = node.make_output(
             connection, packet_type, self._ack_callback, self._reg_callback)
 
     def _reg_callback(self, _):
@@ -40,9 +40,9 @@ class Output:
     def __init__(self, node, output, config, reg_complete_cb, ack_complete_cb):
         self._name = output.name
         if output.plugin:
-            node.load_neuros_plugin(
+            node.load_plugin(
                 FileSystem.standard_project_dir, output.plugin)
-        self._packet_type = node.find_neuros_type_by_name(output.type)
+        self._packet_type = node.find_type_by_name(output.type)
         self._logger = node.get_logger()
         self._publishers = [Publisher(node, c, self._packet_type,
                                       self._reg_callback, self._ack_callback)

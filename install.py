@@ -49,7 +49,7 @@ def download_latest_ros2(yes):
     else:
         print("... NeuROS will attempt to use any existing ROS2 image.")
 
-def build_neuros_docker_images(yes):
+def build_docker_images(yes):
     if yes or confirmation("Allow NeuROS to build and install custom Docker images?"):
         print("Building and installing NeuROS images...")
         def _image(name):
@@ -97,12 +97,12 @@ def main():
     print("")
     build_neuros()
     print("")
-    build_neuros_docker_images(yes)
+    build_docker_images(yes)
     print("")
     print("Success!")
     print("")
     print("You're ready to start using NeuROS. Run an example with:")
-    print("    ./launch.py --project ./examples/tennis/tennis.json")
+    print("    ./launch.py --project_path ./examples/tennis/tennis.json")
     print("")
 
 if __name__ == '__main__':

@@ -2,35 +2,19 @@
 
 import os
 
-import subprocess
+from ignition.common import set_verbosity as _set_verbosity
+from ignition.gazebo import TestFixture
 
-from neuros.config import FileSystem
+# https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/scripts/python_api/testFixture.py
 
 class Gazebo:
 
-    def __init__(self, world_path):
-        if not os.path.isabs(world_path):
-            world_path = os.path.join(
-                FileSystem.standard_project_dir, world_path)
-        #self._server = subprocess.Popen(
-        #    f"ros2 launch gazebo_ros gzserver.launch.py world:={world_path}",
-        #    shell=True)
-        self._server = subprocess.Popen(
-            f"gzserver --verbose -s libgazebo_ros_factory.so {world_path}",
-            shell=True)
+    def __init__(self, world_path, verbosity=4):
+        _set_verbosity(verbosity)
+        self._helper = TestFixture(world_path)
+        # add any required callbacks here
+        self._helper.finalize()
+        self._server = self._helper.server()
 
-    def load_model(self, model_path):
-        if not os.path.isabs(model_path):
-            model_path = os.path.join(
-                FileSystem.standard_project_dir, model_path)
-        p = subprocess.run(
-            f"ros2 run gazebo_ros spawn_entity.py -file {model_path} -entity robot",
-            shell=True)
-        if p.returncode != 0:
-            raise Exception(f"Failed to load model, error code {p.returncode}")
-
-    def list_topics(self):
-        subprocess.run("ros2 topic list", shell=True)
-
-    def shutdown(self):
-        self._server.terminate()
+    def run(self):
+        self._server.run(True, 1000, False)

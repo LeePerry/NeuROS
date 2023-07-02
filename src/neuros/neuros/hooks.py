@@ -160,7 +160,7 @@ class Hooks:
         return process_args
 
     def __init__(self, node, config):
-        node.load_neuros_plugin(FileSystem.standard_project_dir, config.plugin)
+        node.load_plugin(FileSystem.standard_project_dir, config.plugin)
         self.inputs = Input.for_node(node, config, self._input_cb)
         self.outputs = Output.for_node(node, config, self._reg_cb, self._ack_cb)
         self._registration_complete = (len(self.outputs) == 0)

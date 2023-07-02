@@ -7,10 +7,10 @@ class Subscriber:
     def __init__(self, node, connection, packet_type, input_cb):
         self.source_node = connection.source_node
         self._input_cb = input_cb
-        self._data, self._ack, self._reg = node.make_neuros_input(
+        self._data, self._ack, self._reg = node.make_input(
             connection, packet_type, self._input_callback)
-        self._reg_timer = node.make_neuros_timer(0.5, self._send_reg)
-        self._packet = node.make_neuros_packet()
+        self._reg_timer = node.make_timer(0.5, self._send_reg)
+        self._packet = node.make_packet()
 
     def _send_reg(self):
         self._reg.publish(self._packet)
@@ -31,10 +31,10 @@ class Input:
     def __init__(self, node, input, config, input_cb):
         self._name = input.name
         if input.plugin:
-            node.load_neuros_plugin(
+            node.load_plugin(
                 FileSystem.standard_project_dir, input.plugin)
         self._subscribers = [Subscriber(node, c,
-            node.find_neuros_type_by_name(input.type), self._input_callback)
+            node.find_type_by_name(input.type), self._input_callback)
             for c in config.connections if c.destination_node == config.name]
         self._input_cb = input_cb
 
@@ -49,7 +49,7 @@ class Timer:
     def __init__(self, node, seconds, callback):
         self.is_waiting = True
         self._callback = callback
-        self._timer = node.make_neuros_timer(seconds, self._expired)
+        self._timer = node.make_timer(seconds, self._expired)
 
     def _expired(self):
         self.is_waiting = False
