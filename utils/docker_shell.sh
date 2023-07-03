@@ -13,3 +13,5 @@ docker run -it \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --init --rm \
     $1 bash
+
+# docker run --gpus all -it --privileged -e DISPLAY="$DISPLAY" --network host --name ubuntu20_ign --volume="$HOME/.Xauthority:/root/.Xauthority:rw" -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/tomoyafujita/DVT/docker_ws:/root/docker_ws nvidia/opengl:base

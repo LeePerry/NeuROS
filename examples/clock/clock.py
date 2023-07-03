@@ -9,4 +9,4 @@ def count_seconds(node):
     gmt = time.gmtime()
     sound = ["Tick", "Tock"][gmt.tm_sec % 2]
     current_time = time.strftime("%H:%M:%S", gmt)
-    node.get_logger().info(f"{sound}: {current_time}")
+    node.get_ros_node().get_logger().info(f"{sound}: {current_time}")

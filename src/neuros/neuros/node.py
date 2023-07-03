@@ -33,23 +33,42 @@ class Node:
         self._node = Node._RosNode(config.name)
         self._config = config
         self._plugins = set()
-        self._hooks = Hooks(self, config)
         self._user_data = None
+
+        # this must always be the last line as callbacks are invoked here!
+        self._hooks = Hooks(self, config)
+
+    def get_parameter(self, name):
+        return self._config.raw_data["node"].get("parameters", {}).get(name)
 
     def get_ros_node(self):
         return self._node
 
-    def get_topic_list(self):
-        return subprocess.check_output("ros2 topic list", shell=True).split()
+    def set_user_data(self, data):
+        self._user_data = data
 
     def get_user_data(self):
         return self._user_data
 
-    def set_user_data(self, data):
-        self._user_data = data
+    def get_ros_topic_list(self):
+        return [str(topic, "utf-8") for topic in
+                subprocess.check_output("ros2 topic list", shell=True).split()]
 
-    def get_parameter(self, name):
-        return self._config.raw_data["node"].get("parameters", {}).get(name)
+    def get_ign_topic_list(self):
+
+        # Is this a potential replacement?
+        # https://arxiv.org/pdf/1903.06278.pdf
+        # https://github.com/AcutronicRobotics/gym-gazebo2
+
+        # REQUIRES A PARAMETER BRIDGE:
+        # https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Ignition/Ignition.html
+
+        return [str(topic, "utf-8") for topic in
+                subprocess.check_output("ign topic -l", shell=True).split()]
+
+    def get_ign_topic_message_type(self, topic):
+        return str(subprocess.check_output(
+            f"ign topic -i -t {topic}", shell=True), "utf-8")
 
     def load_plugin(self, directory, filename):
         module_name = os.path.splitext(filename)[0]
@@ -116,6 +135,7 @@ class Node:
         return self._node.create_timer(seconds, callback)
 
 def main():
+    # Fix Ctrl-C with https://stackoverflow.com/questions/48256374/python-class-instance-member-variable-isnt-being-updated-inside-thread
     rclpy.init()
     node = Node(NodeConfig.from_standard_node_dir())
     rclpy.spin(node.get_ros_node())

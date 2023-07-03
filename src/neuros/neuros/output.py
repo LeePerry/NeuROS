@@ -43,7 +43,7 @@ class Output:
             node.load_plugin(
                 FileSystem.standard_project_dir, output.plugin)
         self._packet_type = node.find_type_by_name(output.type)
-        self._logger = node.get_logger()
+        self._logger = node.get_ros_node().get_logger()
         self._publishers = [Publisher(node, c, self._packet_type,
                                       self._reg_callback, self._ack_callback)
             for c in config.connections if c.source_node == config.name]

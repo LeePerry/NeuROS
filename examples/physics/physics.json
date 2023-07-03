@@ -4,6 +4,6 @@
         "name"       : "physics",
         "container"  : "neuros_gazebo",
         "plugin"     : "physics.py",
-        "parameters" : { "world" : "gazebo_ros_diff_drive_demo.world" }
+        "parameters" : { "world" : "quadcopter.sdf" }
     }]
 }
