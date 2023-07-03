@@ -3,12 +3,9 @@
 from neuros.hooks import neuros_initialise, neuros_tick
 from neuros.gazebo import Gazebo
 
-import subprocess
-
 @neuros_initialise()
 def set_up_simulator(node):
-    simulator = Gazebo(node)
-    node.set_user_data(simulator)
+    node.set_user_data(Gazebo(node))
 
 @neuros_tick(seconds=1.0)
 def step_simulator(node):
@@ -26,7 +23,7 @@ def step_simulator(node):
     #for topic in node.get_ros_topic_list():
     #    logger.info(topic)
 
-    #logger.info("======== IGN TOPICS ========")
-    #for topic in node.get_ign_topic_list():
-    #    logger.info(topic)
-    #    logger.info(node.get_ign_topic_message_type(topic))
+    logger.info("======== IGN TOPICS ========")
+    for topic in node.get_ign_topic_list():
+        logger.info(topic)
+        logger.info(node.get_ign_topic_message_type(topic))
