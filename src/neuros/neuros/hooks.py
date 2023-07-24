@@ -87,6 +87,7 @@ class _Function:
         self._func = func
         self._args = [_Function.Arg(n, all_inputs)
                       for n in named_inputs]
+
         self._returns = [_Function.ReturnValue(n, all_outputs)
                          for n in named_outputs]
         self._timer = timer
@@ -163,7 +164,8 @@ class Hooks:
         node.load_plugin(FileSystem.standard_project_dir, config.plugin)
         self.inputs = Input.for_node(node, config, self._input_cb)
         self.outputs = Output.for_node(node, config, self._reg_cb, self._ack_cb)
-        self._registration_complete = (len(self.outputs) == 0)
+        self._registration_complete = all(o.is_registered
+                                          for o in self.outputs.values())
 
         self._hooks = [_Function(node,
                                  func,
@@ -213,6 +215,11 @@ class Hooks:
     def _fire_hooks(self):
         if self._registration_complete:
             not_fired = 0
+            # TODO this should only loop once
+            # after which it should send a "bump" message to itself,
+            # giving other hooks a chance to execute.
+            # Otherwise a hook with all optional in/out will hog the
+            # CPU forever.
             for hook in self._cycle_hooks:
                 if hook.is_retired or hook.is_waiting or hook.is_blocked:
                     not_fired += 1

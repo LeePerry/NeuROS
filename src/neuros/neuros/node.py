@@ -8,6 +8,8 @@ import subprocess
 import rclpy
 import rclpy.node
 import std_msgs.msg
+try: import ignition.msgs
+except ImportError: pass
 
 from neuros.hooks import Hooks
 from neuros.config import NodeConfig
@@ -54,19 +56,15 @@ class Node:
         return [str(topic, "utf-8") for topic in
                 subprocess.check_output("ros2 topic list", shell=True).split()]
 
+    def get_ros_topic_info(self, topic):
+        return str(subprocess.check_output(
+            f"ros2 topic info {topic}", shell=True), "utf-8")
+
     def get_ign_topic_list(self):
-
-        # Is this a potential replacement?
-        # https://arxiv.org/pdf/1903.06278.pdf
-        # https://github.com/AcutronicRobotics/gym-gazebo2
-
-        # REQUIRES A PARAMETER BRIDGE:
-        # https://docs.ros.org/en/foxy/Tutorials/Advanced/Simulators/Ignition/Ignition.html
-
         return [str(topic, "utf-8") for topic in
                 subprocess.check_output("ign topic -l", shell=True).split()]
 
-    def get_ign_topic_message_type(self, topic):
+    def get_ign_topic_info(self, topic):
         return str(subprocess.check_output(
             f"ign topic -i -t {topic}", shell=True), "utf-8")
 
@@ -93,7 +91,11 @@ class Node:
                 if output_name is None else
                 self._hooks.outputs[output_name].create_packet())
 
-    def make_input(self, connection, packet_type, callback):
+    def make_external_input(self, topic, packet_type, callback):
+        return self._node.create_subscription(
+            packet_type, topic, callback, Node._make_qos(True))
+
+    def make_internal_input(self, connection, packet_type, callback):
         topic = "/".join([connection.source_node,
                           connection.source_output,
                           connection.destination_node])
@@ -112,7 +114,11 @@ class Node:
                     f"{topic}/reg",
                     Node._make_qos(True)))
 
-    def make_output(self, connection, packet_type, ack_cb, reg_cb):
+    def make_external_output(self, topic, packet_type):
+        return self._node.create_publisher(
+            packet_type, topic, Node._make_qos(True))
+
+    def make_internal_output(self, connection, packet_type, ack_cb, reg_cb):
         topic = "/".join([connection.source_node,
                           connection.source_output,
                           connection.destination_node])
@@ -133,6 +139,10 @@ class Node:
 
     def make_timer(self, seconds, callback):
         return self._node.create_timer(seconds, callback)
+
+    # TODO
+    # Add shutdown() method which sends out a message to all nodes,
+    # indicating that the experiment is over
 
 def main():
     # Fix Ctrl-C with https://stackoverflow.com/questions/48256374/python-class-instance-member-variable-isnt-being-updated-inside-thread

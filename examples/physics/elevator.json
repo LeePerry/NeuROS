@@ -1,0 +1,39 @@
+{
+    "nodes" : [{
+        "name"      : "controller",
+        "container" : "neuros_python",
+        "plugin"    : "controller.py",
+        "inputs"    : [{ "name" : "level",   "type" : "std_msgs.msg.Int32" }],
+        "outputs"   : [{ "name" : "request", "type" : "std_msgs.msg.Int32"}]
+    }, {
+        "name"      : "elevator",
+        "container" : "neuros_gazebo",
+        "plugin"    : "elevator.py",
+        "inputs"    : [{ "name"           : "_level",
+                         "type"           : "std_msgs.msg.Int32",
+                         "external_topic" : "/model/elevator/state",
+                         "gazebo_type"    : "ignition.msgs.Int32" },
+                       { "name"           : "request",
+                         "type"           : "std_msgs.msg.Int32" }],
+        "outputs"   : [{ "name"           : "_request",
+                         "type"           : "std_msgs.msg.Int32",
+                         "external_topic" : "/model/elevator/cmd",
+                         "gazebo_type"    : "ignition.msgs.Int32" },
+                       { "name"           : "level",
+                         "type"           : "std_msgs.msg.Int32" }],
+        "parameters" : { "world" : "elevator.sdf" }
+    }],
+    "connections" : [{
+        "source_node"       : "controller",
+        "source_output"     : "request",
+        "destination_node"  : "elevator",
+        "destination_input" : "request",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "elevator",
+        "source_output"     : "level",
+        "destination_node"  : "controller",
+        "destination_input" : "level",
+        "discard_limit"     : 0
+    }]
+}

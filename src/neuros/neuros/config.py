@@ -17,6 +17,8 @@ class InputConfig:
         self.name = data["name"]
         self.type = data["type"]
         self.plugin = data.get("plugin")
+        self.external_topic = data.get("external_topic")
+        self.gazebo_type = data.get("gazebo_type")
 
 class OutputConfig:
 
@@ -24,6 +26,8 @@ class OutputConfig:
         self.name = data["name"]
         self.type = data["type"]
         self.plugin = data.get("plugin")
+        self.external_topic = data.get("external_topic")
+        self.gazebo_type = data.get("gazebo_type")
 
 class ConnectionConfig:
 

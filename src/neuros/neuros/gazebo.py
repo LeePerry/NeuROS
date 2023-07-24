@@ -1,25 +1,35 @@
 # Copyright (c) 2023 Lee Perry
 
-import os
+import subprocess
 
 from ignition.common import set_verbosity as _set_verbosity
 from ignition.gazebo import TestFixture, world_entity, World
-
-# https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/scripts/python_api/testFixture.py
 
 class Gazebo:
 
     def __init__(self, node, verbosity=4):
         _set_verbosity(verbosity)
         self._node = node
+
         scenario = TestFixture(node.get_parameter("world"))
         scenario.on_post_update(self._store_state)
-        #scenario.on_update(self._store_state)
-        #scenario.on_pre_update(self._store_state)
         scenario.finalize()
         self._server = scenario.server()
         self._info = None
         self._ecm = None
+
+        self.step(1)
+        config = self._node._config # TODO don't access nodes private member
+        command = ["ros2", "run", "ros_ign_bridge", "parameter_bridge"]
+        command += [f"{i.external_topic}@{i.type.replace('.', '/')}@{i.gazebo_type}" # [
+            for i in config.inputs
+            if i.gazebo_type is not None]
+        command += [f"{o.external_topic}@{o.type.replace('.', '/')}@{o.gazebo_type}" # ]
+            for o in config.outputs
+            if o.gazebo_type is not None]
+        node.get_ros_node().get_logger().info(
+            "Gazebo bridge: " + " ".join(command))
+        self._bridge = subprocess.Popen(command)
 
     def _require_started(self):
         if self._info is None or self._ecm is None:

@@ -64,8 +64,8 @@ def build_docker_images(yes):
                                 f"error {process.returncode}")
             print("... OK.")
         _image("neuros_python")
-        _image("neuros_nest")
-        _image("neuros_tensorflow")
+        #_image("neuros_nest")
+        #_image("neuros_tensorflow")
         _image("neuros_gazebo")
     else:
         print("... NeuROS nodes will be limited to existing Docker images.")

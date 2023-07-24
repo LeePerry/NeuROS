@@ -2,7 +2,18 @@
 
 from neuros.config import FileSystem
 
-class Publisher:
+class _ExternalPublisher:
+
+    def __init__(self, node, output, packet_type):
+        self.is_registered = True
+        self.is_blocked = False
+        self._data_pub = node.make_external_output(
+            output.external_topic, packet_type)
+
+    def publish(self, packet):
+        self._data_pub.publish(packet)
+
+class _InternalPublisher:
 
     def __init__(self, node, connection, packet_type, reg_cb, ack_cb):
         self.is_registered = False
@@ -12,7 +23,7 @@ class Publisher:
         self._acks_pending = 0
         self._reg_cb = reg_cb
         self._ack_cb = ack_cb
-        self._data_pub, self._ack_sub, self._reg_sub = node.make_output(
+        self._data_pub, self._ack_sub, self._reg_sub = node.make_internal_output(
             connection, packet_type, self._ack_callback, self._reg_callback)
 
     def _reg_callback(self, _):
@@ -40,16 +51,19 @@ class Output:
     def __init__(self, node, output, config, reg_complete_cb, ack_complete_cb):
         self._name = output.name
         if output.plugin:
-            node.load_plugin(
-                FileSystem.standard_project_dir, output.plugin)
+            node.load_plugin(FileSystem.standard_project_dir, output.plugin)
         self._packet_type = node.find_type_by_name(output.type)
         self._logger = node.get_ros_node().get_logger()
-        self._publishers = [Publisher(node, c, self._packet_type,
-                                      self._reg_callback, self._ack_callback)
-            for c in config.connections if c.source_node == config.name]
+        if output.external_topic is not None:
+            self._publishers = [_ExternalPublisher(
+                node, output, self._packet_type)]
+        else:
+            self._publishers = [_InternalPublisher(node, c,
+                self._packet_type, self._reg_callback, self._ack_callback)
+                for c in config.connections if c.source_node == config.name]
         self._reg_complete_cb = reg_complete_cb
         self._ack_complete_cb = ack_complete_cb
-        self.is_registered = False
+        self.is_registered = all(p.is_registered for p in self._publishers)
         self.is_blocked = False
 
     def _reg_callback(self):
