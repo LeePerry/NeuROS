@@ -2,8 +2,8 @@
 
 import subprocess
 
-from ignition.common import set_verbosity as _set_verbosity
-from ignition.gazebo import TestFixture, world_entity, World
+from gz.common import set_verbosity as _set_verbosity
+from gz.gazebo import TestFixture, world_entity, World
 
 class Gazebo:
 
