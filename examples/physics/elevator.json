@@ -12,16 +12,16 @@
         "inputs"    : [{ "name"           : "_level",
                          "type"           : "std_msgs.msg.Int32",
                          "external_topic" : "/model/elevator/state",
-                         "gazebo_type"    : "ignition.msgs.Int32" },
+                         "gazebo_type"    : "gz.msgs.Int32" },
                        { "name"           : "request",
                          "type"           : "std_msgs.msg.Int32" }],
-        "outputs"   : [{ "name"           : "_request",
+        "outputs"   : [{ "name"           : "level",
+                         "type"           : "std_msgs.msg.Int32" },
+                       { "name"           : "_request",
                          "type"           : "std_msgs.msg.Int32",
                          "external_topic" : "/model/elevator/cmd",
-                         "gazebo_type"    : "ignition.msgs.Int32" },
-                       { "name"           : "level",
-                         "type"           : "std_msgs.msg.Int32" }],
-        "parameters" : { "world" : "elevator.sdf" }
+                         "gazebo_type"    : "gz.msgs.Int32" }],
+        "parameters" : { "world"          : "elevator.sdf" }
     }],
     "connections" : [{
         "source_node"       : "controller",

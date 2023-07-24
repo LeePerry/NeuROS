@@ -17,7 +17,7 @@ class CommandLineInterface(argparse.ArgumentParser):
 
 class ProjectConfig:
 
-    default_container = "osrf/ros:foxy-desktop"
+    default_container = "osrf/ros:humble-desktop"
 
     @classmethod
     def build_environment(cls):

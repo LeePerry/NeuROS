@@ -3,7 +3,7 @@
 import subprocess
 
 from gz.common import set_verbosity as _set_verbosity
-from gz.gazebo import TestFixture, world_entity, World
+from gz.sim7 import TestFixture, world_entity, World
 
 class Gazebo:
 
@@ -20,7 +20,7 @@ class Gazebo:
 
         self.step(1)
         config = self._node._config # TODO don't access nodes private member
-        command = ["ros2", "run", "ros_ign_bridge", "parameter_bridge"]
+        command = ["ros2", "run", "ros_gz_bridge", "parameter_bridge"]
         command += [f"{i.external_topic}@{i.type.replace('.', '/')}@{i.gazebo_type}" # [
             for i in config.inputs
             if i.gazebo_type is not None]

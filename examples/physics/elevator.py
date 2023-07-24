@@ -20,8 +20,7 @@ def forward_level(node, level):
     node.get_ros_node().get_logger().info(f"Currently at level: {level.data}")
     return level
 
-@neuros_tick(seconds=0.5)
+@neuros_tick(seconds=1)
 def step_simulation(node):
-    node.get_ros_node().get_logger().info("Stepping Simulation")
     simulator = node.get_user_data()
-    simulator.step(1)
+    simulator.step(1000)

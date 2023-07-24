@@ -1,4 +1,4 @@
-FROM osrf/ros:foxy-desktop
+FROM osrf/ros:humble-desktop
 MAINTAINER Lee Perry leeperryis@hotmail.com
 WORKDIR "/home/neuros/workspace"
 

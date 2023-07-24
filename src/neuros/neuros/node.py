@@ -22,7 +22,7 @@ class Node:
             reliability = rclpy.qos.ReliabilityPolicy.RELIABLE
                           if reliable else
                           rclpy.qos.ReliabilityPolicy.BEST_EFFORT,
-            durability  = rclpy.qos.DurabilityPolicy.TRANSIENT_LOCAL,
+            durability  = rclpy.qos.DurabilityPolicy.VOLATILE,
             history     = rclpy.qos.HistoryPolicy.KEEP_LAST,
             depth       = 1)
 
@@ -60,13 +60,13 @@ class Node:
         return str(subprocess.check_output(
             f"ros2 topic info {topic}", shell=True), "utf-8")
 
-    def get_ign_topic_list(self):
+    def get_gazebo_topic_list(self):
         return [str(topic, "utf-8") for topic in
-                subprocess.check_output("ign topic -l", shell=True).split()]
+                subprocess.check_output("gz topic -l", shell=True).split()]
 
-    def get_ign_topic_info(self, topic):
+    def get_gazebo_topic_info(self, topic):
         return str(subprocess.check_output(
-            f"ign topic -i -t {topic}", shell=True), "utf-8")
+            f"gz topic -i -t {topic}", shell=True), "utf-8")
 
     def load_plugin(self, directory, filename):
         module_name = os.path.splitext(filename)[0]
