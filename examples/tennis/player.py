@@ -8,7 +8,7 @@ from neuros.hooks import neuros_initialise, neuros_function, Optional
 @neuros_initialise(outputs=Optional("ball"))
 def start_the_game(node):
     node.get_ros_node().get_logger().info(
-        f"{node.get_name()} has arrived on court")
+        f"{node.get_ros_node().get_name()} has arrived on court")
     time.sleep(0.5)
     if node.get_parameter("first_to_serve"):
         node.get_ros_node().get_logger().info("Serves")

@@ -32,7 +32,8 @@ class Node:
             super().__init__(name)
 
     def __init__(self, config):
-        self._node = Node._RosNode(config.name)
+        self._name = config.name
+        self._node = Node._RosNode(self._name)
         self._config = config
         self._plugins = set()
         self._user_data = None
@@ -91,12 +92,25 @@ class Node:
                 if output_name is None else
                 self._hooks.outputs[output_name].create_packet())
 
+    def make_loop_back(self, callback):
+        topic = "/".join(["neuros", self._name, "loop"])
+        return (self._node.create_subscription(
+                    std_msgs.msg.Empty,
+                    topic,
+                    callback,
+                    Node._make_qos(True)),
+                self._node.create_publisher(
+                    std_msgs.msg.Empty,
+                    topic,
+                    Node._make_qos(True)))
+
     def make_external_input(self, topic, packet_type, callback):
         return self._node.create_subscription(
             packet_type, topic, callback, Node._make_qos(True))
 
     def make_internal_input(self, connection, packet_type, callback):
-        topic = "/".join([connection.source_node,
+        topic = "/".join(["neuros",
+                          connection.source_node,
                           connection.source_output,
                           connection.destination_node])
         return (self._node.create_subscription(
@@ -119,7 +133,8 @@ class Node:
             packet_type, topic, Node._make_qos(True))
 
     def make_internal_output(self, connection, packet_type, ack_cb, reg_cb):
-        topic = "/".join([connection.source_node,
+        topic = "/".join(["neuros",
+                          connection.source_node,
                           connection.source_output,
                           connection.destination_node])
         return (self._node.create_publisher(

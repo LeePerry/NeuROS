@@ -1,7 +1,5 @@
 # Copyright (c) 2023 Lee Perry
 
-from itertools import cycle
-
 from neuros.config import FileSystem
 from neuros.input import Input, Timer
 from neuros.output import Output
@@ -189,8 +187,9 @@ class Hooks:
                                   all_outputs=self.outputs)
                                   for inout, func in Hooks._on_idle]
 
-        self._cycle_hooks = cycle(self._hooks)
-        self._fire_hooks()
+        self._loop_sub, self._loop_pub = node.make_loop_back(self._fire_hooks)
+        self._loop_packet = node.make_packet()
+        self._queue_fire_hooks()
 
     def _reg_cb(self):
         self._registration_complete = all(o.is_registered
@@ -212,22 +211,32 @@ class Hooks:
             hook.check_waiting()
         self._fire_hooks()
 
-    def _fire_hooks(self):
+    def _queue_fire_hooks(self):
+        self._loop_pub.publish(self._loop_packet)
+
+    def _fire_hooks(self, _=None):
         if self._registration_complete:
-            not_fired = 0
-            # TODO this should only loop once
-            # after which it should send a "bump" message to itself,
-            # giving other hooks a chance to execute.
-            # Otherwise a hook with all optional in/out will hog the
-            # CPU forever.
-            for hook in self._cycle_hooks:
-                if hook.is_retired or hook.is_waiting or hook.is_blocked:
-                    not_fired += 1
-                    if not_fired >= len(self._hooks):
-                        break
-                else:
+            fired_hooks = []
+
+            # fire any hooks that are ready
+            for hook in self._hooks:
+                if not (hook.is_waiting or hook.is_blocked):
                     hook.fire()
-                    not_fired = 0
+                    fired_hooks.append(hook)
+
+            # move any fired hooks to the end of the queue,
+            # ensuring that no hook is starved by another.
+            # (and remove any retired hooks.)
+            for hook in fired_hooks:
+                self._hooks.remove(hook)
+                if not hook.is_retired:
+                    self._hooks.append(hook)
+
+            # if any are ready, queue another fire_hooks.
+            # this is preferable to refiring as it allows
+            # new inputs to be processed.
+            if not all((h.is_waiting or h.is_blocked) for h in self._hooks):
+                self._queue_fire_hooks()
 
 def neuros_initialise(**params):
     return Hooks.add(Hooks._on_init,
