@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="whiskeye_background">
+    <static>true</static>
+    <link name="main">
+      <visual name="visual">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Background/whiskeye_rocky_coast_background_sphere.dae</uri>
+			</mesh>
+		</geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>

@@ -12,7 +12,7 @@ try: import ignition.msgs
 except ImportError: pass
 
 from neuros.hooks import Hooks
-from neuros.config import NodeConfig
+from neuros.config import NodeConfig, FileSystem
 
 class Node:
 
@@ -37,12 +37,14 @@ class Node:
         self._config = config
         self._plugins = set()
         self._user_data = None
+        for k, v in self._config.env.items():
+            if v.startswith('#'):
+                v = os.path.join(FileSystem.standard_project_dir, v[1:])
+                print(v)
+            os.environ[k] = v
 
         # this must always be the last line as callbacks are invoked here!
         self._hooks = Hooks(self, config)
-
-    def get_parameter(self, name):
-        return self._config.raw_data["node"].get("parameters", {}).get(name)
 
     def get_ros_node(self):
         return self._node

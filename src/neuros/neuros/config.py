@@ -61,6 +61,7 @@ class NodeConfig:
         self.container = data["container"]
         self.inputs = [InputConfig(i) for i in data.get("inputs", [])]
         self.outputs = [OutputConfig(o) for o in data.get("outputs", [])]
+        self.env = data.get("environment", {})
         self.connections = connections
         self.raw_data = {
             "node" : data,

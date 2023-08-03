@@ -13,6 +13,7 @@ set -e
 # linux
 docker run -it \
     --volume "$HOME/Code/NeuROS:/home/neuros/workspace" \
+    --volume "$HOME/Code/WhiskEye:/home/neuros/project" \
     --user=$(id -u $USER):$(id -g $USER) \
     --env="DISPLAY" \
     --device="/dev/dri:/dev/dri" \

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<sdf version="1.5">
+  <model name="Floor">
+    <static>true</static>
+    <link name="main">
+      <collision name="collision">
+        <pose>0 0 0 0 0 0</pose>
+		<geometry>
+			<mesh>
+				<uri>model://Gazebo_Boundary/gazebo_boundary.dae</uri>
+			</mesh>
+		</geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.1</mu>
+              <mu2>0.1</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+  </model>
+</sdf>
