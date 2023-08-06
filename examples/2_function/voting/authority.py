@@ -12,7 +12,7 @@ def announce_election(node):
 @neuros_function(inputs=All("vote"), outputs="polling_day")
 def polling_station(node, votes):
     votes = [v.data for v in votes]
-    vote_count = 0
+    vote_count = 1
     most_popular = "none"
     for candidate in set(votes):
         count = votes.count(candidate)

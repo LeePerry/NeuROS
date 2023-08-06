@@ -8,8 +8,6 @@ import subprocess
 import rclpy
 import rclpy.node
 import std_msgs.msg
-try: import ignition.msgs
-except ImportError: pass
 
 from neuros.hooks import Hooks
 from neuros.config import NodeConfig, FileSystem
@@ -26,21 +24,15 @@ class Node:
             history     = rclpy.qos.HistoryPolicy.KEEP_LAST,
             depth       = 1)
 
-    class _RosNode(rclpy.node.Node):
-
-        def __init__(self, name):
-            super().__init__(name)
-
     def __init__(self, config):
         self._name = config.name
-        self._node = Node._RosNode(self._name)
+        self._node = rclpy.create_node(self._name)
         self._config = config
         self._plugins = set()
         self._user_data = None
         for k, v in self._config.env.items():
             if v.startswith('#'):
                 v = os.path.join(FileSystem.standard_project_dir, v[1:])
-                print(v)
             os.environ[k] = v
 
         # this must always be the last line as callbacks are invoked here!
@@ -55,21 +47,13 @@ class Node:
     def get_user_data(self):
         return self._user_data
 
-    def get_ros_topic_list(self):
+    def get_topic_list(self):
         return [str(topic, "utf-8") for topic in
                 subprocess.check_output("ros2 topic list", shell=True).split()]
 
-    def get_ros_topic_info(self, topic):
+    def get_topic_info(self, topic):
         return str(subprocess.check_output(
             f"ros2 topic info {topic}", shell=True), "utf-8")
-
-    def get_gazebo_topic_list(self):
-        return [str(topic, "utf-8") for topic in
-                subprocess.check_output("gz topic -l", shell=True).split()]
-
-    def get_gazebo_topic_info(self, topic):
-        return str(subprocess.check_output(
-            f"gz topic -i -t {topic}", shell=True), "utf-8")
 
     def load_plugin(self, directory, filename):
         module_name = os.path.splitext(filename)[0]
@@ -157,12 +141,16 @@ class Node:
     def make_timer(self, seconds, callback):
         return self._node.create_timer(seconds, callback)
 
+    def make_spawn_client(self):
+        return (SpawnEntity,
+                self._node.create_client(SpawnEntity, "/spawn_entity"))
+
     # TODO
     # Add shutdown() method which sends out a message to all nodes,
     # indicating that the experiment is over
+    # Also invoke from Ctrl+C
 
 def main():
-    # Fix Ctrl-C with https://stackoverflow.com/questions/48256374/python-class-instance-member-variable-isnt-being-updated-inside-thread
     rclpy.init()
     node = Node(NodeConfig.from_standard_node_dir())
     rclpy.spin(node.get_ros_node())
