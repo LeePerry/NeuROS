@@ -33,6 +33,8 @@ class Node:
         for k, v in self._config.env.items():
             if v.startswith('#'):
                 v = os.path.join(FileSystem.standard_project_dir, v[1:])
+            if v.startswith('@'):
+                v = os.path.join(FileSystem.standard_workspace_dir, v[1:])
             os.environ[k] = v
 
         # this must always be the last line as callbacks are invoked here!

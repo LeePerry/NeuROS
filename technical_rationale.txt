@@ -1,0 +1,116 @@
+
+TODO:
+Add lit review that justify the use of unit testing to reduce cost in software development.
+Potentially add lit review that shows the trade off between TCP and UDP in terms of reliability 
+and data throughput.
+
+ROS Workspaces & Package Management:
+
+ * Standard ROS projects require the creation of a workspace (directory) within which all nodes
+   are defined and implemented.
+ * This workspace must then be built via the ROS build tool before it is known to the ROS package
+   manangement system.
+ * It is possible to leverage containerisation and volume mounting, in order to avoid every user
+   having to build their NeuROS project in this way.
+   - A ROS workspace containing a single generic node is built during the installation phase of NeuROS.
+   - This single node launches and is passed all project configuration which relates to it.
+   - It then includes the NeuROS plugin, registeres all callback hooks and fires initialisation.
+   - Thus every NeuROS container is running the same generic node with a different user plugin.
+
+Plugins:
+
+  * Simplified integration via the common project directory
+  * ...
+  *
+
+Callbacks:
+
+  * Services suck - Async is the way to go - See previous notes (blocking/waiting causes deadlocks)
+    - ROS executors, Multithreaded executor, services, mutexes and deadlocks.
+    - If one callback is waiting to publish a message and it blocks a mutex, that means that thread
+      cannot receive messages to tell it the subscribers are ready i.e. it is deadlocked forever.
+      Therefor we need Multithreaded executors but that requires users code to be thread safe, as
+      callbacks will be invoked from different threads in a relatiely ad-hoc fashion.
+    - This is all a horrible mess that will likely confuse userss and cause bugs, therefor a fully
+      async architecture was implemented.
+  * Any function with it's inputs satisfied (i.e. received or optional) and it's output not saturated
+    (i.e. discard_limit has not been reached) is invoked whenever we recieved an ack from a subscriber
+    or a registration.
+  * This allows different invocation frequencies between functions
+  * Decreases the impact of adding a new function (all functions should ideally be kept relatiely short)
+  * Priority Queue ensures that callbacks who haven't fired in a while are prioritised first in the
+    next round
+  * Loop-back message ensures that new pending messages are processed even when there are functions "ready"
+    to fire. e.g. in the case where we have a function which accepts an optional input and returns it as
+    an optional output, if we haven't received the input we would loop infinitely firing that callback
+    forever since it can never saturate it's output (input and output are always both None). By iterating
+    through the callbacks once and then triggering a loop-back message, we allow and new inputs to be
+    processed, and therefor allow the output to saturate.
+  * Callbacks can be registered as "on_initilisation" and once invoked these are immediately retired and
+    never considered again. Furthermore these are guaranteed to execute before any other callbacks.
+  * Callbacks can also be registered "on_tick" which means they are invoked at regular intervals
+    (using ROS timers). They cannot take any other inputs, and should there output be saturated they are
+    further delayed until it is ready (which is necessary to not break the requirements of the rest
+    of the system. If deemed not suitable a user can always output from that node with no discard_limit).
+  * Explain acknowledgements / registration.
+
+TCP / UDP:
+
+ * Explain discard_limit
+ * Can we profile this? Would be great to show how it impacts performace in a trivial case.
+
+Gazebo:
+
+ * There are a vast number of potential launch options including (at minimum): gazebo --headless,
+   gz server, xml launch file, python launch file, C++ launch file, Python API and C++ API.
+   - Furthermore, robots can either be included inside the world file, launched via XML / Python /
+     C++ launch files, or using the gz service.
+   - Running Gazebo outside of Python/C++ doesn't provide strict programmatic control, and therefor
+     the decision was made to use the Python API, which integrates nicely with the rest of the project.
+     + Specifically, this method was deemed better than the C++ API as it requires no separate build
+       stage, and is thus easier for users to install.
+     + However, commands can be made and state cannot be retrieved via the Python API. Therefor it was
+       necessary to implement these via standard ROS topics and use the Gazebo <-> ROS bridge. (Since
+       you cannot subscribe directly to the Gazebo topics from the Python client).
+     + Launching and management of the Gazebo <-> ROS bridge was implemented in the NeuROS Gazebo
+       wrapper, with the related Gazebo types requiring definition alongside thir ROS counterparts in
+       the NeuROS project file. This approach attempts to hide as much of the implementation detail
+       from users as is technically feasible, to help increase ease-of-use and decoupling.
+     + Using ROS for commands/state also means that any existing 3rd-party non-NeuROS componants can
+       be integrated into the system easily, albeit with the obvious penalty of losing the internal
+       NeuROS synchonrisation features. (Note that any externally received ROS messages are assumed
+       to be recieved by a node called "__unknown_external_source__", this has slight impact on the
+       calculation of "All"-modified inputs, as all external sources are treated equivalent.)
+     + Finally, launching of robots was implemented by wrapping the gz service command line tool as
+       part of the NeuROS Gazebo wrapper. Again this decision was made in order to maximise
+       flexibility, ease-of-use and decoupling. If a user has included their robot inside the world
+       file then they simply do not invoke the spawn_entity method. Launch files cannot be used
+       since we are using the Python API for launching Gazebo. Using the commandline option likely
+       has a small performance-hit from the launching of an additional process, but it seems unlikely
+       to be a significant problem, given that spawning a robot is a rare thing to do.
+
+ * Complex situation regarding names, formaly "gazebo", new version was briefly "ignition",
+   then renamed and both refered to as "gazebo classic" and "gazebo" respectively.
+   - Throughout the project it is referred to simply as "gazebo", with no indication of version intended.
+
+ * This page indicates that the most recent version of gazebo (using the new gz.sim namespaces)
+   are not fully compatible with any version of ROS: https://gazebosim.org/docs/garden/ros_installation
+   = Despite this, the decision was made to use the latest version of both, with a number of reasons
+     and mitigations:
+     - Publishing a tool which contains the latest versions of the software should be prefered where
+       possible.
+       + Likely more future-proof (i.e. be more similar/compatible with future versions).
+       + Likely includes more features/better performance etc.
+     - All users code is intended to interact with Gazebo via the NeuROS Gazebo wrapper, which helps to
+       decouple it from a specific Gazebo API version. (This allows us to easily downgrade/upgrade if/when
+       any incompatibilities/bugs are realised.)
+     - New versions of Gazebo are fairly trivial to support by updating the neuros_gazebo Dockerfile and
+       Gazebo wrapper.
+     - During testing of this combination, no problems were found. Up until the point of writing the
+       software continues to work entirely as expected. It is not clear what incompatibilities are
+       referred to by the linked page.
+
+Examples:
+
+ * Serve as both manual integration tests and step-by-step introduction to features
+ * Explain each...

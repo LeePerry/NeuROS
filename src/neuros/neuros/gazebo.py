@@ -95,16 +95,3 @@ class Gazebo:
         self._bridge = (subprocess.Popen(command + inputs + outputs)
                         if inputs or outputs
                         else None)
-
-    def _full_path(self, relative_path):
-        if os.path.isabs(relative_path):
-            return relative_path
-        project_path = os.path.join(FileSystem.standard_project_dir, relative_path)
-        if os.path.exists(project_path):
-            return project_path
-        resource_dir = os.environ.get("GZ_SIM_RESOURCE_PATH")
-        if resource_dir:
-            resource_path = os.path.join(resource_dir, relative_path)
-            if os.path.exists(resource_path):
-                return resource_path
-        return relative_path

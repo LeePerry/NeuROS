@@ -7,7 +7,6 @@ from neuros.gazebo import Gazebo
 
 @neuros_initialise()
 def initialise(node):
-    node.get_ros_node().get_logger().info("Launching Gazebo")
     simulator = Gazebo(node, os.environ["NEUROS_WORLD"])
     simulator.spawn_entity(os.environ["NEUROS_ROBOT"])
     simulator.step(1)
@@ -17,7 +16,11 @@ def initialise(node):
 def step(node):
     simulator = node.get_user_data()
     simulator.step()
+
+    print("======== Topics...")
     for topic in simulator.get_topic_list():
         print(topic)
+    print("======== Services...")
     for topic in simulator.get_service_list():
         print(topic)
+    print("======== End.")

@@ -1330,10 +1330,8 @@
 				</surface>
 			</collision>
 
-
 			<sensor name="cam0" type="camera">
 				<pose>0.075 0.07 0.52 0.9 -2.27 -0.79</pose>
-
 				<camera>
 					<horizontal_fov>1.57</horizontal_fov>
 					<image>
@@ -3285,7 +3283,7 @@
 			</axis>
 		</joint>
 
-		<plugin filename="libwhiskeye_plugin.so" name="robot_controller"/>
+		<plugin filename="libwhiskeye_plugin.so" name="whiskeye_plugin::WhiskeyePlugin"/>
 	</model>
 </sdf>
 

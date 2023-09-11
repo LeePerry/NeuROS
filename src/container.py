@@ -29,8 +29,10 @@ class Container:
         return subprocess.run(full_command)
 
     def build_workspace(self):
-        return self.docker_command("colcon build --symlink-install",
-                                   work_dir=FileSystem.standard_workspace_dir)
+        # build nodes (but ignore the whisk_eye plugin from examples directory)
+        return self.docker_command("colcon build --symlink-install ", # + "--packages-ignore-regex whiskeye_plugin",
+                                   work_dir=FileSystem.standard_workspace_dir,
+                                   container="neuros_gazebo")
 
     def run_node(self, name):
         with tempfile.TemporaryDirectory() as temporary_dir:

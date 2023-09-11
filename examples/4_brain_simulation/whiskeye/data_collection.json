@@ -1,0 +1,15 @@
+{
+    "nodes" : [{
+        "name"        : "physics",
+        "container"   : "neuros_gazebo",
+        "plugin"      : "physics.py",
+        "inputs"      : [],
+        "outputs"     : [],
+        "environment" : {
+            "GZ_SIM_RESOURCE_PATH"      : "#resources:",
+            "GZ_SIM_SYSTEM_PLUGIN_PATH" : "@install/whiskeye_plugin/lib",
+            "NEUROS_WORLD"              : "world.sdf",
+            "NEUROS_ROBOT"              : "whiskeye_robot/model.sdf"
+        }
+    }]
+}
