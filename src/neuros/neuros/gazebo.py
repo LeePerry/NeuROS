@@ -1,11 +1,5 @@
 # Copyright (c) 2023 Lee Perry
 
-import os
-import subprocess
-
-from gz.common import set_verbosity as _set_verbosity
-from gz.sim7 import TestFixture, world_entity, World
-
 """
 This module provides an interface to Gazebo simulator. It includes the ability
 to load a world, spawn an instance of a robot and increment time in a strictly
@@ -15,6 +9,11 @@ the purpose of automatic message type translation.
 This module leverages the new Python bindings for gz-sim, details for which can
 be found here https://github.com/gazebosim/gz-sim/tree/gz-sim7/python.
 """
+
+import subprocess
+
+from gz.common import set_verbosity as _set_verbosity
+from gz.sim7 import TestFixture, world_entity, World
 
 class Gazebo:
 

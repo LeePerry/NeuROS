@@ -1,11 +1,11 @@
 # Copyright (c) 2023 Lee Perry
 
-from neuros.config import FileSystem
-
 """
 This module provides the communication resources needed for NeuROS nodes
 to send outputs, both internally and to external destinations.
 """
+
+from neuros.config import FileSystem
 
 class _ExternalPublisher:
 

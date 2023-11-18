@@ -1,13 +1,13 @@
 # Copyright (c) 2023 Lee Perry
 
-import json
-import os
-
 """
 This module provides node related configuration within NeuROS, such as the
 standardised container filesystem, inputs, outputs, connections, and a complete
 node configuration representation.
 """
+
+import json
+import os
 
 class FileSystem:
     """

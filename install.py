@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 # Copyright (c) 2023 Lee Perry
 
+"""
+This module is responsible for building and installing NeuROS and all of it's
+default included software dependencies.
+"""
+
 import argparse
 import pathlib
 import subprocess

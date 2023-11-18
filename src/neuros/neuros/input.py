@@ -1,11 +1,11 @@
 # Copyright (c) 2023 Lee Perry
 
-from neuros.config import FileSystem
-
 """
 This module provides the communication resources needed for NeuROS nodes
 to receive inputs, both from internal and external sources.
 """
+
+from neuros.config import FileSystem
 
 class _ExternalSubscriber:
 

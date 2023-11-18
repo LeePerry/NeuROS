@@ -1,9 +1,5 @@
 # Copyright (c) 2023 Lee Perry
 
-from neuros.config import FileSystem
-from neuros.input import Input, Timer
-from neuros.output import Output
-
 """
 This module is expected to be imported by user plugins. It provides a number of
 decorators which can be used to invoke user hooks when specific conditions
@@ -11,6 +7,10 @@ are met. These conditions will typically include: Node initialisation,
 receiving new data from source nodes, destination nodes becoming ready to
 receive more data or expired timers.
 """
+
+from neuros.config import FileSystem
+from neuros.input import Input, Timer
+from neuros.output import Output
 
 class All:
 
