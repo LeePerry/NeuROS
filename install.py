@@ -54,24 +54,25 @@ def download_latest_ros2(yes):
     else:
         print("... NeuROS will attempt to use any existing ROS2 image.")
 
+def _build_image(name):
+    print("")
+    print(f"Building and installing Docker image: {name}...")
+    print("")
+    workspace = pathlib.Path(__file__).parent.resolve()
+    process = subprocess.run(["docker", "build", "-t", f"{name}:latest",
+                        workspace / "docker" / name])
+    if process.returncode > 0:
+        raise Exception(f"Failed to build Docker image {name}: " +
+                        f"error {process.returncode}")
+    print("... OK.")
+
 def build_docker_images(yes):
     if yes or confirmation("Allow NeuROS to build and install custom Docker images?"):
         print("Building and installing NeuROS images...")
-        def _image(name):
-            print("")
-            print(f"Building and installing Docker image: {name}...")
-            print("")
-            workspace = pathlib.Path(__file__).parent.resolve()
-            process = subprocess.run(["docker", "build", "-t", f"{name}:latest",
-                                workspace / "docker" / name])
-            if process.returncode > 0:
-                raise Exception(f"Failed to build Docker image {name}: " +
-                                f"error {process.returncode}")
-            print("... OK.")
-        _image("neuros_python")
-        _image("neuros_nest")
-        _image("neuros_tensorflow")
-        _image("neuros_gazebo")
+        _build_image("neuros_python")
+        _build_image("neuros_nest")
+        _build_image("neuros_tensorflow")
+        _build_image("neuros_gazebo")
     else:
         print("... NeuROS nodes will be limited to existing Docker images.")
 
@@ -83,13 +84,18 @@ def build_neuros():
         sys.exit(1)
     print("... OK.")
 
-def build_examples():
-    print("Building NeuROS examples...")
-    process = Container(ProjectConfig.build_environment()).build_examples()
-    if process.returncode > 0:
-        print(f"Failed to build examples: error {process.returncode}")
-        sys.exit(1)
-    print("... OK.")
+def build_examples(yes):
+    if yes or confirmation("Allow NeuROS to build and install examples?"):
+        print("Building NeuROS examples...")
+        process = Container(ProjectConfig.build_environment()).build_examples()
+        if process.returncode > 0:
+            print(f"Failed to build examples: error {process.returncode}")
+            sys.exit(1)
+        _build_image("neuros_nest_2_18")
+        _build_image("neuros_tensorflow_2_3")
+        print("... OK.")
+    else:
+        print("... Some examples may not function correctly.")
 
 def build_documentation():
     print("Building documentation...")
@@ -120,7 +126,7 @@ def main():
     print("")
     build_docker_images(yes)
     print("")
-    build_examples()
+    build_examples(yes)
     print("")
     build_documentation()
     print("")
