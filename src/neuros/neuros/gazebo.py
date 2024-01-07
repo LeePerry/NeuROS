@@ -10,6 +10,7 @@ This module leverages the new Python bindings for gz-sim, details for which can
 be found here https://github.com/gazebosim/gz-sim/tree/gz-sim7/python.
 """
 
+import os
 import subprocess
 
 from gz.common import set_verbosity as _set_verbosity
@@ -41,6 +42,7 @@ class Gazebo:
         self._ecm = None
         self.step(1)
         self._launch_bridge()
+        self._launch_gui(verbosity)
 
     def get_topic_list(self):
         """
@@ -187,7 +189,7 @@ class Gazebo:
         the simulation.
 
         Returns:
-            The simulated time that has already elapsed.
+            The simulated time that has already elapsed (in seconds).
         """
         self._require_started()
         return self._info.sim_time
@@ -245,3 +247,6 @@ class Gazebo:
         self._bridge = (subprocess.Popen(command + inputs + outputs)
                         if inputs or outputs
                         else None)
+
+    def _launch_gui(self, verbosity):
+        self._bridge = subprocess.Popen(["gz", "sim", "-v", str(verbosity), "-g"])

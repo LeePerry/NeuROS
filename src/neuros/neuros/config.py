@@ -252,9 +252,12 @@ class NodeConfig:
                     exists support for two special characters:
                         * An environment variable value starting with the
                           character '#' will have the first '#' automatically
-                          replaced with the standard NeuROS project directory.
+                          replaced with it's related node directory (which is
+                          equal to the project directory when the node is
+                          defined in the project file).
                           This can be used to express paths relative to the
-                          project configuration file's parent directory.
+                          node or project configuration file's parent
+                          directory. See the whiskeye robot example.
                         * An environment variable value starting with the
                           character '@' will have the first '@' automatically
                           replaced with the standard NeuROS workspace

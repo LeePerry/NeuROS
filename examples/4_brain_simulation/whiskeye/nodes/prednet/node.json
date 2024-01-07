@@ -1,0 +1,10 @@
+{
+    "name"      : "prednet",
+    "container" : "neuros_tensorflow",
+    "plugin"    : "plugin.py",
+    "inputs"    : [{ "name" : "camera",
+                     "type" : "sensor_msgs.msg.Image" }],
+    "environment" : {
+        "NEUROS_CHECKPOINT" : "#model/main.ckpt"
+    }
+}

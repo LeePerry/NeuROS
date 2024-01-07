@@ -54,13 +54,13 @@ def download_latest_ros2(yes):
     else:
         print("... NeuROS will attempt to use any existing ROS2 image.")
 
-def _build_image(name):
+def _build_image(name, directory="docker"):
     print("")
     print(f"Building and installing Docker image: {name}...")
     print("")
     workspace = pathlib.Path(__file__).parent.resolve()
     process = subprocess.run(["docker", "build", "-t", f"{name}:latest",
-                        workspace / "docker" / name])
+                        workspace / directory / name])
     if process.returncode > 0:
         raise Exception(f"Failed to build Docker image {name}: " +
                         f"error {process.returncode}")
@@ -91,8 +91,8 @@ def build_examples(yes):
         if process.returncode > 0:
             print(f"Failed to build examples: error {process.returncode}")
             sys.exit(1)
-        _build_image("neuros_nest_2_18")
-        _build_image("neuros_tensorflow_2_3")
+        _build_image("neuros_whiskeye_snn",
+            directory="examples/4_brain_simulation/whiskeye/nodes/snn/docker")
         print("... OK.")
     else:
         print("... Some examples may not function correctly.")
@@ -108,9 +108,9 @@ def build_documentation():
 def main():
     yes = assume_yes()
     print("")
-    print("+-------------------------+")
-    print("|    Welcome to NeuROS    |")
-    print("+-------------------------+")
+    print("================================================================================")
+    print("    Welcome to NeuROS")
+    print("================================================================================")
     print("")
     print("An Integration Framework for Heterogeneous Computational Systems Neuroscience")
     print("")
@@ -130,13 +130,17 @@ def main():
     print("")
     build_documentation()
     print("")
-    print("You're ready to start using NeuROS!")
+    print("================================================================================")
     print("")
-    print("Read the documentation at:")
-    print("    ./docs/build/html/index.html")
     print("")
-    print("Or run an example with:")
-    print("    ./launch.py --project_path ./examples/1_tick/clock/clock.json")
+    print("    You're ready to start using NeuROS!")
+    print("")
+    print("    Read the documentation at:")
+    print("        ./docs/build/html/index.html")
+    print("")
+    print("    Or run an example with:")
+    print("        ./launch.py --project ./examples/1_tick/clock/clock.json")
+    print("")
     print("")
 
 if __name__ == '__main__':

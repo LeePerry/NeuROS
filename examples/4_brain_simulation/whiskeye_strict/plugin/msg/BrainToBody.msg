@@ -1,3 +1,0 @@
-std_msgs/Header header
-std_msgs/Float32MultiArray position_command
-std_msgs/Float32MultiArray rotation_command

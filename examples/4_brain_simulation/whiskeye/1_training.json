@@ -1,0 +1,17 @@
+{
+    "nodes" : ["nodes/robot/node.json",
+               "nodes/logger/node.json"],
+    "connections" : [{
+        "source_node"       : "robot",
+        "source_output"     : "ground_truth",
+        "destination_node"  : "logger",
+        "destination_input" : "ground_truth",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "robot",
+        "source_output"     : "camera",
+        "destination_node"  : "logger",
+        "destination_input" : "camera",
+        "discard_limit"     : 0
+    }]
+}

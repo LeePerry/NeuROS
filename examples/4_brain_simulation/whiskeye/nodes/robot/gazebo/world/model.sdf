@@ -1,0 +1,113 @@
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- physics name="50hz" type="dartsim">
+      <max_step_size>0.02</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics -->
+
+    <plugin
+        filename="gz-sim-user-commands-system"
+        name="gz::sim::systems::UserCommands">
+    </plugin>
+
+		<plugin
+			filename="gz-sim-physics-system"
+			name="gz::sim::systems::Physics">
+		</plugin>
+
+		<plugin
+			filename="gz-sim-scene-broadcaster-system"
+			name="gz::sim::systems::SceneBroadcaster">
+		</plugin>
+
+		<plugin
+			filename="gz-sim-sensors-system"
+			name="gz::sim::systems::Sensors">
+			<render_engine>ogre2</render_engine>
+		</plugin>
+
+    <light name="sun" type="directional">
+      <pose frame="">7.485 -12.379 17.2198 0 -0 0</pose>
+      <diffuse>0.7 0.7 0.7 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>-0.1698 0.1 -0.3</direction>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+    </light>
+
+    <model name='whiskeye_background'>
+      <pose>0 0 6 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/Background</uri>
+      </include>
+    </model>
+
+    <model name='Floor'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/Floor</uri>
+      </include>
+    </model>
+
+    <!--
+
+    <model name='Banner'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/Banner</uri>
+      </include>
+    </model>
+
+    <model name='Walls'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/Walls</uri>
+      </include>
+    </model>
+
+    <model name='CubesBR'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/CubesBR</uri>
+      </include>
+    </model>
+
+    <model name='CubesTR'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/CubesTR</uri>
+      </include>
+    </model>
+
+    <model name='CylindersTL'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/CylindersTL</uri>
+      </include>
+    </model>
+
+    <model name='CylindersBL'>
+      <pose>0 0 0 0 0 0</pose>
+      <static>true</static>
+      <include>
+        <uri>model://world/CylindersBL</uri>
+      </include>
+    </model>
+
+    -->
+
+</world>
+</sdf>

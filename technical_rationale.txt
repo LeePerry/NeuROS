@@ -2,11 +2,12 @@
 TODO:
 
 Add lit review that justify the use of unit testing to reduce cost in software development.
+Addpotential lit review on priority queues - briefly explain our simple one.
 
 Potentially lit review for graph validation? Can we use any existing technique to show that all
 inputs will be provided by at least one node? i.e. the project structure makes sense?
 
-What happens if the user defines callbacks for inputs which do not exist? Vice versa? Should we 
+What happens if the user defines callbacks for inputs which do not exist? Vice versa? Should we
 issue a warning in any of those cases?
 
 ROS Workspaces & Package Management:
@@ -22,11 +23,18 @@ ROS Workspaces & Package Management:
    - It then includes the NeuROS plugin, registeres all callback hooks and fires initialisation.
    - Thus every NeuROS container is running the same generic node with a different user plugin.
 
+User Permissions:
+ * Pros and cons of various options...
+   - Running everything as root is a security risk. Running as host user is most sensible.
+ * Permission to X server is required in order to display a GUI.
+ * Also nice since any log files created are owned by the person who ran NeuROS.
+ * Requires mounting all user-specific system files into the container (see container.py).
+
 TTY:
 
  * There are many tools for managing docker containers, notably docker-compose
  * We want to be able to exit all NeuROS nodes by issuing Ctrl+C from the terminal
- * Since the main process (launch.py) forks off multiple docker containers, only one of the docker 
+ * Since the main process (launch.py) forks off multiple docker containers, only one of the docker
    containers processes are in the foreground process group. This means that when Ctrl+C is signalled
    only the NeuROS nodes in one of the docker nodes are terminated.
  * In order to remedy this issue, the launch.py script must notice when any of the laucnhed nodes exit,
@@ -156,12 +164,12 @@ Gazebo:
    - gz-sim-joint-position-controller-system (Set joint position, allegedly)
    - gz-sim-joint-trajectory-controller-system (Complex motion involving multiple co-ordinated joints
        being manipulated in various ways over specified duration of time.)
-       
+
  * The system plugins are written to expect input from the transport only - in many cases this means
-   manually overwriting the component value, for which there is a corresponding plugin, will do absolutely 
+   manually overwriting the component value, for which there is a corresponding plugin, will do absolutely
    nothing since it immediately gets reset by the plugin. This is indeed the case for JointVelocityCmd.
    THIS MEANS A SENSOR IS EITHER CONTROLLED BY A GAZEGO (SDF) PLUGIN OR BY A USER PLUGIN = NEVER BOTH!
- * JointPositionController is actually written in such a way that it uses PID to calculate a velocity in order 
+ * JointPositionController is actually written in such a way that it uses PID to calculate a velocity in order
    to achieve the desired position. it does NOT set the position directly, as this would be a significant cause
    of physicaly DISCONTINUITIES in the simulation (causing strange bugs and breaking the physics engine).
    https://github.com/gazebosim/gz-sim/blob/gz-sim7/src/systems/joint_position_controller/JointPositionController.cc
@@ -170,8 +178,8 @@ Options are:
     1. Use only the plugins and communicate via transport messages.
         * This would mean that the execution is somewhat non-deterministic.
     2. Write a plugin that receives a single message indicating position / velocity and outputs a single message
-       containing all sensor data on every tick. 
-        * This would allow us to block in Gazebo for receipt of the control and in NeuROS for receipt of the 
+       containing all sensor data on every tick.
+        * This would allow us to block in Gazebo for receipt of the control and in NeuROS for receipt of the
           sensor data and all would be fully deterministic.
 
 Examples:

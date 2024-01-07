@@ -11,7 +11,7 @@ import os
 import pathlib
 import sys
 
-from src.neuros.neuros.config import ConnectionConfig, NodeConfig
+from src.neuros.neuros.config import ConnectionConfig, FileSystem, NodeConfig
 
 class CommandLineInterface(argparse.ArgumentParser):
     """
@@ -32,7 +32,6 @@ class CommandLineInterface(argparse.ArgumentParser):
         self.print_help()
         print(f"\n{message}!\n")
         sys.exit(1)
-
 class ProjectConfig:
     """
     A class for representing a single project configuation.
@@ -73,7 +72,7 @@ class ProjectConfig:
                 "An Integration Framework for Heterogenous Systems Neuroscience")
 
         parser.add_argument("-p",
-                            "--project_path",
+                            "--project",
                             type=str,
                             required=True,
                             help="The path to the project configuration json file")
@@ -129,8 +128,8 @@ class ProjectConfig:
 
         error = None
 
-        if not os.path.isfile(args.project_path):
-            error = f"Project path '{args.project_path}' is not a file!"
+        if not os.path.isfile(args.project):
+            error = f"Project path '{args.project}' is not a file!"
 
         if args.topic and not args.record:
             error = "Topic specified but you're not recording!"
@@ -165,9 +164,22 @@ class ProjectConfig:
         project_dir = pathlib.Path(project_path).parent.resolve()
         with open(project_path, 'r') as f:
             data = json.load(f)
-            data["workspace_directory"] = workspace_dir
-            data["project_directory"] = project_dir
-            return cls(data)
+        data["workspace_directory"] = workspace_dir
+        data["project_directory"] = project_dir
+        nodes = []
+        for n in data["nodes"]:
+            if isinstance(n, dict):
+                _expand_paths(n)
+                nodes.append(n)
+            elif isinstance(n, str):
+                with open(os.path.join(project_dir, n), 'r') as f:
+                    external_node = json.load(f)
+                    _expand_paths(external_node, os.path.dirname(n))
+                    nodes.append(external_node)
+            else:
+                raise Exception(f"Unsupported node type {str(type(n))}: {n}")
+        data["nodes"] = nodes
+        return cls(data)
 
     def __init__(self, data):
         """
@@ -184,3 +196,17 @@ class ProjectConfig:
         self.nodes = {n["name"] : NodeConfig(n,
             ConnectionConfig.filter_by_node(n["name"], data.get("connections", [])))
             for n in data["nodes"]}
+
+def _expand_paths(data, node_dir=""):
+    plugin_path = data["plugin"]
+    if not os.path.isabs(plugin_path):
+        data["plugin"] = os.path.join(node_dir, plugin_path)
+    env_vars = data.get("environment", {})
+    for k, v in env_vars.items():
+        v = str(v)
+        if v.startswith('#'):
+            v = os.path.join(FileSystem.standard_project_dir, node_dir, v[1:])
+        if v.startswith('@'):
+            v = os.path.join(FileSystem.standard_workspace_dir, v[1:])
+        env_vars[k] = v
+    data["environment"] = env_vars

@@ -1,0 +1,8 @@
+
+# allow daes to be pushed, because they are needed by the end user
+#*.dae
+
+# do not push stls, because they are used only in constructing SDFs
+# and the whisker_pose.h file for the plugin to use
+*.stl
+

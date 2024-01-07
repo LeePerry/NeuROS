@@ -21,7 +21,7 @@ class All:
     would be satisfied when ANY source node provided their data. In the case
     it is specified, then the variable recieved by the user hook will be a
     list, where each element contains data from one of the source nodes. See
-    the included 2_function/voting example.
+    the included 2_synchronisation/voting example.
     """
 
     def __init__(self, value):
@@ -93,12 +93,13 @@ class _Function:
             input: The NeuROS communication resources (see input.py).
         """
 
-        def __init__(self, name, all_inputs):
+        def __init__(self, name, node, all_inputs):
             """
             Initialises a new instance of this class.
 
             Parameters:
                 name (str): The name of the corresponding input.
+                node (Node): The corresponding NeuROS node.
                 all_inputs (dict): A dictionary of all input names to the
                                    corresponding NeuROS communication
                                    resources.
@@ -162,6 +163,7 @@ class _Function:
 
         Attributes:
             name (str): The name of the corresponding output.
+            node (Node): The corresponding NeuROS node.
             is_optional (boolean): Indicates if this output was modified with
                                    the Optional modifier. If so, the hook
                                    function doesn't necessarily need to provide
@@ -172,7 +174,7 @@ class _Function:
             output: The NeuROS communication resources (see output.py).
         """
 
-        def __init__(self, name, all_outputs):
+        def __init__(self, name, node, all_outputs):
             """
             Initialises a new instance of this class.
 
@@ -230,10 +232,10 @@ class _Function:
 
         self._node = node
         self._func = func
-        self._args = [_Function.Arg(n, all_inputs)
+        self._args = [_Function.Arg(n, node, all_inputs)
                       for n in named_inputs]
 
-        self._returns = [_Function.ReturnValue(n, all_outputs)
+        self._returns = [_Function.ReturnValue(n, node, all_outputs)
                          for n in named_outputs]
         self._timer = timer
         self.is_retired = False

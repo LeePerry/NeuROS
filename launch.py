@@ -7,6 +7,7 @@ This module is responsible for launching a NeuROS project.
 
 import os
 import psutil
+import subprocess
 import signal
 import threading
 
@@ -68,7 +69,7 @@ def main():
     The main NeuROS entry point that is invoked during launch.
     """
     args = ProjectConfig.cli_args()
-    config = ProjectConfig.from_file(args.project_path)
+    config = ProjectConfig.from_file(args.project)
 
     utilities = []
     if args.record:

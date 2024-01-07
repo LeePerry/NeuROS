@@ -1,0 +1,66 @@
+{
+    "nodes" : [
+    {
+        "name"      : "authority",
+        "container" : "neuros_python",
+        "plugin"    : "authority.py",
+        "inputs"    : [{ "name" : "vote",        "type" : "std_msgs.msg.String" }],
+        "outputs"   : [{ "name" : "polling_day", "type" : "std_msgs.msg.Empty"  }]
+    }, {
+        "name"      : "voter_1",
+        "container" : "neuros_python",
+        "plugin"    : "voter.py",
+        "inputs"    : [{ "name" : "polling_day", "type" : "std_msgs.msg.Empty"  }],
+        "outputs"   : [{ "name" : "vote",        "type" : "std_msgs.msg.String" }]
+    }, {
+        "name"      : "voter_2",
+        "container" : "neuros_python",
+        "plugin"    : "voter.py",
+        "inputs"    : [{ "name" : "polling_day", "type" : "std_msgs.msg.Empty"  }],
+        "outputs"   : [{ "name" : "vote",        "type" : "std_msgs.msg.String" }]
+    }, {
+        "name"      : "voter_3",
+        "container" : "neuros_python",
+        "plugin"    : "voter.py",
+        "inputs"    : [{ "name" : "polling_day", "type" : "std_msgs.msg.Empty"  }],
+        "outputs"   : [{ "name" : "vote",        "type" : "std_msgs.msg.String" }]
+    }],
+    "connections" : [
+    {
+        "source_node"       : "authority",
+        "source_output"     : "polling_day",
+        "destination_node"  : "voter_1",
+        "destination_input" : "polling_day",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "authority",
+        "source_output"     : "polling_day",
+        "destination_node"  : "voter_2",
+        "destination_input" : "polling_day",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "authority",
+        "source_output"     : "polling_day",
+        "destination_node"  : "voter_3",
+        "destination_input" : "polling_day",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "voter_1",
+        "source_output"     : "vote",
+        "destination_node"  : "authority",
+        "destination_input" : "vote",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "voter_2",
+        "source_output"     : "vote",
+        "destination_node"  : "authority",
+        "destination_input" : "vote",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "voter_3",
+        "source_output"     : "vote",
+        "destination_node"  : "authority",
+        "destination_input" : "vote",
+        "discard_limit"     : 0
+    }]
+}

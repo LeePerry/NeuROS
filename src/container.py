@@ -7,6 +7,7 @@ container.
 Commands suuported include those for building projects and running nodes.
 """
 
+import os
 import subprocess
 import tempfile
 import time
@@ -32,7 +33,8 @@ class Container:
     def docker_command(self, command, work_dir="", container="", node_dir=""):
         """
         A generalised method capable of executing any command within the
-        running container.
+        running container. All commands are run inside the container as the
+        same user as the host, with the same permissions, sudo privileges etc.
 
         Parameters:
             command (str) : A Bash command to be executed within the running
@@ -47,15 +49,26 @@ class Container:
         Returns:
             The exit code returned by the command.
         """
-        full_command = ["docker", "run"]
-        full_command += ["-v", f"{self.config.workspace_dir}:" +
-                               f"{FileSystem.standard_workspace_dir}",
-                         "-v", f"{self.config.project_dir}:" +
-                               f"{FileSystem.standard_project_dir}"]
+        full_command = ["docker", "run",
+                        "--interactive", "--tty", "--init", "--rm",
+                        "--platform", "linux/amd64",
+                        "--env", "DISPLAY",
+                        "--device", "/dev/dri:/dev/dri",
+                        "--user", f"{os.getuid()}:{os.getgid()}",
+                        "--volume", f"{os.path.expanduser('~')}:" +
+                                    f"{os.path.expanduser('~')}:rw",
+                        "--volume", "/etc/group:/etc/group:ro",
+                        "--volume", "/etc/passwd:/etc/passwd:ro",
+                        "--volume", "/etc/shadow:/etc/shadow:ro",
+                        "--volume", "/etc/sudoers.d:/etc/sudoers.d:ro",
+                        "--volume", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+                        "--volume", f"{self.config.workspace_dir}:" +
+                                    f"{FileSystem.standard_workspace_dir}",
+                        "--volume", f"{self.config.project_dir}:" +
+                                    f"{FileSystem.standard_project_dir}"]
         if node_dir:
-            full_command += ["-v", f"{node_dir}:" +
-                                   f"{FileSystem.standard_node_dir}"]
-        full_command += ["-it", "--init", "--rm", "--platform", "linux/amd64"]
+            full_command += ["--volume", f"{node_dir}:" +
+                                         f"{FileSystem.standard_node_dir}"]
         if work_dir:
             full_command += ["--workdir", work_dir]
         if not container:

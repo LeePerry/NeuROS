@@ -1,0 +1,9 @@
+{
+    "name"        : "logger",
+    "container"   : "neuros_python",
+    "plugin"      : "plugin.py",
+    "inputs"      : [{ "name" : "camera",
+                       "type" : "sensor_msgs.msg.Image" },
+                     { "name" : "ground_truth",
+                       "type" : "geometry_msgs.msg.PoseStamped" }]
+}

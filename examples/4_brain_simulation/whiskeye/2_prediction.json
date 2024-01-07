@@ -1,0 +1,18 @@
+{
+    "nodes" : ["nodes/robot/node.json",
+               "nodes/prednet/node.json",
+               "nodes/snn/node.json"],
+    "connections" : [{
+        "source_node"       : "robot",
+        "source_output"     : "camera",
+        "destination_node"  : "prednet",
+        "destination_input" : "camera",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "robot",
+        "source_output"     : "imu",
+        "destination_node"  : "snn",
+        "destination_input" : "imu",
+        "discard_limit"     : 0
+  }]
+}

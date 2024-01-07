@@ -1,0 +1,7 @@
+{
+    "name"      : "snn",
+    "container" : "neuros_whiskeye_snn",
+    "plugin"    : "plugin.py",
+    "inputs"    : [{ "name" : "imu",
+                     "type" : "sensor_msgs.msg.Imu" }]
+}
