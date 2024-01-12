@@ -5,8 +5,8 @@ from neuros.hooks import neuros_initialise, neuros_function
 from cv_bridge import CvBridge
 import cv2
 
-def timestamp_to_us(ts):
-    return (ts.sec * 1_000_000) + (ts.nanosec / 1_000)
+def timestamp_to_seconds(ts):
+    return ts.sec + (ts.nanosec / 1_000_000_000)
 
 class Logger:
 
@@ -20,17 +20,17 @@ class Logger:
         self.csv.write("Timestamp,X,Y,Z,W\n")
 
     def save_image(self, image):
-        ms = timestamp_to_us(image.header.stamp)
+        seconds = timestamp_to_seconds(image.header.stamp)
         cv2_img = self.cv_bridge.imgmsg_to_cv2(image, "bgr8")
-        image_path = f"images/{ms}.jpeg"
+        image_path = f"images/{seconds}.jpeg"
         cv2.imwrite(image_path, cv2_img)
         self._image_count += 1
         self._logger(f"Image [{self._image_count}]: {image_path}")
 
     def save_ground_truth(self, ground_truth):
-        ms = timestamp_to_us(ground_truth.header.stamp)
+        seconds = timestamp_to_seconds(ground_truth.header.stamp)
         rot = ground_truth.pose.orientation
-        self.csv.write(f"{ms},{rot.x},{rot.y},{rot.z},{rot.w}\n")
+        self.csv.write(f"{seconds},{rot.x},{rot.y},{rot.z},{rot.w}\n")
         self._gt_count += 1
         self._logger(f"Ground truth [{self._gt_count}]: {self.csv_path}")
 
@@ -41,10 +41,10 @@ def initialise(node):
 
 @neuros_function(inputs="ground_truth")
 def receive_ground_truth(node, ground_truth):
-    brain = node.get_user_data()
-    brain.save_ground_truth(ground_truth)
+    logger = node.get_user_data()
+    logger.save_ground_truth(ground_truth)
 
 @neuros_function(inputs="camera")
 def receive_camera_image(node, image):
-    brain = node.get_user_data()
-    brain.save_image(image)
+    logger = node.get_user_data()
+    logger.save_image(image)

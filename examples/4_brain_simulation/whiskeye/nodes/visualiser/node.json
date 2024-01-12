@@ -1,0 +1,9 @@
+{
+    "name"        : "visualiser",
+    "container"   : "neuros_python",
+    "plugin"      : "plugin.py",
+    "inputs"      : [{ "name" : "ground_truth",
+                       "type" : "geometry_msgs.msg.PoseStamped" },
+                     { "name" : "pose_estimate",
+                       "type" : "geometry_msgs.msg.PoseStamped" }]
+}

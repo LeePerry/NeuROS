@@ -45,10 +45,12 @@
                         "external_topic" : "/whiskeye/pose_theta/vel_cmd",
                         "gazebo_type"    : "gz.msgs.Double" }],
     "environment" : {
-        "GZ_SIM_RESOURCE_PATH"      : "#gazebo",
-        "GZ_SIM_SYSTEM_PLUGIN_PATH" : "@install/whiskeye_plugin/lib",
-        "NEUROS_WORLD"              : "world/model.sdf",
-        "NEUROS_ROBOT"              : "robot/model.sdf",
-        "NEUROS_ROTATION_SPEED"     : 0.1
+        "GZ_SIM_RESOURCE_PATH"       : "#gazebo",
+        "GZ_SIM_SYSTEM_PLUGIN_PATH"  : "@install/whiskeye_plugin/lib",
+        "NEUROS_REALTIME"            : 1,
+        "NEUROS_WORLD"               : "world/model.sdf",
+        "NEUROS_ROBOT"               : "robot/model.sdf",
+        "NEUROS_ROTATION_SPEED"      : 1,
+        "NEUROS_RANDOMISE_DIRECTION" : 0
     }
 }

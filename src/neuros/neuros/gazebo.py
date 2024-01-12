@@ -40,7 +40,7 @@ class Gazebo:
         self._server = scenario.server()
         self._info = None
         self._ecm = None
-        self.step(1)
+        self.step_synchronous()
         self._launch_bridge()
         self._launch_gui(verbosity)
 
@@ -117,7 +117,15 @@ class Gazebo:
         response = subprocess.check_output(command).strip()
         return str(response, "utf-8") == "data: true"
 
-    def step(self, count=1):
+    def run_asynchronous(self):
+        """
+        Run the simulation asynchronously (realtime). This provides the user
+        with full playback control via the GUI. Note that this will not wait
+        for NeuROS nodes to keep up with the simulation.
+        """
+        self._server.run(False, 0, False)
+
+    def step_synchronous(self, count=1):
         """
         Step the simulation forward a specified numer of times. Note that the
         corresponding simulation time for each step is defined in the world SDF
@@ -129,6 +137,9 @@ class Gazebo:
         Parameters:
             count (int): The number of steps to increment the simulation by.
         """
+        if count < 1:
+            raise Exception("count must be greater than or equal to 1, " +
+                            f"but received {count}")
         self._server.run(True, count, False)
 
     def get_world(self):
@@ -164,7 +175,7 @@ class Gazebo:
     def get_iterations(self):
         """
         Getter for the number of steps the simulation is currently incremented
-        by. This can be increased via the step() method.
+        by. This can be increased via the step_synchronous() method.
 
         Returns:
             The number of steps the simulation is currently incremented by.

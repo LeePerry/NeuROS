@@ -23,13 +23,6 @@ ROS Workspaces & Package Management:
    - It then includes the NeuROS plugin, registeres all callback hooks and fires initialisation.
    - Thus every NeuROS container is running the same generic node with a different user plugin.
 
-User Permissions:
- * Pros and cons of various options...
-   - Running everything as root is a security risk. Running as host user is most sensible.
- * Permission to X server is required in order to display a GUI.
- * Also nice since any log files created are owned by the person who ran NeuROS.
- * Requires mounting all user-specific system files into the container (see container.py).
-
 TTY:
 
  * There are many tools for managing docker containers, notably docker-compose
@@ -186,6 +179,15 @@ Examples:
 
  * Serve as both manual integration tests and step-by-step introduction to features
  * Explain each...
+ 
+Strict control vs real time:
+ 
+ * Both supported via various messaging and Gazebo options
+ * Gazebo (and thus NeuROS) supports "play forever in non-blocking thread" (async),
+   which then allows the user full control over the GUI - pause, play, speed etc.
+ * Gazebo (and thus NeuROS) also supports "progress the simulation by x time increment" (sync),
+   which removes user playback control from the GUI (i.e. buttons have no effect).
+ * This proves the greatest flexibility out of any existing setup!
 
 Deterministic Execution:
 

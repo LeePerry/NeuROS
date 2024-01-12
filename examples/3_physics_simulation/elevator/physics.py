@@ -39,7 +39,7 @@ def step(node, sensor_data):
     order to saturate the host machine CPU/GPU.
     """
     simulator = node.get_user_data()
-    simulator.step()
+    simulator.step_synchronous()
     if sensor_data is not None:
         logger = node.get_ros_node().get_logger()
         logger.info(f"Currently at level: {sensor_data.data}")
