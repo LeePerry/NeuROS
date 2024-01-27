@@ -11,6 +11,7 @@ import os
 import pathlib
 import sys
 
+from src.validate import validate_project
 from src.neuros.neuros.config import ConnectionConfig, FileSystem, NodeConfig
 
 class CommandLineInterface(argparse.ArgumentParser):
@@ -32,6 +33,7 @@ class CommandLineInterface(argparse.ArgumentParser):
         self.print_help()
         print(f"\n{message}!\n")
         sys.exit(1)
+
 class ProjectConfig:
     """
     A class for representing a single project configuation.
@@ -164,8 +166,6 @@ class ProjectConfig:
         project_dir = pathlib.Path(project_path).parent.resolve()
         with open(project_path, 'r') as f:
             data = json.load(f)
-        data["workspace_directory"] = workspace_dir
-        data["project_directory"] = project_dir
         nodes = []
         for n in data["nodes"]:
             if isinstance(n, dict):
@@ -179,6 +179,9 @@ class ProjectConfig:
             else:
                 raise Exception(f"Unsupported node type {str(type(n))}: {n}")
         data["nodes"] = nodes
+        validate_project(data)
+        data["workspace_directory"] = workspace_dir
+        data["project_directory"] = project_dir
         return cls(data)
 
     def __init__(self, data):
@@ -187,7 +190,7 @@ class ProjectConfig:
         user-defined project configuration.
 
         Parameters:
-            data (dict) : The project json file loaded represented as a Python
+            data (dict) : The project json file represented as a Python
                           dictionary.
         """
         self.container = ProjectConfig.default_container
@@ -198,6 +201,14 @@ class ProjectConfig:
             for n in data["nodes"]}
 
 def _expand_paths(data, node_dir=""):
+    """
+    Expands any paths in the project config, such as relative node paths or
+    environment variables that start with special characters.
+
+    Parameters:
+        data (dict) : The project json file represented as a Python dictionary.
+        node_dir (str) : The node directory relative to the project directory.
+    """
     plugin_path = data["plugin"]
     if not os.path.isabs(plugin_path):
         data["plugin"] = os.path.join(node_dir, plugin_path)

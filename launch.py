@@ -7,7 +7,6 @@ This module is responsible for launching a NeuROS project.
 
 import os
 import psutil
-import subprocess
 import signal
 import threading
 
