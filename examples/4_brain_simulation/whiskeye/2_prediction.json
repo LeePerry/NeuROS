@@ -5,9 +5,9 @@
                "nodes/visualiser/node.json"],
     "connections" : [{
         "source_node"       : "robot",
-        "source_output"     : "camera",
-        "destination_node"  : "prednet",
-        "destination_input" : "camera",
+        "source_output"     : "ground_truth",
+        "destination_node"  : "visualiser",
+        "destination_input" : "ground_truth",
         "discard_limit"     : 0
     }, {
         "source_node"       : "robot",
@@ -17,9 +17,27 @@
         "discard_limit"     : 0
     }, {
         "source_node"       : "robot",
-        "source_output"     : "ground_truth",
+        "source_output"     : "camera",
+        "destination_node"  : "prednet",
+        "destination_input" : "camera",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "snn",
+        "source_output"     : "odom_estimate",
+        "destination_node"  : "prednet",
+        "destination_input" : "odom_estimate",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "prednet",
+        "source_output"     : "head_dir_prediction",
         "destination_node"  : "visualiser",
-        "destination_input" : "ground_truth",
+        "destination_input" : "head_dir_prediction",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "prednet",
+        "source_output"     : "head_dir_prediction",
+        "destination_node"  : "snn",
+        "destination_input" : "odom_correction",
         "discard_limit"     : 0
     }]
 }

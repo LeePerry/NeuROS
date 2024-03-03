@@ -15,8 +15,8 @@ setup(
     zip_safe=True,
     maintainer='lperry',
     maintainer_email='leeperryis@hotmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='The generic NeuROS transport node',
+    license='MIT License. Copyright (c) 2023 Lee Perry',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [

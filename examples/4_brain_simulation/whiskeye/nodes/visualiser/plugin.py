@@ -1,10 +1,13 @@
 # Copyright (c) 2024 Lee Perry
 
+import numpy as np
+import time
+
 from neuros.hooks import neuros_initialise, neuros_function
 from neuros.visualise import VisualiseRotations
 
 GROUND_TRUTH = "Ground Truth"
-ESTIMATE = "Estimate"
+PREDICTION = "Prediction"
 
 def timestamp_to_seconds(ts):
     return ts.sec + (ts.nanosec / 1_000_000_000)
@@ -13,19 +16,21 @@ def timestamp_to_seconds(ts):
 def initialise(node):
     visualiser = VisualiseRotations('Head Direction')
     visualiser.add_quaternion(GROUND_TRUTH, "g")
-    visualiser.add_quaternion(ESTIMATE, "o")
-    node.set_user_data(visualiser)
+    visualiser.add_degrees(PREDICTION, "b")
+    node.set_user_data((time.time(), visualiser))
 
 @neuros_function(inputs="ground_truth")
 def receive_ground_truth(node, ground_truth):
-    visualiser = node.get_user_data()
+    started, visualiser = node.get_user_data()
     visualiser.plot(GROUND_TRUTH,
                     ground_truth.pose.orientation,
-                    timestamp_to_seconds(ground_truth.header.stamp))
+                    time.time() - started)
+                    #timestamp_to_seconds(ground_truth.header.stamp))
 
-@neuros_function(inputs="pose_estimate")
-def receive_ground_truth(node, estimate):
-    visualiser = node.get_user_data()
-    visualiser.plot(ESTIMATE,
-                    estimate.pose.orientation,
-                    timestamp_to_seconds(estimate.header.stamp))
+@neuros_function(inputs="head_dir_prediction")
+def receive_head_dir_prediction(node, prediction):
+    started, visualiser = node.get_user_data()
+    visualiser.plot(PREDICTION,
+                    np.argmax(prediction.data) * 2,
+                    time.time() - started)
+                    #timestamp_to_seconds(prediction.header.stamp))

@@ -3,5 +3,9 @@
     "container" : "neuros_whiskeye_snn",
     "plugin"    : "plugin.py",
     "inputs"    : [{ "name" : "imu",
-                     "type" : "sensor_msgs.msg.Imu" }]
+                     "type" : "sensor_msgs.msg.Imu" },
+                   { "name" : "odom_correction",
+                     "type" : "std_msgs.msg.Float32MultiArray" }],
+    "outputs"   : [{ "name" : "odom_estimate",
+                     "type" : "std_msgs.msg.Int32" }]
 }

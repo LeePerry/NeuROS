@@ -8,6 +8,7 @@ This module represents an individual NeuROS node.
 import importlib.util
 import os
 import subprocess
+import sys
 
 import geometry_msgs.msg
 import rclpy
@@ -150,6 +151,7 @@ class Node:
         module_name = os.path.splitext(filename)[0]
         full_path = os.path.join(directory, filename)
         if full_path not in self._plugins:
+            sys.path.append(os.path.dirname(full_path))
             spec = importlib.util.spec_from_file_location(module_name, full_path)
             impl = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(impl)

@@ -8,6 +8,8 @@ receiving new data from source nodes, destination nodes becoming ready to
 receive more data or expired timers.
 """
 
+import sys
+
 from neuros.config import FileSystem
 from neuros.input import Input, Timer
 from neuros.output import Output
@@ -117,7 +119,13 @@ class _Function:
                     self.is_optional = True
                     self.is_waiting = False
                 self.name = self.name.value
-            self.input = all_inputs[self.name]
+            try:
+                self.input = all_inputs[self.name]
+            except KeyError:
+                print(f"ERROR: Node '{node.get_ros_node().get_name()}' " +
+                      f"has no input '{self.name}' defined in your project! " +
+                      "Please check your hook configuration.")
+                sys.exit(1)
 
         def check_waiting(self, source_node, packet):
             """
@@ -191,7 +199,13 @@ class _Function:
             elif isinstance(self.name, Optional):
                 self.is_optional = True
                 self.name = self.name.value
-            self.output = all_outputs[self.name]
+            try:
+                self.output = all_outputs[self.name]
+            except KeyError:
+                print(f"ERROR: Node '{node.get_ros_node().get_name()}' " +
+                      f"has no output '{self.name}' defined in your project! " +
+                      "Please check your hook configuration.")
+                sys.exit(1)
             self.is_blocked = self.output.is_blocked
 
         def check_blocked(self):

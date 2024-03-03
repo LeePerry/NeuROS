@@ -54,6 +54,49 @@ class _Quaternion:
         self.line, = self.ax.plot(
             self.x_values, self.y_values, c=self.colour, label=self.label)
 
+class _Degrees:
+
+    """
+    A representation of an angle in degrees data source for visualisation.
+    """
+
+    def __init__(self, duration, ax, label, colour):
+        """
+        Initialises an instance of this class.
+
+        Parameters:
+            duration (int): The duration of time to visualise in seconds.
+            ax: The matplotlib axis.
+            label (str): The name of the data source.
+            colour (char): The colour to render the line as a matplotlib
+                           colour code.
+        """
+        self._duration = duration
+        self.ax = ax
+        self.label = label
+        self.colour = colour
+        max_length = 5 * duration
+        self.x_values = collections.deque(maxlen=max_length)
+        self.y_values = collections.deque(maxlen=max_length)
+        self.line = None
+
+    def plot(self, degrees, timestamp):
+        """
+        Plot a new datapoint.
+
+        Parameters:
+            degrees: The angle represented in degrees.
+            timestamp (float): The timestamp in seconds.
+        """
+        print(f"\n\n\n\ndegrees={degrees}\n\n\n\n")
+        if self.line:
+            self.line.remove()
+        self.x_values.append(timestamp)
+        self.y_values.append((degrees * math.pi / 180) - math.pi)
+        self.ax.set_xlim(timestamp - self._duration, timestamp)
+        self.line, = self.ax.plot(
+            self.x_values, self.y_values, c=self.colour, label=self.label)
+
 class VisualiseRotations:
 
     """
@@ -103,6 +146,18 @@ class VisualiseRotations:
                            colour code.
         """
         self._datasources[name] = _Quaternion(
+            self._duration, self._ax, name, colour)
+
+    def add_degrees(self, name, colour):
+        """
+        Add a new angle in degrees datasource.
+
+        Parameters:
+            name (str): The name of the datasource.
+            colour (char): The colour of the datasource as a matplotlib
+                           colour code.
+        """
+        self._datasources[name] = _Degrees(
             self._duration, self._ax, name, colour)
 
     def plot(self, line_name, orientation, timestamp):
