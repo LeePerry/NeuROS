@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get install -y apt-utils \
     && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get install -y dialog \
-    && apt-get -y install pip \
+    && apt-get -y install pip plantuml \
     && pip3 install sphinx \
     && rm -rf /var/lib/apt/lists/*
 

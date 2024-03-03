@@ -8,6 +8,8 @@ Welcome to NeuROS documentation!
    modules
    neuros
 
+.. image:: ../../plantuml/architecture.png
+
 Indices and tables
 ==================
 
