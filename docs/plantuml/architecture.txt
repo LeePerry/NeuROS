@@ -1,0 +1,31 @@
+@startuml
+
+Install *-- Container
+
+Launch *-- Container
+Launch *-- ProjectConfig
+
+Container *-- Node
+
+ProjectConfig .. CommandLineInterface
+ProjectConfig .. Validation
+
+Node *-- Hooks
+Node *-- NodeConfig
+Node *-- UserPlugin
+Node <|-- ROS2
+
+NodeConfig *-- InputConfig
+NodeConfig *-- OutputConfig
+NodeConfig *-- ConnectionConfig
+
+Hooks *-- Input
+Hooks *-- Output
+Hooks *-- Timer
+
+UserPlugin *-- Gazebo
+UserPlugin o-- Hooks
+UserPlugin *-- Visualisation
+
+
+@enduml

@@ -1,0 +1,10 @@
+@startuml
+package "Host Machine" {
+  [Launch] -down-> [Validation]
+}
+package "Docker Container" {
+  [Node] -down-> (ROS2)
+  [Node] .down.> (3rd Party Tools)
+}
+[Launch] -right-> [Node]
+@enduml

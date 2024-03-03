@@ -17,10 +17,13 @@ from src.neuros.neuros.config import FileSystem
 
 class Container:
     """
-    A class to represent a configured container, upon which methods can be
+    Each NeuROS node must be launched inside a single container.
+
+    |container-dirs|
+
+    This class represents a configured container, upon which methods can be
     invoked in order to launch and execute commands. Note that the associated
-    docker container only exists during the execution of one this class'
-    methods.
+    docker container only exists during the execution of this class' methods.
     """
 
     def __init__(self, config):
