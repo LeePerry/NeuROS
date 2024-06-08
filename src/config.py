@@ -43,7 +43,7 @@ class ProjectConfig:
                                  other components are built.
     """
 
-    default_container = "osrf/ros:jazzy-desktop"
+    default_container = "osrf/ros:humble-desktop"
 
     @classmethod
     def build_environment(cls):
