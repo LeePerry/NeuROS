@@ -5,8 +5,6 @@ This example demonstrates receiving the same input from multiple source nodes,
 by simulating a distributed voting process.
 """
 
-import time
-
 from neuros.hooks import neuros_initialise, neuros_function, All
 
 @neuros_initialise(outputs="polling_day")
@@ -36,6 +34,5 @@ def polling_station(node, votes):
             vote_count = count
             most_popular = candidate
     node.get_ros_node().get_logger().info(f"The winner is '{most_popular}'")
-    time.sleep(5)
-    node.get_ros_node().get_logger().info("And again!")
+    node.get_ros_node().get_logger().info("Let's vote!")
     return node.make_packet("polling_day")

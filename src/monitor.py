@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Copyright (c) 2023 Lee Perry
 
 """
@@ -5,17 +6,20 @@ This module is responsible for calculating system load and throughput
 performance metrics, and logging them to a file.
 """
 
+import logging
 import psutil
 import time
 
-def monitor_system_load(config, filename=None, interval_ms=1000):
+# https://thepythoncode.com/article/make-a-network-usage-monitor-in-python
 
-    if filename is None:
-        gmt = time.gmtime()
-        mid = time.strftime("%Y_%m_%d_%H_%M_%S", gmt)
-        filename = f"{config.project_dir}/neuros_monitoring_{mid}.csv"
+def monitor_system_load():
+    logging.basicConfig(format="[%(levelname)s] [%(created)f] [%(name)s]: %(message)s", 
+                        level=logging.INFO)
+    logger = logging.getLogger("system-load-monitor")
+    
+    while True:
+        time.sleep(1)
+        logger.info(f"CPU: {psutil.cpu_percent(percpu=True)}")
 
-    with open(filename, "x") as f:
-        while True:
-            f.write("blah\n") # psutil metric
-            time.sleep(interval_ms)
+if __name__ == '__main__':
+    monitor_system_load()

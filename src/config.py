@@ -43,7 +43,7 @@ class ProjectConfig:
                                  other components are built.
     """
 
-    default_container = "osrf/ros:humble-desktop"
+    default_container = "osrf/ros:jazzy-desktop"
 
     @classmethod
     def build_environment(cls):
@@ -117,11 +117,17 @@ class ProjectConfig:
                                 "Can be repeated multiple times to record multiple topics. " +
                                 "Default is to record all topics.")
         parser.add_argument("-m",
-                            "--monitor-performance",
+                            "--monitor-system-load",
                             required=False,
                             action="store_true",
                             help="[OPTIONAL] " +
                                 "Periodicially monitor and log system load for performance analysis.")
+        parser.add_argument("-g",
+                            "--node-graph",
+                            required=False,
+                            action="store_true",
+                            help="[OPTIONAL] " +
+                                "Display the ROS2 node connectivity graph (rqt_graph).")
 
         args = parser.parse_args()
 

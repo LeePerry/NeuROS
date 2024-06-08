@@ -6,6 +6,7 @@ by simulating a democratic voting process.
 """
 
 import random
+import time
 
 from neuros.hooks import neuros_function
 
@@ -20,4 +21,5 @@ def place_vote(node, _):
     vote = node.make_packet("vote")
     vote.data = random.choice(["red", "blue"])
     node.get_ros_node().get_logger().info(f"Voting for {vote.data}")
+    time.sleep(5)
     return vote

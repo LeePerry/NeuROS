@@ -23,7 +23,7 @@ def initialise(node):
 @neuros_function(inputs="command", outputs="_command")
 def handle_command(node, command):
     """
-    The hook is invoked when a new level command is received from another note.
+    This hook is invoked when a new level command is received from another note.
     This node simply forwards the packet on to Gazebo via an external_topic.
     """
     node.get_ros_node().get_logger().info(f"Going to level: {command.data}")
@@ -42,5 +42,6 @@ def step(node, sensor_data):
     simulator.step_synchronous()
     if sensor_data is not None:
         logger = node.get_ros_node().get_logger()
-        logger.info(f"Currently at level: {sensor_data.data}")
+        logger.info(f"Level: {sensor_data.data}")
+        logger.info(f"Simulated time: {simulator.get_sim_time().total_seconds()}")
         return sensor_data

@@ -9,10 +9,10 @@ import os
 import psutil
 import signal
 import threading
+import time
 
 from src.config import ProjectConfig
 from src.container import Container
-from src.monitor import monitor_system_load
 
 def stop_all_children():
     """
@@ -46,7 +46,21 @@ def start_monitoring(config):
     Parameters:
         config (ProjectConfig) : The NeuROS project config.
     """
-    monitor_system_load(config)
+    Container(config).docker_command("src/monitor.py",
+                                     container="neuros_python")
+    stop_all_children()
+
+def launch_node_graph(config):
+    """
+    This function will launch the rqt_graph application and block until it
+    completes.
+
+    Parameters:
+        config (ProjectConfig) : The NeuROS project config.
+    """
+    time.sleep(3)
+    Container(config).docker_command("rqt_graph",
+                                     container="neuros_gazebo")
     stop_all_children()
 
 def launch_node(config, name, verbose, domain_id):
@@ -75,9 +89,13 @@ def main():
         utilities.append(threading.Thread(
             target=start_recording,
             args=(config, args.topic)))
-    if args.monitor_performance:
+    if args.monitor_system_load:
         utilities.append(threading.Thread(
             target=start_monitoring,
+            args=(config,)))
+    if args.node_graph:
+        utilities.append(threading.Thread(
+            target=launch_node_graph,
             args=(config,)))
     nodes = [threading.Thread(
             target=launch_node,

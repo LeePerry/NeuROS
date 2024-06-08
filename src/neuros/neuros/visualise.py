@@ -88,7 +88,6 @@ class _Degrees:
             degrees: The angle represented in degrees.
             timestamp (float): The timestamp in seconds.
         """
-        print(f"\n\n\n\ndegrees={degrees}\n\n\n\n")
         if self.line:
             self.line.remove()
         self.x_values.append(timestamp)
