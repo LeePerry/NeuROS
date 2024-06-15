@@ -9,7 +9,7 @@ import common.run
 This metric measures the system load during physics and brain simulation.
 """
 
-data_path = "/tmp/4_brain_simulation.txt"
+data_path = "log/4_brain_simulation.txt"
 
 def create_data():
     """
@@ -19,7 +19,7 @@ def create_data():
     data = common.data.Writer(data_path)
     common.run.process_for(
         ["./launch.py", "--monitor-system-load", "--project", 
-         "examples/4_brain_simulation/whiskeye/2_prediction.json"],
+            "examples/4_brain_simulation/whiskeye/2_prediction.json"],
         5 * 60,
         data.write)
 

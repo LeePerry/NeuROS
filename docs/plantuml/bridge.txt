@@ -1,0 +1,10 @@
+@startuml
+participant NeuROS order 1
+participant Bridge order 2
+participant Gazebo order 3
+
+NeuROS -> Bridge: ROS Message \n e.g. Wheel Command
+Bridge -> Gazebo: Gazebo Joint Command
+Bridge <- Gazebo: Gazebo Sensor Data
+NeuROS <- Bridge: ROS Message \n e.g. Odometry
+@enduml

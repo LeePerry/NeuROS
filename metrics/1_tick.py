@@ -10,7 +10,7 @@ import common.data
 import common.plot
 import common.run
 
-data_path = "/tmp/1_tick_interval.txt"
+data_path = "log/1_tick_interval.txt"
 
 def create_data():
     """
@@ -19,7 +19,8 @@ def create_data():
     """
     data = common.data.Writer(data_path)
     common.run.process_for(
-        ["./launch.py", "--project", "./examples/1_tick/clock/clock.json"],
+        ["./launch.py", "--monitor-system-load", "--project", 
+            "./examples/1_tick/clock/clock.json"],
         5 * 60,
         data.write)
 
@@ -27,12 +28,14 @@ def process_data():
     """
     Parses and analysis the tick intervals from the results data file.
 
-    Produces mean, standard deviation, percentages within bounds and an 
-    interval histogram.
+    Produces: Mean, standard deviation, percentages within bounds and an 
+    interval histogram. Also CPU time series.
     """
     data = common.data.Reader(data_path)
     parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[clock\]: T.*")
     data.read(parser.parse)
+
+    print("==== Tick Interval ====")
     # DISCARDS THE ANOMOLOUR FIRST INTERVAL AT STARTUP
     intervals = parser.intervals()[1:]
     common.data.basic_stats(intervals)
@@ -40,10 +43,16 @@ def process_data():
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.005)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.002)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.001)
-    common.plot.histogram(intervals,
+    common.plot.histogram("log/1_tick_interval_histogram.png",
+                          intervals,
                           "Interval (Target 1.0)",
                           relative_frequency=False,
                           bins=20)
+
+    print("==== Tick CPU Series ====")
+    # JUST TAKING THE 2nd MINUTE OF DATA (OFTEN HIGH AT START)
+    common.plot.all_cpu_time_series(data_path,
+                                    "log/1_tick_cpu_time_series.png")
 
 if __name__ == '__main__':
     create_data()

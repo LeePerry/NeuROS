@@ -34,6 +34,12 @@ class Reader:
 
 class Parser:
 
+    @classmethod
+    def for_cpu(cls, cpu):
+        return cls("\[INFO\] \[\d*\.?\d+\] \[system-load-monitor\]: CPU: \["+
+                   ("\d*\.?\d+, " * (cpu - 1)) +
+                   "(\d*\.?\d+).*")
+
     def __init__(self, pattern, type=float):
         self._regex = re.compile(pattern)
         self._samples = []

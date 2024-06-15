@@ -1,0 +1,14 @@
+@startuml
+participant Hook1 order 1
+participant Hook2 order 2
+participant Hook3 order 3
+participant Hook4 order 4
+
+Hook1 -> Hook3: Message1
+Hook2 -> Hook3: Message2
+Hook3 -> Hook3: All conditions \n satisifed
+Hook1 <- Hook3: Acknowlege1
+Hook2 <- Hook3: Acknowlege2
+Hook3 -> Hook3: Perform task
+Hook3 -> Hook4: Message3
+@enduml

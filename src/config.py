@@ -20,6 +20,19 @@ class CommandLineInterface(argparse.ArgumentParser):
     command-line argument parsing errors and apply custom handling.
     """
 
+    banner = """
+           _  __         ___  ____  ____
+          / |/ /__ __ __/ _ \/ __ \/ __/
+         /    / -_) // / , _/ /_/ /\ \  
+        /_/|_/\__/\_,_/_/|_|\____/___/  
+
+An Integration Framework for Heterogenous Systems Neuroscience
+
+Copyright (c) 2024 Lee Perry
+
+MIT License
+"""
+
     def error(self, message):
         """
         The handler for a cli parsing error, which prints the full help
@@ -70,8 +83,7 @@ class ProjectConfig:
         """
         parser = CommandLineInterface(
             formatter_class=argparse.RawTextHelpFormatter,
-            description="NeuROS\n\n" +
-                "An Integration Framework for Heterogenous Systems Neuroscience")
+            description=CommandLineInterface.banner)
 
         parser.add_argument("-p",
                             "--project",

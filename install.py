@@ -11,14 +11,13 @@ import pathlib
 import subprocess
 import sys
 
-from src.config import ProjectConfig
+from src.config import ProjectConfig, CommandLineInterface
 from src.container import Container
 
 def assume_yes():
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawTextHelpFormatter,
-        description="NeuROS\n\n" +
-                "An Integration Framework for Heterogenous Systems Neuroscience")
+        description=CommandLineInterface.banner)
     parser.add_argument('-y', '--yes',
                         help='Automatic installation.',
                         action="store_true")
@@ -108,15 +107,7 @@ def build_documentation():
 def main():
     yes = assume_yes()
     print("")
-    print("================================================================================")
-    print("    Welcome to NeuROS")
-    print("================================================================================")
-    print("")
-    print("An Integration Framework for Heterogeneous Computational Systems Neuroscience")
-    print("")
-    print("MIT License")
-    print("")
-    print("Copyright (c) 2023 Lee Perry")
+    print(CommandLineInterface.banner)
     print("")
     check_docker_installation()
     print("")

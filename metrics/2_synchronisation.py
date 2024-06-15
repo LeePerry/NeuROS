@@ -10,7 +10,7 @@ This metric confirms the ability of NeuROS to execute node user plugins
 concurrently.
 """
 
-data_path = "/tmp/2_synchronisation.txt"
+data_path = "log/2_synchronisation.txt"
 
 def create_data():
     """
@@ -19,7 +19,8 @@ def create_data():
     """
     data = common.data.Writer(data_path)
     common.run.process_for(
-        ["./launch.py", "--project", "./examples/2_synchronisation/voting/election.json"],
+        ["./launch.py", "--monitor-system-load", "--project", 
+            "./examples/2_synchronisation/voting/election.json"],
         5 * 60,
         data.write)
 
@@ -28,17 +29,26 @@ def process_data():
     Parses and analysis the concurrent execution time from the results data 
     file.
 
-    Produces mean, standard deviation and execution time histogram.
+    Produces: Mean, standard deviation and execution time histogram. Also CPU 
+    time series.
     """
     data = common.data.Reader(data_path)
     parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[authority\]: Let's vote!")
     data.read(parser.parse)
     intervals = parser.intervals()
+
+    print("==== Voting Interval ====")
     common.data.basic_stats(intervals)
-    common.plot.histogram(intervals,
+    common.plot.histogram("log/2_synchronisation_voting_interval_histogram.png",
+                          intervals,
                           "Execution Time (Target 5.0)",
                           relative_frequency=False,
                           bins=20)
+
+    print("==== Voting CPU Series ====")
+    # JUST TAKING THE 2nd MINUTE OF DATA (OFTEN HIGH AT START)
+    common.plot.all_cpu_time_series(data_path,
+                                    "log/2_synchronisation_voting_cpu_time_series.png")
 
 if __name__ == '__main__':
     create_data()

@@ -15,14 +15,14 @@ class Logger:
         self._gt_count = 0
         self._logger = logger
         self.cv_bridge = CvBridge()
-        self.csv_path = "images/ground_truth.csv"
+        self.csv_path = "log/ground_truth.csv"
         self.csv = open(self.csv_path, "w")
         self.csv.write("Timestamp,X,Y,Z,W\n")
 
     def save_image(self, image):
         seconds = timestamp_to_seconds(image.header.stamp)
         cv2_img = self.cv_bridge.imgmsg_to_cv2(image, "bgr8")
-        image_path = f"images/{seconds}.jpeg"
+        image_path = f"log/{seconds}.jpeg"
         cv2.imwrite(image_path, cv2_img)
         self._image_count += 1
         self._logger(f"Image [{self._image_count}]: {image_path}")
