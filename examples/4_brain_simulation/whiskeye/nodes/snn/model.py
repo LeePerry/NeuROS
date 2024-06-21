@@ -2,6 +2,10 @@
 
 import nest
 import numpy as np
+from scipy.stats import circmean
+
+def timestamp_to_milliseconds(ts):
+    return (ts.sec * 1_000) + (ts.nanosec / 1_000_000)
 
 class Model:
 
@@ -22,6 +26,7 @@ class Model:
                 'V_min': -1e9}
 
         N = 180 # number of cells in each layer
+        # layers = excitory, inhibitory, anti-clockwise, clockwise
 
         sigma = 0.12
         mu = 0.5
@@ -31,13 +36,14 @@ class Model:
         base_cj = 169 #
         w_ex_cj = 660 #
 
-        I_init = 300.0 #pA
-        I_init_dur = 100.0 #ms
+        I_init = 300.0 # pA
+        I_init_dur = 100.0 # ms
         I_init_pos = N//2
 
         #----------------------------------
         # Create populations of cells
         #----------------------------------
+        
         nest.CopyModel("iaf_psc_alpha", "hd_cell", cell_params)
         population = nest.Create('hd_cell', N*4)
         nest.SetStatus(population[:N], {"I_e": 450.0})
@@ -62,7 +68,6 @@ class Model:
 
         w_ex[w_ex<10]=0
         w_in[w_in<10]=0
-
 
         w_l = np.empty((N,N))
         w_r = np.empty((N,N))
@@ -113,15 +118,71 @@ class Model:
         SYN = {'weight': w_r, 'delay': delay}
         nest.Connect(CIRCUIT[N*3:N*4],CIRCUIT[0:N], 'all_to_all', SYN)
 
-        self._brain = population
+        self._brain = CIRCUIT
 
-    def estimate(self, _):
-        # TODO how to run inference?
-        data = [0.0] * 180
-        data[90] = 1.0
-        return data
+        self._detector = nest.Create("spike_detector", N, params={
+            "withgid"  : True,
+            "withtime" : True })
+        nest.Connect(CIRCUIT[:N], self._detector)
 
-    def apply_correction(self, odom):
-        # TODO expects float but receives array of float?
+        self._left_input = nest.Create('step_current_generator', N)
+        nest.Connect(self._left_input, CIRCUIT[2*N:3*N], 'one_to_one')
+
+        self._right_input = nest.Create('step_current_generator', N)
+        nest.Connect(self._right_input, CIRCUIT[3*N:4*N], 'one_to_one')
+
+        #self._input = nest.Create('step_current_generator', N)
+        #nest.Connect(self._input, CIRCUIT[:N], 'one_to_one')
+
+    def estimate(self, imu):
+
+        t = timestamp_to_milliseconds(imu.header.stamp)
+        td = 20
+        time_range = [t, t + td]
+
+        yaw = imu.angular_velocity.z
+        #vel = yaw * 0.35 * 10000 # TODO may need tuning
+        vel = yaw * 1_000_000_000_000
+        vel_range = [vel, 0.0]
+
+        zeros = [0.0, 0.0]
+
+        # check angular velocity
+        anti_clockwise = vel < 0
+        if anti_clockwise:
+            nest.SetStatus(self._left_input,  { "amplitude_times"  : time_range,
+                                                "amplitude_values" : vel_range })
+            nest.SetStatus(self._right_input, { "amplitude_times"  : time_range,
+                                                "amplitude_values" : zeros })
+        else:
+            nest.SetStatus(self._left_input,  { "amplitude_times"  : time_range,
+                                                "amplitude_values" : zeros })
+            nest.SetStatus(self._right_input, { "amplitude_times"  : time_range,
+                                                "amplitude_values" : vel_range })
+
+        nest.Prepare()
+        nest.Run(td)
+        data = nest.GetStatus(self._detector)[0]["events"]
+        print(f"Senders: {data['senders']}")
+        av = circmean(data["senders"], low=1, high=180)
+        nest.Cleanup()
+        # TODO check that correction layer retains data
+        nest.SetStatus(self._detector, {"n_events": 0})
+        
+        if not np.isnan(av):
+            return int(av)
+
+    def apply_correction(self, odom, stamp):
+        
         odom = odom * (1 / odom.max())
-        #nest.SetStatus(self._correction_layer, { "amplitude" : odom })
+        expected = len(self._correction_layer)
+        actual = len(odom)
+        if expected != actual:
+            raise Exception("Correction is unexpected length. " + 
+                f"Expected: {expected}. Actual: {actual}.")
+
+        #t = timestamp_to_milliseconds(stamp)
+        for i in range(expected):
+            nest.SetStatus([self._correction_layer[i]], { "amplitude" : odom[i] })
+            #nest.SetStatus([self._correction_layer[i]], { "amplitude_times" : [t, t + 200],
+            #                                              "amplitude_values": [odom[i], 0.0]})

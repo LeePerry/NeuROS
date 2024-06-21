@@ -50,16 +50,16 @@ def start_monitoring(config):
                                      container="neuros_python")
     stop_all_children()
 
-def launch_node_graph(config):
+def launch_third_party_utility(config, utility):
     """
-    This function will launch the rqt_graph application and block until it
+    This function will launch a 3rd party utility process and block until it
     completes.
 
     Parameters:
         config (ProjectConfig) : The NeuROS project config.
     """
     time.sleep(3)
-    Container(config).docker_command("rqt_graph",
+    Container(config).docker_command(utility,
                                      container="neuros_gazebo")
     stop_all_children()
 
@@ -95,8 +95,12 @@ def main():
             args=(config,)))
     if args.node_graph:
         utilities.append(threading.Thread(
-            target=launch_node_graph,
-            args=(config,)))
+            target=launch_third_party_utility,
+            args=(config,"rqt_graph")))
+    if args.visualisations:
+        utilities.append(threading.Thread(
+            target=launch_third_party_utility,
+            args=(config,"rviz2")))
     nodes = [threading.Thread(
             target=launch_node,
             args=(config, name, args.verbose, args.domain_id))

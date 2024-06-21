@@ -11,12 +11,15 @@ def initialise(node):
     node.set_user_data(Model())
 
 @neuros_function(inputs=["imu", Optional("odom_correction")],
-                 outputs="odom_estimate")
+                 outputs=Optional("odom_estimate"))
 def estimate_odometry(node, imu, odom_correction):
     model = node.get_user_data()
     if odom_correction:
-        model.apply_correction(np.array(odom_correction.data))
-    odom = model.estimate(imu)
-    odom_estimate = node.make_packet("odom_estimate")
-    odom_estimate.data = int(np.argmax(odom))
-    return odom_estimate
+        model.apply_correction(np.array(odom_correction.data),
+                               imu.header.stamp)
+    estimate = model.estimate(imu)
+    if estimate is not None:
+        odom_estimate = node.make_packet("odom_estimate")
+        odom_estimate.data = int(np.argmax(estimate))
+        node.get_ros_node().get_logger().info(f"estimate = {estimate}")
+        return odom_estimate

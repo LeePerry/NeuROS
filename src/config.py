@@ -140,6 +140,12 @@ class ProjectConfig:
                             action="store_true",
                             help="[OPTIONAL] " +
                                 "Display the ROS2 node connectivity graph (rqt_graph).")
+        parser.add_argument("-z",
+                            "--visualisations",
+                            required=False,
+                            action="store_true",
+                            help="[OPTIONAL] " +
+                                "Display the ROS2 topic data visualisation GUI (rviz).")
 
         args = parser.parse_args()
 
