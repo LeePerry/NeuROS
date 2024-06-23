@@ -40,4 +40,7 @@ def predict_head_direction(node, image, odom_estimate):
     _, _, direction = model.predict(visual_data=image, odometry_data=shifted)
     head_dir_prediction = node.make_packet("head_dir_prediction")
     head_dir_prediction.data = [float(i) for i in direction[0]]
+
+    node.get_ros_node().get_logger().info(f"!!! PREDICTION = {direction}")
+
     return head_dir_prediction

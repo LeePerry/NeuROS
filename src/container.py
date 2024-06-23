@@ -7,6 +7,7 @@ container.
 Commands suuported include those for building projects and running nodes.
 """
 
+import apt
 import os
 import subprocess
 import tempfile
@@ -52,6 +53,7 @@ class Container:
         Returns:
             The exit code returned by the command.
         """
+        
         full_command = ["docker", "run",
                         "--interactive", "--tty", "--init", "--rm",
                         "--platform", "linux/amd64",
@@ -69,6 +71,10 @@ class Container:
                                     f"{FileSystem.standard_workspace_dir}",
                         "--volume", f"{self.config.project_dir}:" +
                                     f"{FileSystem.standard_project_dir}"]
+        cache = apt.Cache()
+        if cache["nvidia-container-toolkit"].is_installed:
+            pass
+            #full_command += ["--gpus", "all"]
         if node_dir:
             full_command += ["--volume", f"{node_dir}:" +
                                          f"{FileSystem.standard_node_dir}"]

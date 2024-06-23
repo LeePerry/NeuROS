@@ -9,7 +9,25 @@ import matplotlib.pyplot as plt
 import math
 import sys
 
-class _Quaternion:
+class _PlotableLine:
+
+    """
+    The base class for all data sources that can be plot as a single line.
+    """
+
+    def plot(self):
+        """
+        (Re)plot the line, representing the previously added datapoints.
+        """
+        if len(self.x_values) == 0:
+            return
+        if self.line:
+            self.line.remove()
+        self.ax.set_xlim(self.x_values[-1] - self._duration, self.x_values[-1])
+        self.line, = self.ax.plot(
+            self.x_values, self.y_values, c=self.colour, label=self.label)
+
+class _Quaternion(_PlotableLine):
 
     """
     A representation of a quaternion data source for visualisation.
@@ -35,26 +53,21 @@ class _Quaternion:
         self.y_values = collections.deque(maxlen=max_length)
         self.line = None
 
-    def plot(self, orientation, timestamp):
+    def add(self, orientation, timestamp):
         """
-        Plot a new datapoint.
+        Add a new datapoint.
 
         Parameters:
             orientation: The orientation represented as a quaternion.
             timestamp (float): The timestamp in seconds.
         """
-        if self.line:
-            self.line.remove()
         self.x_values.append(timestamp)
         o = orientation
         yaw = math.atan2(2.0 * (o.w * o.z + o.x * o.y),
-                            1.0 - 2.0 * (o.y * o.y + o.z * o.z))
+                         1.0 - 2.0 * (o.y * o.y + o.z * o.z))
         self.y_values.append(yaw)
-        self.ax.set_xlim(timestamp - self._duration, timestamp)
-        self.line, = self.ax.plot(
-            self.x_values, self.y_values, c=self.colour, label=self.label)
 
-class _Degrees:
+class _Degrees(_PlotableLine):
 
     """
     A representation of an angle in degrees data source for visualisation.
@@ -80,21 +93,16 @@ class _Degrees:
         self.y_values = collections.deque(maxlen=max_length)
         self.line = None
 
-    def plot(self, degrees, timestamp):
+    def add(self, degrees, timestamp):
         """
-        Plot a new datapoint.
+        Add a new datapoint.
 
         Parameters:
             degrees: The angle represented in degrees.
             timestamp (float): The timestamp in seconds.
         """
-        if self.line:
-            self.line.remove()
         self.x_values.append(timestamp)
         self.y_values.append((degrees * math.pi / 180) - math.pi)
-        self.ax.set_xlim(timestamp - self._duration, timestamp)
-        self.line, = self.ax.plot(
-            self.x_values, self.y_values, c=self.colour, label=self.label)
 
 class VisualiseRotations:
 
@@ -167,5 +175,9 @@ class VisualiseRotations:
             orientation: The orientation, in a suitable representation.
             timestamp (float): The timestamp in seconds.
         """
-        self._datasources[line_name].plot(orientation, timestamp)
+        self._datasources[line_name].add(orientation, timestamp)
+        for _, datasource in self._datasources.items():
+            # always plot all data sources in the same order, in order to 
+            # retain key order
+            datasource.plot()
         self._repaint()

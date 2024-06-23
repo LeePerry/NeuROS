@@ -47,7 +47,7 @@
     "environment" : {
         "GZ_SIM_RESOURCE_PATH"       : "#gazebo",
         "GZ_SIM_SYSTEM_PLUGIN_PATH"  : "@install/whiskeye_plugin/lib",
-        "NEUROS_REALTIME"            : 1,
+        "NEUROS_REALTIME"            : 0,
         "NEUROS_WORLD"               : "world/model.sdf",
         "NEUROS_ROBOT"               : "robot/model.sdf",
         "NEUROS_ROTATION_SPEED"      : 1,

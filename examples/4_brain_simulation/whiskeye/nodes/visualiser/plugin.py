@@ -14,7 +14,7 @@ def timestamp_to_seconds(ts):
 
 @neuros_initialise()
 def initialise(node):
-    visualiser = VisualiseRotations('Head Direction')
+    visualiser = VisualiseRotations('Head Direction', duration=60*5)
     visualiser.add_quaternion(GROUND_TRUTH, "g")
     visualiser.add_degrees(PREDICTION, "b")
     node.set_user_data((time.time(), visualiser))

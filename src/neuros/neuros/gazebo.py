@@ -41,8 +41,8 @@ class Gazebo:
         self._info = None
         self._ecm = None
         self.step_synchronous()
-        self._launch_bridge()
         self._launch_gui(verbosity)
+        self._launch_bridge()
 
     def get_topic_list(self):
         """
@@ -115,6 +115,7 @@ class Gazebo:
                              'allow_renaming: true ' +
                            (f'name: "{name}"' if name else '')]
         response = subprocess.check_output(command).strip()
+        self.step_synchronous()
         return str(response, "utf-8") == "data: true"
 
     def run_asynchronous(self):
@@ -140,7 +141,10 @@ class Gazebo:
         if count < 1:
             raise Exception("count must be greater than or equal to 1, " +
                             f"but received {count}")
-        self._server.run(True, count, False)
+
+        blocking = True
+        paused = False
+        self._server.run(blocking, count, paused)
 
     def get_world(self):
         """
@@ -247,6 +251,10 @@ class Gazebo:
         Note that translations are unidirectional i.e. a NeuROS output packet
         type will only be translated for outgoing packets, a vice-versa for
         incoming packets.
+
+        Note that this method also guarantees that all external topics have
+        become availale before returning. This is important to ensure that
+        initialisation packets are not lost.
         """
         command = ["ros2", "run", "ros_gz_bridge", "parameter_bridge"]
         inputs = [f"{i.external_topic}@{i.type.replace('.', '/')}[{i.gazebo_type}"
@@ -258,6 +266,20 @@ class Gazebo:
         self._bridge = (subprocess.Popen(command + inputs + outputs)
                         if inputs or outputs
                         else None)
+
+        # wait until all topics have become available (bridge is initialised)
+        logger = self._node.get_ros_node().get_logger().info
+        external_topics = set(
+            [i.external_topic 
+                for i in self._node._config.inputs 
+                if i.gazebo_type is not None] +
+            [o.external_topic 
+                for o in self._node._config.outputs 
+                if o.gazebo_type is not None])
+        while external_topics:
+            logger(f"Waiting for Gazebo topics: {external_topics}...")
+            external_topics -= set(self._node.get_topic_list())
+        logger("All Gazebo topics are now ready!")
 
     def _launch_gui(self, verbosity):
         self._bridge = subprocess.Popen(["gz", "sim", "-v", str(verbosity), "-g"])

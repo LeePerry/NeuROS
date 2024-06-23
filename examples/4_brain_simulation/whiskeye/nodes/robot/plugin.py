@@ -27,8 +27,7 @@ class Robot:
         self.motion_timeout = 0
         self.motion_direction = 1.0
         self.first_step = True
-        self.step()
-
+        
     def initialise_neck(self):
         body_neck = self.node.make_packet("_body_neck_pos")
         body_neck.data = 0.0
@@ -76,4 +75,5 @@ def initialise(node):
 def step(node, *sensor_data):
     robot = node.get_user_data()
     robot.step()
-    return sensor_data + robot.perform_motion(sensor_data[0])
+    if robot.simulator.get_sim_time().total_seconds() > 3:
+        return sensor_data + robot.perform_motion(sensor_data[0])
