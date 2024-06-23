@@ -138,8 +138,7 @@ class Model:
 
     def estimate(self, imu):
 
-        #t = timestamp_to_milliseconds(imu.header.stamp)
-        t = self._time
+        t = timestamp_to_milliseconds(imu.header.stamp)
         td = 20
         time_range = [t, t + td]
 
@@ -171,8 +170,6 @@ class Model:
         # TODO check that correction layer retains data
         nest.SetStatus(self._detector, {"n_events": 0})
         
-        self._time += td
-
         if not np.isnan(av):
             return int(av)
 
