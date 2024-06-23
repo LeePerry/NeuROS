@@ -134,9 +134,12 @@ class Model:
         #self._input = nest.Create('step_current_generator', N)
         #nest.Connect(self._input, CIRCUIT[:N], 'one_to_one')
 
+        self._time = 0
+
     def estimate(self, imu):
 
-        t = timestamp_to_milliseconds(imu.header.stamp)
+        #t = timestamp_to_milliseconds(imu.header.stamp)
+        t = self._time
         td = 20
         time_range = [t, t + td]
 
@@ -168,6 +171,8 @@ class Model:
         # TODO check that correction layer retains data
         nest.SetStatus(self._detector, {"n_events": 0})
         
+        self._time += td
+
         if not np.isnan(av):
             return int(av)
 
