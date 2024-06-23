@@ -163,7 +163,6 @@ class Model:
         nest.Prepare()
         nest.Run(td)
         data = nest.GetStatus(self._detector)[0]["events"]
-        print(f"Senders: {data['senders']}")
         av = circmean(data["senders"], low=1, high=180)
         nest.Cleanup()
         # TODO check that correction layer retains data

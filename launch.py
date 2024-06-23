@@ -100,7 +100,7 @@ def main():
     if args.visualisations:
         utilities.append(threading.Thread(
             target=launch_third_party_utility,
-            args=(config,"rviz2")))
+            args=(config,"rviz2"))) # TODO could auto-generate a config
     nodes = [threading.Thread(
             target=launch_node,
             args=(config, name, args.verbose, args.domain_id))

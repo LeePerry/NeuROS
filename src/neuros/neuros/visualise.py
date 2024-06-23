@@ -102,7 +102,7 @@ class _Degrees(_PlotableLine):
             timestamp (float): The timestamp in seconds.
         """
         self.x_values.append(timestamp)
-        self.y_values.append((degrees * math.pi / 180) - math.pi)
+        self.y_values.append(degrees * math.pi / 180)
 
 class VisualiseRotations:
 
@@ -124,8 +124,7 @@ class VisualiseRotations:
         plt.rcParams["figure.subplot.right"] = 0.975
         plt.rcParams["figure.subplot.bottom"] = 0.25
         plt.rcParams["figure.subplot.top"] = 0.84
-        self._fig, self._ax = plt.subplots()
-        self._ax.set_title(title)
+        self._fig, self._ax = plt.subplots(num=title)
         self._ax.set_xlabel('Time (seconds)')
         self._ax.set_ylabel('Angle (radians)')
         self._ax.set_yticks([-math.pi, 0, math.pi])

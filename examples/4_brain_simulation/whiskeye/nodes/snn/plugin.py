@@ -20,6 +20,5 @@ def estimate_odometry(node, imu, odom_correction):
     estimate = model.estimate(imu)
     if estimate is not None:
         odom_estimate = node.make_packet("odom_estimate")
-        odom_estimate.data = int(np.argmax(estimate))
-        node.get_ros_node().get_logger().info(f"estimate = {estimate}")
+        odom_estimate.data = int(estimate)
         return odom_estimate

@@ -6,17 +6,16 @@ import time
 from neuros.hooks import neuros_initialise, neuros_function
 from neuros.visualise import VisualiseRotations
 
-GROUND_TRUTH = "Ground Truth"
-PREDICTION = "Prediction"
-
-def timestamp_to_seconds(ts):
-    return ts.sec + (ts.nanosec / 1_000_000_000)
+GROUND_TRUTH    = "Ground Truth"
+PRED_NET_OUTPUT = "Predictive Coding Network"
+SNN_OUTPUT      = "Spiking Neural Network"
 
 @neuros_initialise()
 def initialise(node):
     visualiser = VisualiseRotations('Head Direction', duration=60*5)
     visualiser.add_quaternion(GROUND_TRUTH, "g")
-    visualiser.add_degrees(PREDICTION, "b")
+    visualiser.add_degrees(PRED_NET_OUTPUT, "b")
+    visualiser.add_degrees(SNN_OUTPUT, "r")
     node.set_user_data((time.time(), visualiser))
 
 @neuros_function(inputs="ground_truth")
@@ -25,12 +24,17 @@ def receive_ground_truth(node, ground_truth):
     visualiser.plot(GROUND_TRUTH,
                     ground_truth.pose.orientation,
                     time.time() - started)
-                    #timestamp_to_seconds(ground_truth.header.stamp))
 
 @neuros_function(inputs="head_dir_prediction")
 def receive_head_dir_prediction(node, prediction):
     started, visualiser = node.get_user_data()
-    visualiser.plot(PREDICTION,
-                    np.argmax(prediction.data) * 2,
+    visualiser.plot(PRED_NET_OUTPUT,
+                    (np.argmax(prediction.data) * 2) - 180,
                     time.time() - started)
-                    #timestamp_to_seconds(prediction.header.stamp))
+
+@neuros_function(inputs="odom_estimate")
+def receive_odom_estimate(node, estimate):
+    started, visualiser = node.get_user_data()
+    visualiser.plot(SNN_OUTPUT,
+                    (estimate.data * 2) - 180,
+                    time.time() - started)

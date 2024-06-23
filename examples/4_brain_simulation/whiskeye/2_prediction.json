@@ -24,6 +24,12 @@
     }, {
         "source_node"       : "snn",
         "source_output"     : "odom_estimate",
+        "destination_node"  : "visualiser",
+        "destination_input" : "odom_estimate",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "snn",
+        "source_output"     : "odom_estimate",
         "destination_node"  : "prednet",
         "destination_input" : "odom_estimate",
         "discard_limit"     : 0
