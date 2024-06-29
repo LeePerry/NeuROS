@@ -1,14 +1,19 @@
 Welcome to NeuROS documentation!
 ==================================
 
+.. argparse::
+   :module: src.config
+   :func: _make_parser
+   :prog: launch.py
+
+.. image:: ../../plantuml/architecture.png
+
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 8
    :caption: Contents:
 
    modules
    neuros
-
-.. image:: ../../plantuml/architecture.png
 
 Indices and tables
 ==================

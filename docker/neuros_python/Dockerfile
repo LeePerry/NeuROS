@@ -7,7 +7,7 @@ RUN apt-get update \
     && echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections \
     && apt-get install -y dialog \
     && apt-get -y install pip plantuml \
-    && pip3 install scapy sphinx \
+    && pip3 install scapy sphinx sphinx-argparse \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./setup_neuros.sh /home/neuros

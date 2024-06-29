@@ -47,6 +47,84 @@ MIT License
         print(f"\n{message}!\n")
         sys.exit(1)
 
+def _make_parser():
+    """
+    Constructs the standard NeuROS argument parser. Intended for internal use 
+    only! Do not call this directly!
+    Utilised by both the user CLI below and the auto-generated Sphinx 
+    documentation.
+
+    Returns:
+        An instance of the standard CLI argument parser.
+    """
+    parser = CommandLineInterface(
+        formatter_class=argparse.RawTextHelpFormatter,
+        description=CommandLineInterface.banner)
+
+    parser.add_argument("-p",
+                        "--project",
+                        type=str,
+                        required=True,
+                        help="The path to the project configuration json file")
+    parser.add_argument("-n",
+                        "--node",
+                        type=str,
+                        required=False,
+                        action="append",
+                        help="[OPTIONAL] " +
+                            "The name of a node as specified in the project configuration. " +
+                            "Can be specified multiple times to launch a subset. " +
+                            "Default is to launch all nodes.")
+    parser.add_argument("-d",
+                        "--domain-id",
+                        default=0,
+                        help="[OPTIONAL] " +
+                            "Domain ID for logical separation of nodes. " +
+                            "Defaults to 0 if not specified.")
+    parser.add_argument("-v",
+                        "--verbose",
+                        required=False,
+                        action="store_true",
+                        help="[OPTIONAL] " +
+                            "Launch ROS2 with debug level logging. " +
+                            "Defaults to false when not specified.")
+    parser.add_argument("-r",
+                        "--record",
+                        required=False,
+                        action="store_true",
+                        help="[OPTIONAL] " +
+                            "Record all ROS topics to a rosbag in the project directory. " +
+                            "Defaults to false when not specified.")
+    parser.add_argument("-t",
+                        "--topic",
+                        type=str,
+                        required=False,
+                        action="append",
+                        help="[OPTIONAL] " +
+                            "Filter recording to a specific topic. " +
+                            "Can be repeated multiple times to record multiple topics. " +
+                            "Default is to record all topics.")
+    parser.add_argument("-m",
+                        "--monitor-system-load",
+                        required=False,
+                        action="store_true",
+                        help="[OPTIONAL] " +
+                            "Periodicially monitor and log system load for performance analysis.")
+    parser.add_argument("-g",
+                        "--node-graph",
+                        required=False,
+                        action="store_true",
+                        help="[OPTIONAL] " +
+                            "Display the ROS2 node connectivity graph (rqt_graph).")
+    parser.add_argument("-z",
+                        "--visualisations",
+                        required=False,
+                        action="store_true",
+                        help="[OPTIONAL] " +
+                            "Display the ROS2 topic data visualisation GUI (rviz).")
+    
+    return parser
+
 class ProjectConfig:
     """
     A class for representing a single project configuation.
@@ -81,72 +159,7 @@ class ProjectConfig:
         The full command-line interface documentation can be found by running
             ./launch.py --help
         """
-        parser = CommandLineInterface(
-            formatter_class=argparse.RawTextHelpFormatter,
-            description=CommandLineInterface.banner)
-
-        parser.add_argument("-p",
-                            "--project",
-                            type=str,
-                            required=True,
-                            help="The path to the project configuration json file")
-        parser.add_argument("-n",
-                            "--node",
-                            type=str,
-                            required=False,
-                            action="append",
-                            help="[OPTIONAL] " +
-                                "The name of a node as specified in the project configuration. " +
-                                "Can be specified multiple times to launch a subset. " +
-                                "Default is to launch all nodes.")
-        parser.add_argument("-d",
-                            "--domain-id",
-                            default=0,
-                            help="[OPTIONAL] " +
-                                "Domain ID for logical separation of nodes. " +
-                                "Defaults to 0 if not specified.")
-        parser.add_argument("-v",
-                            "--verbose",
-                            required=False,
-                            action="store_true",
-                            help="[OPTIONAL] " +
-                                "Launch ROS2 with debug level logging. " +
-                                "Defaults to false when not specified.")
-        parser.add_argument("-r",
-                            "--record",
-                            required=False,
-                            action="store_true",
-                            help="[OPTIONAL] " +
-                                "Record all ROS topics to a rosbag in the project directory. " +
-                                "Defaults to false when not specified.")
-        parser.add_argument("-t",
-                            "--topic",
-                            type=str,
-                            required=False,
-                            action="append",
-                            help="[OPTIONAL] " +
-                                "Filter recording to a specific topic. " +
-                                "Can be repeated multiple times to record multiple topics. " +
-                                "Default is to record all topics.")
-        parser.add_argument("-m",
-                            "--monitor-system-load",
-                            required=False,
-                            action="store_true",
-                            help="[OPTIONAL] " +
-                                "Periodicially monitor and log system load for performance analysis.")
-        parser.add_argument("-g",
-                            "--node-graph",
-                            required=False,
-                            action="store_true",
-                            help="[OPTIONAL] " +
-                                "Display the ROS2 node connectivity graph (rqt_graph).")
-        parser.add_argument("-z",
-                            "--visualisations",
-                            required=False,
-                            action="store_true",
-                            help="[OPTIONAL] " +
-                                "Display the ROS2 topic data visualisation GUI (rviz).")
-
+        parser = _make_parser()
         args = parser.parse_args()
 
         if args.node:

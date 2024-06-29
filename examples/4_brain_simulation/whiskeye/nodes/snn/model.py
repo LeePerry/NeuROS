@@ -134,8 +134,6 @@ class Model:
         #self._input = nest.Create('step_current_generator', N)
         #nest.Connect(self._input, CIRCUIT[:N], 'one_to_one')
 
-        self._time = 0
-
     def estimate(self, imu):
 
         t = timestamp_to_milliseconds(imu.header.stamp)
@@ -143,10 +141,19 @@ class Model:
         time_range = [t, t + td]
 
         yaw = imu.angular_velocity.z
-        #vel = yaw * 0.35 * 10000 # TODO may need tuning
-        vel = yaw * 1_000_000_000_000
-        vel_range = [vel, 0.0]
+        
+        vel = yaw * 0.35 * 10000 # attempted tuning...
 
+        # vel = yaw * 1_000_000_000_000 # lots of events, always average 90.5
+        # vel = yaw *         1_000_000 # lots of events, always average 90.5
+        # vel = yaw *           100_000 # lots of events, always average 90.5
+        # vel = yaw *            10_000 # lots of events, always average 90.5 (once saw 90.99?)
+        # vel = yaw *             1_000 # lots of events, always average 90.5
+        # vel = yaw *               100 # lots of events, always average 90.5
+        # vel = yaw *                10 # lots of events, always average 90.5
+        # vel = yaw                   1 # lots of events, always average 90.5
+
+        vel_range = [vel, 0.0]
         zeros = [0.0, 0.0]
 
         # check angular velocity
@@ -162,16 +169,16 @@ class Model:
             nest.SetStatus(self._right_input, { "amplitude_times"  : time_range,
                                                 "amplitude_values" : vel_range })
 
+        # run simulation
         nest.Prepare()
         nest.Run(td)
         data = nest.GetStatus(self._detector)[0]["events"]
-        av = circmean(data["senders"], low=1, high=180)
+        av = circmean(data["senders"], low=1, high=180)      
         nest.Cleanup()
-        # TODO check that correction layer retains data
         nest.SetStatus(self._detector, {"n_events": 0})
-        
+
         if not np.isnan(av):
-            return int(av)
+            return round(av)
 
     def apply_correction(self, odom, stamp):
         
