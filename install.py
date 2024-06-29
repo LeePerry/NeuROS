@@ -15,6 +15,10 @@ from src.config import ProjectConfig, CommandLineInterface
 from src.container import Container
 
 def assume_yes():
+    """
+    Checks to see if the user specified --yes, indicating that the installation
+    process should assume "yes" for all prompts (i.e. automatic full install).
+    """
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawTextHelpFormatter,
         description=CommandLineInterface.banner)
@@ -24,6 +28,10 @@ def assume_yes():
     return parser.parse_args().yes
 
 def check_docker_installation():
+    """
+    Checks to see if docker is installed, and if is is not then exit the 
+    process with error code 1.
+    """
     print("Checking Docker...")
     process = subprocess.run(["docker", "--version"])
     if process.returncode > 0:
@@ -32,6 +40,15 @@ def check_docker_installation():
     print("... OK.")
 
 def confirmation(question):
+    """
+    Display a yes/no prompt to the user, then wait and validate their response.
+
+    Parameters:
+        question (str): The prompt to display.
+
+    Returns:
+        A boolean, with True indicating that the user responded "yes".
+    """
     print(question + " [yes/no]")
     yes = ['yes', 'y', 'yeah']
     no = ['no', 'n', 'nah']
@@ -42,6 +59,12 @@ def confirmation(question):
         else: sys.stdout.write("Please enter 'yes' or 'no'")
 
 def download_latest_ros2(yes):
+    """
+    Downloads the latest ROS2 Docker image.
+
+    Parameters:
+        yes (boolean): True if we should assume an automatic installation.
+    """
     if yes or confirmation("Allow NeuROS to download the latest ROS2 Docker image?"):
         print("Downloading ROS2 Docker image...")
         process = subprocess.run([
@@ -54,6 +77,14 @@ def download_latest_ros2(yes):
         print("... NeuROS will attempt to use any existing ROS2 image.")
 
 def _build_image(name, directory="docker"):
+    """
+    Builds a particular NeuROS Docker image. If the build fails then an 
+    exception is raised.
+
+    Parameters:
+        name (str): The name of the Docker image to build.
+        directory (str): The directory that name/Dockerfile can be found in.
+    """
     print("")
     print(f"Building and installing Docker image: {name}...")
     print("")
@@ -66,6 +97,12 @@ def _build_image(name, directory="docker"):
     print("... OK.")
 
 def build_docker_images(yes):
+    """
+    Builds all of the NeuROS Docker images.
+
+    Parameters:
+        yes (boolean): True if we should assume an automatic installation.
+    """
     if yes or confirmation("Allow NeuROS to build and install custom Docker images?"):
         print("Building and installing NeuROS images...")
         _build_image("neuros_python")
@@ -76,6 +113,12 @@ def build_docker_images(yes):
         print("... NeuROS nodes will be limited to existing Docker images.")
 
 def build_neuros():
+    """
+    Builds the NeuROS ROS2 workspace, which results in a single ROS2 node 
+    capable of loading any user plugin.
+
+    If there is an error, then exit the process with error code 1.
+    """
     print("Building NeuROS...")
     process = Container(ProjectConfig.build_environment()).build_workspace()
     if process.returncode > 0:
@@ -84,6 +127,15 @@ def build_neuros():
     print("... OK.")
 
 def build_examples(yes):
+    """
+    Builds all of the bundled example projects, including custom Docker 
+    images.
+
+    If there is an error, then exit the process with error code 1.
+
+    Parameters:
+        yes (boolean): True if we should assume an automatic installation.
+    """
     if yes or confirmation("Allow NeuROS to build and install examples?"):
         print("Building NeuROS examples...")
         process = Container(ProjectConfig.build_environment()).build_examples()
@@ -97,6 +149,16 @@ def build_examples(yes):
         print("... Some examples may not function correctly.")
 
 def build_documentation():
+    """
+    Builds all of the auto-generated html documentation, including PlantUML
+    diagrams. (Note that the html can be converted to pdf by running "make pdf"
+    in the docs directory)
+
+    If there is an error, then exit the process with error code 1.
+
+    Parameters:
+        yes (boolean): True if we should assume an automatic installation.
+    """
     print("Building documentation...")
     process = Container(ProjectConfig.build_environment()).build_documentation()
     if process.returncode > 0:
@@ -105,6 +167,11 @@ def build_documentation():
     print("... OK.")
 
 def main():
+    """
+    Run the complete build and installation process.
+
+    Finish by prompting the user to run an example project.
+    """
     yes = assume_yes()
     print("")
     print(CommandLineInterface.banner)

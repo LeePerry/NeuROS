@@ -10,6 +10,7 @@ help:
 
 html: Makefile
 	plantuml ./plantuml/*.txt
+	sphinx-apidoc -o source ..
 	sphinx-apidoc -o source ../src
 	sphinx-apidoc -o source ../src/neuros/neuros
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

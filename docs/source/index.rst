@@ -12,12 +12,7 @@ Welcome to NeuROS documentation!
    :maxdepth: 8
    :caption: Contents:
 
+   install
+   launch
    modules
    neuros
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

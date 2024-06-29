@@ -20,18 +20,20 @@ class CommandLineInterface(argparse.ArgumentParser):
     command-line argument parsing errors and apply custom handling.
     """
 
-    banner = """
-           _  __         ___  ____  ____
-          / |/ /__ __ __/ _ \/ __ \/ __/
-         /    / -_) // / , _/ /_/ /\ \  
-        /_/|_/\__/\_,_/_/|_|\____/___/  
-
+    description = """
 An Integration Framework for Heterogenous Systems Neuroscience
 
 Copyright (c) 2024 Lee Perry
 
 MIT License
 """
+
+    banner = """
+           _  __         ___  ____  ____
+          / |/ /__ __ __/ _ \/ __ \/ __/
+         /    / -_) // / , _/ /_/ /\ \  
+        /_/|_/\__/\_,_/_/|_|\____/___/  
+""" + description
 
     def error(self, message):
         """
@@ -47,7 +49,7 @@ MIT License
         print(f"\n{message}!\n")
         sys.exit(1)
 
-def _make_parser():
+def _make_parser(full_banner=False):
     """
     Constructs the standard NeuROS argument parser. Intended for internal use 
     only! Do not call this directly!
@@ -59,7 +61,9 @@ def _make_parser():
     """
     parser = CommandLineInterface(
         formatter_class=argparse.RawTextHelpFormatter,
-        description=CommandLineInterface.banner)
+        description=CommandLineInterface.banner \
+                    if full_banner else \
+                    CommandLineInterface.description)
 
     parser.add_argument("-p",
                         "--project",
@@ -159,7 +163,7 @@ class ProjectConfig:
         The full command-line interface documentation can be found by running
             ./launch.py --help
         """
-        parser = _make_parser()
+        parser = _make_parser(full_banner=True)
         args = parser.parse_args()
 
         if args.node:

@@ -7,7 +7,6 @@ container.
 Commands suuported include those for building projects and running nodes.
 """
 
-import apt
 import os
 import subprocess
 import tempfile
@@ -19,8 +18,6 @@ from src.neuros.neuros.config import FileSystem
 class Container:
     """
     Each NeuROS node must be launched inside a single container.
-
-    |container-dirs|
 
     This class represents a configured container, upon which methods can be
     invoked in order to launch and execute commands. Note that the associated
@@ -71,10 +68,6 @@ class Container:
                                     f"{FileSystem.standard_workspace_dir}",
                         "--volume", f"{self.config.project_dir}:" +
                                     f"{FileSystem.standard_project_dir}"]
-        cache = apt.Cache()
-        if cache["nvidia-container-toolkit"].is_installed:
-            pass
-            #full_command += ["--gpus", "all"]
         if node_dir:
             full_command += ["--volume", f"{node_dir}:" +
                                          f"{FileSystem.standard_node_dir}"]

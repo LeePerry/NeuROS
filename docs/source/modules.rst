@@ -2,6 +2,6 @@ src
 ===
 
 .. toctree::
-   :maxdepth: 8
+   :maxdepth: 4
 
    src
