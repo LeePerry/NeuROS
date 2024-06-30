@@ -1,24 +1,24 @@
 @startuml
 left to right direction
 package "PC" {
-  [NodeA_instance1]
-  [NodeA_instance2]
-  [NodeA_instance3]
+  [NodeA_id1]
+  [NodeA_id2]
+  [NodeA_id3]
 }
 package "Laptop" {
-  [NodeB_instance1]
-  [NodeB_instance2]
-  [NodeB_instance3]
+  [NodeB_id1]
+  [NodeB_id2]
+  [NodeB_id3]
 }
 package "Cloud" {
-  [NodeC_instance1]
-  [NodeC_instance2]
-  [NodeC_instance3]
+  [NodeC_id1]
+  [NodeC_id2]
+  [NodeC_id3]
 }
-[NodeA_instance1] --> [NodeB_instance1]
-[NodeB_instance1] --> [NodeC_instance1]
-[NodeA_instance2] --> [NodeB_instance2]
-[NodeB_instance2] --> [NodeC_instance2]
-[NodeA_instance3] --> [NodeB_instance3]
-[NodeB_instance3] --> [NodeC_instance3]
+[NodeA_id1] --> [NodeB_id1]
+[NodeB_id1] --> [NodeC_id1]
+[NodeA_id2] --> [NodeB_id2]
+[NodeB_id2] --> [NodeC_id2]
+[NodeA_id3] --> [NodeB_id3]
+[NodeB_id3] --> [NodeC_id3]
 @enduml
