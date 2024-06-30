@@ -1,0 +1,24 @@
+@startuml
+left to right direction
+package "PC" {
+  [NodeA_instance1]
+  [NodeA_instance2]
+  [NodeA_instance3]
+}
+package "Laptop" {
+  [NodeB_instance1]
+  [NodeB_instance2]
+  [NodeB_instance3]
+}
+package "Cloud" {
+  [NodeC_instance1]
+  [NodeC_instance2]
+  [NodeC_instance3]
+}
+[NodeA_instance1] --> [NodeB_instance1]
+[NodeB_instance1] --> [NodeC_instance1]
+[NodeA_instance2] --> [NodeB_instance2]
+[NodeB_instance2] --> [NodeC_instance2]
+[NodeA_instance3] --> [NodeB_instance3]
+[NodeB_instance3] --> [NodeC_instance3]
+@enduml
