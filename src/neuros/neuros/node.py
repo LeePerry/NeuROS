@@ -15,6 +15,7 @@ import rclpy
 import rclpy.node
 import std_msgs.msg
 import sensor_msgs.msg
+import rosgraph_msgs.msg
 
 from neuros.hooks import Hooks
 from neuros.config import NodeConfig, FileSystem

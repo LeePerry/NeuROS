@@ -83,7 +83,8 @@ class _InternalSubscriber:
             packet: The newly received data.
         """
         self._reg_timer.cancel()
-        self._ack.publish(self._packet)
+        if self._ack:
+            self._ack.publish(self._packet)
         self._input_cb(self.source_node, packet)
 
 class Input:

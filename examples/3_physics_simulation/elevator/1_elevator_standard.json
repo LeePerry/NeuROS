@@ -1,0 +1,16 @@
+{
+    "nodes" : ["control.json", "physics.json"],
+    "connections" : [{
+        "source_node"       : "control",
+        "source_output"     : "command",
+        "destination_node"  : "physics",
+        "destination_input" : "command",
+        "discard_limit"     : 0
+    }, {
+        "source_node"       : "physics",
+        "source_output"     : "sensor_data",
+        "destination_node"  : "control",
+        "destination_input" : "sensor_data",
+        "discard_limit"     : 0
+    }]
+}

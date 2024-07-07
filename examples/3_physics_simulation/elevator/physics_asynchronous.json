@@ -1,0 +1,23 @@
+{
+    "name"      : "physics",
+    "container" : "neuros_gazebo",
+    "plugin"    : "physics.py",
+    "inputs"    : [{ "name"              : "_clock",
+                     "type"              : "rosgraph_msgs.msg.Clock",
+                     "external_topic"    : "/world/elevator_world/clock",
+                     "gazebo_type"       : "gz.msgs.Clock" },
+                   { "name"              : "_sensor_data",
+                     "type"              : "std_msgs.msg.Int32",
+                     "external_topic"    : "/model/elevator/state",
+                     "gazebo_type"       : "gz.msgs.Int32" },
+                   { "name"              : "command",
+                     "type"              : "std_msgs.msg.Int32" }],
+    "outputs"   : [{ "name"              : "sensor_data",
+                     "type"              : "std_msgs.msg.Int32" },
+                   { "name"              : "_command",
+                     "type"              : "std_msgs.msg.Int32",
+                     "external_topic"    : "/model/elevator/cmd",
+                     "gazebo_type"       : "gz.msgs.Int32" }],
+    "environment" : { "NEUROS_MODEL"     : "elevator.sdf",
+                      "NEUROS_ASYNC_SIM" : "enabled" }
+}

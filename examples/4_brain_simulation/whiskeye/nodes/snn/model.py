@@ -4,12 +4,12 @@ import nest
 import numpy as np
 from scipy.stats import circmean
 
-def timestamp_to_milliseconds(ts):
-    return (ts.sec * 1_000) + (ts.nanosec / 1_000_000)
-
 class Model:
 
     def __init__(self):
+        #nest.SetKernelStatus({"print_time": True})
+        nest.set_verbosity(100) # supress nest logging
+
         cell_params = {
                 'C_m': 250.0,
                 'E_L': -70.0,
@@ -33,7 +33,7 @@ class Model:
         delay = 0.1
         base_ex = 4000 #
         base_in = 450 #
-        base_cj = 169 #
+        base_cj = 169 * 15 #
         w_ex_cj = 660 #
 
         I_init = 300.0 # pA
@@ -45,8 +45,8 @@ class Model:
         #----------------------------------
         
         nest.CopyModel("iaf_psc_alpha", "hd_cell", cell_params)
-        population = nest.Create('hd_cell', N*4)
-        nest.SetStatus(population[:N], {"I_e": 450.0})
+        self._brain = nest.Create('hd_cell', N*4)
+        nest.SetStatus(self._brain[:N], {"I_e": 200.0})
 
         #----------------------------------
         # Define connection weights
@@ -81,7 +81,7 @@ class Model:
 
                 d1 = abs((e+1)/N - c/N)
                 d2 = abs((e+1)/N - c/N -1)
-                d23 = abs((e+1)/N - c/N +1)
+                d3 = abs((e+1)/N - c/N +1)
                 d = min(abs(d1),abs(d2),abs(d3))
                 w_r[e,c] = base_cj * (np.exp(-(d)**2/2/sigma**2))
 
@@ -94,76 +94,67 @@ class Model:
         # Connect the network
         #----------------------------------
 
-        CIRCUIT = population
+        self._correction_layer = nest.Create('step_current_generator', N)
+        nest.Connect(self._correction_layer, self._brain[0:N], 'one_to_one')
 
-        self._correction_layer = nest.Create('dc_generator', 180)
-        nest.Connect(self._correction_layer, CIRCUIT[0:N], 'one_to_one')
-
-        bump_init = nest.Create('step_current_generator', 1, params = {'amplitude_times':[0.1,0.1+I_init_dur],'amplitude_values':[I_init,0.0]})
-        nest.Connect(bump_init,[CIRCUIT[I_init_pos]])
+        bump_init = nest.Create('step_current_generator', 1, params = {
+            'amplitude_times'  : [0.1, 0.1+I_init_dur],
+            'amplitude_values' : [I_init, 0.0]})
+        nest.Connect(bump_init,[self._brain[I_init_pos]])
 
         SYN = {'weight': w_ex, 'delay': delay}
-        nest.Connect(CIRCUIT[0:N],CIRCUIT[N:N*2], 'all_to_all', SYN)
+        nest.Connect(self._brain[0:N],self._brain[N:N*2], 'all_to_all', SYN)
 
         SYN = {'weight': -w_in, 'delay': delay}
-        nest.Connect(CIRCUIT[N:N*2],CIRCUIT[0:N], 'all_to_all', SYN)
+        nest.Connect(self._brain[N:N*2],self._brain[0:N], 'all_to_all', SYN)
 
         SYN = {'weight': w_ex_cj, 'delay': delay}
-        nest.Connect(CIRCUIT[0:N],CIRCUIT[N*2:N*3], 'one_to_one', SYN)
-        nest.Connect(CIRCUIT[0:N],CIRCUIT[N*3:N*4], 'one_to_one', SYN)
+        nest.Connect(self._brain[0:N],self._brain[N*2:N*3], 'one_to_one', SYN)
+        nest.Connect(self._brain[0:N],self._brain[N*3:N*4], 'one_to_one', SYN)
 
         SYN = {'weight': w_l, 'delay': delay}
-        nest.Connect(CIRCUIT[N*2:N*3],CIRCUIT[0:N], 'all_to_all', SYN)
+        nest.Connect(self._brain[N*2:N*3],self._brain[0:N], 'all_to_all', SYN)
 
         SYN = {'weight': w_r, 'delay': delay}
-        nest.Connect(CIRCUIT[N*3:N*4],CIRCUIT[0:N], 'all_to_all', SYN)
+        nest.Connect(self._brain[N*3:N*4],self._brain[0:N], 'all_to_all', SYN)
 
-        self._brain = CIRCUIT
-
-        self._detector = nest.Create("spike_detector", N, params={
+        self._detector = nest.Create("spike_detector", 1, params={
             "withgid"  : True,
             "withtime" : True })
-        nest.Connect(CIRCUIT[:N], self._detector)
+        nest.Connect(self._brain[:N], self._detector)
 
-        self._left_input = nest.Create('step_current_generator', N)
-        nest.Connect(self._left_input, CIRCUIT[2*N:3*N], 'one_to_one')
+        self._left_input = nest.Create('step_current_generator', 1)
+        nest.Connect(self._left_input, self._brain[2*N:3*N], 'all_to_all')
 
-        self._right_input = nest.Create('step_current_generator', N)
-        nest.Connect(self._right_input, CIRCUIT[3*N:4*N], 'one_to_one')
+        self._right_input = nest.Create('step_current_generator', 1)
+        nest.Connect(self._right_input, self._brain[3*N:4*N], 'all_to_all')
+        
+        self.current_exc_state = np.zeros(shape = (N))
 
-        #self._input = nest.Create('step_current_generator', N)
-        #nest.Connect(self._input, CIRCUIT[:N], 'one_to_one')
+        #settle_period = 100.0
+        #nest.Prepare()
+        #nest.Run(settle_period)
+        #nest.Cleanup()
+        self._time = 20.0 # settle_period
 
     def estimate(self, imu):
 
-        t = timestamp_to_milliseconds(imu.header.stamp)
-        td = 20
-        time_range = [t, t + td]
+        td = 20.0
+        time_range = [self._time, self._time + td]
+        self._time += td
 
         yaw = imu.angular_velocity.z
-        
-        vel = yaw * 0.35 * 10000 # attempted tuning...
-
-        # vel = yaw * 1_000_000_000_000 # lots of events, always average 90.5
-        # vel = yaw *         1_000_000 # lots of events, always average 90.5
-        # vel = yaw *           100_000 # lots of events, always average 90.5
-        # vel = yaw *            10_000 # lots of events, always average 90.5 (once saw 90.99?)
-        # vel = yaw *             1_000 # lots of events, always average 90.5
-        # vel = yaw *               100 # lots of events, always average 90.5
-        # vel = yaw *                10 # lots of events, always average 90.5
-        # vel = yaw                   1 # lots of events, always average 90.5
-
+        vel = yaw * 1_511
         vel_range = [vel, 0.0]
         zeros = [0.0, 0.0]
 
         # check angular velocity
-        anti_clockwise = vel < 0
-        if anti_clockwise:
+        if vel < 0:
             nest.SetStatus(self._left_input,  { "amplitude_times"  : time_range,
                                                 "amplitude_values" : vel_range })
             nest.SetStatus(self._right_input, { "amplitude_times"  : time_range,
                                                 "amplitude_values" : zeros })
-        else:
+        elif vel > 0:
             nest.SetStatus(self._left_input,  { "amplitude_times"  : time_range,
                                                 "amplitude_values" : zeros })
             nest.SetStatus(self._right_input, { "amplitude_times"  : time_range,
@@ -172,25 +163,30 @@ class Model:
         # run simulation
         nest.Prepare()
         nest.Run(td)
-        data = nest.GetStatus(self._detector)[0]["events"]
-        av = circmean(data["senders"], low=1, high=180)      
+
+        ring1_exc, ring1_spikes_exc = np.unique(nest.GetStatus(self._detector)[0]['events']['senders'], return_counts = True)
+        
+        if ring1_spikes_exc.size > 0:
+            self.current_exc_state = np.zeros(shape = (180))
+            self.current_exc_state[ring1_exc - min(self._brain[0:180])] = ring1_spikes_exc
+                
+        ring1_most_active_exc_index = np.argmax(self.current_exc_state) if np.argmax(self.current_exc_state) is not None else None
         nest.Cleanup()
         nest.SetStatus(self._detector, {"n_events": 0})
-
-        if not np.isnan(av):
-            return round(av)
-
-    def apply_correction(self, odom, stamp):
+        return ring1_most_active_exc_index
         
+    def apply_correction(self, odom, stamp):
+        """
         odom = odom * (1 / odom.max())
+        odom *= 8
         expected = len(self._correction_layer)
         actual = len(odom)
         if expected != actual:
             raise Exception("Correction is unexpected length. " + 
                 f"Expected: {expected}. Actual: {actual}.")
 
-        #t = timestamp_to_milliseconds(stamp)
         for i in range(expected):
-            nest.SetStatus([self._correction_layer[i]], { "amplitude" : odom[i] })
-            #nest.SetStatus([self._correction_layer[i]], { "amplitude_times" : [t, t + 200],
-            #                                              "amplitude_values": [odom[i], 0.0]})
+            #nest.SetStatus([self._correction_layer[i]], { "amplitude" : odom[i] })
+            nest.SetStatus([self._correction_layer[i]], { "amplitude_times"  : [self._time, self._time + 200],
+                                                          "amplitude_values" : [odom[i] * 6_000, 0.0]})
+        """

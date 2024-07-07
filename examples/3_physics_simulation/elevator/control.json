@@ -1,0 +1,9 @@
+{
+    "name"      : "control",
+    "container" : "neuros_python",
+    "plugin"    : "control.py",
+    "inputs"    : [{ "name" : "sensor_data",
+                     "type" : "std_msgs.msg.Int32" }],
+    "outputs"   : [{ "name" : "command",
+                     "type" : "std_msgs.msg.Int32"}]
+}

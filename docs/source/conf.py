@@ -3,7 +3,7 @@ import sys
 sys.path.insert(0, os.path.abspath(os.path.join('..', '..')))
 
 project = 'NeuROS'
-copyright = '2023, Lee Perry'
+copyright = '2024, Lee Perry'
 author = 'Lee Perry'
 release = '1.0.0'
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.napoleon', 'sphinxarg.ext']
