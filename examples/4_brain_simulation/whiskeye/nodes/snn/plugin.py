@@ -8,7 +8,7 @@ from model import Model
 
 @neuros_initialise()
 def initialise(node):
-    node.set_user_data(Model())
+    node.set_user_data(Model(ring_model='Grid'))
 
 @neuros_function(inputs=["imu", Optional("odom_correction")],
                  outputs=Optional("odom_estimate"))

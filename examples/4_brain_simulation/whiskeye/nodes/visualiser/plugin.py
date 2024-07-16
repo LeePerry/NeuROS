@@ -23,18 +23,22 @@ def receive_ground_truth(node, ground_truth):
     started, visualiser = node.get_user_data()
     visualiser.plot(GROUND_TRUTH,
                     ground_truth.pose.orientation,
-                    time.time() - started)
+                    (time.time() - started) / 10.0)
 
 @neuros_function(inputs="head_dir_prediction")
 def receive_head_dir_prediction(node, prediction):
     started, visualiser = node.get_user_data()
     visualiser.plot(PRED_NET_OUTPUT,
                     (np.argmax(prediction.data) * 2) - 180,
-                    time.time() - started)
+                    (time.time() - started) / 10.0)
 
 @neuros_function(inputs="odom_estimate")
 def receive_odom_estimate(node, estimate):
     started, visualiser = node.get_user_data()
+    
+    angle = ((estimate.data % 120) * (360 // 120) - 180)
+
+    node.get_ros_node().get_logger().info(f"odom_estimate = {estimate.data} [{angle}]")
     visualiser.plot(SNN_OUTPUT,
-                    (estimate.data * 2) - 180,
-                    time.time() - started)
+                    angle,
+                    (time.time() - started) / 10.0)
