@@ -6,6 +6,8 @@ This metric measures the accuracy and consistency of the provided tick
 controller mechanisms.
 """
 
+import numpy as np
+
 import common.data
 import common.plot
 import common.run
@@ -43,11 +45,14 @@ def process_data():
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.005)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.002)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.001)
+    binwidth = 0.0005
     common.plot.histogram("log/1_tick_interval_histogram.png",
                           intervals,
                           "Interval (Target 1.0)",
                           relative_frequency=False,
-                          bins=20)
+                          bins=np.arange(min(intervals), max(intervals) + binwidth, binwidth), 
+                          xlimits=[0.99, 1.01],
+                          ylimits=[0, 100])
 
     print("==== Tick CPU Series ====")
     # JUST TAKING THE 2nd MINUTE OF DATA (OFTEN HIGH AT START)

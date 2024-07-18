@@ -7,13 +7,19 @@ import common.data
 
 main_colour = "teal"
 
-def histogram(path, data, x_axis, relative_frequency=False, bins=20):
+def histogram(path, data, x_axis, relative_frequency=False, bins=20, xlimits=None, ylimits=None):
     fig = plt.figure()
     ax = fig.add_subplot(111)
+    if xlimits:
+        plt.xlim(xlimits)
+    if ylimits:
+        plt.ylim(ylimits)
     if relative_frequency:
         data = np.array(data)
-        ax.hist(data, bins=bins, 
-                weights=np.zeros_like(data) + 100.0 / data.size, color=main_colour)
+        ax.hist(data, 
+                bins=bins, 
+                weights=np.zeros_like(data) + 100.0 / data.size, 
+                color=main_colour)
         ax.set_ylabel('Frequency (%)', size=12)
     else:
         ax.hist(data, bins=bins, color=main_colour)

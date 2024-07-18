@@ -5,6 +5,7 @@ import common.data
 import common.plot
 import common.run
 
+import numpy as np
 import time
 
 """
@@ -45,11 +46,14 @@ def process_data():
         print("==== Real Time ====")
         real_time_intervals = real_time_parser.intervals()
         common.data.basic_stats(real_time_intervals)
+        binwidth = 0.05
         common.plot.histogram(f"log/3_physics_simulation_{name}_real_time_interval_histogram.png",
                             real_time_intervals,
                             "Interval (seconds)",
                             relative_frequency=False,
-                            bins=20)
+                            bins=np.arange(min(real_time_intervals), max(real_time_intervals) + binwidth, binwidth), 
+                            xlimits=[2.75, 5.0],
+                            ylimits=[0, 26])
 
         data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
         sim_time_parser = common.data.Parser("\[INFO\] \[.*\] \[physics\]: Simulated time: (\d*\.?\d+)")
@@ -58,11 +62,14 @@ def process_data():
         print("==== Simulated Time ====")
         sim_time_intervals = sim_time_parser.intervals()
         common.data.basic_stats(sim_time_intervals)
+        binwidth = 0.00025
         common.plot.histogram(f"log/3_physics_simulation_{name}_simulated_time_interval_histogram.png",
                             sim_time_intervals,
                             "Interval (seconds)",
                             relative_frequency=False,
-                            bins=20)
+                            bins=np.arange(min(sim_time_intervals), max(sim_time_intervals) + binwidth, binwidth),
+                            xlimits=[1.0, 1.0035],
+                            ylimits=[0, 80])
 
         if len(real_time_parser.samples()) != len(sim_time_parser.samples()):
             raise Exception("Different number of sim and real time samples!")
@@ -84,5 +91,5 @@ def process_data():
                                         f"log/3_physics_simulation_{name}_cpu_time_series.png")
 
 if __name__ == '__main__':
-    create_data()
+    #create_data()
     process_data()
