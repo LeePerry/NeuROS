@@ -31,7 +31,8 @@ class Container:
         """
         self.config = config
 
-    def docker_command(self, command, work_dir="", container="", node_dir=""):
+    def docker_command(self, command, work_dir="", container="", node_dir="", 
+                       host_net=False):
         """
         A generalised method capable of executing any command within the
         running container. All commands are run inside the container as the
@@ -46,6 +47,8 @@ class Container:
             node_dir (str) : The full path of a directory to be mounted as the
                              NeuROS node directory (defaults to not mounting any
                              directory).
+            host_net (boolean) : True if the container should be launched with 
+                                 access to the host network, false otherwise.
 
         Returns:
             The exit code returned by the command.
@@ -71,6 +74,8 @@ class Container:
         if node_dir:
             full_command += ["--volume", f"{node_dir}:" +
                                          f"{FileSystem.standard_node_dir}"]
+        if host_net:
+            full_command += ["--network=host"]
         if work_dir:
             full_command += ["--workdir", work_dir]
         if not container:

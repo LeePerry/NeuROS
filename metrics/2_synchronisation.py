@@ -46,9 +46,12 @@ def process_data():
                           bins=20)
 
     print("==== Voting CPU Series ====")
-    # JUST TAKING THE 2nd MINUTE OF DATA (OFTEN HIGH AT START)
     common.plot.all_cpu_time_series(data_path,
                                     "log/2_synchronisation_voting_cpu_time_series.png")
+    
+    print("==== Tick Network Series ====")
+    common.plot.network_speeds_time_series(data_path,
+                                           "log/2_synchronisation_voting_network_speeds_time_series.png")
 
 if __name__ == '__main__':
     create_data()

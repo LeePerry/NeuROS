@@ -112,6 +112,10 @@ def process_data():
         print("==== Physics Sim CPU Series ====")
         common.plot.all_cpu_time_series(f"log/3_physics_simulation_{name}.txt",
                                         f"log/3_physics_simulation_{name}_cpu_time_series.png")
+        
+        print("==== Tick Network Series ====")
+        common.plot.network_speeds_time_series(f"log/3_physics_simulation_{name}.txt",
+                                               f"log/3_physics_simulation_{name}_network_speeds_time_series.png")
     
     print("==== Combined Real vs. Simulated Time Graph ====")
     all_labels = [{ "1_elevator_standard"            : "Strict Synchronisation",
@@ -128,5 +132,5 @@ def process_data():
                            "Simulated Time (seconds)")
 
 if __name__ == '__main__':
-    #create_data()
+    create_data()
     process_data()

@@ -46,7 +46,7 @@ MIT License
                            the default ArgumentParser.
         """
         self.print_help()
-        print(f"\n{message}!\n")
+        print(f"\nERROR: {message}!\n")
         sys.exit(1)
 
 def _make_parser(full_banner=False):

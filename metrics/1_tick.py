@@ -38,7 +38,6 @@ def process_data():
     data.read(parser.parse)
 
     print("==== Tick Interval ====")
-    # DISCARDS THE ANOMOLOUR FIRST INTERVAL AT STARTUP
     intervals = parser.intervals()[1:]
     common.data.basic_stats(intervals)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.010)
@@ -52,12 +51,15 @@ def process_data():
                           relative_frequency=False,
                           bins=np.arange(min(intervals), max(intervals) + binwidth, binwidth), 
                           xlimits=[0.99, 1.01],
-                          ylimits=[0, 100])
+                          ylimits=[0, 120])
 
     print("==== Tick CPU Series ====")
-    # JUST TAKING THE 2nd MINUTE OF DATA (OFTEN HIGH AT START)
     common.plot.all_cpu_time_series(data_path,
                                     "log/1_tick_cpu_time_series.png")
+    
+    print("==== Tick Network Series ====")
+    common.plot.network_speeds_time_series(data_path,
+                                           "log/1_tick_network_speeds_time_series.png")
 
 if __name__ == '__main__':
     create_data()

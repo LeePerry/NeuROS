@@ -65,7 +65,7 @@ def multi_time_series(path, datasets, labels, y_axis, y_lim=[]):
 def all_cpu_time_series(from_path, to_path, range_start=0, range_stop=-1):
     datasets = []
     labels = []
-    for core in range(1, 9):
+    for core in range(1, 64):
         data = common.data.Reader(from_path)
         parser = common.data.Parser.for_cpu(core)
         data.read(parser.parse)
@@ -76,3 +76,19 @@ def all_cpu_time_series(from_path, to_path, range_start=0, range_stop=-1):
         labels.append(f"Core {core}")
     common.plot.multi_time_series(
         to_path, datasets, labels, "CPU Usage (%)", [0, 100])
+
+def network_speeds_time_series(from_path, to_path):
+    line_match = "\[INFO\] \[.*\] \[system-load-monitor\]: Network: "
+    data = common.data.Reader(from_path)
+    parser = common.data.Parser(line_match + "(\d+), \d+")
+    data.read(parser.parse)
+    receive_speeds = np.array(parser.samples()[10:])
+    receive_speeds /= 1024
+    data = common.data.Reader(from_path)
+    parser = common.data.Parser(line_match + "\d+, (\d+)")
+    data.read(parser.parse)
+    send_speeds = np.array(parser.samples()[10:])
+    send_speeds /= 1024
+    common.plot.multi_time_series(
+        to_path, [receive_speeds, send_speeds], ["Received", "Sent"], 
+        "Network Usage (kb/s)")

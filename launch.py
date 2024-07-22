@@ -47,10 +47,11 @@ def start_monitoring(config):
         config (ProjectConfig) : The NeuROS project config.
     """
     Container(config).docker_command("src/monitor.py",
-                                     container="neuros_python")
+                                     container="neuros_python",
+                                     host_net=True)
     stop_all_children()
 
-def launch_third_party_utility(config, utility):
+def launch_gazebo_utility(config, utility):
     """
     This function will launch a 3rd party utility process and block until it
     completes.
@@ -95,11 +96,11 @@ def main():
             args=(config,)))
     if args.node_graph:
         utilities.append(threading.Thread(
-            target=launch_third_party_utility,
+            target=launch_gazebo_utility,
             args=(config,"rqt_graph")))
     if args.visualisations:
         utilities.append(threading.Thread(
-            target=launch_third_party_utility,
+            target=launch_gazebo_utility,
             args=(config,"rviz2"))) # TODO could auto-generate a config
     nodes = [threading.Thread(
             target=launch_node,
