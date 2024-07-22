@@ -37,6 +37,17 @@ def line(path, x, y, x_axis, y_axis):
     fig.tight_layout()
     plt.savefig(path)
 
+def multi_line(path, all_labels, all_x, all_y, x_axis, y_axis):
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    for label, x, y in zip(all_labels, all_x, all_y):
+        ax.plot(x, y, label=label)
+    ax.legend()
+    ax.set_xlabel(x_axis, size=12)
+    ax.set_ylabel(y_axis, size=12)
+    fig.tight_layout()
+    plt.savefig(path)
+
 def multi_time_series(path, datasets, labels, y_axis, y_lim=[]):
     fig = plt.figure()
     ax = fig.add_subplot(111)
