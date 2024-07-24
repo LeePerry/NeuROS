@@ -1,11 +1,35 @@
-# Copyright (c) 2023 Lee Perry
+# Copyright (c) 2024 Lee Perry
 
 import nest
 import numpy as np
-from scipy.stats import circmean
 
 nest.set_verbosity("M_ERROR")
 nest.local_num_threads = 8
+
+def ring_mean_activity(data, centre = True):
+    # Data is expected to be a single ring's activity history of shape (timesteps, ring_size)
+    # Centre == False: rays are from 0 -> 2pi, half-open interval. Centre == True: rays are adjusted to project from halfway along their arc
+    data = np.array(data)
+    if data.ndim < 2:
+        data = data.reshape(1, -1)
+
+    ring_size = data.shape[1]
+    arc_per_ring_segment = (2 * np.pi) / ring_size
+    rays = np.repeat(np.arange(0, 2 * np.pi, arc_per_ring_segment).reshape(1, -1), data.shape[0], axis = 0)
+    if centre:
+        rays = rays + arc_per_ring_segment / 2
+
+    rays_for_each_spike = np.empty(shape = (data.shape[0]), dtype = 'object')
+    mean_activity = np.empty(shape = (data.shape[0]), dtype = 'float')
+    for i in range(rays_for_each_spike.shape[0]):
+        if len(np.nonzero(data[i,:])) > 0:
+            rays_for_each_spike[i] = np.repeat(rays[i,:][data[i,:] > 0], data[i, :][data[i,:] > 0].astype('int'))
+            mean_activity[i] = np.arctan2(np.mean(np.sin(rays_for_each_spike[i])), np.mean(np.cos(rays_for_each_spike[i]))) % (2 * np.pi)
+        else:
+            mean_activity[i] = 0
+        mean_activity[np.isnan(mean_activity)] = 0
+    mean_activity_ring_index = mean_activity * (ring_size / (2*np.pi))
+    return mean_activity_ring_index
 
 class Model:
 
@@ -363,6 +387,7 @@ class Model:
             bump_init = nest.Create('step_current_generator', 1, params = {'amplitude_times':[0.1,0.1+I_init_dur],'amplitude_values':[I_init,0.0]})
             nest.Connect(bump_init,[exc[I_init_pos]])
         
+        self.resolution = N
         self.current_exc_state = np.zeros(shape = (N))
         self._time = 20.0
 
@@ -426,14 +451,12 @@ class Model:
         ring1_exc, ring1_spikes_exc = np.unique(nest.GetStatus(self._detector)[0]['events']['senders'], return_counts = True)
         
         if ring1_spikes_exc.size > 0:
-            self.current_exc_state = np.zeros(shape = (180))
-            self.current_exc_state[ring1_exc - min(self._brain[0:180])] = ring1_spikes_exc
+            self.current_exc_state = np.zeros(shape = (self.resolution))
+            self.current_exc_state[ring1_exc - min(self._brain[0:self.resolution])] = ring1_spikes_exc
         
-        #print(f"ring1_exc={ring1_exc}")
-        #print(f"ring1_spikes_exc={ring1_spikes_exc}")
-        #print(f"self.current_exc_state={self.current_exc_state}")
+        #ring1_most_active_exc_index = np.argmax(self.current_exc_state) if np.argmax(self.current_exc_state) is not None else None
+        ring1_most_active_exc_index = ring_mean_activity(self.current_exc_state)
         
-        ring1_most_active_exc_index = np.argmax(self.current_exc_state) if np.argmax(self.current_exc_state) is not None else None
         nest.Cleanup()
         nest.SetStatus(self._detector, {"n_events": 0})
 

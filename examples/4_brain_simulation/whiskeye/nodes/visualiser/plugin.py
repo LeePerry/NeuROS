@@ -10,6 +10,31 @@ GROUND_TRUTH    = "Ground Truth"
 PRED_NET_OUTPUT = "Predictive Coding Network"
 SNN_OUTPUT      = "Spiking Neural Network"
 
+def ring_mean_activity(data, centre = True):
+    # Data is expected to be a single ring's activity history of shape (timesteps, ring_size)
+    # Centre == False: rays are from 0 -> 2pi, half-open interval. Centre == True: rays are adjusted to project from halfway along their arc
+    data = np.array(data)
+    if data.ndim < 2:
+        data = data.reshape(1, -1)
+
+    ring_size = data.shape[1]
+    arc_per_ring_segment = (2 * np.pi) / ring_size
+    rays = np.repeat(np.arange(0, 2 * np.pi, arc_per_ring_segment).reshape(1, -1), data.shape[0], axis = 0)
+    if centre:
+        rays = rays + arc_per_ring_segment / 2
+
+    rays_for_each_spike = np.empty(shape = (data.shape[0]), dtype = 'object')
+    mean_activity = np.empty(shape = (data.shape[0]), dtype = 'float')
+    for i in range(rays_for_each_spike.shape[0]):
+        if len(np.nonzero(data[i,:])) > 0:
+            rays_for_each_spike[i] = np.repeat(rays[i,:][data[i,:] > 0], data[i, :][data[i,:] > 0].astype('int'))
+            mean_activity[i] = np.arctan2(np.mean(np.sin(rays_for_each_spike[i])), np.mean(np.cos(rays_for_each_spike[i]))) % (2 * np.pi)
+        else:
+            mean_activity[i] = 0
+        mean_activity[np.isnan(mean_activity)] = 0
+    mean_activity_ring_index = mean_activity * (ring_size / (2*np.pi))
+    return mean_activity_ring_index
+
 @neuros_initialise()
 def initialise(node):
     visualiser = VisualiseRotations('Head Direction', duration=60*5)
@@ -28,17 +53,16 @@ def receive_ground_truth(node, ground_truth):
 @neuros_function(inputs="head_dir_prediction")
 def receive_head_dir_prediction(node, prediction):
     started, visualiser = node.get_user_data()
+    normalised = np.array(prediction.data)
+    normalised = (normalised + abs(np.min(normalised, axis=0))) * 100
     visualiser.plot(PRED_NET_OUTPUT,
-                    (np.argmax(prediction.data) * 2) - 180,
+                    (ring_mean_activity(normalised) * 2) - 180,
                     (time.time() - started) / 10.0)
 
 @neuros_function(inputs="odom_estimate")
 def receive_odom_estimate(node, estimate):
     started, visualiser = node.get_user_data()
-    
     angle = ((estimate.data % 120) * (360 // 120) - 180)
-
-    node.get_ros_node().get_logger().info(f"odom_estimate = {estimate.data} [{angle}]")
     visualiser.plot(SNN_OUTPUT,
                     angle,
                     (time.time() - started) / 10.0)

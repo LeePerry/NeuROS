@@ -3,7 +3,7 @@ import tensorflow.compat.v1 as tf
 
 class Model:
 
-    available_modality = 'visual'
+    available_modality = 'both'
     error_criterion = np.array([1e-2, 1e-2, 1e-2, 1e-2])
     max_iter = 25
     m1_inp_shape = 45 * 80 * 3
@@ -185,14 +185,13 @@ class Model:
                 self.msi_update_cause += [tf.assign_sub(self.msi_causes[i],
                     (self.lr_msi_causes[i] * self.msi_cause_grad[i]))]
 
+        self.sess.run(tf.variables_initializer(self.m1_causes + self.msi_causes))
+
         saver = tf.train.Saver(self.m1_filters + self.msi_filters)
         saver.restore(self.sess, self._model_path + "/main.ckpt")
 
     def predict(self, visual_data=None, odometry_data=None, verbose=False):
-
-        self.sess.run(tf.variables_initializer(self.m1_causes + self.msi_causes))
         iter = 1
-
         while True:
             m1_cause, msi_cause, m1_error, msi_error, m1_pred, msi_pred, m1_filter, msi_filter = self.sess.run(
                     [self.m1_update_cause, self.msi_update_cause, self.m1_bu_error, self.msi_bu_error,
