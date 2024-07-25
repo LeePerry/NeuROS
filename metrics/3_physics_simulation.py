@@ -41,8 +41,9 @@ def process_data():
     real_sim_comparison = {}
     
     for name in data_paths:
-        print("==== Real Time ====")
         data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
+
+        print("==== Real Time ====")
         real_time_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[physics\]: Simulated time: .*")
         data.read(real_time_parser.parse)
         real_time_intervals = real_time_parser.intervals()
@@ -57,7 +58,6 @@ def process_data():
                             ylimits=[0, 26])
 
         print("==== Simulated Time ====")
-        data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
         sim_time_parser = common.data.Parser("\[INFO\] \[.*\] \[physics\]: Simulated time: (\d*\.?\d+)")
         data.read(sim_time_parser.parse)
         sim_time_intervals = sim_time_parser.intervals()
@@ -87,7 +87,6 @@ def process_data():
         real_sim_comparison[name] = (real_time_offsets, sim_time_samples)
 
         print("==== Dropped Packet Summary ====")
-        data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
         level_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[physics\]: Level: .*")
         data.read(level_parser.parse)
         level_samples = level_parser.samples()
@@ -113,15 +112,22 @@ def process_data():
         common.plot.all_cpu_time_series(f"log/3_physics_simulation_{name}.txt",
                                         f"log/3_physics_simulation_{name}_cpu_time_series.png")
         
+        print("==== Memory Consumption Series ====")
+        common.plot.memory_consumption_time_series(f"log/3_physics_simulation_{name}.txt",
+                                                   f"log/3_physics_simulation_{name}_memory_percent_time_series.png")
+        common.plot.memory_consumption_time_series(f"log/3_physics_simulation_{name}.txt",
+                                                   f"log/3_physics_simulation_{name}_memory_absolute_time_series.png",
+                                                   percent=False)
+
         print("==== Tick Network Series ====")
         common.plot.network_speeds_time_series(f"log/3_physics_simulation_{name}.txt",
                                                f"log/3_physics_simulation_{name}_network_speeds_time_series.png")
     
     print("==== Combined Real vs. Simulated Time Graph ====")
-    all_labels = [{ "1_elevator_standard"            : "Strict Synchronisation",
-                    "2_elevator_no_discard_limit"    : "No Discard Limit",
-                    "3_elevator_asynchronous_gazebo" : "Asynchronous Gazebo" }[l] 
-                    for l, _ in real_sim_comparison.items()]
+    label_mappings = { "1_elevator_standard"            : "Strict Synchronisation",
+                       "2_elevator_no_discard_limit"    : "No Discard Limit",
+                       "3_elevator_asynchronous_gazebo" : "Asynchronous Gazebo" }
+    all_labels = [label_mappings[l] for l, _ in real_sim_comparison.items()]
     all_x = [data[0] for _, data in real_sim_comparison.items()]
     all_y = [data[1] for _, data in real_sim_comparison.items()]
     common.plot.multi_line(f"log/3_physics_simulation_combined_real_vs_simulated_time_series.png",
@@ -130,7 +136,18 @@ def process_data():
                            all_y,
                            "Real Time (seconds)",
                            "Simulated Time (seconds)")
+    
+    print("==== Memory Consumption Series ====")
+    common.plot.memory_consumption_time_series(
+        [f"log/3_physics_simulation_{name}.txt" for name, _ in label_mappings.items()],
+        "log/3_physics_simulation_combined_memory_percent_time_series.png",
+        labels=[l for l, _ in label_mappings.items()])
+    common.plot.memory_consumption_time_series(
+        [f"log/3_physics_simulation_{name}.txt" for name, _ in label_mappings.items()],
+        "log/3_physics_simulation_combined_memory_absolute_time_series.png",
+        labels=[l for l, _ in label_mappings.items()],
+        percent=False)
 
 if __name__ == '__main__':
-    create_data()
+    #create_data()
     process_data()

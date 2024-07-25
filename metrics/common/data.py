@@ -26,19 +26,30 @@ class Writer:
 class Reader:
 
     def __init__(self, path):
-        self._file = open(path, 'r')
+        self._path = path
 
     def read(self, parser):
-        for line in self._file.readlines():
-            parser(line)
+        with open(self._path) as f:
+            for line in f.readlines():
+                parser(line)
 
 class Parser:
 
     @classmethod
     def for_cpu(cls, cpu):
-        return cls("\[INFO\] \[\d*\.?\d+\] \[system-load-monitor\]: CPU: \["+
+        return cls("\[INFO\] \[.*\] \[system-load-monitor\]: CPU: \[" +
                    ("\d*\.?\d+, " * (cpu - 1)) +
                    "(\d*\.?\d+).*")
+
+    @classmethod
+    def for_network_speed(cls, send=False):
+        return cls("\[INFO\] \[.*\] \[system-load-monitor\]: Network: " + 
+                   ("\[\d+, (\d+)\]" if send else "\[(\d+), \d+\]"))
+    
+    @classmethod
+    def for_memory_consumption(cls, percent=True):
+        return cls("\[INFO\] \[.*\] \[system-load-monitor\]: Memory: " +
+                   ("\[\d+, (\d*\.?\d+)\]" if percent else "\[(\d+), \d*\.?\d+\]"))
 
     def __init__(self, pattern, type=float):
         self._regex = re.compile(pattern)

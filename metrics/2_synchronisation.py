@@ -29,7 +29,7 @@ def process_data():
     Parses and analysis the concurrent execution time from the results data 
     file.
 
-    Produces: Mean, standard deviation and execution time histogram. Also CPU 
+    Produces: Mean, standard deviation and execution time histogram. Also CPU
     time series.
     """
     data = common.data.Reader(data_path)
@@ -41,7 +41,7 @@ def process_data():
     common.data.basic_stats(intervals)
     common.plot.histogram("log/2_synchronisation_voting_interval_histogram.png",
                           intervals,
-                          "Execution Time (Target 5.0)",
+                          "Execution Time (3 Parallel 5s Tasks)",
                           relative_frequency=False,
                           bins=20)
 
@@ -49,10 +49,17 @@ def process_data():
     common.plot.all_cpu_time_series(data_path,
                                     "log/2_synchronisation_voting_cpu_time_series.png")
     
+    print("==== Memory Consumption Series ====")
+    common.plot.memory_consumption_time_series(data_path,
+                                               "log/2_synchronisation_voting_memory_percent_time_series.png")
+    common.plot.memory_consumption_time_series(data_path,
+                                               "log/2_synchronisation_voting_memory_absolute_time_series.png",
+                                               percent=False)
+
     print("==== Tick Network Series ====")
     common.plot.network_speeds_time_series(data_path,
                                            "log/2_synchronisation_voting_network_speeds_time_series.png")
 
 if __name__ == '__main__':
-    create_data()
+    #create_data()
     process_data()

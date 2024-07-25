@@ -437,7 +437,7 @@ class Hooks:
 
     def _tick(self):
         """
-        A timer has expired. Check to see if this hook is ready to be fired.
+        A timer has expired. Check to see if any hook is ready to be fired.
         """
         for hook in self._hooks:
             hook.check_waiting()

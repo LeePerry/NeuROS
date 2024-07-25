@@ -1,0 +1,21 @@
+@startuml
+start
+repeat :On either __startup__ or __receipt of__:\n* Registration\n* Acknowledgement\n* Timer expired\n* Input\n* Loop back;
+    repeat :Get least recently fired hook in queue;
+        if (Is ready to fire) then (yes)
+            :Fire hook;
+            :Add hook to fired list;
+        else (no)
+        endif
+    repeat while (End of queue?) is (no) not (yes)
+    repeat: Get next hook in fired list;
+        if (Is initialisation hook) then (yes)
+            :Delete from queue;
+        else (no)
+            :Move to back of queue;
+        endif
+    repeat while (End of fired list?) is (no) not (yes)
+backward:Send loop back to self;
+repeat while (Any hook still ready to fire?) is (yes) not (no)
+stop
+@enduml

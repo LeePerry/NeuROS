@@ -57,10 +57,17 @@ def process_data():
     common.plot.all_cpu_time_series(data_path,
                                     "log/1_tick_cpu_time_series.png")
     
+    print("==== Memory Consumption Series ====")
+    common.plot.memory_consumption_time_series(data_path,
+                                               "log/1_tick_memory_percent_time_series.png")
+    common.plot.memory_consumption_time_series(data_path,
+                                               "log/1_tick_memory_absolute_time_series.png",
+                                               percent=False)
+    
     print("==== Tick Network Series ====")
     common.plot.network_speeds_time_series(data_path,
                                            "log/1_tick_network_speeds_time_series.png")
 
 if __name__ == '__main__':
-    create_data()
+    #create_data()
     process_data()
