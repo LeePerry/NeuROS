@@ -1,0 +1,15 @@
+@startuml
+hide empty description
+
+[*] -down-> Gazebo : Rotation_Command
+
+Gazebo -right-> Predictive_Coding_Network : Camera_Image
+Predictive_Coding_Network -down-> Spiking_Neural_Network : Direction_Correction
+
+Gazebo -right-> Spiking_Neural_Network : IMU_Reading
+Spiking_Neural_Network -up-> Predictive_Coding_Network : Direction_Estimate
+
+Predictive_Coding_Network -right-> Graph_Visualisation : Direction_Estimate
+Spiking_Neural_Network -right-> Graph_Visualisation : Direction_Estimate
+
+@enduml
