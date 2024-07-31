@@ -35,7 +35,8 @@ def process_data():
     data = common.data.Reader(data_path)
     parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[authority\]: Let's vote!")
     data.read(parser.parse)
-    intervals = parser.intervals()
+    # omit first interval as it is artificially high due to node initialisation
+    intervals = parser.intervals()[1:]
 
     print("==== Voting Interval ====")
     common.data.basic_stats(intervals)

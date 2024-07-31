@@ -127,6 +127,7 @@ class Input:
                                  is received.
         """
         self._name = input.name
+        self._logger = node.get_ros_node().get_logger()
         if input.plugin:
             node.load_plugin(FileSystem.standard_project_dir, input.plugin)
         if input.external_topic is None:
@@ -148,6 +149,7 @@ class Input:
             source_node (str): The name of the source node that sent the data.
             packet: The data received.
         """
+        self._logger.info(f"Received {self._name}")
         self._input_cb(self._name, source_node, packet)
 
     def all_sources(self):

@@ -1,3 +1,4 @@
+
 # Copyright (c) 2023 Lee Perry
 
 """
@@ -206,6 +207,7 @@ class Output:
         """
         for p in self._publishers:
             if p.is_blocked:
-                self._logger.error(f"Dropped {self._name} packet")
+                self._logger.error(f"Dropped {self._name}")
+            self._logger.info(f"Sending {self._name}")
             p.publish(packet)
         self.check_blocked()

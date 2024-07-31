@@ -12,23 +12,24 @@ import time
 This metric measures the sim to real time ratio of the physics simulation.
 """
 
-data_paths = ["1_elevator_standard",
-              "2_elevator_no_discard_limit",
-              "3_elevator_asynchronous_gazebo"]
+data_paths = { "1_elevator_standard"            : "Strict Synchronisation",
+               "2_elevator_no_discard_limit"    : "No Discard Limit",
+               "3_elevator_asynchronous_gazebo" : "Asynchronous Gazebo" }
 
 def create_data():
     """
     Generates the results data by running the 3_physics_simulation example for 
     5 minutes and writing the results to a file.
     """
-    for name in data_paths:
+    for name in data_paths.keys():
+        print("==== STARTING NEW EXPERIMENT ====")
         data = common.data.Writer(f"log/3_physics_simulation_{name}.txt")
         common.run.process_for(
             ["./launch.py", "--monitor-system-load", "--project", 
                 f"./examples/3_physics_simulation/elevator/{name}.json"],
             5 * 60,
             data.write)
-        print("==== WAITING ====")
+        print("==== WAITING (PLEASE CHECK ALL PROCESSES ARE STOPPED) ====")
         time.sleep(60 * 2)
 
 def process_data():
@@ -39,8 +40,9 @@ def process_data():
     and CPU time series.
     """
     real_sim_comparison = {}
+    sent_received_comparison = {}
     
-    for name in data_paths:
+    for name, alias in data_paths.items():
         data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
 
         print("==== Real Time ====")
@@ -54,8 +56,8 @@ def process_data():
                             "Interval (seconds)",
                             relative_frequency=False,
                             bins=np.arange(min(real_time_intervals), max(real_time_intervals) + binwidth, binwidth), 
-                            xlimits=[2.75, 5.0],
-                            ylimits=[0, 26])
+                            xlimits=[2.5, 6.5],
+                            ylimits=[0, 20])
 
         print("==== Simulated Time ====")
         sim_time_parser = common.data.Parser("\[INFO\] \[.*\] \[physics\]: Simulated time: (\d*\.?\d+)")
@@ -84,9 +86,9 @@ def process_data():
                         sim_time_samples,
                         "Real Time (seconds)",
                         "Simulated Time (seconds)")
-        real_sim_comparison[name] = (real_time_offsets, sim_time_samples)
+        real_sim_comparison[alias] = (real_time_offsets, sim_time_samples)
 
-        print("==== Dropped Packet Summary ====")
+        print("==== Dropped Packets Gazebo -> NeuROS ====")
         level_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[physics\]: Level: .*")
         data.read(level_parser.parse)
         level_samples = level_parser.samples()
@@ -106,7 +108,10 @@ def process_data():
         number_of_expected_packets = 5 * len(groups)
         number_of_actual_packets = sum(len(v) for _, v in groups.items())
         number_of_dropped_packets = number_of_expected_packets - number_of_actual_packets
-        print(f"Gazebo => NeuROS: {number_of_dropped_packets * 100 / number_of_expected_packets}%")
+        print(f"Level: {number_of_dropped_packets * 100 / number_of_expected_packets}%")
+
+        print("==== Dropped Packets NeuROS -> NeuROS ====")
+        sent_received_comparison[alias] = common.data.dropped_packet_summary(data)
 
         print("==== Physics Sim CPU Series ====")
         common.plot.all_cpu_time_series(f"log/3_physics_simulation_{name}.txt",
@@ -124,10 +129,7 @@ def process_data():
                                                f"log/3_physics_simulation_{name}_network_speeds_time_series.png")
     
     print("==== Combined Real vs. Simulated Time Graph ====")
-    label_mappings = { "1_elevator_standard"            : "Strict Synchronisation",
-                       "2_elevator_no_discard_limit"    : "No Discard Limit",
-                       "3_elevator_asynchronous_gazebo" : "Asynchronous Gazebo" }
-    all_labels = [label_mappings[l] for l, _ in real_sim_comparison.items()]
+    all_labels = real_sim_comparison.keys()
     all_x = [data[0] for _, data in real_sim_comparison.items()]
     all_y = [data[1] for _, data in real_sim_comparison.items()]
     common.plot.multi_line(f"log/3_physics_simulation_combined_real_vs_simulated_time_series.png",
@@ -137,15 +139,34 @@ def process_data():
                            "Real Time (seconds)",
                            "Simulated Time (seconds)")
     
+    print("==== Combined Sent / Received Packets ====")
+    groups = sent_received_comparison.keys()
+    values = {}
+    for _, data in sent_received_comparison.items():
+        message_types = set([k for k in data[0].keys()] + 
+                            [k for k in data[1].keys()])
+        for mt in message_types:
+            sent_name = f"Sent {mt}"
+            if sent_name not in values:
+                values[sent_name] = []
+            values[sent_name].append(data[0][mt])
+            received_name = f"Received {mt}"
+            if received_name not in values:
+                values[received_name] = []
+            values[received_name].append(data[1][mt])
+    common.plot.grouped_multi_bar(
+        "log/3_physics_simulation_combined_packet_counts.png", 
+        groups, values, ylabel="Number of Packets")
+    
     print("==== Memory Consumption Series ====")
     common.plot.memory_consumption_time_series(
-        [f"log/3_physics_simulation_{name}.txt" for name, _ in label_mappings.items()],
+        [f"log/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
         "log/3_physics_simulation_combined_memory_percent_time_series.png",
-        labels=[l for l, _ in label_mappings.items()])
+        labels=[l for _, l in data_paths.items()])
     common.plot.memory_consumption_time_series(
-        [f"log/3_physics_simulation_{name}.txt" for name, _ in label_mappings.items()],
+        [f"log/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
         "log/3_physics_simulation_combined_memory_absolute_time_series.png",
-        labels=[l for l, _ in label_mappings.items()],
+        labels=[l for _, l in data_paths.items()],
         percent=False)
 
 if __name__ == '__main__':

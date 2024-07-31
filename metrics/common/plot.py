@@ -5,7 +5,9 @@ import numpy as np
 
 import common.data
 
-main_colour = "teal"
+#main_colour = "teal"
+#plt.style.use('seaborn-v0_8-pastel')
+plt.style.use('tableau-colorblind10')
 
 def histogram(path, data, x_axis, relative_frequency=False, bins=20, xlimits=None, ylimits=None):
     fig = plt.figure()
@@ -18,11 +20,10 @@ def histogram(path, data, x_axis, relative_frequency=False, bins=20, xlimits=Non
         data = np.array(data)
         ax.hist(data, 
                 bins=bins, 
-                weights=np.zeros_like(data) + 100.0 / data.size, 
-                color=main_colour)
+                weights=np.zeros_like(data) + 100.0 / data.size)
         ax.set_ylabel('Frequency (%)', size=12)
     else:
-        ax.hist(data, bins=bins, color=main_colour)
+        ax.hist(data, bins=bins)
         ax.set_ylabel('Count', size=12)
     ax.set_xlabel(x_axis, size=12)
     fig.tight_layout()
@@ -128,3 +129,25 @@ def network_speeds_time_series(from_path, to_path):
     common.plot.multi_time_series(
         to_path, [send_speeds, receive_speeds], ["Sent", "Received"],
         "Network Throughput (KB/s)", y_log_scale=True)
+
+def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]):
+    _, ax = plt.subplots(layout='constrained')
+    x = np.arange(len(groups))
+    width = 1 / (len(values.keys()) + 1)
+    multiplier = 0
+    for attribute, measurement in values.items():
+        offset = width * multiplier
+        rects = ax.bar(x + offset, measurement, width, label=attribute)
+        ax.bar_label(rects, padding=3)
+        multiplier += 1
+    ax.set_xticks(x + (width*1.5), groups)
+    if len(groups) > 1:
+        ax.legend(loc="upper left", ncols=1)
+    if ylabel:
+        ax.set_ylabel(ylabel)
+    if xlabel:
+        ax.set_ylabel(xlabel)
+    if ylim:
+        ax.set_ylim(ylim)
+    plt.savefig(to_path)
+    plt.close()
