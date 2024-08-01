@@ -84,6 +84,7 @@ def all_cpu_time_series(from_path, to_path, range_start=0, range_stop=-1):
         labels.append(f"Core {core}")
     common.plot.multi_time_series(
         to_path, datasets, labels, "CPU Usage (%)", [0, 100])
+    return labels, datasets
 
 def memory_consumption_time_series(from_paths, to_path, percent=True, 
                                    labels=["Default"]):
@@ -112,6 +113,7 @@ def memory_consumption_time_series(from_paths, to_path, percent=True,
         common.plot.multi_time_series(
             to_path, all_data, labels, "Memory Consumption (GB)",
             y_lim=[0, 10])
+    return labels, all_data
 
 def network_speeds_time_series(from_path, to_path):
     data = common.data.Reader(from_path)
@@ -126,9 +128,12 @@ def network_speeds_time_series(from_path, to_path):
     receive_speeds = np.array(parser.samples())
     receive_speeds /= 1024
     
+    labels = ["Sent", "Received"]
+    datasets = [send_speeds, receive_speeds]
     common.plot.multi_time_series(
-        to_path, [send_speeds, receive_speeds], ["Sent", "Received"],
+        to_path, [send_speeds, receive_speeds], labels,
         "Network Throughput (KB/s)", y_log_scale=True)
+    return labels, datasets
 
 def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]):
     _, ax = plt.subplots(layout='constrained')

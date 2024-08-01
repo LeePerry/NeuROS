@@ -1,0 +1,892 @@
+[INFO] [1721212556.649856] [system-load-monitor]: CPU: [14.3, 9.1, 21.0, 36.0]
+[INFO] [1721212556.650664] [system-load-monitor]: Network: 3564, 0
+[0m[INFO] [1721212557.252314292] [clock]: T_ck[0m
+[INFO] [1721212557.653153] [system-load-monitor]: CPU: [4.2, 4.1, 5.0, 8.2]
+[INFO] [1721212557.654143] [system-load-monitor]: Network: 1253, 0
+[0m[INFO] [1721212558.220413750] [clock]: T_ck[0m
+[INFO] [1721212558.656468] [system-load-monitor]: CPU: [5.2, 5.0, 6.0, 5.0]
+[INFO] [1721212558.657673] [system-load-monitor]: Network: 742, 0
+[0m[INFO] [1721212559.219920424] [clock]: T_ck[0m
+[INFO] [1721212559.660018] [system-load-monitor]: CPU: [4.9, 2.0, 1.0, 1.0]
+[INFO] [1721212559.661200] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212560.220267040] [clock]: T_ck[0m
+[INFO] [1721212560.663538] [system-load-monitor]: CPU: [1.0, 2.0, 4.0, 2.0]
+[INFO] [1721212560.665219] [system-load-monitor]: Network: 420, 0
+[0m[INFO] [1721212561.220427749] [clock]: T_ck[0m
+[INFO] [1721212561.667642] [system-load-monitor]: CPU: [5.0, 2.0, 3.0, 0.0]
+[INFO] [1721212561.669093] [system-load-monitor]: Network: 392, 0
+[0m[INFO] [1721212562.220291935] [clock]: T_ck[0m
+[INFO] [1721212562.671496] [system-load-monitor]: CPU: [3.0, 3.0, 3.0, 4.0]
+[INFO] [1721212562.672565] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212563.220281259] [clock]: T_ck[0m
+[INFO] [1721212563.674993] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212563.676310] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212564.220290015] [clock]: T_ck[0m
+[INFO] [1721212564.678037] [system-load-monitor]: CPU: [1.0, 3.0, 2.0, 2.0]
+[INFO] [1721212564.679600] [system-load-monitor]: Network: 543, 0
+[0m[INFO] [1721212565.221062851] [clock]: T_ck[0m
+[INFO] [1721212565.682057] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212565.683346] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212566.219711027] [clock]: T_ck[0m
+[INFO] [1721212566.685885] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 1.0]
+[INFO] [1721212566.686905] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212567.220821585] [clock]: T_ck[0m
+[INFO] [1721212567.689363] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212567.690532] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212568.220729363] [clock]: T_ck[0m
+[INFO] [1721212568.692901] [system-load-monitor]: CPU: [2.0, 3.0, 0.0, 0.0]
+[INFO] [1721212568.694197] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212569.219849817] [clock]: T_ck[0m
+[INFO] [1721212569.696520] [system-load-monitor]: CPU: [1.0, 3.0, 2.0, 1.0]
+[INFO] [1721212569.698200] [system-load-monitor]: Network: 70, 0
+[0m[INFO] [1721212570.219678213] [clock]: T_ck[0m
+[INFO] [1721212570.700807] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212570.702037] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212571.219633793] [clock]: T_ck[0m
+[INFO] [1721212571.704370] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721212571.705650] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212572.220731611] [clock]: T_ck[0m
+[INFO] [1721212572.708164] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 1.0]
+[INFO] [1721212572.709645] [system-load-monitor]: Network: 221, 0
+[0m[INFO] [1721212573.219938584] [clock]: T_ck[0m
+[INFO] [1721212573.712140] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 2.9]
+[INFO] [1721212573.713763] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212574.219697084] [clock]: T_ck[0m
+[INFO] [1721212574.716172] [system-load-monitor]: CPU: [3.0, 3.0, 1.0, 2.0]
+[INFO] [1721212574.717490] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212575.219956534] [clock]: T_ck[0m
+[INFO] [1721212575.719875] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 1.0]
+[INFO] [1721212575.721319] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212576.219872488] [clock]: T_ck[0m
+[INFO] [1721212576.723722] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 0.0]
+[INFO] [1721212576.725150] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212577.219663497] [clock]: T_ck[0m
+[INFO] [1721212577.727543] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 0.0]
+[INFO] [1721212577.729069] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212578.220262750] [clock]: T_ck[0m
+[INFO] [1721212578.731489] [system-load-monitor]: CPU: [1.0, 3.0, 1.0, 1.0]
+[INFO] [1721212578.732933] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212579.220428053] [clock]: T_ck[0m
+[INFO] [1721212579.735375] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 1.0]
+[INFO] [1721212579.736720] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212580.221128967] [clock]: T_ck[0m
+[INFO] [1721212580.739187] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 1.0]
+[INFO] [1721212580.740402] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212581.219679125] [clock]: T_ck[0m
+[INFO] [1721212581.742845] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 3.9]
+[INFO] [1721212581.744238] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212582.220300081] [clock]: T_ck[0m
+[INFO] [1721212582.746709] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212582.748389] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212583.220262685] [clock]: T_ck[0m
+[INFO] [1721212583.750087] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 2.0]
+[INFO] [1721212583.751254] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212584.221298499] [clock]: T_ck[0m
+[INFO] [1721212584.753861] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 2.0]
+[INFO] [1721212584.755158] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212585.219700250] [clock]: T_ck[0m
+[INFO] [1721212585.757618] [system-load-monitor]: CPU: [2.0, 1.0, 5.0, 3.0]
+[INFO] [1721212585.758643] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212586.221205390] [clock]: T_ck[0m
+[INFO] [1721212586.761340] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721212586.762393] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212587.220006702] [clock]: T_ck[0m
+[INFO] [1721212587.764893] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 3.0]
+[INFO] [1721212587.765827] [system-load-monitor]: Network: 221, 0
+[0m[INFO] [1721212588.221124817] [clock]: T_ck[0m
+[INFO] [1721212588.768373] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.0]
+[INFO] [1721212588.769298] [system-load-monitor]: Network: 392, 0
+[0m[INFO] [1721212589.219650891] [clock]: T_ck[0m
+[INFO] [1721212589.771773] [system-load-monitor]: CPU: [2.0, 1.0, 3.0, 2.0]
+[INFO] [1721212589.772743] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212590.220569879] [clock]: T_ck[0m
+[INFO] [1721212590.775237] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212590.776166] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212591.219681510] [clock]: T_ck[0m
+[INFO] [1721212591.778563] [system-load-monitor]: CPU: [3.0, 3.0, 5.0, 2.0]
+[INFO] [1721212591.779471] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212592.220498534] [clock]: T_ck[0m
+[INFO] [1721212592.781891] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212592.782854] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212593.219516713] [clock]: T_ck[0m
+[INFO] [1721212593.785403] [system-load-monitor]: CPU: [0.0, 3.9, 1.0, 3.0]
+[INFO] [1721212593.786356] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212594.219732693] [clock]: T_ck[0m
+[INFO] [1721212594.788628] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 2.0]
+[INFO] [1721212594.789544] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212595.220420585] [clock]: T_ck[0m
+[INFO] [1721212595.791913] [system-load-monitor]: CPU: [4.0, 2.0, 2.0, 1.0]
+[INFO] [1721212595.792938] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212596.220566098] [clock]: T_ck[0m
+[INFO] [1721212596.795573] [system-load-monitor]: CPU: [4.0, 2.0, 1.0, 1.0]
+[INFO] [1721212596.797428] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212597.219598049] [clock]: T_ck[0m
+[INFO] [1721212597.800034] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721212597.801595] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212598.220923596] [clock]: T_ck[0m
+[INFO] [1721212598.804499] [system-load-monitor]: CPU: [3.0, 4.0, 2.0, 2.0]
+[INFO] [1721212598.806085] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212599.220464442] [clock]: T_ck[0m
+[INFO] [1721212599.809118] [system-load-monitor]: CPU: [0.0, 3.0, 2.0, 0.0]
+[INFO] [1721212599.810645] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212600.220796601] [clock]: T_ck[0m
+[INFO] [1721212600.813573] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721212600.815058] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212601.220723811] [clock]: T_ck[0m
+[INFO] [1721212601.817604] [system-load-monitor]: CPU: [2.0, 0.0, 2.0, 0.0]
+[INFO] [1721212601.818567] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212602.220289244] [clock]: T_ck[0m
+[INFO] [1721212602.821058] [system-load-monitor]: CPU: [0.0, 2.0, 0.0, 0.0]
+[INFO] [1721212602.821916] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212603.221472878] [clock]: T_ck[0m
+[INFO] [1721212603.824290] [system-load-monitor]: CPU: [2.0, 4.0, 1.0, 3.0]
+[INFO] [1721212603.825235] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212604.221506482] [clock]: T_ck[0m
+[INFO] [1721212604.827212] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 0.0]
+[INFO] [1721212604.828100] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212605.219537956] [clock]: T_ck[0m
+[INFO] [1721212605.830533] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721212605.831455] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212606.219934284] [clock]: T_ck[0m
+[INFO] [1721212606.833909] [system-load-monitor]: CPU: [2.0, 1.0, 0.0, 1.0]
+[INFO] [1721212606.834877] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212607.220255575] [clock]: T_ck[0m
+[INFO] [1721212607.837353] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 0.0]
+[INFO] [1721212607.838337] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212608.219483599] [clock]: T_ck[0m
+[INFO] [1721212608.840790] [system-load-monitor]: CPU: [4.0, 2.0, 3.0, 3.9]
+[INFO] [1721212608.841863] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212609.220280764] [clock]: T_ck[0m
+[INFO] [1721212609.844264] [system-load-monitor]: CPU: [1.0, 1.0, 3.0, 0.0]
+[INFO] [1721212609.845271] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212610.220541926] [clock]: T_ck[0m
+[INFO] [1721212610.847573] [system-load-monitor]: CPU: [1.0, 3.9, 1.0, 0.0]
+[INFO] [1721212610.848452] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212611.220282502] [clock]: T_ck[0m
+[INFO] [1721212611.850791] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 2.0]
+[INFO] [1721212611.851691] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212612.220304453] [clock]: T_ck[0m
+[INFO] [1721212612.854053] [system-load-monitor]: CPU: [0.0, 2.0, 1.0, 2.0]
+[INFO] [1721212612.855395] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212613.220309185] [clock]: T_ck[0m
+[INFO] [1721212613.857756] [system-load-monitor]: CPU: [3.0, 2.0, 2.0, 1.0]
+[INFO] [1721212613.858776] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212614.219353081] [clock]: T_ck[0m
+[INFO] [1721212614.861209] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212614.862190] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212615.221061992] [clock]: T_ck[0m
+[INFO] [1721212615.864578] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721212615.865463] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212616.219754455] [clock]: T_ck[0m
+[INFO] [1721212616.867817] [system-load-monitor]: CPU: [3.0, 0.0, 1.0, 2.0]
+[INFO] [1721212616.869067] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212617.219666604] [clock]: T_ck[0m
+[INFO] [1721212617.871803] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212617.873522] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212618.219680639] [clock]: T_ck[0m
+[INFO] [1721212618.876184] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 2.0]
+[INFO] [1721212618.877236] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212619.219769859] [clock]: T_ck[0m
+[INFO] [1721212619.879829] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 3.0]
+[INFO] [1721212619.880765] [system-load-monitor]: Network: 543, 0
+[0m[INFO] [1721212620.220343504] [clock]: T_ck[0m
+[INFO] [1721212620.883268] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 2.0]
+[INFO] [1721212620.884214] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212621.221090851] [clock]: T_ck[0m
+[INFO] [1721212621.886646] [system-load-monitor]: CPU: [0.0, 2.0, 2.0, 2.0]
+[INFO] [1721212621.887485] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212622.219350069] [clock]: T_ck[0m
+[INFO] [1721212622.889958] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 4.0]
+[INFO] [1721212622.890878] [system-load-monitor]: Network: 392, 0
+[0m[INFO] [1721212623.220789209] [clock]: T_ck[0m
+[INFO] [1721212623.893089] [system-load-monitor]: CPU: [6.0, 1.0, 1.0, 9.1]
+[INFO] [1721212623.893838] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212624.220471582] [clock]: T_ck[0m
+[INFO] [1721212624.896132] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 3.0]
+[INFO] [1721212624.897063] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212625.219877542] [clock]: T_ck[0m
+[INFO] [1721212625.900035] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 2.0]
+[INFO] [1721212625.901187] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212626.220015791] [clock]: T_ck[0m
+[INFO] [1721212626.903893] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 3.0]
+[INFO] [1721212626.904730] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212627.221400273] [clock]: T_ck[0m
+[INFO] [1721212627.907688] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 2.0]
+[INFO] [1721212627.908654] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212628.221476370] [clock]: T_ck[0m
+[INFO] [1721212628.910806] [system-load-monitor]: CPU: [9.1, 2.0, 2.0, 4.0]
+[INFO] [1721212628.911842] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212629.220125352] [clock]: T_ck[0m
+[INFO] [1721212629.913681] [system-load-monitor]: CPU: [12.4, 11.0, 8.2, 7.0]
+[INFO] [1721212629.914324] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212630.220247391] [clock]: T_ck[0m
+[INFO] [1721212630.916098] [system-load-monitor]: CPU: [1.0, 4.0, 4.0, 2.0]
+[INFO] [1721212630.917059] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212631.219720293] [clock]: T_ck[0m
+[INFO] [1721212631.919460] [system-load-monitor]: CPU: [1.0, 3.0, 3.0, 2.0]
+[INFO] [1721212631.920173] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212632.219350464] [clock]: T_ck[0m
+[INFO] [1721212632.923599] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 2.0]
+[INFO] [1721212632.924567] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212633.221141246] [clock]: T_ck[0m
+[INFO] [1721212633.925456] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 3.0]
+[INFO] [1721212633.925817] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212634.220276199] [clock]: T_ck[0m
+[INFO] [1721212634.928052] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721212634.929020] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212635.219727336] [clock]: T_ck[0m
+[INFO] [1721212635.931414] [system-load-monitor]: CPU: [2.0, 1.0, 3.0, 2.0]
+[INFO] [1721212635.932309] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212636.220808123] [clock]: T_ck[0m
+[INFO] [1721212636.934664] [system-load-monitor]: CPU: [2.0, 3.0, 4.0, 1.0]
+[INFO] [1721212636.935520] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212637.219632814] [clock]: T_ck[0m
+[INFO] [1721212637.937940] [system-load-monitor]: CPU: [0.0, 2.0, 1.0, 1.0]
+[INFO] [1721212637.938892] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212638.219755433] [clock]: T_ck[0m
+[INFO] [1721212638.941339] [system-load-monitor]: CPU: [1.0, 4.0, 4.0, 2.0]
+[INFO] [1721212638.942305] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212639.219552361] [clock]: T_ck[0m
+[INFO] [1721212639.944723] [system-load-monitor]: CPU: [0.0, 2.0, 2.0, 1.0]
+[INFO] [1721212639.945653] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212640.220391089] [clock]: T_ck[0m
+[INFO] [1721212640.948264] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212640.949302] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212641.220357300] [clock]: T_ck[0m
+[INFO] [1721212641.951622] [system-load-monitor]: CPU: [1.0, 3.9, 3.0, 3.0]
+[INFO] [1721212641.952481] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212642.220915158] [clock]: T_ck[0m
+[INFO] [1721212642.954945] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 3.0]
+[INFO] [1721212642.955923] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212643.220264097] [clock]: T_ck[0m
+[INFO] [1721212643.958304] [system-load-monitor]: CPU: [1.0, 2.9, 0.0, 2.0]
+[INFO] [1721212643.959297] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212644.219711151] [clock]: T_ck[0m
+[INFO] [1721212644.961749] [system-load-monitor]: CPU: [1.0, 1.0, 4.0, 2.0]
+[INFO] [1721212644.962698] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212645.221105897] [clock]: T_ck[0m
+[INFO] [1721212645.965201] [system-load-monitor]: CPU: [4.0, 1.0, 1.0, 3.0]
+[INFO] [1721212645.966227] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212646.219711018] [clock]: T_ck[0m
+[INFO] [1721212646.968595] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212646.969793] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212647.220063799] [clock]: T_ck[0m
+[INFO] [1721212647.972130] [system-load-monitor]: CPU: [1.0, 3.0, 0.0, 2.0]
+[INFO] [1721212647.973164] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212648.222347606] [clock]: T_ck[0m
+[INFO] [1721212648.975533] [system-load-monitor]: CPU: [1.0, 3.0, 1.0, 2.0]
+[INFO] [1721212648.976487] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212649.220808755] [clock]: T_ck[0m
+[INFO] [1721212649.978112] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 2.0]
+[INFO] [1721212649.979177] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212650.221951109] [clock]: T_ck[0m
+[INFO] [1721212650.981787] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 0.0]
+[INFO] [1721212650.982699] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212651.219710342] [clock]: T_ck[0m
+[INFO] [1721212651.985400] [system-load-monitor]: CPU: [3.0, 3.0, 2.0, 3.0]
+[INFO] [1721212651.986410] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212652.220243148] [clock]: T_ck[0m
+[INFO] [1721212652.989862] [system-load-monitor]: CPU: [2.0, 3.0, 0.0, 0.0]
+[INFO] [1721212652.991530] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212653.219165058] [clock]: T_ck[0m
+[INFO] [1721212653.993947] [system-load-monitor]: CPU: [2.0, 3.0, 2.0, 3.0]
+[INFO] [1721212653.994838] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212654.220869898] [clock]: T_ck[0m
+[INFO] [1721212654.997308] [system-load-monitor]: CPU: [0.0, 0.0, 2.0, 2.0]
+[INFO] [1721212654.998278] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212655.220453767] [clock]: T_ck[0m
+[INFO] [1721212656.000726] [system-load-monitor]: CPU: [1.0, 3.0, 1.0, 1.0]
+[INFO] [1721212656.001858] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212656.220937422] [clock]: T_ck[0m
+[INFO] [1721212657.004350] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 1.0]
+[INFO] [1721212657.005298] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212657.221242950] [clock]: T_ck[0m
+[INFO] [1721212658.007895] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 2.0]
+[INFO] [1721212658.009108] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212658.220268930] [clock]: T_ck[0m
+[INFO] [1721212659.011221] [system-load-monitor]: CPU: [0.0, 0.0, 1.0, 2.0]
+[INFO] [1721212659.011985] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212659.220245973] [clock]: T_ck[0m
+[INFO] [1721212660.014163] [system-load-monitor]: CPU: [2.0, 1.0, 0.0, 3.0]
+[INFO] [1721212660.015063] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212660.219907456] [clock]: T_ck[0m
+[INFO] [1721212661.017546] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 2.0]
+[INFO] [1721212661.018407] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212661.220435670] [clock]: T_ck[0m
+[INFO] [1721212662.020583] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 2.0]
+[INFO] [1721212662.021419] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212662.219756822] [clock]: T_ck[0m
+[INFO] [1721212663.023667] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 3.0]
+[INFO] [1721212663.024530] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212663.221600448] [clock]: T_ck[0m
+[INFO] [1721212664.026011] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 1.0]
+[INFO] [1721212664.027244] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212664.220261157] [clock]: T_ck[0m
+[INFO] [1721212665.029622] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 1.0]
+[INFO] [1721212665.030487] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212665.220495610] [clock]: T_ck[0m
+[INFO] [1721212666.032914] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721212666.033911] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212666.221145363] [clock]: T_ck[0m
+[INFO] [1721212667.036451] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.0]
+[INFO] [1721212667.037453] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212667.220149898] [clock]: T_ck[0m
+[INFO] [1721212668.039677] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 2.0]
+[INFO] [1721212668.040585] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212668.220165836] [clock]: T_ck[0m
+[INFO] [1721212669.041919] [system-load-monitor]: CPU: [0.0, 1.0, 2.0, 2.0]
+[INFO] [1721212669.042777] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212669.220620786] [clock]: T_ck[0m
+[INFO] [1721212670.045382] [system-load-monitor]: CPU: [2.0, 4.0, 1.0, 3.0]
+[INFO] [1721212670.046349] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212670.219786560] [clock]: T_ck[0m
+[INFO] [1721212671.048571] [system-load-monitor]: CPU: [1.0, 0.0, 0.0, 3.0]
+[INFO] [1721212671.049504] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212671.220238198] [clock]: T_ck[0m
+[INFO] [1721212672.051932] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212672.052949] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212672.219658863] [clock]: T_ck[0m
+[INFO] [1721212673.055383] [system-load-monitor]: CPU: [1.0, 2.0, 4.0, 3.0]
+[INFO] [1721212673.056264] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212673.219433353] [clock]: T_ck[0m
+[INFO] [1721212674.058513] [system-load-monitor]: CPU: [5.0, 2.0, 2.0, 1.0]
+[INFO] [1721212674.059371] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212674.221223217] [clock]: T_ck[0m
+[INFO] [1721212675.061701] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212675.062580] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212675.219896448] [clock]: T_ck[0m
+[INFO] [1721212676.064909] [system-load-monitor]: CPU: [0.0, 0.0, 1.0, 2.0]
+[INFO] [1721212676.065787] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212676.220147374] [clock]: T_ck[0m
+[INFO] [1721212677.067893] [system-load-monitor]: CPU: [0.0, 1.0, 0.0, 1.0]
+[INFO] [1721212677.068737] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212677.220290739] [clock]: T_ck[0m
+[INFO] [1721212678.071160] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 2.9]
+[INFO] [1721212678.072111] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212678.220612931] [clock]: T_ck[0m
+[INFO] [1721212679.074399] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721212679.075247] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212679.219752941] [clock]: T_ck[0m
+[INFO] [1721212680.077530] [system-load-monitor]: CPU: [0.0, 2.0, 0.0, 3.0]
+[INFO] [1721212680.078402] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212680.219466808] [clock]: T_ck[0m
+[INFO] [1721212681.080790] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 1.0]
+[INFO] [1721212681.081713] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212681.220320018] [clock]: T_ck[0m
+[INFO] [1721212682.084115] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 3.0]
+[INFO] [1721212682.085185] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212682.219904533] [clock]: T_ck[0m
+[INFO] [1721212683.087608] [system-load-monitor]: CPU: [0.0, 2.0, 1.0, 2.0]
+[INFO] [1721212683.088455] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212683.220243801] [clock]: T_ck[0m
+[INFO] [1721212684.090811] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 2.0]
+[INFO] [1721212684.091813] [system-load-monitor]: Network: 221, 0
+[0m[INFO] [1721212684.220559427] [clock]: T_ck[0m
+[INFO] [1721212685.093568] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 2.0]
+[INFO] [1721212685.094193] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212685.220520696] [clock]: T_ck[0m
+[INFO] [1721212686.096300] [system-load-monitor]: CPU: [2.0, 3.0, 2.0, 1.0]
+[INFO] [1721212686.097123] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212686.220353597] [clock]: T_ck[0m
+[INFO] [1721212687.099389] [system-load-monitor]: CPU: [2.0, 1.0, 0.0, 1.0]
+[INFO] [1721212687.100239] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212687.220273490] [clock]: T_ck[0m
+[INFO] [1721212688.102630] [system-load-monitor]: CPU: [2.0, 3.9, 2.0, 1.0]
+[INFO] [1721212688.103593] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212688.220126059] [clock]: T_ck[0m
+[INFO] [1721212689.105884] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212689.106741] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212689.220385170] [clock]: T_ck[0m
+[INFO] [1721212690.109352] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.0]
+[INFO] [1721212690.110331] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212690.221429929] [clock]: T_ck[0m
+[INFO] [1721212691.112772] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 4.0]
+[INFO] [1721212691.113864] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212691.219649776] [clock]: T_ck[0m
+[INFO] [1721212692.116142] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212692.117064] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212692.219637165] [clock]: T_ck[0m
+[INFO] [1721212693.119363] [system-load-monitor]: CPU: [0.0, 3.0, 1.0, 2.0]
+[INFO] [1721212693.120058] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212693.219652609] [clock]: T_ck[0m
+[INFO] [1721212694.122578] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 0.0]
+[INFO] [1721212694.123593] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212694.220474185] [clock]: T_ck[0m
+[INFO] [1721212695.125844] [system-load-monitor]: CPU: [1.0, 3.0, 2.0, 2.0]
+[INFO] [1721212695.126741] [system-load-monitor]: Network: 392, 0
+[0m[INFO] [1721212695.219926564] [clock]: T_ck[0m
+[INFO] [1721212696.129241] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212696.130009] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212696.220642112] [clock]: T_ck[0m
+[INFO] [1721212697.132192] [system-load-monitor]: CPU: [0.0, 3.0, 2.0, 0.0]
+[INFO] [1721212697.133133] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212697.220544949] [clock]: T_ck[0m
+[INFO] [1721212698.135497] [system-load-monitor]: CPU: [2.9, 2.0, 3.0, 1.0]
+[INFO] [1721212698.136451] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212698.220238390] [clock]: T_ck[0m
+[INFO] [1721212699.138026] [system-load-monitor]: CPU: [0.0, 1.0, 1.0, 2.0]
+[INFO] [1721212699.139162] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212699.219899046] [clock]: T_ck[0m
+[INFO] [1721212700.141785] [system-load-monitor]: CPU: [2.0, 3.0, 0.0, 0.0]
+[INFO] [1721212700.142588] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212700.221267046] [clock]: T_ck[0m
+[INFO] [1721212701.145066] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 0.0]
+[INFO] [1721212701.146078] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212701.220295627] [clock]: T_ck[0m
+[INFO] [1721212702.148540] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 1.0]
+[INFO] [1721212702.149556] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212702.219605199] [clock]: T_ck[0m
+[INFO] [1721212703.151921] [system-load-monitor]: CPU: [0.0, 3.0, 1.0, 1.0]
+[INFO] [1721212703.152924] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212703.219836639] [clock]: T_ck[0m
+[INFO] [1721212704.155235] [system-load-monitor]: CPU: [2.0, 3.0, 1.0, 1.0]
+[INFO] [1721212704.156098] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212704.218953264] [clock]: T_ck[0m
+[INFO] [1721212705.158467] [system-load-monitor]: CPU: [2.0, 1.0, 3.0, 1.0]
+[INFO] [1721212705.159425] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212705.221229590] [clock]: T_ck[0m
+[INFO] [1721212706.161890] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 1.0]
+[INFO] [1721212706.162837] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212706.220156330] [clock]: T_ck[0m
+[INFO] [1721212707.165358] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 3.0]
+[INFO] [1721212707.166342] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212707.220276729] [clock]: T_ck[0m
+[INFO] [1721212708.168786] [system-load-monitor]: CPU: [2.0, 3.0, 1.0, 1.0]
+[INFO] [1721212708.169933] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212708.221108009] [clock]: T_ck[0m
+[INFO] [1721212709.172167] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 2.0]
+[INFO] [1721212709.173082] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212709.220198783] [clock]: T_ck[0m
+[INFO] [1721212710.175364] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 1.0]
+[INFO] [1721212710.176262] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212710.219797399] [clock]: T_ck[0m
+[INFO] [1721212711.178667] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 2.0]
+[INFO] [1721212711.179638] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212711.220616585] [clock]: T_ck[0m
+[INFO] [1721212712.181923] [system-load-monitor]: CPU: [3.0, 6.0, 2.0, 2.0]
+[INFO] [1721212712.182754] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212712.219679638] [clock]: T_ck[0m
+[INFO] [1721212713.185119] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 0.0]
+[INFO] [1721212713.185966] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212713.220304418] [clock]: T_ck[0m
+[INFO] [1721212714.188231] [system-load-monitor]: CPU: [3.0, 0.0, 1.0, 3.0]
+[INFO] [1721212714.189149] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212714.220074778] [clock]: T_ck[0m
+[INFO] [1721212715.191634] [system-load-monitor]: CPU: [2.0, 4.0, 1.0, 2.0]
+[INFO] [1721212715.192660] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212715.220228444] [clock]: T_ck[0m
+[INFO] [1721212716.195158] [system-load-monitor]: CPU: [4.0, 2.0, 2.0, 1.0]
+[INFO] [1721212716.196063] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212716.220343701] [clock]: T_ck[0m
+[INFO] [1721212717.198498] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212717.199451] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212717.219309284] [clock]: T_ck[0m
+[INFO] [1721212718.201779] [system-load-monitor]: CPU: [0.0, 2.0, 0.0, 0.0]
+[INFO] [1721212718.202641] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212718.219764431] [clock]: T_ck[0m
+[INFO] [1721212719.204989] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 2.0]
+[INFO] [1721212719.205871] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212719.219828349] [clock]: T_ck[0m
+[INFO] [1721212720.208276] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 0.0]
+[INFO] [1721212720.209267] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212720.218787379] [clock]: T_ck[0m
+[INFO] [1721212721.211421] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 0.0]
+[INFO] [1721212721.212381] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212721.221075825] [clock]: T_ck[0m
+[INFO] [1721212722.214440] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212722.215190] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212722.219924709] [clock]: T_ck[0m
+[INFO] [1721212723.217247] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721212723.217861] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212723.220553010] [clock]: T_ck[0m
+[0m[INFO] [1721212724.219410044] [clock]: T_ck[0m
+[INFO] [1721212724.219525] [system-load-monitor]: CPU: [4.0, 2.0, 1.0, 0.0]
+[INFO] [1721212724.220106] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212725.219282188] [clock]: T_ck[0m
+[INFO] [1721212725.221433] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 1.0]
+[INFO] [1721212725.221891] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212726.220248983] [clock]: T_ck[0m
+[INFO] [1721212726.223599] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 0.0]
+[INFO] [1721212726.224006] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212727.220212704] [clock]: T_ck[0m
+[INFO] [1721212727.225551] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212727.226107] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212728.220662417] [clock]: T_ck[0m
+[INFO] [1721212728.227877] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212728.228394] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212729.220086042] [clock]: T_ck[0m
+[INFO] [1721212729.230606] [system-load-monitor]: CPU: [2.0, 1.0, 0.0, 1.0]
+[INFO] [1721212729.231558] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212730.219938503] [clock]: T_ck[0m
+[INFO] [1721212730.233758] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212730.234570] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212731.220430928] [clock]: T_ck[0m
+[INFO] [1721212731.236513] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 3.0]
+[INFO] [1721212731.237314] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212732.220414719] [clock]: T_ck[0m
+[INFO] [1721212732.239645] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 3.0]
+[INFO] [1721212732.240590] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212733.221060158] [clock]: T_ck[0m
+[INFO] [1721212733.241938] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212733.242522] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212734.220361076] [clock]: T_ck[0m
+[INFO] [1721212734.244563] [system-load-monitor]: CPU: [3.0, 0.0, 2.0, 0.0]
+[INFO] [1721212734.245181] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212735.220678711] [clock]: T_ck[0m
+[INFO] [1721212735.246834] [system-load-monitor]: CPU: [3.0, 2.0, 0.0, 3.0]
+[INFO] [1721212735.247193] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212736.220462088] [clock]: T_ck[0m
+[INFO] [1721212736.249023] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 2.0]
+[INFO] [1721212736.249557] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212737.221126611] [clock]: T_ck[0m
+[INFO] [1721212737.251642] [system-load-monitor]: CPU: [3.0, 1.0, 0.0, 2.0]
+[INFO] [1721212737.252310] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212738.220374697] [clock]: T_ck[0m
+[INFO] [1721212738.254143] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212738.254941] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212739.221383593] [clock]: T_ck[0m
+[INFO] [1721212739.257351] [system-load-monitor]: CPU: [3.0, 0.0, 1.0, 2.0]
+[INFO] [1721212739.258023] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212740.220227709] [clock]: T_ck[0m
+[INFO] [1721212740.260164] [system-load-monitor]: CPU: [0.0, 2.0, 0.0, 3.0]
+[INFO] [1721212740.260997] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212741.220214453] [clock]: T_ck[0m
+[INFO] [1721212741.263281] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 1.0]
+[INFO] [1721212741.264144] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212742.220521145] [clock]: T_ck[0m
+[INFO] [1721212742.266557] [system-load-monitor]: CPU: [1.0, 3.0, 1.0, 1.0]
+[INFO] [1721212742.267442] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212743.220731265] [clock]: T_ck[0m
+[INFO] [1721212743.269912] [system-load-monitor]: CPU: [3.0, 0.0, 2.0, 1.0]
+[INFO] [1721212743.270865] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212744.220061886] [clock]: T_ck[0m
+[INFO] [1721212744.273283] [system-load-monitor]: CPU: [3.0, 2.0, 2.0, 2.0]
+[INFO] [1721212744.273775] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212745.221001374] [clock]: T_ck[0m
+[INFO] [1721212745.276021] [system-load-monitor]: CPU: [4.0, 1.0, 1.0, 0.0]
+[INFO] [1721212745.276912] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212746.220986575] [clock]: T_ck[0m
+[INFO] [1721212746.279267] [system-load-monitor]: CPU: [2.0, 3.0, 1.0, 1.0]
+[INFO] [1721212746.279976] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212747.221699738] [clock]: T_ck[0m
+[INFO] [1721212747.282189] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 0.0]
+[INFO] [1721212747.283051] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212748.221299395] [clock]: T_ck[0m
+[INFO] [1721212748.285736] [system-load-monitor]: CPU: [3.1, 1.0, 0.0, 1.0]
+[INFO] [1721212748.286567] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212749.220112859] [clock]: T_ck[0m
+[INFO] [1721212749.288926] [system-load-monitor]: CPU: [2.0, 3.0, 1.0, 0.0]
+[INFO] [1721212749.289861] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212750.220034856] [clock]: T_ck[0m
+[INFO] [1721212750.292226] [system-load-monitor]: CPU: [3.0, 3.0, 2.0, 2.0]
+[INFO] [1721212750.293241] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212751.220256711] [clock]: T_ck[0m
+[INFO] [1721212751.295604] [system-load-monitor]: CPU: [2.0, 3.0, 3.0, 1.0]
+[INFO] [1721212751.296473] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212752.220270179] [clock]: T_ck[0m
+[INFO] [1721212752.298747] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 0.0]
+[INFO] [1721212752.299613] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212753.221080257] [clock]: T_ck[0m
+[INFO] [1721212753.301973] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 1.0]
+[INFO] [1721212753.302795] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212754.219657038] [clock]: T_ck[0m
+[INFO] [1721212754.305287] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212754.305918] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212755.220964103] [clock]: T_ck[0m
+[INFO] [1721212755.308234] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721212755.309083] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212756.220750741] [clock]: T_ck[0m
+[INFO] [1721212756.311796] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 1.0]
+[INFO] [1721212756.313545] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212757.220136105] [clock]: T_ck[0m
+[INFO] [1721212757.316177] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 1.0]
+[INFO] [1721212757.317555] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212758.220318371] [clock]: T_ck[0m
+[INFO] [1721212758.319892] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 2.0]
+[INFO] [1721212758.320814] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212759.222342101] [clock]: T_ck[0m
+[INFO] [1721212759.323597] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 2.0]
+[INFO] [1721212759.325243] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212760.220169798] [clock]: T_ck[0m
+[INFO] [1721212760.328057] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 1.0]
+[INFO] [1721212760.329941] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212761.219750282] [clock]: T_ck[0m
+[INFO] [1721212761.332912] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 2.0]
+[INFO] [1721212761.334520] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212762.220757715] [clock]: T_ck[0m
+[INFO] [1721212762.337384] [system-load-monitor]: CPU: [2.9, 1.0, 2.0, 1.0]
+[INFO] [1721212762.338776] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212763.220034819] [clock]: T_ck[0m
+[INFO] [1721212763.341948] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721212763.343131] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212764.221193164] [clock]: T_ck[0m
+[INFO] [1721212764.345577] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 0.0]
+[INFO] [1721212764.346473] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212765.220668618] [clock]: T_ck[0m
+[INFO] [1721212765.348675] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 3.0]
+[INFO] [1721212765.349550] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212766.219811349] [clock]: T_ck[0m
+[INFO] [1721212766.351854] [system-load-monitor]: CPU: [2.0, 0.0, 2.0, 1.0]
+[INFO] [1721212766.352750] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212767.220874988] [clock]: T_ck[0m
+[INFO] [1721212767.355188] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 2.0]
+[INFO] [1721212767.356139] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212768.220207465] [clock]: T_ck[0m
+[INFO] [1721212768.358421] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 1.0]
+[INFO] [1721212768.359279] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212769.220806180] [clock]: T_ck[0m
+[INFO] [1721212769.361728] [system-load-monitor]: CPU: [1.0, 0.0, 1.0, 2.0]
+[INFO] [1721212769.362698] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212770.220364610] [clock]: T_ck[0m
+[INFO] [1721212770.365368] [system-load-monitor]: CPU: [3.0, 1.0, 1.0, 2.0]
+[INFO] [1721212770.366374] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212771.219698366] [clock]: T_ck[0m
+[INFO] [1721212771.368820] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721212771.369884] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212772.219622663] [clock]: T_ck[0m
+[INFO] [1721212772.372401] [system-load-monitor]: CPU: [3.0, 4.0, 2.0, 2.0]
+[INFO] [1721212772.373450] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212773.220223869] [clock]: T_ck[0m
+[INFO] [1721212773.375189] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 4.0]
+[INFO] [1721212773.375553] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212774.220051986] [clock]: T_ck[0m
+[INFO] [1721212774.377924] [system-load-monitor]: CPU: [3.0, 2.0, 2.0, 1.0]
+[INFO] [1721212774.378915] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212775.220716398] [clock]: T_ck[0m
+[INFO] [1721212775.381458] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212775.382379] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212776.220180301] [clock]: T_ck[0m
+[INFO] [1721212776.384379] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212776.385116] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212777.219726199] [clock]: T_ck[0m
+[INFO] [1721212777.387455] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 1.0]
+[INFO] [1721212777.388370] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212778.220639636] [clock]: T_ck[0m
+[INFO] [1721212778.390754] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 0.0]
+[INFO] [1721212778.391653] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212779.219716378] [clock]: T_ck[0m
+[INFO] [1721212779.393905] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 0.0]
+[INFO] [1721212779.394768] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212780.221069520] [clock]: T_ck[0m
+[INFO] [1721212780.397142] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 1.0]
+[INFO] [1721212780.398027] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212781.220184103] [clock]: T_ck[0m
+[INFO] [1721212781.400299] [system-load-monitor]: CPU: [3.0, 1.0, 0.0, 1.0]
+[INFO] [1721212781.401203] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212782.219748905] [clock]: T_ck[0m
+[INFO] [1721212782.403581] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 0.0]
+[INFO] [1721212782.404541] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212783.219541222] [clock]: T_ck[0m
+[INFO] [1721212783.407072] [system-load-monitor]: CPU: [4.0, 2.0, 0.0, 0.0]
+[INFO] [1721212783.408039] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212784.220171808] [clock]: T_ck[0m
+[INFO] [1721212784.410367] [system-load-monitor]: CPU: [6.0, 11.1, 4.0, 6.1]
+[INFO] [1721212784.411222] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212785.219147971] [clock]: T_ck[0m
+[INFO] [1721212785.413593] [system-load-monitor]: CPU: [1.0, 1.0, 3.0, 3.0]
+[INFO] [1721212785.414364] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212786.220716571] [clock]: T_ck[0m
+[INFO] [1721212786.416611] [system-load-monitor]: CPU: [3.0, 0.0, 0.0, 1.0]
+[INFO] [1721212786.417529] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212787.221132836] [clock]: T_ck[0m
+[INFO] [1721212787.419885] [system-load-monitor]: CPU: [1.0, 1.0, 2.9, 1.0]
+[INFO] [1721212787.420915] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212788.219820910] [clock]: T_ck[0m
+[INFO] [1721212788.423311] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 3.0]
+[INFO] [1721212788.424214] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212789.220218311] [clock]: T_ck[0m
+[INFO] [1721212789.426571] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 3.0]
+[INFO] [1721212789.427485] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212790.220340022] [clock]: T_ck[0m
+[INFO] [1721212790.429805] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 1.0]
+[INFO] [1721212790.430701] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212791.219988907] [clock]: T_ck[0m
+[INFO] [1721212791.433098] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 2.0]
+[INFO] [1721212791.433971] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212792.220481365] [clock]: T_ck[0m
+[INFO] [1721212792.435876] [system-load-monitor]: CPU: [1.0, 2.0, 2.9, 2.0]
+[INFO] [1721212792.436924] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212793.221331613] [clock]: T_ck[0m
+[INFO] [1721212793.439344] [system-load-monitor]: CPU: [3.9, 2.0, 2.0, 0.0]
+[INFO] [1721212793.440233] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212794.220012292] [clock]: T_ck[0m
+[INFO] [1721212794.441751] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 0.0]
+[INFO] [1721212794.442456] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212795.220465545] [clock]: T_ck[0m
+[INFO] [1721212795.445064] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 1.0]
+[INFO] [1721212795.446048] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212796.219795263] [clock]: T_ck[0m
+[INFO] [1721212796.448414] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 3.0]
+[INFO] [1721212796.449359] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212797.220723452] [clock]: T_ck[0m
+[INFO] [1721212797.451720] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 2.0]
+[INFO] [1721212797.452689] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212798.220529748] [clock]: T_ck[0m
+[INFO] [1721212798.455073] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 1.0]
+[INFO] [1721212798.455941] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212799.221368949] [clock]: T_ck[0m
+[INFO] [1721212799.458145] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721212799.459150] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212800.219749751] [clock]: T_ck[0m
+[INFO] [1721212800.461703] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 0.0]
+[INFO] [1721212800.462704] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212801.221145984] [clock]: T_ck[0m
+[INFO] [1721212801.464964] [system-load-monitor]: CPU: [3.0, 0.0, 2.0, 1.0]
+[INFO] [1721212801.465746] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212802.219705102] [clock]: T_ck[0m
+[INFO] [1721212802.468098] [system-load-monitor]: CPU: [2.0, 1.0, 0.0, 3.0]
+[INFO] [1721212802.469125] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212803.221431903] [clock]: T_ck[0m
+[INFO] [1721212803.471218] [system-load-monitor]: CPU: [3.0, 2.0, 2.9, 2.0]
+[INFO] [1721212803.471929] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212804.220504733] [clock]: T_ck[0m
+[INFO] [1721212804.474169] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 2.0]
+[INFO] [1721212804.475109] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212805.220213937] [clock]: T_ck[0m
+[INFO] [1721212805.477727] [system-load-monitor]: CPU: [3.0, 0.0, 1.0, 1.0]
+[INFO] [1721212805.478647] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212806.220265954] [clock]: T_ck[0m
+[INFO] [1721212806.481256] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 2.0]
+[INFO] [1721212806.482249] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212807.220219161] [clock]: T_ck[0m
+[INFO] [1721212807.484947] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 2.0]
+[INFO] [1721212807.485928] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212808.220710802] [clock]: T_ck[0m
+[INFO] [1721212808.488371] [system-load-monitor]: CPU: [3.0, 2.0, 4.0, 1.0]
+[INFO] [1721212808.489418] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212809.220668319] [clock]: T_ck[0m
+[INFO] [1721212809.491760] [system-load-monitor]: CPU: [0.0, 2.0, 2.0, 1.0]
+[INFO] [1721212809.492714] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212810.220256636] [clock]: T_ck[0m
+[INFO] [1721212810.495067] [system-load-monitor]: CPU: [2.0, 5.0, 2.0, 3.0]
+[INFO] [1721212810.495923] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212811.219734728] [clock]: T_ck[0m
+[INFO] [1721212811.498318] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 1.0]
+[INFO] [1721212811.499278] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212812.220374238] [clock]: T_ck[0m
+[INFO] [1721212812.501809] [system-load-monitor]: CPU: [1.0, 2.0, 3.9, 3.0]
+[INFO] [1721212812.502703] [system-load-monitor]: Network: 543, 0
+[0m[INFO] [1721212813.220710947] [clock]: T_ck[0m
+[INFO] [1721212813.505087] [system-load-monitor]: CPU: [0.0, 0.0, 2.0, 1.0]
+[INFO] [1721212813.505940] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212814.220745873] [clock]: T_ck[0m
+[INFO] [1721212814.508213] [system-load-monitor]: CPU: [2.0, 1.0, 3.0, 0.0]
+[INFO] [1721212814.509136] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212815.221058988] [clock]: T_ck[0m
+[INFO] [1721212815.511492] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212815.512094] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212816.221651566] [clock]: T_ck[0m
+[INFO] [1721212816.514352] [system-load-monitor]: CPU: [2.0, 0.0, 0.0, 0.0]
+[INFO] [1721212816.515431] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212817.219482145] [clock]: T_ck[0m
+[INFO] [1721212817.517715] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721212817.518734] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212818.220248567] [clock]: T_ck[0m
+[INFO] [1721212818.521293] [system-load-monitor]: CPU: [0.0, 2.0, 1.0, 1.0]
+[INFO] [1721212818.522195] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212819.221307725] [clock]: T_ck[0m
+[INFO] [1721212819.524798] [system-load-monitor]: CPU: [2.0, 0.0, 2.0, 1.0]
+[INFO] [1721212819.525773] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212820.220289327] [clock]: T_ck[0m
+[INFO] [1721212820.528134] [system-load-monitor]: CPU: [0.0, 2.9, 2.0, 3.0]
+[INFO] [1721212820.529186] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212821.220218518] [clock]: T_ck[0m
+[INFO] [1721212821.531480] [system-load-monitor]: CPU: [3.9, 0.0, 1.0, 1.0]
+[INFO] [1721212821.532336] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212822.221419438] [clock]: T_ck[0m
+[INFO] [1721212822.534715] [system-load-monitor]: CPU: [2.0, 1.0, 3.0, 2.0]
+[INFO] [1721212822.535694] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212823.220301392] [clock]: T_ck[0m
+[INFO] [1721212823.538129] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 0.0]
+[INFO] [1721212823.539110] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212824.221070327] [clock]: T_ck[0m
+[INFO] [1721212824.541810] [system-load-monitor]: CPU: [0.0, 1.0, 2.0, 1.0]
+[INFO] [1721212824.542798] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212825.220216814] [clock]: T_ck[0m
+[INFO] [1721212825.545346] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721212825.546298] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212826.221496616] [clock]: T_ck[0m
+[INFO] [1721212826.548671] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 0.0]
+[INFO] [1721212826.549728] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212827.219710248] [clock]: T_ck[0m
+[INFO] [1721212827.552370] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 1.0]
+[INFO] [1721212827.553664] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212828.221017092] [clock]: T_ck[0m
+[INFO] [1721212828.556082] [system-load-monitor]: CPU: [3.0, 2.0, 3.0, 1.0]
+[INFO] [1721212828.557070] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212829.219635476] [clock]: T_ck[0m
+[INFO] [1721212829.559438] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 1.0]
+[INFO] [1721212829.560478] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212830.220184611] [clock]: T_ck[0m
+[INFO] [1721212830.562874] [system-load-monitor]: CPU: [3.0, 0.0, 1.0, 3.0]
+[INFO] [1721212830.563762] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212831.221116588] [clock]: T_ck[0m
+[INFO] [1721212831.565672] [system-load-monitor]: CPU: [4.1, 1.0, 2.0, 0.0]
+[INFO] [1721212831.566341] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212832.220207549] [clock]: T_ck[0m
+[INFO] [1721212832.568667] [system-load-monitor]: CPU: [3.0, 2.0, 3.0, 0.0]
+[INFO] [1721212832.569653] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212833.220688177] [clock]: T_ck[0m
+[INFO] [1721212833.572179] [system-load-monitor]: CPU: [2.0, 1.0, 2.9, 2.0]
+[INFO] [1721212833.573251] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212834.221273377] [clock]: T_ck[0m
+[INFO] [1721212834.575743] [system-load-monitor]: CPU: [3.0, 2.0, 0.0, 1.0]
+[INFO] [1721212834.576274] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212835.220254318] [clock]: T_ck[0m
+[INFO] [1721212835.578443] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.9]
+[INFO] [1721212835.579544] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212836.221326734] [clock]: T_ck[0m
+[INFO] [1721212836.582093] [system-load-monitor]: CPU: [1.0, 3.0, 1.0, 1.0]
+[INFO] [1721212836.582998] [system-load-monitor]: Network: 392, 0
+[0m[INFO] [1721212837.219394640] [clock]: T_ck[0m
+[INFO] [1721212837.585317] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721212837.586227] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212838.222203980] [clock]: T_ck[0m
+[INFO] [1721212838.588572] [system-load-monitor]: CPU: [3.0, 1.0, 3.0, 0.0]
+[INFO] [1721212838.589586] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212839.219938533] [clock]: T_ck[0m
+[INFO] [1721212839.591931] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 2.0]
+[INFO] [1721212839.592777] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212840.220448738] [clock]: T_ck[0m
+[INFO] [1721212840.595208] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 1.0]
+[INFO] [1721212840.596179] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212841.219925593] [clock]: T_ck[0m
+[INFO] [1721212841.598579] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.0]
+[INFO] [1721212841.599491] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212842.219839173] [clock]: T_ck[0m
+[INFO] [1721212842.602016] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 2.0]
+[INFO] [1721212842.603004] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212843.220231901] [clock]: T_ck[0m
+[INFO] [1721212843.605519] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 2.0]
+[INFO] [1721212843.606406] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212844.220251054] [clock]: T_ck[0m
+[INFO] [1721212844.608670] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721212844.609601] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212845.219657380] [clock]: T_ck[0m
+[INFO] [1721212845.611944] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 0.0]
+[INFO] [1721212845.612965] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212846.219548577] [clock]: T_ck[0m
+[INFO] [1721212846.615344] [system-load-monitor]: CPU: [3.0, 2.0, 2.9, 1.0]
+[INFO] [1721212846.616243] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212847.219771966] [clock]: T_ck[0m
+[INFO] [1721212847.618613] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 1.0]
+[INFO] [1721212847.619428] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212848.219142239] [clock]: T_ck[0m
+[INFO] [1721212848.621861] [system-load-monitor]: CPU: [3.0, 2.0, 2.0, 2.0]
+[INFO] [1721212848.622884] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212849.220689737] [clock]: T_ck[0m
+[INFO] [1721212849.625370] [system-load-monitor]: CPU: [1.0, 1.0, 0.0, 1.0]
+[INFO] [1721212849.626261] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212850.220753784] [clock]: T_ck[0m
+[INFO] [1721212850.628669] [system-load-monitor]: CPU: [2.0, 0.0, 1.0, 1.0]
+[INFO] [1721212850.629752] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212851.220266407] [clock]: T_ck[0m
+[INFO] [1721212851.632100] [system-load-monitor]: CPU: [4.0, 2.0, 1.0, 2.0]
+[INFO] [1721212851.633050] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212852.220166064] [clock]: T_ck[0m
+[INFO] [1721212852.635399] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 0.0]
+[INFO] [1721212852.636319] [system-load-monitor]: Network: 322, 0
+[0m[INFO] [1721212853.220597866] [clock]: T_ck[0m
+[INFO] [1721212853.638856] [system-load-monitor]: CPU: [5.0, 2.0, 1.0, 2.0]
+[INFO] [1721212853.639816] [system-load-monitor]: Network: 0, 0
+[0m[INFO] [1721212854.221098383] [clock]: T_ck[0m

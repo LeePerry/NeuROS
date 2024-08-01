@@ -10,7 +10,7 @@ This metric confirms the ability of NeuROS to execute node user plugins
 concurrently.
 """
 
-data_path = "log/2_synchronisation.txt"
+data_path = "results_data/2_synchronisation.txt"
 
 def create_data():
     """
@@ -40,7 +40,7 @@ def process_data():
 
     print("==== Voting Interval ====")
     common.data.basic_stats(intervals)
-    common.plot.histogram("log/2_synchronisation_voting_interval_histogram.png",
+    common.plot.histogram("results_data/2_synchronisation_voting_interval_histogram.png",
                           intervals,
                           "Execution Time (3 Parallel 5s Tasks)",
                           relative_frequency=False,
@@ -48,18 +48,18 @@ def process_data():
 
     print("==== Voting CPU Series ====")
     common.plot.all_cpu_time_series(data_path,
-                                    "log/2_synchronisation_voting_cpu_time_series.png")
+                                    "results_data/2_synchronisation_voting_cpu_time_series.png")
     
     print("==== Memory Consumption Series ====")
     common.plot.memory_consumption_time_series(data_path,
-                                               "log/2_synchronisation_voting_memory_percent_time_series.png")
+                                               "results_data/2_synchronisation_voting_memory_percent_time_series.png")
     common.plot.memory_consumption_time_series(data_path,
-                                               "log/2_synchronisation_voting_memory_absolute_time_series.png",
+                                               "results_data/2_synchronisation_voting_memory_absolute_time_series.png",
                                                percent=False)
 
     print("==== Tick Network Series ====")
     common.plot.network_speeds_time_series(data_path,
-                                           "log/2_synchronisation_voting_network_speeds_time_series.png")
+                                           "results_data/2_synchronisation_voting_network_speeds_time_series.png")
 
 if __name__ == '__main__':
     #create_data()

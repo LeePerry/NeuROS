@@ -12,7 +12,7 @@ import common.data
 import common.plot
 import common.run
 
-data_path = "log/1_tick_interval.txt"
+data_path = "results_data/1_tick_interval.txt"
 
 def create_data():
     """
@@ -45,7 +45,7 @@ def process_data():
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.002)
     common.data.percentage_within_x_of_target(intervals, 1.0, 0.001)
     binwidth = 0.0005
-    common.plot.histogram("log/1_tick_interval_histogram.png",
+    common.plot.histogram("results_data/1_tick_interval_histogram.png",
                           intervals,
                           "Interval (Target 1.0)",
                           relative_frequency=False,
@@ -55,18 +55,18 @@ def process_data():
 
     print("==== Tick CPU Series ====")
     common.plot.all_cpu_time_series(data_path,
-                                    "log/1_tick_cpu_time_series.png")
+                                    "results_data/1_tick_cpu_time_series.png")
     
     print("==== Memory Consumption Series ====")
     common.plot.memory_consumption_time_series(data_path,
-                                               "log/1_tick_memory_percent_time_series.png")
+                                               "results_data/1_tick_memory_percent_time_series.png")
     common.plot.memory_consumption_time_series(data_path,
-                                               "log/1_tick_memory_absolute_time_series.png",
+                                               "results_data/1_tick_memory_absolute_time_series.png",
                                                percent=False)
     
     print("==== Tick Network Series ====")
     common.plot.network_speeds_time_series(data_path,
-                                           "log/1_tick_network_speeds_time_series.png")
+                                           "results_data/1_tick_network_speeds_time_series.png")
 
 if __name__ == '__main__':
     #create_data()

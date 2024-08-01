@@ -1,0 +1,1195 @@
+[INFO] [1721908557.892826] [system-load-monitor]: CPU: [100.0, 99.0, 100.0, 100.0]
+[INFO] [1721908557.893325] [system-load-monitor]: Memory: [3696852992, 47.9]
+[INFO] [1721908557.893816] [system-load-monitor]: Network: [9087055441, 4152854193]
+[INFO] [1721908558.895397] [system-load-monitor]: CPU: [99.0, 100.0, 99.0, 99.0]
+[INFO] [1721908558.896105] [system-load-monitor]: Memory: [3771572224, 48.5]
+[INFO] [1721908558.897012] [system-load-monitor]: Network: [205864, 221000]
+[0m[INFO] [1721908558.961156974] [voter_1]: Waiting until authority is ready to receive vote...[0m
+[0m[INFO] [1721908558.973979831] [voter_3]: Waiting until authority is ready to receive vote...[0m
+[0m[INFO] [1721908558.986718332] [voter_2]: Waiting until authority is ready to receive vote...[0m
+[0m[INFO] [1721908559.087044272] [authority]: Waiting until voter_1 is ready to receive polling_day...[0m
+[0m[INFO] [1721908559.090679861] [authority]: Waiting until voter_2 is ready to receive polling_day...[0m
+[0m[INFO] [1721908559.094016638] [authority]: Waiting until voter_3 is ready to receive polling_day...[0m
+[0m[INFO] [1721908559.373257745] [authority]: voter_1 is now ready to receive polling_day![0m
+[0m[INFO] [1721908559.388833584] [authority]: voter_3 is now ready to receive polling_day![0m
+[0m[INFO] [1721908559.402556384] [authority]: voter_2 is now ready to receive polling_day![0m
+[0m[INFO] [1721908559.408327532] [authority]: Let's vote![0m
+[0m[INFO] [1721908559.538268187] [voter_2]: authority is now ready to receive vote![0m
+[0m[INFO] [1721908559.538385673] [voter_3]: authority is now ready to receive vote![0m
+[0m[INFO] [1721908559.536361635] [voter_1]: authority is now ready to receive vote![0m
+[0m[INFO] [1721908559.542158959] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908559.542367943] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908559.542474860] [voter_2]: Voting for blue[0m
+[INFO] [1721908559.899977] [system-load-monitor]: CPU: [19.8, 19.4, 29.3, 20.2]
+[INFO] [1721908559.901273] [system-load-monitor]: Memory: [3772841984, 48.5]
+[INFO] [1721908559.902686] [system-load-monitor]: Network: [261056, 278585]
+[INFO] [1721908560.905430] [system-load-monitor]: CPU: [4.1, 1.0, 4.0, 2.0]
+[INFO] [1721908560.906361] [system-load-monitor]: Memory: [3772489728, 48.5]
+[INFO] [1721908560.907864] [system-load-monitor]: Network: [4560, 6034]
+[INFO] [1721908561.910049] [system-load-monitor]: CPU: [6.3, 4.1, 6.0, 5.1]
+[INFO] [1721908561.910749] [system-load-monitor]: Memory: [3772481536, 48.5]
+[INFO] [1721908561.911676] [system-load-monitor]: Network: [57428, 59352]
+[INFO] [1721908562.913996] [system-load-monitor]: CPU: [1.1, 2.0, 3.0, 3.0]
+[INFO] [1721908562.915415] [system-load-monitor]: Memory: [3772555264, 48.5]
+[INFO] [1721908562.916654] [system-load-monitor]: Network: [9562, 12194]
+[INFO] [1721908563.918723] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 2.0]
+[INFO] [1721908563.919777] [system-load-monitor]: Memory: [3772551168, 48.5]
+[INFO] [1721908563.920759] [system-load-monitor]: Network: [1644, 2086]
+[0m[INFO] [1721908564.555595084] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908564.558519721] [authority]: Let's vote![0m
+[0m[INFO] [1721908564.562091867] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908564.563127370] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908564.565671409] [voter_1]: Voting for red[0m
+[INFO] [1721908564.923220] [system-load-monitor]: CPU: [5.1, 6.0, 3.1, 3.0]
+[INFO] [1721908564.924695] [system-load-monitor]: Memory: [3772551168, 48.5]
+[INFO] [1721908564.926039] [system-load-monitor]: Network: [7290, 8390]
+[INFO] [1721908565.928423] [system-load-monitor]: CPU: [5.2, 2.0, 4.0, 6.1]
+[INFO] [1721908565.930216] [system-load-monitor]: Memory: [3774586880, 48.5]
+[INFO] [1721908565.931798] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908566.934184] [system-load-monitor]: CPU: [2.1, 3.0, 2.0, 0.0]
+[INFO] [1721908566.935776] [system-load-monitor]: Memory: [3774377984, 48.5]
+[INFO] [1721908566.937380] [system-load-monitor]: Network: [84, 84]
+[INFO] [1721908567.939196] [system-load-monitor]: CPU: [1.0, 3.0, 2.0, 1.0]
+[INFO] [1721908567.940717] [system-load-monitor]: Memory: [3774373888, 48.5]
+[INFO] [1721908567.942222] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908568.944415] [system-load-monitor]: CPU: [2.1, 1.0, 3.0, 2.0]
+[INFO] [1721908568.945774] [system-load-monitor]: Memory: [3774373888, 48.5]
+[INFO] [1721908568.947276] [system-load-monitor]: Network: [7672, 10444]
+[0m[INFO] [1721908569.578095790] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908569.580377406] [authority]: Let's vote![0m
+[0m[INFO] [1721908569.584921275] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908569.585285073] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908569.586417455] [voter_3]: Voting for red[0m
+[INFO] [1721908569.949795] [system-load-monitor]: CPU: [6.1, 4.9, 3.0, 2.0]
+[INFO] [1721908569.950833] [system-load-monitor]: Memory: [3774631936, 48.5]
+[INFO] [1721908569.952008] [system-load-monitor]: Network: [3136, 3206]
+[INFO] [1721908570.954337] [system-load-monitor]: CPU: [3.1, 3.0, 2.0, 1.0]
+[INFO] [1721908570.955816] [system-load-monitor]: Memory: [3774631936, 48.5]
+[INFO] [1721908570.957403] [system-load-monitor]: Network: [1918, 2646]
+[INFO] [1721908571.959821] [system-load-monitor]: CPU: [3.1, 3.0, 3.0, 2.0]
+[INFO] [1721908571.961307] [system-load-monitor]: Memory: [3774623744, 48.5]
+[INFO] [1721908571.962489] [system-load-monitor]: Network: [8016, 11090]
+[INFO] [1721908572.964751] [system-load-monitor]: CPU: [4.1, 3.0, 6.1, 4.0]
+[INFO] [1721908572.966255] [system-load-monitor]: Memory: [3774349312, 48.5]
+[INFO] [1721908572.967473] [system-load-monitor]: Network: [8208, 8650]
+[INFO] [1721908573.969932] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 3.0]
+[INFO] [1721908573.971677] [system-load-monitor]: Memory: [3773976576, 48.5]
+[INFO] [1721908573.972939] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908574.599870487] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908574.602207417] [authority]: Let's vote![0m
+[0m[INFO] [1721908574.606690389] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908574.606812843] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908574.607405294] [voter_3]: Voting for blue[0m
+[INFO] [1721908574.975570] [system-load-monitor]: CPU: [6.2, 2.0, 5.0, 3.0]
+[INFO] [1721908574.977321] [system-load-monitor]: Memory: [3773976576, 48.5]
+[INFO] [1721908574.978677] [system-load-monitor]: Network: [10804, 13436]
+[INFO] [1721908575.981137] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 1.0]
+[INFO] [1721908575.982457] [system-load-monitor]: Memory: [3773976576, 48.5]
+[INFO] [1721908575.983745] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908576.986120] [system-load-monitor]: CPU: [3.0, 1.0, 5.9, 1.0]
+[INFO] [1721908576.987748] [system-load-monitor]: Memory: [3773972480, 48.5]
+[INFO] [1721908576.989245] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908577.990696] [system-load-monitor]: CPU: [2.0, 5.0, 1.0, 2.0]
+[INFO] [1721908577.991019] [system-load-monitor]: Memory: [3773972480, 48.5]
+[INFO] [1721908577.991523] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908578.993951] [system-load-monitor]: CPU: [3.1, 1.0, 3.9, 1.0]
+[INFO] [1721908578.995378] [system-load-monitor]: Memory: [3773964288, 48.5]
+[INFO] [1721908578.996875] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908579.620219791] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908579.622848878] [authority]: Let's vote![0m
+[0m[INFO] [1721908579.627342354] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908579.627213170] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908579.630244441] [voter_3]: Voting for red[0m
+[INFO] [1721908579.999793] [system-load-monitor]: CPU: [5.1, 2.0, 3.0, 3.0]
+[INFO] [1721908580.000714] [system-load-monitor]: Memory: [3773964288, 48.5]
+[INFO] [1721908580.001483] [system-load-monitor]: Network: [5062, 5720]
+[INFO] [1721908581.004239] [system-load-monitor]: CPU: [3.0, 1.0, 2.0, 1.0]
+[INFO] [1721908581.005277] [system-load-monitor]: Memory: [3774464000, 48.5]
+[INFO] [1721908581.006518] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908582.008955] [system-load-monitor]: CPU: [3.1, 1.0, 1.0, 3.9]
+[INFO] [1721908582.009892] [system-load-monitor]: Memory: [3774455808, 48.5]
+[INFO] [1721908582.011360] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908583.013792] [system-load-monitor]: CPU: [3.0, 1.0, 3.0, 0.0]
+[INFO] [1721908583.015122] [system-load-monitor]: Memory: [3774451712, 48.5]
+[INFO] [1721908583.016587] [system-load-monitor]: Network: [1918, 2716]
+[INFO] [1721908584.018106] [system-load-monitor]: CPU: [2.1, 3.0, 3.0, 1.0]
+[INFO] [1721908584.019237] [system-load-monitor]: Memory: [3774443520, 48.5]
+[INFO] [1721908584.020420] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908584.638835174] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908584.641098016] [authority]: Let's vote![0m
+[0m[INFO] [1721908584.644213351] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908584.645419847] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908584.647898294] [voter_3]: Voting for blue[0m
+[INFO] [1721908585.022172] [system-load-monitor]: CPU: [4.1, 1.0, 3.0, 2.0]
+[INFO] [1721908585.023443] [system-load-monitor]: Memory: [3774443520, 48.5]
+[INFO] [1721908585.024792] [system-load-monitor]: Network: [3220, 3220]
+[INFO] [1721908586.027190] [system-load-monitor]: CPU: [4.0, 0.0, 5.0, 1.0]
+[INFO] [1721908586.028712] [system-load-monitor]: Memory: [3774435328, 48.5]
+[INFO] [1721908586.030325] [system-load-monitor]: Network: [2086, 2744]
+[INFO] [1721908587.032743] [system-load-monitor]: CPU: [1.0, 2.0, 3.0, 2.0]
+[INFO] [1721908587.034184] [system-load-monitor]: Memory: [3774435328, 48.5]
+[INFO] [1721908587.035742] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908588.037994] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 0.0]
+[INFO] [1721908588.039055] [system-load-monitor]: Memory: [3774435328, 48.5]
+[INFO] [1721908588.040123] [system-load-monitor]: Network: [0, 803]
+[INFO] [1721908589.042492] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 3.0]
+[INFO] [1721908589.043828] [system-load-monitor]: Memory: [3774435328, 48.5]
+[INFO] [1721908589.044884] [system-load-monitor]: Network: [1918, 2797]
+[0m[INFO] [1721908589.661467548] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908589.663694373] [authority]: Let's vote![0m
+[0m[INFO] [1721908589.668064662] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908589.668095446] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908589.668300688] [voter_3]: Voting for blue[0m
+[INFO] [1721908590.047296] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 5.0]
+[INFO] [1721908590.048563] [system-load-monitor]: Memory: [3775201280, 48.5]
+[INFO] [1721908590.050009] [system-load-monitor]: Network: [10808, 13440]
+[INFO] [1721908591.052293] [system-load-monitor]: CPU: [4.1, 2.0, 1.0, 5.0]
+[INFO] [1721908591.053626] [system-load-monitor]: Memory: [3775201280, 48.5]
+[INFO] [1721908591.054879] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908592.057245] [system-load-monitor]: CPU: [3.1, 0.0, 2.0, 3.0]
+[INFO] [1721908592.058460] [system-load-monitor]: Memory: [3775197184, 48.5]
+[INFO] [1721908592.059667] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908593.061374] [system-load-monitor]: CPU: [28.6, 6.9, 4.0, 7.8]
+[INFO] [1721908593.061741] [system-load-monitor]: Memory: [3775045632, 48.5]
+[INFO] [1721908593.062306] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908594.064591] [system-load-monitor]: CPU: [12.1, 1.0, 2.0, 2.0]
+[INFO] [1721908594.066016] [system-load-monitor]: Memory: [3774930944, 48.5]
+[INFO] [1721908594.067603] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908594.681210419] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908594.683519918] [authority]: Let's vote![0m
+[0m[INFO] [1721908594.688037180] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908594.688726524] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908594.690221793] [voter_3]: Voting for red[0m
+[INFO] [1721908595.069905] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 4.0]
+[INFO] [1721908595.070817] [system-load-monitor]: Memory: [3775705088, 48.5]
+[INFO] [1721908595.071994] [system-load-monitor]: Network: [5054, 5712]
+[INFO] [1721908596.074327] [system-load-monitor]: CPU: [1.0, 2.0, 3.0, 4.0]
+[INFO] [1721908596.075583] [system-load-monitor]: Memory: [3775700992, 48.5]
+[INFO] [1721908596.076938] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908597.079389] [system-load-monitor]: CPU: [4.0, 1.0, 3.0, 2.0]
+[INFO] [1721908597.080701] [system-load-monitor]: Memory: [3775700992, 48.5]
+[INFO] [1721908597.082242] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908598.084772] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 1.0]
+[INFO] [1721908598.086304] [system-load-monitor]: Memory: [3775700992, 48.5]
+[INFO] [1721908598.087835] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908599.090482] [system-load-monitor]: CPU: [3.0, 2.0, 3.0, 3.9]
+[INFO] [1721908599.091755] [system-load-monitor]: Memory: [3775700992, 48.5]
+[INFO] [1721908599.093178] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908599.704519026] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908599.706760664] [authority]: Let's vote![0m
+[0m[INFO] [1721908599.711342260] [voter_1]: Voting for blue[0m[0m[INFO] [1721908599.711342450] [voter_3]: Voting for blue[0m
+
+[0m[INFO] [1721908599.712710654] [voter_2]: Voting for blue[0m
+[INFO] [1721908600.095594] [system-load-monitor]: CPU: [3.1, 2.0, 4.0, 3.0]
+[INFO] [1721908600.097294] [system-load-monitor]: Memory: [3775692800, 48.5]
+[INFO] [1721908600.098741] [system-load-monitor]: Network: [3472, 3472]
+[INFO] [1721908601.101463] [system-load-monitor]: CPU: [2.0, 1.0, 2.0, 1.0]
+[INFO] [1721908601.102408] [system-load-monitor]: Memory: [3775692800, 48.5]
+[INFO] [1721908601.103678] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908602.106148] [system-load-monitor]: CPU: [2.1, 4.0, 3.9, 2.0]
+[INFO] [1721908602.107103] [system-load-monitor]: Memory: [3775688704, 48.5]
+[INFO] [1721908602.108345] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908603.110057] [system-load-monitor]: CPU: [3.1, 1.0, 1.0, 1.0]
+[INFO] [1721908603.111030] [system-load-monitor]: Memory: [3775688704, 48.5]
+[INFO] [1721908603.112217] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908604.114150] [system-load-monitor]: CPU: [1.0, 3.0, 3.0, 1.0]
+[INFO] [1721908604.115175] [system-load-monitor]: Memory: [3775680512, 48.5]
+[INFO] [1721908604.116402] [system-load-monitor]: Network: [2590, 3248]
+[0m[INFO] [1721908604.721450341] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908604.723662856] [authority]: Let's vote![0m
+[0m[INFO] [1721908604.728079466] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908604.728229810] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908604.729803227] [voter_1]: Voting for red[0m
+[INFO] [1721908605.118659] [system-load-monitor]: CPU: [2.1, 4.0, 5.9, 3.0]
+[INFO] [1721908605.120009] [system-load-monitor]: Memory: [3775676416, 48.5]
+[INFO] [1721908605.121293] [system-load-monitor]: Network: [10816, 13448]
+[INFO] [1721908606.123530] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 4.0]
+[INFO] [1721908606.124900] [system-load-monitor]: Memory: [3775676416, 48.5]
+[INFO] [1721908606.126538] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908607.129423] [system-load-monitor]: CPU: [4.0, 1.0, 2.0, 2.0]
+[INFO] [1721908607.130465] [system-load-monitor]: Memory: [3775676416, 48.5]
+[INFO] [1721908607.131736] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908608.133946] [system-load-monitor]: CPU: [5.9, 5.0, 1.0, 3.0]
+[INFO] [1721908608.134732] [system-load-monitor]: Memory: [3775676416, 48.5]
+[INFO] [1721908608.136071] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908609.137967] [system-load-monitor]: CPU: [8.0, 2.0, 0.0, 2.0]
+[INFO] [1721908609.138799] [system-load-monitor]: Memory: [3775676416, 48.5]
+[INFO] [1721908609.140112] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908609.745259091] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908609.747647080] [authority]: Let's vote![0m
+[0m[INFO] [1721908609.751410694] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908609.751926329] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908609.755727805] [voter_3]: Voting for blue[0m
+[INFO] [1721908610.142508] [system-load-monitor]: CPU: [5.0, 3.0, 2.0, 2.0]
+[INFO] [1721908610.144008] [system-load-monitor]: Memory: [3775651840, 48.5]
+[INFO] [1721908610.145467] [system-load-monitor]: Network: [5478, 6136]
+[INFO] [1721908611.147812] [system-load-monitor]: CPU: [6.9, 2.0, 2.0, 1.0]
+[INFO] [1721908611.149133] [system-load-monitor]: Memory: [3775651840, 48.5]
+[INFO] [1721908611.150563] [system-load-monitor]: Network: [7672, 10374]
+[INFO] [1721908612.152703] [system-load-monitor]: CPU: [5.0, 3.0, 2.0, 2.0]
+[INFO] [1721908612.153464] [system-load-monitor]: Memory: [3775651840, 48.5]
+[INFO] [1721908612.154337] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908613.156294] [system-load-monitor]: CPU: [7.8, 3.1, 0.0, 2.0]
+[INFO] [1721908613.156939] [system-load-monitor]: Memory: [3775909888, 48.5]
+[INFO] [1721908613.158094] [system-load-monitor]: Network: [5278, 6006]
+[INFO] [1721908614.159883] [system-load-monitor]: CPU: [6.9, 2.0, 3.0, 4.0]
+[INFO] [1721908614.160488] [system-load-monitor]: Memory: [3775897600, 48.5]
+[INFO] [1721908614.161569] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908614.764014207] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908614.766293936] [authority]: Let's vote![0m
+[0m[INFO] [1721908614.769820327] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908614.770829161] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908614.773316289] [voter_1]: Voting for blue[0m
+[INFO] [1721908615.162943] [system-load-monitor]: CPU: [7.0, 5.0, 3.0, 4.0]
+[INFO] [1721908615.163609] [system-load-monitor]: Memory: [3775893504, 48.5]
+[INFO] [1721908615.164438] [system-load-monitor]: Network: [3140, 3140]
+[INFO] [1721908616.165729] [system-load-monitor]: CPU: [6.9, 2.0, 1.0, 3.0]
+[INFO] [1721908616.166341] [system-load-monitor]: Memory: [3775893504, 48.5]
+[INFO] [1721908616.166983] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908617.168721] [system-load-monitor]: CPU: [7.8, 0.0, 2.0, 1.0]
+[INFO] [1721908617.169284] [system-load-monitor]: Memory: [3775893504, 48.5]
+[INFO] [1721908617.170002] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908618.172200] [system-load-monitor]: CPU: [3.1, 0.0, 0.0, 3.0]
+[INFO] [1721908618.173156] [system-load-monitor]: Memory: [3775893504, 48.5]
+[INFO] [1721908618.174263] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908619.176479] [system-load-monitor]: CPU: [3.0, 2.0, 2.0, 2.0]
+[INFO] [1721908619.177894] [system-load-monitor]: Memory: [3775893504, 48.5]
+[INFO] [1721908619.179332] [system-load-monitor]: Network: [2002, 2660]
+[0m[INFO] [1721908619.785723055] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908619.788011439] [authority]: Let's vote![0m
+[0m[INFO] [1721908619.792539505] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908619.792539413] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908619.792871923] [voter_3]: Voting for red[0m
+[INFO] [1721908620.181583] [system-load-monitor]: CPU: [3.1, 4.0, 3.0, 3.1]
+[INFO] [1721908620.182811] [system-load-monitor]: Memory: [3776319488, 48.5]
+[INFO] [1721908620.184293] [system-load-monitor]: Network: [10808, 14103]
+[INFO] [1721908621.186698] [system-load-monitor]: CPU: [6.1, 6.0, 4.0, 5.0]
+[INFO] [1721908621.188071] [system-load-monitor]: Memory: [3776319488, 48.5]
+[INFO] [1721908621.189403] [system-load-monitor]: Network: [0, 221]
+[INFO] [1721908622.191677] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 3.0]
+[INFO] [1721908622.192429] [system-load-monitor]: Memory: [3776319488, 48.5]
+[INFO] [1721908622.193542] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908623.196301] [system-load-monitor]: CPU: [4.0, 2.0, 1.0, 1.0]
+[INFO] [1721908623.197237] [system-load-monitor]: Memory: [3776319488, 48.5]
+[INFO] [1721908623.198462] [system-load-monitor]: Network: [7672, 10444]
+[INFO] [1721908624.200708] [system-load-monitor]: CPU: [5.1, 4.0, 2.0, 2.0]
+[INFO] [1721908624.202285] [system-load-monitor]: Memory: [3776303104, 48.5]
+[INFO] [1721908624.203577] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908624.808565450] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908624.810853615] [authority]: Let's vote![0m
+[0m[INFO] [1721908624.815251886] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908624.815258139] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908624.815701135] [voter_3]: Voting for red[0m
+[INFO] [1721908625.205979] [system-load-monitor]: CPU: [7.0, 2.0, 3.9, 2.0]
+[INFO] [1721908625.206686] [system-load-monitor]: Memory: [3776303104, 48.5]
+[INFO] [1721908625.207491] [system-load-monitor]: Network: [5050, 5708]
+[INFO] [1721908626.209875] [system-load-monitor]: CPU: [2.0, 3.0, 1.0, 2.0]
+[INFO] [1721908626.210598] [system-load-monitor]: Memory: [3776303104, 48.5]
+[INFO] [1721908626.211535] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908627.213886] [system-load-monitor]: CPU: [4.0, 1.0, 2.0, 2.0]
+[INFO] [1721908627.214656] [system-load-monitor]: Memory: [3776303104, 48.5]
+[INFO] [1721908627.215716] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908628.217977] [system-load-monitor]: CPU: [5.1, 1.0, 2.0, 1.0]
+[INFO] [1721908628.219418] [system-load-monitor]: Memory: [3776303104, 48.5]
+[INFO] [1721908628.220638] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908629.222885] [system-load-monitor]: CPU: [2.1, 2.0, 2.0, 1.0]
+[INFO] [1721908629.224411] [system-load-monitor]: Memory: [3776294912, 48.5]
+[INFO] [1721908629.225692] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908629.829725947] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908629.833101959] [authority]: Let's vote![0m
+[0m[INFO] [1721908629.837649705] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908629.837659116] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908629.837954819] [voter_3]: Voting for red[0m
+[INFO] [1721908630.228024] [system-load-monitor]: CPU: [7.1, 3.0, 1.0, 2.0]
+[INFO] [1721908630.229521] [system-load-monitor]: Memory: [3776290816, 48.5]
+[INFO] [1721908630.230736] [system-load-monitor]: Network: [3132, 3132]
+[INFO] [1721908631.233573] [system-load-monitor]: CPU: [4.1, 3.0, 3.0, 3.0]
+[INFO] [1721908631.234733] [system-load-monitor]: Memory: [3776290816, 48.5]
+[INFO] [1721908631.236076] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908632.238425] [system-load-monitor]: CPU: [2.1, 2.1, 0.0, 1.0]
+[INFO] [1721908632.239751] [system-load-monitor]: Memory: [3776290816, 48.5]
+[INFO] [1721908632.240958] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908633.243318] [system-load-monitor]: CPU: [2.1, 3.0, 1.0, 4.0]
+[INFO] [1721908633.244405] [system-load-monitor]: Memory: [3776286720, 48.5]
+[INFO] [1721908633.245669] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908634.248204] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721908634.249095] [system-load-monitor]: Memory: [3776286720, 48.5]
+[INFO] [1721908634.250515] [system-load-monitor]: Network: [3836, 5152]
+[0m[INFO] [1721908634.854219270] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908634.856390844] [authority]: Let's vote![0m
+[0m[INFO] [1721908634.860869170] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908634.860925933] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908634.862632445] [voter_1]: Voting for blue[0m
+[INFO] [1721908635.253073] [system-load-monitor]: CPU: [3.1, 5.1, 3.0, 4.0]
+[INFO] [1721908635.254444] [system-load-monitor]: Memory: [3776536576, 48.5]
+[INFO] [1721908635.255849] [system-load-monitor]: Network: [9058, 11032]
+[INFO] [1721908636.257564] [system-load-monitor]: CPU: [3.1, 3.0, 5.0, 1.0]
+[INFO] [1721908636.257962] [system-load-monitor]: Memory: [3776536576, 48.5]
+[INFO] [1721908636.258427] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908637.260700] [system-load-monitor]: CPU: [2.1, 1.0, 0.0, 1.0]
+[INFO] [1721908637.261837] [system-load-monitor]: Memory: [3776536576, 48.5]
+[INFO] [1721908637.263080] [system-load-monitor]: Network: [4004, 5320]
+[INFO] [1721908638.265645] [system-load-monitor]: CPU: [3.1, 5.1, 2.0, 1.0]
+[INFO] [1721908638.266918] [system-load-monitor]: Memory: [3776524288, 48.5]
+[INFO] [1721908638.268443] [system-load-monitor]: Network: [5754, 7728]
+[INFO] [1721908639.270767] [system-load-monitor]: CPU: [3.0, 2.0, 1.0, 1.0]
+[INFO] [1721908639.271837] [system-load-monitor]: Memory: [3776516096, 48.5]
+[INFO] [1721908639.273077] [system-load-monitor]: Network: [336, 336]
+[0m[INFO] [1721908639.877718288] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908639.879868496] [authority]: Let's vote![0m
+[0m[INFO] [1721908639.884139854] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908639.884204708] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908639.884796587] [voter_3]: Voting for red[0m
+[INFO] [1721908640.275717] [system-load-monitor]: CPU: [3.1, 3.0, 3.0, 3.0]
+[INFO] [1721908640.277018] [system-load-monitor]: Memory: [3776516096, 48.5]
+[INFO] [1721908640.278545] [system-load-monitor]: Network: [8898, 10872]
+[INFO] [1721908641.281136] [system-load-monitor]: CPU: [2.1, 3.0, 1.0, 1.0]
+[INFO] [1721908641.282711] [system-load-monitor]: Memory: [3776516096, 48.5]
+[INFO] [1721908641.284257] [system-load-monitor]: Network: [3836, 5152]
+[INFO] [1721908642.286716] [system-load-monitor]: CPU: [4.0, 1.0, 1.0, 1.0]
+[INFO] [1721908642.288361] [system-load-monitor]: Memory: [3776507904, 48.5]
+[INFO] [1721908642.289751] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908643.291851] [system-load-monitor]: CPU: [3.1, 2.0, 1.0, 1.0]
+[INFO] [1721908643.292936] [system-load-monitor]: Memory: [3776507904, 48.5]
+[INFO] [1721908643.294027] [system-load-monitor]: Network: [8260, 10892]
+[INFO] [1721908644.296690] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 1.0]
+[INFO] [1721908644.298021] [system-load-monitor]: Memory: [3776507904, 48.5]
+[INFO] [1721908644.299397] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908644.901510152] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908644.903603543] [authority]: Let's vote![0m
+[0m[INFO] [1721908644.908105394] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908644.908004339] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908644.908122414] [voter_1]: Voting for blue[0m
+[INFO] [1721908645.301021] [system-load-monitor]: CPU: [4.1, 5.9, 2.0, 3.0]
+[INFO] [1721908645.301720] [system-load-monitor]: Memory: [3776499712, 48.5]
+[INFO] [1721908645.302928] [system-load-monitor]: Network: [3140, 3140]
+[INFO] [1721908646.305442] [system-load-monitor]: CPU: [3.1, 4.9, 4.0, 1.0]
+[INFO] [1721908646.306545] [system-load-monitor]: Memory: [3776745472, 48.5]
+[INFO] [1721908646.308101] [system-load-monitor]: Network: [7756, 10388]
+[INFO] [1721908647.310576] [system-load-monitor]: CPU: [3.1, 2.0, 1.0, 3.0]
+[INFO] [1721908647.312107] [system-load-monitor]: Memory: [3777515520, 48.5]
+[INFO] [1721908647.313741] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908648.316165] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 0.0]
+[INFO] [1721908648.317796] [system-load-monitor]: Memory: [3777515520, 48.5]
+[INFO] [1721908648.319347] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908649.321803] [system-load-monitor]: CPU: [2.1, 3.0, 2.0, 2.0]
+[INFO] [1721908649.322836] [system-load-monitor]: Memory: [3777511424, 48.5]
+[INFO] [1721908649.324076] [system-load-monitor]: Network: [7840, 10472]
+[0m[INFO] [1721908649.925171942] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908649.927453791] [authority]: Let's vote![0m
+[0m[INFO] [1721908649.930905873] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908649.931693061] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908649.935389918] [voter_3]: Voting for blue[0m
+[INFO] [1721908650.326449] [system-load-monitor]: CPU: [4.0, 3.0, 2.0, 3.0]
+[INFO] [1721908650.327931] [system-load-monitor]: Memory: [3777507328, 48.5]
+[INFO] [1721908650.329348] [system-load-monitor]: Network: [5054, 5712]
+[INFO] [1721908651.331819] [system-load-monitor]: CPU: [4.1, 5.1, 2.0, 0.0]
+[INFO] [1721908651.333915] [system-load-monitor]: Memory: [3777507328, 48.5]
+[INFO] [1721908651.335393] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908652.337750] [system-load-monitor]: CPU: [2.1, 1.0, 2.0, 1.0]
+[INFO] [1721908652.338998] [system-load-monitor]: Memory: [3777503232, 48.5]
+[INFO] [1721908652.340163] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908653.341364] [system-load-monitor]: CPU: [9.0, 8.9, 3.0, 28.0]
+[INFO] [1721908653.341681] [system-load-monitor]: Memory: [3777503232, 48.5]
+[INFO] [1721908653.342190] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908654.344473] [system-load-monitor]: CPU: [3.1, 10.0, 1.0, 3.0]
+[INFO] [1721908654.346216] [system-load-monitor]: Memory: [3777503232, 48.5]
+[INFO] [1721908654.347627] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908654.945561928] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908654.947830473] [authority]: Let's vote![0m
+[0m[INFO] [1721908654.951329171] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908654.952076623] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908654.956254264] [voter_3]: Voting for red[0m
+[INFO] [1721908655.350003] [system-load-monitor]: CPU: [3.1, 2.0, 5.0, 3.0]
+[INFO] [1721908655.351195] [system-load-monitor]: Memory: [3777495040, 48.5]
+[INFO] [1721908655.352516] [system-load-monitor]: Network: [10980, 13612]
+[INFO] [1721908656.354924] [system-load-monitor]: CPU: [4.1, 3.0, 1.0, 1.0]
+[INFO] [1721908656.356437] [system-load-monitor]: Memory: [3777495040, 48.5]
+[INFO] [1721908656.357805] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908657.360249] [system-load-monitor]: CPU: [1.0, 3.0, 3.0, 1.0]
+[INFO] [1721908657.361897] [system-load-monitor]: Memory: [3777495040, 48.5]
+[INFO] [1721908657.363302] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908658.365829] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 0.0]
+[INFO] [1721908658.367331] [system-load-monitor]: Memory: [3777490944, 48.5]
+[INFO] [1721908658.368820] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908659.371375] [system-load-monitor]: CPU: [3.0, 2.0, 4.0, 1.0]
+[INFO] [1721908659.372866] [system-load-monitor]: Memory: [3777490944, 48.5]
+[INFO] [1721908659.374263] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908659.966858541] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908659.969233217] [authority]: Let's vote![0m
+[0m[INFO] [1721908659.972607039] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908659.973694420] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908659.976828254] [voter_2]: Voting for red[0m
+[INFO] [1721908660.376796] [system-load-monitor]: CPU: [3.1, 2.0, 4.0, 2.0]
+[INFO] [1721908660.378352] [system-load-monitor]: Memory: [3777482752, 48.5]
+[INFO] [1721908660.379703] [system-load-monitor]: Network: [3136, 3136]
+[INFO] [1721908661.382051] [system-load-monitor]: CPU: [3.1, 3.0, 3.0, 2.0]
+[INFO] [1721908661.383226] [system-load-monitor]: Memory: [3777478656, 48.5]
+[INFO] [1721908661.384451] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908662.386811] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 1.0]
+[INFO] [1721908662.388524] [system-load-monitor]: Memory: [3777478656, 48.5]
+[INFO] [1721908662.390148] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908663.392513] [system-load-monitor]: CPU: [3.1, 2.0, 2.0, 2.0]
+[INFO] [1721908663.394304] [system-load-monitor]: Memory: [3777478656, 48.5]
+[INFO] [1721908663.395741] [system-load-monitor]: Network: [252, 252]
+[INFO] [1721908664.398047] [system-load-monitor]: CPU: [1.0, 1.0, 3.0, 4.0]
+[INFO] [1721908664.399491] [system-load-monitor]: Memory: [3777470464, 48.5]
+[INFO] [1721908664.400837] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908664.989802729] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908664.992123094] [authority]: Let's vote![0m
+[0m[INFO] [1721908664.996563305] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908664.996556223] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908664.996956444] [voter_1]: Voting for blue[0m
+[INFO] [1721908665.403160] [system-load-monitor]: CPU: [6.0, 3.0, 4.0, 4.0]
+[INFO] [1721908665.404539] [system-load-monitor]: Memory: [3777470464, 48.5]
+[INFO] [1721908665.405833] [system-load-monitor]: Network: [5054, 5712]
+[INFO] [1721908666.408178] [system-load-monitor]: CPU: [2.0, 2.0, 1.0, 1.0]
+[INFO] [1721908666.409870] [system-load-monitor]: Memory: [3777716224, 48.5]
+[INFO] [1721908666.411328] [system-load-monitor]: Network: [0, 70]
+[INFO] [1721908667.413825] [system-load-monitor]: CPU: [3.1, 3.0, 1.0, 4.0]
+[INFO] [1721908667.415091] [system-load-monitor]: Memory: [3777716224, 48.5]
+[INFO] [1721908667.416496] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908668.417988] [system-load-monitor]: CPU: [7.1, 2.0, 3.0, 5.0]
+[INFO] [1721908668.419163] [system-load-monitor]: Memory: [3777716224, 48.5]
+[INFO] [1721908668.420244] [system-load-monitor]: Network: [4254, 4912]
+[INFO] [1721908669.422596] [system-load-monitor]: CPU: [6.1, 0.0, 0.0, 2.0]
+[INFO] [1721908669.424080] [system-load-monitor]: Memory: [3777716224, 48.5]
+[INFO] [1721908669.425542] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908670.013598146] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908670.015808908] [authority]: Let's vote![0m
+[0m[INFO] [1721908670.020216325] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908670.020216539] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908670.022492235] [voter_3]: Voting for blue[0m
+[INFO] [1721908670.427788] [system-load-monitor]: CPU: [4.1, 4.0, 3.0, 4.9]
+[INFO] [1721908670.429296] [system-load-monitor]: Memory: [3777703936, 48.5]
+[INFO] [1721908670.430540] [system-load-monitor]: Network: [13232, 15864]
+[INFO] [1721908671.432931] [system-load-monitor]: CPU: [3.1, 1.0, 1.0, 4.0]
+[INFO] [1721908671.434012] [system-load-monitor]: Memory: [3777699840, 48.5]
+[INFO] [1721908671.435117] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908672.437618] [system-load-monitor]: CPU: [3.1, 0.0, 2.9, 3.1]
+[INFO] [1721908672.439160] [system-load-monitor]: Memory: [3777699840, 48.5]
+[INFO] [1721908672.440689] [system-load-monitor]: Network: [0, 70]
+[INFO] [1721908673.443091] [system-load-monitor]: CPU: [2.1, 1.0, 1.0, 2.0]
+[INFO] [1721908673.444263] [system-load-monitor]: Memory: [3777699840, 48.5]
+[INFO] [1721908673.445494] [system-load-monitor]: Network: [10008, 12640]
+[INFO] [1721908674.447732] [system-load-monitor]: CPU: [4.0, 1.0, 4.0, 2.0]
+[INFO] [1721908674.449113] [system-load-monitor]: Memory: [3777949696, 48.5]
+[INFO] [1721908674.450391] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908675.038044183] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908675.040653531] [authority]: Let's vote![0m
+[0m[INFO] [1721908675.044211951] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908675.045497721] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908675.048775547] [voter_2]: Voting for red[0m
+[INFO] [1721908675.452736] [system-load-monitor]: CPU: [4.1, 5.0, 5.9, 4.0]
+[INFO] [1721908675.454541] [system-load-monitor]: Memory: [3777949696, 48.5]
+[INFO] [1721908675.456172] [system-load-monitor]: Network: [3224, 3224]
+[INFO] [1721908676.458468] [system-load-monitor]: CPU: [4.1, 1.0, 4.0, 2.0]
+[INFO] [1721908676.459968] [system-load-monitor]: Memory: [3777945600, 48.5]
+[INFO] [1721908676.461336] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908677.463547] [system-load-monitor]: CPU: [2.0, 2.0, 0.0, 2.0]
+[INFO] [1721908677.465190] [system-load-monitor]: Memory: [3777945600, 48.5]
+[INFO] [1721908677.466466] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908678.468772] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 2.0]
+[INFO] [1721908678.470524] [system-load-monitor]: Memory: [3777945600, 48.5]
+[INFO] [1721908678.471885] [system-load-monitor]: Network: [2672, 2672]
+[INFO] [1721908679.474057] [system-load-monitor]: CPU: [1.0, 2.0, 0.0, 2.0]
+[INFO] [1721908679.475356] [system-load-monitor]: Memory: [3777929216, 48.5]
+[INFO] [1721908679.476637] [system-load-monitor]: Network: [9590, 12880]
+[0m[INFO] [1721908680.058475395] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908680.060727731] [authority]: Let's vote![0m
+[0m[INFO] [1721908680.065154103] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908680.065578351] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908680.066993973] [voter_3]: Voting for red[0m
+[INFO] [1721908680.478084] [system-load-monitor]: CPU: [5.1, 6.0, 2.0, 3.0]
+[INFO] [1721908680.479601] [system-load-monitor]: Memory: [3778441216, 48.6]
+[INFO] [1721908680.480783] [system-load-monitor]: Network: [3136, 3136]
+[INFO] [1721908681.483025] [system-load-monitor]: CPU: [3.1, 4.1, 3.0, 3.0]
+[INFO] [1721908681.484659] [system-load-monitor]: Memory: [3778437120, 48.6]
+[INFO] [1721908681.486041] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908682.487998] [system-load-monitor]: CPU: [3.1, 2.0, 1.0, 2.0]
+[INFO] [1721908682.489093] [system-load-monitor]: Memory: [3778437120, 48.6]
+[INFO] [1721908682.490431] [system-load-monitor]: Network: [10094, 13384]
+[INFO] [1721908683.492860] [system-load-monitor]: CPU: [12.4, 3.0, 1.0, 1.0]
+[INFO] [1721908683.494394] [system-load-monitor]: Memory: [3778437120, 48.6]
+[INFO] [1721908683.495702] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908684.498098] [system-load-monitor]: CPU: [3.1, 4.0, 4.0, 2.0]
+[INFO] [1721908684.499432] [system-load-monitor]: Memory: [3778428928, 48.6]
+[INFO] [1721908684.500910] [system-load-monitor]: Network: [2336, 3220]
+[0m[INFO] [1721908685.080933371] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908685.083317600] [authority]: Let's vote![0m
+[0m[INFO] [1721908685.087724158] [voter_1]: Voting for blue[0m[0m[INFO] [1721908685.087718646] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908685.087863632] [voter_3]: Voting for blue[0m
+
+[INFO] [1721908685.503299] [system-load-monitor]: CPU: [4.0, 5.0, 1.0, 2.0]
+[INFO] [1721908685.504318] [system-load-monitor]: Memory: [3778428928, 48.6]
+[INFO] [1721908685.505656] [system-load-monitor]: Network: [12810, 16100]
+[INFO] [1721908686.507993] [system-load-monitor]: CPU: [2.1, 2.0, 2.0, 0.0]
+[INFO] [1721908686.509324] [system-load-monitor]: Memory: [3778408448, 48.6]
+[INFO] [1721908686.510876] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908687.513512] [system-load-monitor]: CPU: [2.1, 2.0, 1.0, 1.0]
+[INFO] [1721908687.514769] [system-load-monitor]: Memory: [3778408448, 48.6]
+[INFO] [1721908687.516176] [system-load-monitor]: Network: [252, 252]
+[INFO] [1721908688.518485] [system-load-monitor]: CPU: [2.0, 5.0, 3.0, 2.0]
+[INFO] [1721908688.519931] [system-load-monitor]: Memory: [3778400256, 48.6]
+[INFO] [1721908688.521218] [system-load-monitor]: Network: [9590, 12950]
+[INFO] [1721908689.523260] [system-load-monitor]: CPU: [2.1, 2.0, 2.0, 0.0]
+[INFO] [1721908689.524011] [system-load-monitor]: Memory: [3778396160, 48.6]
+[INFO] [1721908689.525241] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908690.102595498] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908690.104881355] [authority]: Let's vote![0m
+[0m[INFO] [1721908690.108442783] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908690.109245347] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908690.112438045] [voter_2]: Voting for red[0m
+[INFO] [1721908690.527383] [system-load-monitor]: CPU: [5.1, 3.0, 2.0, 1.0]
+[INFO] [1721908690.528732] [system-load-monitor]: Memory: [3778396160, 48.6]
+[INFO] [1721908690.530005] [system-load-monitor]: Network: [3140, 3210]
+[INFO] [1721908691.532408] [system-load-monitor]: CPU: [4.2, 1.0, 2.0, 3.1]
+[INFO] [1721908691.533541] [system-load-monitor]: Memory: [3778396160, 48.6]
+[INFO] [1721908691.535073] [system-load-monitor]: Network: [9590, 12880]
+[INFO] [1721908692.537589] [system-load-monitor]: CPU: [4.0, 3.0, 2.0, 0.0]
+[INFO] [1721908692.538607] [system-load-monitor]: Memory: [3778396160, 48.6]
+[INFO] [1721908692.539788] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908693.542263] [system-load-monitor]: CPU: [3.1, 3.0, 2.0, 5.0]
+[INFO] [1721908693.543860] [system-load-monitor]: Memory: [3778379776, 48.6]
+[INFO] [1721908693.545381] [system-load-monitor]: Network: [2588, 2588]
+[INFO] [1721908694.547787] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 1.0]
+[INFO] [1721908694.549532] [system-load-monitor]: Memory: [3778371584, 48.6]
+[INFO] [1721908694.551142] [system-load-monitor]: Network: [9590, 12880]
+[0m[INFO] [1721908695.125316154] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908695.127481080] [authority]: Let's vote![0m
+[0m[INFO] [1721908695.131271343] [voter_2]: Voting for blue[0m[0m[INFO] [1721908695.131810503] [voter_1]: Voting for red[0m
+
+[0m[INFO] [1721908695.134376512] [voter_3]: Voting for red[0m
+[INFO] [1721908695.553554] [system-load-monitor]: CPU: [3.1, 5.9, 4.0, 1.0]
+[INFO] [1721908695.555037] [system-load-monitor]: Memory: [3778371584, 48.6]
+[INFO] [1721908695.556373] [system-load-monitor]: Network: [3136, 3136]
+[INFO] [1721908696.558847] [system-load-monitor]: CPU: [3.1, 0.0, 4.1, 2.0]
+[INFO] [1721908696.560520] [system-load-monitor]: Memory: [3778371584, 48.6]
+[INFO] [1721908696.562120] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908697.564571] [system-load-monitor]: CPU: [0.0, 2.0, 3.0, 2.0]
+[INFO] [1721908697.566067] [system-load-monitor]: Memory: [3778371584, 48.6]
+[INFO] [1721908697.567441] [system-load-monitor]: Network: [9590, 12880]
+[INFO] [1721908698.569994] [system-load-monitor]: CPU: [7.0, 1.0, 3.0, 2.0]
+[INFO] [1721908698.571342] [system-load-monitor]: Memory: [3778367488, 48.6]
+[INFO] [1721908698.572649] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908699.574240] [system-load-monitor]: CPU: [1.0, 1.0, 3.0, 0.0]
+[INFO] [1721908699.575565] [system-load-monitor]: Memory: [3778355200, 48.6]
+[INFO] [1721908699.576914] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908700.149542392] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908700.151808760] [authority]: Let's vote![0m
+[0m[INFO] [1721908700.156256925] [voter_2]: Voting for blue[0m[0m[INFO] [1721908700.156379661] [voter_3]: Voting for blue[0m
+
+[0m[INFO] [1721908700.159534427] [voter_1]: Voting for blue[0m
+[INFO] [1721908700.579378] [system-load-monitor]: CPU: [5.1, 3.0, 3.0, 3.0]
+[INFO] [1721908700.581106] [system-load-monitor]: Memory: [3778351104, 48.6]
+[INFO] [1721908700.582445] [system-load-monitor]: Network: [12726, 16016]
+[INFO] [1721908701.584682] [system-load-monitor]: CPU: [1.0, 2.0, 1.0, 2.0]
+[INFO] [1721908701.586205] [system-load-monitor]: Memory: [3778351104, 48.6]
+[INFO] [1721908701.587408] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908702.589837] [system-load-monitor]: CPU: [1.0, 1.0, 3.0, 1.0]
+[INFO] [1721908702.591340] [system-load-monitor]: Memory: [3778351104, 48.6]
+[INFO] [1721908702.592736] [system-load-monitor]: Network: [168, 168]
+[INFO] [1721908703.595141] [system-load-monitor]: CPU: [4.0, 2.9, 2.0, 2.9]
+[INFO] [1721908703.596706] [system-load-monitor]: Memory: [3778351104, 48.6]
+[INFO] [1721908703.598219] [system-load-monitor]: Network: [9590, 12880]
+[INFO] [1721908704.600459] [system-load-monitor]: CPU: [2.0, 1.0, 4.0, 0.0]
+[INFO] [1721908704.601763] [system-load-monitor]: Memory: [3778338816, 48.6]
+[INFO] [1721908704.602859] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908705.168914586] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908705.171288858] [authority]: Let's vote![0m
+[0m[INFO] [1721908705.175909135] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908705.175770776] [voter_1]: Voting for red[0m[0m[INFO] [1721908705.175716521] [voter_2]: Voting for red[0m
+
+[INFO] [1721908705.605501] [system-load-monitor]: CPU: [4.1, 3.0, 2.0, 4.0]
+[INFO] [1721908705.606979] [system-load-monitor]: Memory: [3778338816, 48.6]
+[INFO] [1721908705.608331] [system-load-monitor]: Network: [3144, 3144]
+[INFO] [1721908706.610777] [system-load-monitor]: CPU: [1.0, 1.0, 5.0, 0.0]
+[INFO] [1721908706.612413] [system-load-monitor]: Memory: [3778338816, 48.6]
+[INFO] [1721908706.613842] [system-load-monitor]: Network: [9590, 12880]
+[INFO] [1721908707.616187] [system-load-monitor]: CPU: [3.1, 2.0, 0.0, 2.0]
+[INFO] [1721908707.617682] [system-load-monitor]: Memory: [3778338816, 48.6]
+[INFO] [1721908707.618968] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908708.621179] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 0.0]
+[INFO] [1721908708.622027] [system-load-monitor]: Memory: [3778326528, 48.6]
+[INFO] [1721908708.623310] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908709.625748] [system-load-monitor]: CPU: [3.1, 1.0, 3.9, 3.0]
+[INFO] [1721908709.627357] [system-load-monitor]: Memory: [3778326528, 48.6]
+[INFO] [1721908709.628760] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908710.187670373] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908710.191849946] [authority]: Let's vote![0m
+[0m[INFO] [1721908710.196275957] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908710.196276178] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908710.196651394] [voter_3]: Voting for blue[0m
+[INFO] [1721908710.630962] [system-load-monitor]: CPU: [4.0, 3.0, 4.0, 2.0]
+[INFO] [1721908710.632343] [system-load-monitor]: Memory: [3778322432, 48.6]
+[INFO] [1721908710.633465] [system-load-monitor]: Network: [3136, 3136]
+[INFO] [1721908711.635696] [system-load-monitor]: CPU: [6.3, 3.9, 1.0, 1.0]
+[INFO] [1721908711.636852] [system-load-monitor]: Memory: [3778322432, 48.6]
+[INFO] [1721908711.638113] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908712.640454] [system-load-monitor]: CPU: [2.1, 2.0, 2.0, 2.0]
+[INFO] [1721908712.641525] [system-load-monitor]: Memory: [3778322432, 48.6]
+[INFO] [1721908712.642703] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908713.644275] [system-load-monitor]: CPU: [35.1, 6.1, 2.0, 1.0]
+[INFO] [1721908713.644621] [system-load-monitor]: Memory: [3778310144, 48.6]
+[INFO] [1721908713.645438] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908714.647701] [system-load-monitor]: CPU: [4.0, 2.0, 6.1, 6.0]
+[INFO] [1721908714.649217] [system-load-monitor]: Memory: [3778310144, 48.6]
+[INFO] [1721908714.650556] [system-load-monitor]: Network: [2254, 2912]
+[0m[INFO] [1721908715.209614024] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908715.213956918] [authority]: Let's vote![0m
+[0m[INFO] [1721908715.218434893] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908715.218434881] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908715.218570689] [voter_1]: Voting for blue[0m
+[INFO] [1721908715.652948] [system-load-monitor]: CPU: [4.1, 4.0, 2.0, 5.8]
+[INFO] [1721908715.654307] [system-load-monitor]: Memory: [3778301952, 48.6]
+[INFO] [1721908715.655737] [system-load-monitor]: Network: [10816, 13448]
+[INFO] [1721908716.658205] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 2.0]
+[INFO] [1721908716.659545] [system-load-monitor]: Memory: [3778301952, 48.6]
+[INFO] [1721908716.660877] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908717.663244] [system-load-monitor]: CPU: [2.0, 0.0, 0.0, 1.0]
+[INFO] [1721908717.664745] [system-load-monitor]: Memory: [3778297856, 48.6]
+[INFO] [1721908717.666208] [system-load-monitor]: Network: [2254, 2912]
+[INFO] [1721908718.668562] [system-load-monitor]: CPU: [2.0, 2.9, 4.0, 2.0]
+[INFO] [1721908718.669652] [system-load-monitor]: Memory: [3778297856, 48.6]
+[INFO] [1721908718.670881] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908719.673419] [system-load-monitor]: CPU: [2.1, 0.0, 2.0, 2.0]
+[INFO] [1721908719.674373] [system-load-monitor]: Memory: [3778297856, 48.6]
+[INFO] [1721908719.675780] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908720.229809735] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908720.232061558] [authority]: Let's vote![0m
+[0m[INFO] [1721908720.235323842] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908720.236342913] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908720.239288827] [voter_3]: Voting for blue[0m
+[INFO] [1721908720.677903] [system-load-monitor]: CPU: [5.1, 1.0, 4.0, 2.0]
+[INFO] [1721908720.678805] [system-load-monitor]: Memory: [3778297856, 48.6]
+[INFO] [1721908720.679963] [system-load-monitor]: Network: [5646, 6304]
+[INFO] [1721908721.682053] [system-load-monitor]: CPU: [2.1, 2.0, 2.0, 0.0]
+[INFO] [1721908721.682981] [system-load-monitor]: Memory: [3778281472, 48.6]
+[INFO] [1721908721.683956] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908722.686226] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 0.0]
+[INFO] [1721908722.687449] [system-load-monitor]: Memory: [3778277376, 48.6]
+[INFO] [1721908722.689068] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908723.691408] [system-load-monitor]: CPU: [2.1, 2.0, 3.0, 2.0]
+[INFO] [1721908723.692588] [system-load-monitor]: Memory: [3778277376, 48.6]
+[INFO] [1721908723.694071] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908724.696476] [system-load-monitor]: CPU: [2.0, 2.0, 5.0, 2.0]
+[INFO] [1721908724.697938] [system-load-monitor]: Memory: [3778277376, 48.6]
+[INFO] [1721908724.699436] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908725.249841824] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908725.252166413] [authority]: Let's vote![0m
+[0m[INFO] [1721908725.256553805] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908725.256553807] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908725.257065975] [voter_3]: Voting for red[0m
+[INFO] [1721908725.702068] [system-load-monitor]: CPU: [3.1, 1.0, 3.0, 2.0]
+[INFO] [1721908725.703257] [system-load-monitor]: Memory: [3778277376, 48.6]
+[INFO] [1721908725.704887] [system-load-monitor]: Network: [3136, 3136]
+[INFO] [1721908726.707356] [system-load-monitor]: CPU: [2.1, 4.0, 1.0, 1.0]
+[INFO] [1721908726.708923] [system-load-monitor]: Memory: [3778265088, 48.6]
+[INFO] [1721908726.710513] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908727.712944] [system-load-monitor]: CPU: [6.1, 3.0, 3.0, 2.0]
+[INFO] [1721908727.714391] [system-load-monitor]: Memory: [3778260992, 48.6]
+[INFO] [1721908727.715844] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908728.718169] [system-load-monitor]: CPU: [2.1, 1.0, 3.0, 1.0]
+[INFO] [1721908728.719684] [system-load-monitor]: Memory: [3778260992, 48.6]
+[INFO] [1721908728.721131] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908729.723520] [system-load-monitor]: CPU: [5.1, 2.0, 1.0, 2.0]
+[INFO] [1721908729.725209] [system-load-monitor]: Memory: [3778260992, 48.6]
+[INFO] [1721908729.726504] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908730.272140504] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908730.274817076] [authority]: Let's vote![0m
+[0m[INFO] [1721908730.278876383] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908730.280959582] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908730.282679057] [voter_2]: Voting for red[0m
+[INFO] [1721908730.728846] [system-load-monitor]: CPU: [3.1, 2.0, 5.0, 2.0]
+[INFO] [1721908730.730511] [system-load-monitor]: Memory: [3778260992, 48.6]
+[INFO] [1721908730.732098] [system-load-monitor]: Network: [10812, 13444]
+[INFO] [1721908731.734473] [system-load-monitor]: CPU: [3.1, 4.0, 2.0, 3.0]
+[INFO] [1721908731.735970] [system-load-monitor]: Memory: [3778248704, 48.6]
+[INFO] [1721908731.737468] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908732.739914] [system-load-monitor]: CPU: [3.1, 4.0, 1.0, 0.0]
+[INFO] [1721908732.741198] [system-load-monitor]: Memory: [3778248704, 48.6]
+[INFO] [1721908732.742795] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908733.745409] [system-load-monitor]: CPU: [3.0, 1.0, 3.0, 1.0]
+[INFO] [1721908733.746578] [system-load-monitor]: Memory: [3778248704, 48.6]
+[INFO] [1721908733.747958] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908734.750249] [system-load-monitor]: CPU: [4.1, 1.0, 3.0, 3.0]
+[INFO] [1721908734.751715] [system-load-monitor]: Memory: [3778248704, 48.6]
+[INFO] [1721908734.752931] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908735.293585589] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908735.297064948] [authority]: Let's vote![0m
+[0m[INFO] [1721908735.301627188] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908735.301706711] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908735.305147046] [voter_3]: Voting for red[0m
+[INFO] [1721908735.755347] [system-load-monitor]: CPU: [6.1, 2.0, 4.0, 2.0]
+[INFO] [1721908735.756829] [system-load-monitor]: Memory: [3778244608, 48.6]
+[INFO] [1721908735.758193] [system-load-monitor]: Network: [5054, 5712]
+[INFO] [1721908736.760596] [system-load-monitor]: CPU: [3.1, 1.0, 1.0, 1.0]
+[INFO] [1721908736.762092] [system-load-monitor]: Memory: [3778236416, 48.6]
+[INFO] [1721908736.763805] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908737.766122] [system-load-monitor]: CPU: [3.1, 1.0, 3.0, 1.0]
+[INFO] [1721908737.767478] [system-load-monitor]: Memory: [3778236416, 48.6]
+[INFO] [1721908737.768830] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908738.770803] [system-load-monitor]: CPU: [3.0, 0.0, 2.0, 2.0]
+[INFO] [1721908738.772080] [system-load-monitor]: Memory: [3778236416, 48.6]
+[INFO] [1721908738.773458] [system-load-monitor]: Network: [2338, 2996]
+[INFO] [1721908739.775821] [system-load-monitor]: CPU: [2.1, 1.0, 3.0, 1.0]
+[INFO] [1721908739.777059] [system-load-monitor]: Memory: [3777490944, 48.5]
+[INFO] [1721908739.778517] [system-load-monitor]: Network: [8280, 10912]
+[0m[INFO] [1721908740.317888914] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908740.320190178] [authority]: Let's vote![0m
+[0m[INFO] [1721908740.324629695] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908740.324624360] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908740.327153750] [voter_3]: Voting for red[0m
+[INFO] [1721908740.780932] [system-load-monitor]: CPU: [5.1, 5.0, 3.1, 2.0]
+[INFO] [1721908740.782017] [system-load-monitor]: Memory: [3777564672, 48.5]
+[INFO] [1721908740.783912] [system-load-monitor]: Network: [3744, 3744]
+[INFO] [1721908741.786170] [system-load-monitor]: CPU: [5.2, 3.0, 4.0, 2.0]
+[INFO] [1721908741.787549] [system-load-monitor]: Memory: [3777552384, 48.5]
+[INFO] [1721908741.788760] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908742.790108] [system-load-monitor]: CPU: [2.1, 0.0, 2.0, 1.0]
+[INFO] [1721908742.791294] [system-load-monitor]: Memory: [3777552384, 48.5]
+[INFO] [1721908742.792719] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908743.794813] [system-load-monitor]: CPU: [3.1, 0.0, 3.0, 1.0]
+[INFO] [1721908743.795762] [system-load-monitor]: Memory: [3777552384, 48.5]
+[INFO] [1721908743.797182] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908744.799649] [system-load-monitor]: CPU: [2.0, 2.0, 2.0, 1.0]
+[INFO] [1721908744.800711] [system-load-monitor]: Memory: [3777552384, 48.5]
+[INFO] [1721908744.802295] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908745.340411133] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908745.343147276] [authority]: Let's vote![0m
+[0m[INFO] [1721908745.347893280] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908745.347691173] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908745.348210352] [voter_1]: Voting for red[0m
+[INFO] [1721908745.804524] [system-load-monitor]: CPU: [4.1, 2.0, 4.9, 4.0]
+[INFO] [1721908745.805649] [system-load-monitor]: Memory: [3777548288, 48.5]
+[INFO] [1721908745.806834] [system-load-monitor]: Network: [10808, 13440]
+[INFO] [1721908746.809427] [system-load-monitor]: CPU: [2.0, 1.0, 1.0, 2.0]
+[INFO] [1721908746.810505] [system-load-monitor]: Memory: [3777540096, 48.5]
+[INFO] [1721908746.811829] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908747.814296] [system-load-monitor]: CPU: [2.1, 1.0, 1.0, 2.0]
+[INFO] [1721908747.815818] [system-load-monitor]: Memory: [3777540096, 48.5]
+[INFO] [1721908747.817257] [system-load-monitor]: Network: [2170, 2828]
+[INFO] [1721908748.819638] [system-load-monitor]: CPU: [1.0, 4.0, 2.0, 1.0]
+[INFO] [1721908748.820919] [system-load-monitor]: Memory: [3777540096, 48.5]
+[INFO] [1721908748.822190] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908749.824611] [system-load-monitor]: CPU: [3.1, 4.0, 3.0, 2.0]
+[INFO] [1721908749.826337] [system-load-monitor]: Memory: [3777531904, 48.5]
+[INFO] [1721908749.827783] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908750.361331917] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908750.363870095] [authority]: Let's vote![0m
+[0m[INFO] [1721908750.368352072] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908750.368246531] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908750.369347042] [voter_3]: Voting for red[0m
+[INFO] [1721908750.830030] [system-load-monitor]: CPU: [4.1, 4.0, 4.0, 2.0]
+[INFO] [1721908750.831175] [system-load-monitor]: Memory: [3777523712, 48.5]
+[INFO] [1721908750.832370] [system-load-monitor]: Network: [5058, 5716]
+[INFO] [1721908751.834737] [system-load-monitor]: CPU: [3.1, 2.0, 1.0, 1.0]
+[INFO] [1721908751.836148] [system-load-monitor]: Memory: [3777515520, 48.5]
+[INFO] [1721908751.837594] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908752.839964] [system-load-monitor]: CPU: [4.0, 1.0, 3.0, 2.0]
+[INFO] [1721908752.841549] [system-load-monitor]: Memory: [3777515520, 48.5]
+[INFO] [1721908752.843132] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908753.845579] [system-load-monitor]: CPU: [5.9, 0.0, 2.0, 2.0]
+[INFO] [1721908753.846866] [system-load-monitor]: Memory: [3777515520, 48.5]
+[INFO] [1721908753.848054] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908754.850395] [system-load-monitor]: CPU: [6.1, 6.1, 3.1, 4.0]
+[INFO] [1721908754.851816] [system-load-monitor]: Memory: [3777896448, 48.5]
+[INFO] [1721908754.853254] [system-load-monitor]: Network: [7672, 11052]
+[0m[INFO] [1721908755.382984580] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908755.386092281] [authority]: Let's vote![0m
+[0m[INFO] [1721908755.390664485] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908755.391403453] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908755.391772604] [voter_3]: Voting for blue[0m
+[INFO] [1721908755.855610] [system-load-monitor]: CPU: [8.0, 6.0, 4.0, 3.1]
+[INFO] [1721908755.857111] [system-load-monitor]: Memory: [3777892352, 48.5]
+[INFO] [1721908755.858437] [system-load-monitor]: Network: [10436, 10828]
+[INFO] [1721908756.860805] [system-load-monitor]: CPU: [6.9, 3.0, 2.0, 6.0]
+[INFO] [1721908756.862029] [system-load-monitor]: Memory: [3777888256, 48.5]
+[INFO] [1721908756.863452] [system-load-monitor]: Network: [8882, 10290]
+[INFO] [1721908757.866122] [system-load-monitor]: CPU: [3.1, 0.0, 2.0, 2.0]
+[INFO] [1721908757.867299] [system-load-monitor]: Memory: [3777888256, 48.5]
+[INFO] [1721908757.868604] [system-load-monitor]: Network: [7672, 10525]
+[INFO] [1721908758.870997] [system-load-monitor]: CPU: [5.0, 1.0, 4.0, 0.0]
+[INFO] [1721908758.872341] [system-load-monitor]: Memory: [3777888256, 48.5]
+[INFO] [1721908758.873851] [system-load-monitor]: Network: [0, 199]
+[INFO] [1721908759.876325] [system-load-monitor]: CPU: [5.0, 0.0, 1.0, 1.0]
+[INFO] [1721908759.877686] [system-load-monitor]: Memory: [3777884160, 48.5]
+[INFO] [1721908759.879335] [system-load-monitor]: Network: [2422, 3473]
+[0m[INFO] [1721908760.405657144] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908760.407906010] [authority]: Let's vote![0m
+[0m[INFO] [1721908760.412509148] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908760.412404726] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908760.412986366] [voter_3]: Voting for red[0m
+[INFO] [1721908760.881829] [system-load-monitor]: CPU: [6.0, 4.0, 4.0, 2.0]
+[INFO] [1721908760.883222] [system-load-monitor]: Memory: [3777875968, 48.5]
+[INFO] [1721908760.884632] [system-load-monitor]: Network: [10816, 13448]
+[INFO] [1721908761.887096] [system-load-monitor]: CPU: [4.0, 1.0, 1.0, 1.0]
+[INFO] [1721908761.888704] [system-load-monitor]: Memory: [3777875968, 48.5]
+[INFO] [1721908761.890192] [system-load-monitor]: Network: [0, 221]
+[INFO] [1721908762.892441] [system-load-monitor]: CPU: [4.0, 1.0, 4.0, 2.0]
+[INFO] [1721908762.893972] [system-load-monitor]: Memory: [3777875968, 48.5]
+[INFO] [1721908762.895158] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908763.897428] [system-load-monitor]: CPU: [5.9, 4.9, 2.0, 1.0]
+[INFO] [1721908763.898296] [system-load-monitor]: Memory: [3777871872, 48.5]
+[INFO] [1721908763.899352] [system-load-monitor]: Network: [7672, 10697]
+[INFO] [1721908764.901781] [system-load-monitor]: CPU: [4.0, 4.0, 2.0, 2.0]
+[INFO] [1721908764.903217] [system-load-monitor]: Memory: [3777871872, 48.5]
+[INFO] [1721908764.904951] [system-load-monitor]: Network: [2824, 2824]
+[0m[INFO] [1721908765.425935229] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908765.428105346] [authority]: Let's vote![0m
+[0m[INFO] [1721908765.431669115] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908765.432342131] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908765.436472850] [voter_3]: Voting for blue[0m
+[INFO] [1721908765.907454] [system-load-monitor]: CPU: [6.1, 2.0, 6.0, 3.0]
+[INFO] [1721908765.909188] [system-load-monitor]: Memory: [3777859584, 48.5]
+[INFO] [1721908765.910754] [system-load-monitor]: Network: [5310, 5968]
+[INFO] [1721908766.913363] [system-load-monitor]: CPU: [4.0, 2.0, 3.9, 1.0]
+[INFO] [1721908766.914526] [system-load-monitor]: Memory: [3777859584, 48.5]
+[INFO] [1721908766.915854] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908767.918267] [system-load-monitor]: CPU: [5.9, 2.0, 4.0, 4.0]
+[INFO] [1721908767.919681] [system-load-monitor]: Memory: [3778117632, 48.6]
+[INFO] [1721908767.921097] [system-load-monitor]: Network: [2336, 2336]
+[INFO] [1721908768.923434] [system-load-monitor]: CPU: [2.1, 1.0, 1.0, 2.0]
+[INFO] [1721908768.925072] [system-load-monitor]: Memory: [3778117632, 48.6]
+[INFO] [1721908768.926502] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908769.928790] [system-load-monitor]: CPU: [4.0, 2.0, 1.0, 2.0]
+[INFO] [1721908769.930101] [system-load-monitor]: Memory: [3778113536, 48.6]
+[INFO] [1721908769.931295] [system-load-monitor]: Network: [10008, 12861]
+[0m[INFO] [1721908770.449195812] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908770.451318710] [authority]: Let's vote![0m
+[0m[INFO] [1721908770.454583557] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908770.455819179] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908770.458634715] [voter_2]: Voting for blue[0m
+[INFO] [1721908770.933598] [system-load-monitor]: CPU: [4.1, 1.0, 3.0, 3.0]
+[INFO] [1721908770.934712] [system-load-monitor]: Memory: [3778363392, 48.6]
+[INFO] [1721908770.935894] [system-load-monitor]: Network: [3140, 3210]
+[INFO] [1721908771.938286] [system-load-monitor]: CPU: [6.1, 2.0, 4.0, 3.0]
+[INFO] [1721908771.939617] [system-load-monitor]: Memory: [3778363392, 48.6]
+[INFO] [1721908771.941133] [system-load-monitor]: Network: [2002, 2991]
+[INFO] [1721908772.943526] [system-load-monitor]: CPU: [5.9, 2.0, 1.0, 1.0]
+[INFO] [1721908772.945156] [system-load-monitor]: Memory: [3778363392, 48.6]
+[INFO] [1721908772.946622] [system-load-monitor]: Network: [10008, 12640]
+[INFO] [1721908773.949387] [system-load-monitor]: CPU: [7.8, 37.8, 6.9, 8.9]
+[INFO] [1721908773.950429] [system-load-monitor]: Memory: [3779649536, 48.6]
+[INFO] [1721908773.951724] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908774.954180] [system-load-monitor]: CPU: [6.9, 2.0, 0.0, 1.0]
+[INFO] [1721908774.955445] [system-load-monitor]: Memory: [3779645440, 48.6]
+[INFO] [1721908774.957156] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908775.467721050] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908775.470063313] [authority]: Let's vote![0m
+[0m[INFO] [1721908775.474488831] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908775.474488765] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908775.475029435] [voter_3]: Voting for blue[0m
+[INFO] [1721908775.959628] [system-load-monitor]: CPU: [7.8, 3.0, 3.0, 4.1]
+[INFO] [1721908775.961070] [system-load-monitor]: Memory: [3779637248, 48.6]
+[INFO] [1721908775.962551] [system-load-monitor]: Network: [10808, 13440]
+[INFO] [1721908776.964870] [system-load-monitor]: CPU: [5.0, 4.9, 2.0, 0.0]
+[INFO] [1721908776.966418] [system-load-monitor]: Memory: [3779629056, 48.6]
+[INFO] [1721908776.967690] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908777.970099] [system-load-monitor]: CPU: [4.0, 1.0, 2.0, 3.0]
+[INFO] [1721908777.971541] [system-load-monitor]: Memory: [3779629056, 48.6]
+[INFO] [1721908777.973058] [system-load-monitor]: Network: [4254, 4912]
+[INFO] [1721908778.975457] [system-load-monitor]: CPU: [5.0, 3.0, 2.9, 1.0]
+[INFO] [1721908778.976757] [system-load-monitor]: Memory: [3779629056, 48.6]
+[INFO] [1721908778.978066] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908779.980430] [system-load-monitor]: CPU: [4.0, 0.0, 1.0, 2.0]
+[INFO] [1721908779.982027] [system-load-monitor]: Memory: [3779624960, 48.6]
+[INFO] [1721908779.983605] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908780.488781971] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908780.491063742] [authority]: Let's vote![0m
+[0m[INFO] [1721908780.495809416] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908780.496416739] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908780.498137235] [voter_1]: Voting for red[0m
+[INFO] [1721908780.985975] [system-load-monitor]: CPU: [5.9, 3.0, 3.0, 3.0]
+[INFO] [1721908780.987084] [system-load-monitor]: Memory: [3779616768, 48.6]
+[INFO] [1721908780.988214] [system-load-monitor]: Network: [5058, 5716]
+[INFO] [1721908781.989996] [system-load-monitor]: CPU: [5.0, 2.0, 0.0, 1.0]
+[INFO] [1721908781.990887] [system-load-monitor]: Memory: [3779616768, 48.6]
+[INFO] [1721908781.991911] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908782.994230] [system-load-monitor]: CPU: [2.1, 1.0, 3.0, 1.0]
+[INFO] [1721908782.995771] [system-load-monitor]: Memory: [3779612672, 48.6]
+[INFO] [1721908782.997338] [system-load-monitor]: Network: [2336, 2336]
+[INFO] [1721908783.999840] [system-load-monitor]: CPU: [2.1, 1.0, 2.0, 3.0]
+[INFO] [1721908784.000945] [system-load-monitor]: Memory: [3779612672, 48.6]
+[INFO] [1721908784.002471] [system-load-monitor]: Network: [2086, 2744]
+[INFO] [1721908785.004620] [system-load-monitor]: CPU: [4.0, 5.0, 2.0, 3.0]
+[INFO] [1721908785.005783] [system-load-monitor]: Memory: [3779608576, 48.6]
+[INFO] [1721908785.006917] [system-load-monitor]: Network: [7672, 10304]
+[0m[INFO] [1721908785.509569688] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908785.511813216] [authority]: Let's vote![0m
+[0m[INFO] [1721908785.516223009] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908785.516222915] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908785.516904458] [voter_3]: Voting for red[0m
+[INFO] [1721908786.009472] [system-load-monitor]: CPU: [5.1, 2.0, 4.0, 4.0]
+[INFO] [1721908786.010444] [system-load-monitor]: Memory: [3779600384, 48.6]
+[INFO] [1721908786.011708] [system-load-monitor]: Network: [3136, 3357]
+[INFO] [1721908787.014108] [system-load-monitor]: CPU: [4.0, 0.0, 2.0, 2.0]
+[INFO] [1721908787.015514] [system-load-monitor]: Memory: [3779600384, 48.6]
+[INFO] [1721908787.016947] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908788.019332] [system-load-monitor]: CPU: [5.0, 3.0, 3.0, 4.0]
+[INFO] [1721908788.020820] [system-load-monitor]: Memory: [3779596288, 48.6]
+[INFO] [1721908788.022074] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908789.024387] [system-load-monitor]: CPU: [6.1, 1.0, 4.0, 2.0]
+[INFO] [1721908789.026013] [system-load-monitor]: Memory: [3779596288, 48.6]
+[INFO] [1721908789.027400] [system-load-monitor]: Network: [2336, 2737]
+[INFO] [1721908790.029844] [system-load-monitor]: CPU: [3.1, 1.0, 3.0, 3.0]
+[INFO] [1721908790.031195] [system-load-monitor]: Memory: [3779596288, 48.6]
+[INFO] [1721908790.032696] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908790.529864972] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908790.532144228] [authority]: Let's vote![0m
+[0m[INFO] [1721908790.536179079] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908790.536903658] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908790.537585326] [voter_2]: Voting for red[0m
+[INFO] [1721908791.035050] [system-load-monitor]: CPU: [5.1, 3.0, 3.0, 4.0]
+[INFO] [1721908791.036510] [system-load-monitor]: Memory: [3779588096, 48.6]
+[INFO] [1721908791.037800] [system-load-monitor]: Network: [10892, 13524]
+[INFO] [1721908792.040193] [system-load-monitor]: CPU: [4.0, 5.0, 3.0, 1.0]
+[INFO] [1721908792.041852] [system-load-monitor]: Memory: [3779584000, 48.6]
+[INFO] [1721908792.043182] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908793.045725] [system-load-monitor]: CPU: [6.0, 2.0, 3.0, 2.0]
+[INFO] [1721908793.046824] [system-load-monitor]: Memory: [3779584000, 48.6]
+[INFO] [1721908793.048274] [system-load-monitor]: Network: [2338, 2996]
+[INFO] [1721908794.050561] [system-load-monitor]: CPU: [2.1, 3.0, 2.0, 3.0]
+[INFO] [1721908794.051949] [system-load-monitor]: Memory: [3779584000, 48.6]
+[INFO] [1721908794.053503] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908795.055975] [system-load-monitor]: CPU: [3.0, 1.0, 3.9, 1.0]
+[INFO] [1721908795.057456] [system-load-monitor]: Memory: [3779584000, 48.6]
+[INFO] [1721908795.059282] [system-load-monitor]: Network: [336, 336]
+[0m[INFO] [1721908795.551838436] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908795.554881876] [authority]: Let's vote![0m
+[0m[INFO] [1721908795.559070282] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908795.561282019] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908795.559355426] [voter_1]: Voting for red[0m
+[INFO] [1721908796.061880] [system-load-monitor]: CPU: [4.1, 5.0, 2.0, 1.0]
+[INFO] [1721908796.063093] [system-load-monitor]: Memory: [3779575808, 48.6]
+[INFO] [1721908796.064740] [system-load-monitor]: Network: [5050, 5708]
+[INFO] [1721908797.067111] [system-load-monitor]: CPU: [2.1, 1.0, 3.0, 2.0]
+[INFO] [1721908797.068161] [system-load-monitor]: Memory: [3779575808, 48.6]
+[INFO] [1721908797.069534] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908798.071918] [system-load-monitor]: CPU: [1.0, 1.0, 1.0, 2.0]
+[INFO] [1721908798.073582] [system-load-monitor]: Memory: [3779571712, 48.6]
+[INFO] [1721908798.075037] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908799.077525] [system-load-monitor]: CPU: [1.0, 1.0, 2.0, 2.0]
+[INFO] [1721908799.078954] [system-load-monitor]: Memory: [3779571712, 48.6]
+[INFO] [1721908799.080264] [system-load-monitor]: Network: [2506, 3164]
+[INFO] [1721908800.082512] [system-load-monitor]: CPU: [9.2, 8.2, 10.3, 5.2]
+[INFO] [1721908800.083990] [system-load-monitor]: Memory: [3780222976, 48.6]
+[INFO] [1721908800.085324] [system-load-monitor]: Network: [7672, 11005]
+[0m[INFO] [1721908800.573605552] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908800.577796216] [authority]: Let's vote![0m
+[0m[INFO] [1721908800.582111152] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908800.582694893] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908800.584746775] [voter_3]: Voting for blue[0m
+[INFO] [1721908801.086973] [system-load-monitor]: CPU: [4.2, 8.1, 5.9, 6.0]
+[INFO] [1721908801.087332] [system-load-monitor]: Memory: [3780472832, 48.6]
+[INFO] [1721908801.087867] [system-load-monitor]: Network: [10096, 10182]
+[INFO] [1721908802.090078] [system-load-monitor]: CPU: [3.1, 3.0, 2.0, 3.1]
+[INFO] [1721908802.091166] [system-load-monitor]: Memory: [3780468736, 48.6]
+[INFO] [1721908802.092458] [system-load-monitor]: Network: [2346, 4036]
+[INFO] [1721908803.094736] [system-load-monitor]: CPU: [3.1, 2.0, 3.0, 2.0]
+[INFO] [1721908803.096010] [system-load-monitor]: Memory: [3780468736, 48.6]
+[INFO] [1721908803.097300] [system-load-monitor]: Network: [14636, 17489]
+[INFO] [1721908804.099597] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 2.0]
+[INFO] [1721908804.101184] [system-load-monitor]: Memory: [3780468736, 48.6]
+[INFO] [1721908804.102590] [system-load-monitor]: Network: [0, 530]
+[INFO] [1721908805.105116] [system-load-monitor]: CPU: [5.1, 2.0, 4.0, 0.0]
+[INFO] [1721908805.106716] [system-load-monitor]: Memory: [3780468736, 48.6]
+[INFO] [1721908805.108288] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908805.595893409] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908805.598441268] [authority]: Let's vote![0m
+[0m[INFO] [1721908805.602917223] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908805.602934674] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908805.603250642] [voter_3]: Voting for red[0m
+[INFO] [1721908806.110607] [system-load-monitor]: CPU: [4.1, 4.0, 3.0, 3.0]
+[INFO] [1721908806.111865] [system-load-monitor]: Memory: [3780452352, 48.6]
+[INFO] [1721908806.113137] [system-load-monitor]: Network: [11152, 13846]
+[INFO] [1721908807.115392] [system-load-monitor]: CPU: [2.1, 1.0, 0.0, 0.0]
+[INFO] [1721908807.116544] [system-load-monitor]: Memory: [3780452352, 48.6]
+[INFO] [1721908807.117806] [system-load-monitor]: Network: [0, 221]
+[INFO] [1721908808.120194] [system-load-monitor]: CPU: [2.0, 4.0, 3.0, 1.0]
+[INFO] [1721908808.121723] [system-load-monitor]: Memory: [3780448256, 48.6]
+[INFO] [1721908808.123080] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908809.125413] [system-load-monitor]: CPU: [3.1, 2.0, 2.0, 1.0]
+[INFO] [1721908809.126664] [system-load-monitor]: Memory: [3780448256, 48.6]
+[INFO] [1721908809.127963] [system-load-monitor]: Network: [7672, 10635]
+[INFO] [1721908810.130374] [system-load-monitor]: CPU: [3.1, 5.1, 1.0, 1.0]
+[INFO] [1721908810.131842] [system-load-monitor]: Memory: [3780448256, 48.6]
+[INFO] [1721908810.133319] [system-load-monitor]: Network: [2824, 2886]
+[0m[INFO] [1721908810.616185155] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908810.618971983] [authority]: Let's vote![0m
+[0m[INFO] [1721908810.623379668] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908810.623670124] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908810.623455787] [voter_3]: Voting for blue[0m
+[INFO] [1721908811.136216] [system-load-monitor]: CPU: [4.1, 2.0, 3.0, 4.0]
+[INFO] [1721908811.137221] [system-load-monitor]: Memory: [3780435968, 48.6]
+[INFO] [1721908811.138664] [system-load-monitor]: Network: [5050, 5708]
+[INFO] [1721908812.141333] [system-load-monitor]: CPU: [2.1, 3.0, 2.0, 1.0]
+[INFO] [1721908812.142344] [system-load-monitor]: Memory: [3780435968, 48.6]
+[INFO] [1721908812.143865] [system-load-monitor]: Network: [7672, 10967]
+[INFO] [1721908813.146312] [system-load-monitor]: CPU: [2.1, 3.0, 1.0, 3.0]
+[INFO] [1721908813.147521] [system-load-monitor]: Memory: [3780435968, 48.6]
+[INFO] [1721908813.149048] [system-load-monitor]: Network: [0, 221]
+[INFO] [1721908814.151396] [system-load-monitor]: CPU: [3.1, 3.0, 2.0, 1.0]
+[INFO] [1721908814.152452] [system-load-monitor]: Memory: [3780431872, 48.6]
+[INFO] [1721908814.153673] [system-load-monitor]: Network: [2262, 2920]
+[INFO] [1721908815.156713] [system-load-monitor]: CPU: [1.0, 2.1, 0.0, 1.0]
+[INFO] [1721908815.158025] [system-load-monitor]: Memory: [3780431872, 48.6]
+[INFO] [1721908815.159621] [system-load-monitor]: Network: [7672, 10525]
+[0m[INFO] [1721908815.637644576] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908815.639756200] [authority]: Let's vote![0m
+[0m[INFO] [1721908815.644173696] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908815.645163509] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908815.645874325] [voter_1]: Voting for blue[0m
+[INFO] [1721908816.162300] [system-load-monitor]: CPU: [4.1, 6.9, 5.0, 2.0]
+[INFO] [1721908816.163276] [system-load-monitor]: Memory: [3780415488, 48.6]
+[INFO] [1721908816.164567] [system-load-monitor]: Network: [3140, 3140]
+[INFO] [1721908817.166204] [system-load-monitor]: CPU: [4.1, 1.0, 1.0, 1.0]
+[INFO] [1721908817.166820] [system-load-monitor]: Memory: [3780415488, 48.6]
+[INFO] [1721908817.167923] [system-load-monitor]: Network: [1918, 2907]
+[INFO] [1721908818.170085] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721908818.170900] [system-load-monitor]: Memory: [3780415488, 48.6]
+[INFO] [1721908818.172419] [system-load-monitor]: Network: [7672, 10374]
+[INFO] [1721908819.174795] [system-load-monitor]: CPU: [1.0, 5.1, 1.0, 0.0]
+[INFO] [1721908819.176029] [system-load-monitor]: Memory: [3780415488, 48.6]
+[INFO] [1721908819.177356] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908820.179737] [system-load-monitor]: CPU: [1.0, 2.0, 2.0, 1.0]
+[INFO] [1721908820.180679] [system-load-monitor]: Memory: [3780403200, 48.6]
+[INFO] [1721908820.181833] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908820.659588351] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908820.662469698] [authority]: Let's vote![0m
+[0m[INFO] [1721908820.665927450] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908820.667103694] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908820.669728178] [voter_3]: Voting for red[0m
+[INFO] [1721908821.184168] [system-load-monitor]: CPU: [4.1, 4.0, 7.9, 3.0]
+[INFO] [1721908821.185752] [system-load-monitor]: Memory: [3780984832, 48.6]
+[INFO] [1721908821.187283] [system-load-monitor]: Network: [10812, 13444]
+[INFO] [1721908822.189517] [system-load-monitor]: CPU: [11.6, 5.2, 11.3, 9.5]
+[INFO] [1721908822.190292] [system-load-monitor]: Memory: [3781025792, 48.7]
+[INFO] [1721908822.191489] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908823.193956] [system-load-monitor]: CPU: [4.2, 3.0, 6.0, 4.9]
+[INFO] [1721908823.194629] [system-load-monitor]: Memory: [3781279744, 48.7]
+[INFO] [1721908823.195925] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908824.197684] [system-load-monitor]: CPU: [5.1, 7.8, 7.0, 6.1]
+[INFO] [1721908824.198138] [system-load-monitor]: Memory: [3775696896, 48.6]
+[INFO] [1721908824.199016] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908825.201431] [system-load-monitor]: CPU: [7.2, 5.1, 10.1, 5.1]
+[INFO] [1721908825.202436] [system-load-monitor]: Memory: [3776118784, 48.6]
+[INFO] [1721908825.203831] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908825.682608278] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908825.684779940] [authority]: Let's vote![0m
+[0m[INFO] [1721908825.689354645] [voter_3]: Voting for blue[0m
+[0m[INFO] [1721908825.689673729] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908825.690642060] [voter_2]: Voting for blue[0m
+[INFO] [1721908826.206013] [system-load-monitor]: CPU: [5.2, 4.0, 4.0, 4.0]
+[INFO] [1721908826.206775] [system-load-monitor]: Memory: [3777384448, 48.6]
+[INFO] [1721908826.207785] [system-load-monitor]: Network: [5050, 5708]
+[INFO] [1721908827.210093] [system-load-monitor]: CPU: [3.1, 3.0, 2.0, 2.0]
+[INFO] [1721908827.211093] [system-load-monitor]: Memory: [3781832704, 48.6]
+[INFO] [1721908827.212388] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908828.214700] [system-load-monitor]: CPU: [2.1, 1.0, 1.0, 1.0]
+[INFO] [1721908828.216293] [system-load-monitor]: Memory: [3781832704, 48.6]
+[INFO] [1721908828.217771] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908829.219868] [system-load-monitor]: CPU: [1.0, 4.0, 3.0, 0.0]
+[INFO] [1721908829.220933] [system-load-monitor]: Memory: [3781951488, 48.6]
+[INFO] [1721908829.221969] [system-load-monitor]: Network: [1918, 2576]
+[INFO] [1721908830.224264] [system-load-monitor]: CPU: [4.1, 2.0, 2.0, 1.0]
+[INFO] [1721908830.225597] [system-load-monitor]: Memory: [3781947392, 48.6]
+[INFO] [1721908830.227150] [system-load-monitor]: Network: [8016, 10648]
+[0m[INFO] [1721908830.703412915] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908830.706505796] [authority]: Let's vote![0m
+[0m[INFO] [1721908830.710943870] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908830.710925688] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908830.713753471] [voter_3]: Voting for blue[0m
+[INFO] [1721908831.229599] [system-load-monitor]: CPU: [4.1, 4.0, 4.0, 4.0]
+[INFO] [1721908831.230718] [system-load-monitor]: Memory: [3781939200, 48.6]
+[INFO] [1721908831.232076] [system-load-monitor]: Network: [3228, 3449]
+[INFO] [1721908832.234200] [system-load-monitor]: CPU: [3.1, 5.1, 1.0, 3.1]
+[INFO] [1721908832.235207] [system-load-monitor]: Memory: [3781939200, 48.6]
+[INFO] [1721908832.236698] [system-load-monitor]: Network: [2002, 2660]
+[INFO] [1721908833.239045] [system-load-monitor]: CPU: [3.1, 3.0, 3.0, 1.0]
+[INFO] [1721908833.240560] [system-load-monitor]: Memory: [3781931008, 48.6]
+[INFO] [1721908833.242090] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908834.244366] [system-load-monitor]: CPU: [2.0, 35.4, 10.0, 6.0]
+[INFO] [1721908834.245689] [system-load-monitor]: Memory: [3782963200, 48.6]
+[INFO] [1721908834.246929] [system-load-monitor]: Network: [0, 331]
+[INFO] [1721908835.249305] [system-load-monitor]: CPU: [3.1, 2.0, 4.0, 3.0]
+[INFO] [1721908835.250473] [system-load-monitor]: Memory: [3782963200, 48.6]
+[INFO] [1721908835.251783] [system-load-monitor]: Network: [1918, 2576]
+[0m[INFO] [1721908835.725256114] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908835.727563504] [authority]: Let's vote![0m
+[0m[INFO] [1721908835.730791862] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908835.733269405] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908835.734294510] [voter_3]: Voting for blue[0m
+[INFO] [1721908836.254046] [system-load-monitor]: CPU: [5.2, 3.1, 2.0, 2.0]
+[INFO] [1721908836.255112] [system-load-monitor]: Memory: [3782946816, 48.6]
+[INFO] [1721908836.256316] [system-load-monitor]: Network: [10816, 13448]
+[INFO] [1721908837.258548] [system-load-monitor]: CPU: [2.1, 2.9, 2.0, 2.0]
+[INFO] [1721908837.259801] [system-load-monitor]: Memory: [3782946816, 48.6]
+[INFO] [1721908837.261079] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908838.263283] [system-load-monitor]: CPU: [4.1, 2.0, 2.0, 1.0]
+[INFO] [1721908838.264770] [system-load-monitor]: Memory: [3783462912, 48.6]
+[INFO] [1721908838.266196] [system-load-monitor]: Network: [4088, 5544]
+[INFO] [1721908839.268569] [system-load-monitor]: CPU: [3.1, 3.0, 1.0, 1.0]
+[INFO] [1721908839.270233] [system-load-monitor]: Memory: [3783458816, 48.6]
+[INFO] [1721908839.271746] [system-load-monitor]: Network: [5754, 7728]
+[INFO] [1721908840.274142] [system-load-monitor]: CPU: [4.1, 1.0, 0.0, 0.0]
+[INFO] [1721908840.275416] [system-load-monitor]: Memory: [3783458816, 48.6]
+[INFO] [1721908840.277048] [system-load-monitor]: Network: [0, 0]
+[0m[INFO] [1721908840.745382634] [authority]: The winner is 'red'[0m
+[0m[INFO] [1721908840.747674836] [authority]: Let's vote![0m
+[0m[INFO] [1721908840.752116971] [voter_3]: Voting for red[0m
+[0m[INFO] [1721908840.752157356] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908840.752202369] [voter_2]: Voting for blue[0m
+[INFO] [1721908841.279332] [system-load-monitor]: CPU: [4.0, 2.0, 3.0, 4.0]
+[INFO] [1721908841.280202] [system-load-monitor]: Memory: [3783704576, 48.6]
+[INFO] [1721908841.281439] [system-load-monitor]: Network: [7392, 8708]
+[INFO] [1721908842.283705] [system-load-monitor]: CPU: [4.0, 1.0, 1.0, 1.0]
+[INFO] [1721908842.284910] [system-load-monitor]: Memory: [3783700480, 48.6]
+[INFO] [1721908842.286324] [system-load-monitor]: Network: [5754, 7728]
+[INFO] [1721908843.288653] [system-load-monitor]: CPU: [2.1, 0.0, 1.0, 3.0]
+[INFO] [1721908843.290122] [system-load-monitor]: Memory: [3783700480, 48.6]
+[INFO] [1721908843.291467] [system-load-monitor]: Network: [0, 0]
+[INFO] [1721908844.293659] [system-load-monitor]: CPU: [5.0, 1.0, 1.0, 3.0]
+[INFO] [1721908844.294438] [system-load-monitor]: Memory: [3783700480, 48.6]
+[INFO] [1721908844.295798] [system-load-monitor]: Network: [7840, 10472]
+[INFO] [1721908845.297973] [system-load-monitor]: CPU: [8.2, 6.1, 12.1, 9.2]
+[INFO] [1721908845.298975] [system-load-monitor]: Memory: [3784007680, 48.6]
+[INFO] [1721908845.300066] [system-load-monitor]: Network: [1918, 3277]
+[0m[INFO] [1721908845.763953734] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908845.766473797] [authority]: Let's vote![0m
+[0m[INFO] [1721908845.770843264] [voter_1]: Voting for blue[0m
+[0m[INFO] [1721908845.770848281] [voter_2]: Voting for blue[0m
+[0m[INFO] [1721908845.773379874] [voter_3]: Voting for blue[0m
+[INFO] [1721908846.302383] [system-load-monitor]: CPU: [5.2, 4.0, 4.0, 2.1]
+[INFO] [1721908846.303690] [system-load-monitor]: Memory: [3783995392, 48.6]
+[INFO] [1721908846.304669] [system-load-monitor]: Network: [10440, 10526]
+[INFO] [1721908847.306187] [system-load-monitor]: CPU: [5.2, 4.0, 3.0, 5.0]
+[INFO] [1721908847.307172] [system-load-monitor]: Memory: [3783979008, 48.6]
+[INFO] [1721908847.308429] [system-load-monitor]: Network: [8268, 11733]
+[INFO] [1721908848.310686] [system-load-monitor]: CPU: [6.1, 4.0, 2.0, 4.0]
+[INFO] [1721908848.311901] [system-load-monitor]: Memory: [3784298496, 48.6]
+[INFO] [1721908848.313196] [system-load-monitor]: Network: [8882, 9761]
+[INFO] [1721908849.315446] [system-load-monitor]: CPU: [2.1, 2.0, 1.0, 4.0]
+[INFO] [1721908849.316499] [system-load-monitor]: Memory: [3784040448, 48.6]
+[INFO] [1721908849.317804] [system-load-monitor]: Network: [0, 530]
+[INFO] [1721908850.320041] [system-load-monitor]: CPU: [2.1, 3.0, 1.0, 3.9]
+[INFO] [1721908850.321166] [system-load-monitor]: Memory: [3784040448, 48.6]
+[INFO] [1721908850.322506] [system-load-monitor]: Network: [7756, 10388]
+[0m[INFO] [1721908850.786707347] [authority]: The winner is 'blue'[0m
+[0m[INFO] [1721908850.788990707] [authority]: Let's vote![0m
+[0m[INFO] [1721908850.793392905] [voter_1]: Voting for red[0m
+[0m[INFO] [1721908850.793427278] [voter_2]: Voting for red[0m
+[0m[INFO] [1721908850.793897965] [voter_3]: Voting for blue[0m
+[INFO] [1721908851.324885] [system-load-monitor]: CPU: [5.1, 3.0, 3.0, 4.0]
+[INFO] [1721908851.326133] [system-load-monitor]: Memory: [3784028160, 48.6]
+[INFO] [1721908851.327419] [system-load-monitor]: Network: [5406, 6126]
+[INFO] [1721908852.329073] [system-load-monitor]: CPU: [3.1, 4.0, 0.0, 3.0]
+[INFO] [1721908852.329416] [system-load-monitor]: Memory: [3784028160, 48.6]
+[INFO] [1721908852.329960] [system-load-monitor]: Network: [0, 221]
+[INFO] [1721908853.332234] [system-load-monitor]: CPU: [3.1, 3.0, 1.0, 2.0]
+[INFO] [1721908853.333581] [system-load-monitor]: Memory: [3784028160, 48.6]
+[INFO] [1721908853.335169] [system-load-monitor]: Network: [7672, 10304]
+[INFO] [1721908854.337730] [system-load-monitor]: CPU: [3.1, 1.0, 2.0, 6.0]
+[INFO] [1721908854.338729] [system-load-monitor]: Memory: [3784024064, 48.6]
+[INFO] [1721908854.340221] [system-load-monitor]: Network: [1918, 2907]
+[INFO] [1721908855.341843] [system-load-monitor]: CPU: [4.1, 0.0, 1.0, 1.0]

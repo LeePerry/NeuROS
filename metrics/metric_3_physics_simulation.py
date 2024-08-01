@@ -23,7 +23,7 @@ def create_data():
     """
     for name in data_paths.keys():
         print("==== STARTING NEW EXPERIMENT ====")
-        data = common.data.Writer(f"log/3_physics_simulation_{name}.txt")
+        data = common.data.Writer(f"results_data/3_physics_simulation_{name}.txt")
         common.run.process_for(
             ["./launch.py", "--monitor-system-load", "--project", 
                 f"./examples/3_physics_simulation/elevator/{name}.json"],
@@ -43,7 +43,7 @@ def process_data():
     sent_received_comparison = {}
     
     for name, alias in data_paths.items():
-        data = common.data.Reader(f"log/3_physics_simulation_{name}.txt")
+        data = common.data.Reader(f"results_data/3_physics_simulation_{name}.txt")
 
         print("==== Real Time ====")
         real_time_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[physics\]: Simulated time: .*")
@@ -51,7 +51,7 @@ def process_data():
         real_time_intervals = real_time_parser.intervals()
         common.data.basic_stats(real_time_intervals)
         binwidth = 0.05
-        common.plot.histogram(f"log/3_physics_simulation_{name}_real_time_interval_histogram.png",
+        common.plot.histogram(f"results_data/3_physics_simulation_{name}_real_time_interval_histogram.png",
                             real_time_intervals,
                             "Interval (seconds)",
                             relative_frequency=False,
@@ -65,7 +65,7 @@ def process_data():
         sim_time_intervals = sim_time_parser.intervals()
         common.data.basic_stats(sim_time_intervals)
         binwidth = 0.00025
-        common.plot.histogram(f"log/3_physics_simulation_{name}_simulated_time_interval_histogram.png",
+        common.plot.histogram(f"results_data/3_physics_simulation_{name}_simulated_time_interval_histogram.png",
                             sim_time_intervals,
                             "Interval (seconds)",
                             relative_frequency=False,
@@ -81,7 +81,7 @@ def process_data():
         sim_time_samples = sim_time_parser.samples()
         sim_time_samples = [s - sim_time_samples[0] for s in sim_time_samples]
         print(f"Average Time Ratio: {sim_time_samples[-1] / real_time_offsets[-1]}")
-        common.plot.line(f"log/3_physics_simulation_{name}_real_vs_simulated_time_series.png",
+        common.plot.line(f"results_data/3_physics_simulation_{name}_real_vs_simulated_time_series.png",
                         real_time_offsets,
                         sim_time_samples,
                         "Real Time (seconds)",
@@ -114,25 +114,34 @@ def process_data():
         sent_received_comparison[alias] = common.data.dropped_packet_summary(data)
 
         print("==== Physics Sim CPU Series ====")
-        common.plot.all_cpu_time_series(f"log/3_physics_simulation_{name}.txt",
-                                        f"log/3_physics_simulation_{name}_cpu_time_series.png")
+        labels, datasets = common.plot.all_cpu_time_series(f"results_data/3_physics_simulation_{name}.txt",
+                                                           f"results_data/3_physics_simulation_{name}_cpu_time_series.png")
+        for label, data in zip(labels, datasets):
+            print(f"____ {label} ____")
+            common.data.basic_stats(data)
         
         print("==== Memory Consumption Series ====")
-        common.plot.memory_consumption_time_series(f"log/3_physics_simulation_{name}.txt",
-                                                   f"log/3_physics_simulation_{name}_memory_percent_time_series.png")
-        common.plot.memory_consumption_time_series(f"log/3_physics_simulation_{name}.txt",
-                                                   f"log/3_physics_simulation_{name}_memory_absolute_time_series.png",
-                                                   percent=False)
+        common.plot.memory_consumption_time_series(f"results_data/3_physics_simulation_{name}.txt",
+                                                   f"results_data/3_physics_simulation_{name}_memory_percent_time_series.png")
+        labels, datasets = common.plot.memory_consumption_time_series(f"results_data/3_physics_simulation_{name}.txt",
+                                                                      f"results_data/3_physics_simulation_{name}_memory_absolute_time_series.png",
+                                                                      percent=False)
+        for label, data in zip(labels, datasets):
+            print(f"____ {label} ____")
+            common.data.basic_stats(data)
 
         print("==== Tick Network Series ====")
-        common.plot.network_speeds_time_series(f"log/3_physics_simulation_{name}.txt",
-                                               f"log/3_physics_simulation_{name}_network_speeds_time_series.png")
+        labels, datasets = common.plot.network_speeds_time_series(f"results_data/3_physics_simulation_{name}.txt",
+                                                                  f"results_data/3_physics_simulation_{name}_network_speeds_time_series.png")
+        for label, data in zip(labels, datasets):
+            print(f"____ {label} ____")
+            common.data.basic_stats(data)
     
     print("==== Combined Real vs. Simulated Time Graph ====")
     all_labels = real_sim_comparison.keys()
     all_x = [data[0] for _, data in real_sim_comparison.items()]
     all_y = [data[1] for _, data in real_sim_comparison.items()]
-    common.plot.multi_line(f"log/3_physics_simulation_combined_real_vs_simulated_time_series.png",
+    common.plot.multi_line(f"results_data/3_physics_simulation_combined_real_vs_simulated_time_series.png",
                            all_labels,
                            all_x,
                            all_y,
@@ -155,17 +164,17 @@ def process_data():
                 values[received_name] = []
             values[received_name].append(data[1][mt])
     common.plot.grouped_multi_bar(
-        "log/3_physics_simulation_combined_packet_counts.png", 
+        "results_data/3_physics_simulation_combined_packet_counts.png", 
         groups, values, ylabel="Number of Packets")
     
     print("==== Memory Consumption Series ====")
     common.plot.memory_consumption_time_series(
-        [f"log/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
-        "log/3_physics_simulation_combined_memory_percent_time_series.png",
+        [f"results_data/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
+        "results_data/3_physics_simulation_combined_memory_percent_time_series.png",
         labels=[l for _, l in data_paths.items()])
     common.plot.memory_consumption_time_series(
-        [f"log/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
-        "log/3_physics_simulation_combined_memory_absolute_time_series.png",
+        [f"results_data/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
+        "results_data/3_physics_simulation_combined_memory_absolute_time_series.png",
         labels=[l for _, l in data_paths.items()],
         percent=False)
 

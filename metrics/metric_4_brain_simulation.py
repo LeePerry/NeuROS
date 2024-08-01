@@ -9,7 +9,7 @@ import common.run
 This metric measures the system load during physics and brain simulation.
 """
 
-data_path = "log/4_brain_simulation.txt"
+data_path = "results_data/4_brain_simulation.txt"
 
 def create_data():
     """
@@ -27,14 +27,8 @@ def process_data():
     """
     Parses and analysis the system load results data file.
     """
-    data = common.data.Reader(data_path)
-
-    # TODO
-
-    common.plot.line([],
-                     [],
-                     "",
-                     "")
+    #data = common.data.Reader(data_path)
+    pass
 
 if __name__ == '__main__':
     create_data()
