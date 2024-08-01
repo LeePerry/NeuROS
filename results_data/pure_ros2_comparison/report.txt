@@ -1,7 +1,0 @@
-Count: 296
-Mean: 1.0000023133045919
-Standard Deviation: 0.0008923625837604685
-Percentage within 0.01 of target: 100.0
-Percentage within 0.005 of target: 100.0
-Percentage within 0.002 of target: 96.95945945945945
-Percentage within 0.001 of target: 73.64864864864865

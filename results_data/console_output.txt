@@ -1,6 +1,9 @@
 
 
  #### TICK CONTROLLER ####
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+NeuROS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Tick Interval ====
 Count: 296
 Mean: 0.9999942537900564
@@ -12,6 +15,28 @@ Percentage within 0.001 of target: 61.148648648648646
 ==== Tick CPU Series ====
 ==== Memory Consumption Series ====
 ==== Tick Network Series ====
+==== Tick Interval ====
+Count: 296
+Mean: 0.9999942537900564
+Standard Deviation: 0.0012959590817289844
+Percentage within 0.01 of target: 100.0
+Percentage within 0.005 of target: 99.66216216216216
+Percentage within 0.002 of target: 88.17567567567568
+Percentage within 0.001 of target: 61.148648648648646
+==== Tick CPU Series ====
+==== Memory Consumption Series ====
+==== Tick Network Series ====
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Pure ROS2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==== Tick Interval ====
+Count: 296
+Mean: 1.0000023133045919
+Standard Deviation: 0.0008923625837604685
+Percentage within 0.01 of target: 100.0
+Percentage within 0.005 of target: 100.0
+Percentage within 0.002 of target: 96.95945945945945
+Percentage within 0.001 of target: 73.64864864864865
 
 
  #### SYNCHRONISATION ####
@@ -25,6 +50,9 @@ Standard Deviation: 0.0016996109698033518
 
 
  #### PHYSICS SIMULATION ####
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Strict Synchronisation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real Time ====
 Count: 50
 Mean: 5.75580816745758
@@ -71,6 +99,9 @@ ____ Received ____
 Count: 296
 Mean: 105.48294314822635
 Standard Deviation: 1010.4122421819666
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+No Discard Limit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real Time ====
 Count: 56
 Mean: 5.122889923197882
@@ -117,6 +148,9 @@ ____ Received ____
 Count: 296
 Mean: 133.2884983372044
 Standard Deviation: 1493.5775858000682
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Asynchronous Gazebo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real Time ====
 Count: 85
 Mean: 3.3678838421316706
@@ -163,6 +197,7 @@ ____ Received ____
 Count: 296
 Mean: 157.84993269636826
 Standard Deviation: 1912.797090873239
+~~~ Combined Graphs ~~~
 ==== Combined Real vs. Simulated Time Graph ====
 ==== Combined Sent / Received Packets ====
 ==== Memory Consumption Series ====

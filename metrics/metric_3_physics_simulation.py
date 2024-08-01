@@ -43,6 +43,10 @@ def process_data():
     sent_received_comparison = {}
     
     for name, alias in data_paths.items():
+
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print(alias)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         data = common.data.Reader(f"results_data/3_physics_simulation_{name}.txt")
 
         print("==== Real Time ====")
@@ -136,6 +140,8 @@ def process_data():
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
             common.data.basic_stats(data)
+
+    print("~~~ Combined Graphs ~~~")
     
     print("==== Combined Real vs. Simulated Time Graph ====")
     all_labels = real_sim_comparison.keys()
