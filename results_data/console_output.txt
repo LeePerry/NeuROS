@@ -4,7 +4,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 NeuROS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-==== Tick Interval ====
+==== Interval ====
 Count: 296
 Mean: 0.9999942537900564
 Standard Deviation: 0.0012959590817289844
@@ -12,24 +12,13 @@ Percentage within 0.01 of target: 100.0
 Percentage within 0.005 of target: 99.66216216216216
 Percentage within 0.002 of target: 88.17567567567568
 Percentage within 0.001 of target: 61.148648648648646
-==== Tick CPU Series ====
-==== Memory Consumption Series ====
-==== Tick Network Series ====
-==== Tick Interval ====
-Count: 296
-Mean: 0.9999942537900564
-Standard Deviation: 0.0012959590817289844
-Percentage within 0.01 of target: 100.0
-Percentage within 0.005 of target: 99.66216216216216
-Percentage within 0.002 of target: 88.17567567567568
-Percentage within 0.001 of target: 61.148648648648646
-==== Tick CPU Series ====
-==== Memory Consumption Series ====
-==== Tick Network Series ====
+==== CPU ====
+==== Memory Consumption ====
+==== Network ====
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Pure ROS2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-==== Tick Interval ====
+==== Interval ====
 Count: 296
 Mean: 1.0000023133045919
 Standard Deviation: 0.0008923625837604685
@@ -40,13 +29,13 @@ Percentage within 0.001 of target: 73.64864864864865
 
 
  #### SYNCHRONISATION ####
-==== Voting Interval ====
+==== Interval ====
 Count: 57
 Mean: 5.021587212880452
 Standard Deviation: 0.0016996109698033518
-==== Voting CPU Series ====
-==== Memory Consumption Series ====
-==== Tick Network Series ====
+==== CPU ====
+==== Memory Consumption ====
+==== Network ====
 
 
  #### PHYSICS SIMULATION ####
@@ -61,14 +50,14 @@ Standard Deviation: 0.2221763152246317
 Count: 50
 Mean: 1.0011
 Standard Deviation: 0.0002999999999999566
-==== Real vs. Simulated Time Summary ====
+==== Real vs. Simulated Time ====
 Average Time Ratio: 0.1739286596902342
 ==== Dropped Packets Gazebo -> NeuROS ====
 Level: 0.0%
 ==== Dropped Packets NeuROS -> NeuROS ====
 command: 0.0%
 sensor_data: 0.0%
-==== Physics Sim CPU Series ====
+==== CPU ====
 ____ Core 1 ____
 Count: 295
 Mean: 72.22610169491526
@@ -85,12 +74,12 @@ ____ Core 4 ____
 Count: 295
 Mean: 73.19084745762713
 Standard Deviation: 7.437013544982706
-==== Memory Consumption Series ====
+==== Memory Consumption ====
 ____ Default ____
 Count: 296
 Mean: 1.8313241262693662
 Standard Deviation: 0.02885331365657816
-==== Tick Network Series ====
+==== Network ====
 ____ Sent ____
 Count: 296
 Mean: 24.97779639991554
@@ -110,14 +99,14 @@ Standard Deviation: 0.15272640525502895
 Count: 56
 Mean: 1.0010892857142857
 Standard Deviation: 0.0002851557039760243
-==== Real vs. Simulated Time Summary ====
+==== Real vs. Simulated Time ====
 Average Time Ratio: 0.19541495146734905
 ==== Dropped Packets Gazebo -> NeuROS ====
 Level: 0.0%
 ==== Dropped Packets NeuROS -> NeuROS ====
 command: 0.0%
 sensor_data: 0.0%
-==== Physics Sim CPU Series ====
+==== CPU ====
 ____ Core 1 ____
 Count: 295
 Mean: 71.02169491525424
@@ -134,12 +123,12 @@ ____ Core 4 ____
 Count: 295
 Mean: 71.32881355932203
 Standard Deviation: 6.833865096099026
-==== Memory Consumption Series ====
+==== Memory Consumption ====
 ____ Default ____
 Count: 296
 Mean: 1.8256298529135215
 Standard Deviation: 0.03204107810984651
-==== Tick Network Series ====
+==== Network ====
 ____ Sent ____
 Count: 296
 Mean: 24.70250145164696
@@ -159,14 +148,14 @@ Standard Deviation: 0.2966530483315407
 Count: 85
 Mean: 1.0016235294117648
 Standard Deviation: 0.0006503658805215744
-==== Real vs. Simulated Time Summary ====
+==== Real vs. Simulated Time ====
 Average Time Ratio: 0.2974044166492976
 ==== Dropped Packets Gazebo -> NeuROS ====
 Level: 0.0%
 ==== Dropped Packets NeuROS -> NeuROS ====
 command: 0.0%
 sensor_data: 0.0%
-==== Physics Sim CPU Series ====
+==== CPU ====
 ____ Core 1 ____
 Count: 295
 Mean: 80.75661016949151
@@ -183,12 +172,12 @@ ____ Core 4 ____
 Count: 295
 Mean: 81.06847457627119
 Standard Deviation: 9.997914496696396
-==== Memory Consumption Series ====
+==== Memory Consumption ====
 ____ Default ____
 Count: 296
 Mean: 1.8292475133328825
 Standard Deviation: 0.03238422520231839
-==== Tick Network Series ====
+==== Network ====
 ____ Sent ____
 Count: 296
 Mean: 24.84257548564189
@@ -197,10 +186,13 @@ ____ Received ____
 Count: 296
 Mean: 157.84993269636826
 Standard Deviation: 1912.797090873239
-~~~ Combined Graphs ~~~
-==== Combined Real vs. Simulated Time Graph ====
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Combined Graphs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+==== Combined Real vs. Simulated Time ====
 ==== Combined Sent / Received Packets ====
-==== Memory Consumption Series ====
+==== Memory Consumption ====
 
 
  #### COMPLETE NEUROROBOTICS EXPERIMENT ####
+==== Real vs. Simulated Time ====

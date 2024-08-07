@@ -38,7 +38,7 @@ def process_data():
     # omit first interval as it is artificially high due to node initialisation
     intervals = parser.intervals()[1:]
 
-    print("==== Voting Interval ====")
+    print("==== Interval ====")
     common.data.basic_stats(intervals)
     common.plot.histogram("results_data/2_synchronisation_voting_interval_histogram.png",
                           intervals,
@@ -46,21 +46,21 @@ def process_data():
                           relative_frequency=False,
                           bins=20)
 
-    print("==== Voting CPU Series ====")
+    print("==== CPU ====")
     common.plot.all_cpu_time_series(data_path,
                                     "results_data/2_synchronisation_voting_cpu_time_series.png")
     
-    print("==== Memory Consumption Series ====")
+    print("==== Memory Consumption ====")
     common.plot.memory_consumption_time_series(data_path,
                                                "results_data/2_synchronisation_voting_memory_percent_time_series.png")
     common.plot.memory_consumption_time_series(data_path,
                                                "results_data/2_synchronisation_voting_memory_absolute_time_series.png",
                                                percent=False)
 
-    print("==== Tick Network Series ====")
+    print("==== Network ====")
     common.plot.network_speeds_time_series(data_path,
                                            "results_data/2_synchronisation_voting_network_speeds_time_series.png")
 
 if __name__ == '__main__':
-    #create_data()
+    create_data()
     process_data()

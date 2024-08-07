@@ -69,6 +69,13 @@ def initialise(node):
     node.set_user_data(robot)
     return robot.initialise_neck()
 
+@neuros_function(inputs="_clock")
+def log_sim_time(node, clock):
+    simulation = node.get_user_data()
+    seconds = clock.clock.sec + (clock.clock.nanosec / 1_000_000_000)
+    if simulation.should_log_timestamp(seconds):
+        node.get_ros_node().get_logger().info(f"Simulated time: {seconds}")
+
 @neuros_function(
     inputs  = [Optional(f"_{i}") for i in Robot.SENSORS],
     outputs = [Optional(i) for i in Robot.SENSORS + Robot.MOTION_COMMANDS])

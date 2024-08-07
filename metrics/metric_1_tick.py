@@ -41,46 +41,10 @@ def process_data():
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
         data = common.data.Reader(f"results_data/{data_path}.txt")
+
+        print("==== Interval ====")
         parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[clock\]: T.*")
         data.read(parser.parse)
-
-        print("==== Tick Interval ====")
-        intervals = parser.intervals()[1:]
-        common.data.basic_stats(intervals)
-        common.data.percentage_within_x_of_target(intervals, 1.0, 0.010)
-        common.data.percentage_within_x_of_target(intervals, 1.0, 0.005)
-        common.data.percentage_within_x_of_target(intervals, 1.0, 0.002)
-        common.data.percentage_within_x_of_target(intervals, 1.0, 0.001)
-        binwidth = 0.0005
-        common.plot.histogram(f"results_data/{data_path}_histogram.png",
-                            intervals,
-                            "Interval (Target 1.0)",
-                            relative_frequency=False,
-                            bins=np.arange(min(intervals), max(intervals) + binwidth, binwidth), 
-                            xlimits=[0.99, 1.01],
-                            ylimits=[0, 120])
-        
-        if alias == "Pure ROS2":
-            continue
-
-        print("==== Tick CPU Series ====")
-        common.plot.all_cpu_time_series(f"results_data/{data_path}.txt",
-                                        f"results_data/{data_path}_cpu_time_series.png")
-        
-        print("==== Memory Consumption Series ====")
-        common.plot.memory_consumption_time_series(f"results_data/{data_path}.txt",
-                                                    f"results_data/{data_path}_memory_percent_time_series.png")
-        common.plot.memory_consumption_time_series(f"results_data/{data_path}.txt",
-                                                    f"results_data/{data_path}_memory_absolute_time_series.png",
-                                                    percent=False)
-        
-        print("==== Tick Network Series ====")
-        common.plot.network_speeds_time_series(f"results_data/{data_path}.txt",
-                                                f"results_data/{data_path}_network_speeds_time_series.png")
-        parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[clock\]: T.*")
-        data.read(parser.parse)
-
-        print("==== Tick Interval ====")
         intervals = parser.intervals()[1:]
         common.data.basic_stats(intervals)
         common.data.percentage_within_x_of_target(intervals, 1.0, 0.010)
@@ -95,22 +59,25 @@ def process_data():
                                 bins=np.arange(min(intervals), max(intervals) + binwidth, binwidth), 
                                 xlimits=[0.99, 1.01],
                                 ylimits=[0, 120])
+        
+        if alias == "Pure ROS2":
+            continue
 
-        print("==== Tick CPU Series ====")
+        print("==== CPU ====")
         common.plot.all_cpu_time_series(f"results_data/{data_path}.txt", 
                                         f"results_data/{data_path}_cpu_time_series.png")
         
-        print("==== Memory Consumption Series ====")
+        print("==== Memory Consumption ====")
         common.plot.memory_consumption_time_series(f"results_data/{data_path}.txt",
-                                                f"results_data/{data_path}_memory_percent_time_series.png")
+                                                   f"results_data/{data_path}_memory_percent_time_series.png")
         common.plot.memory_consumption_time_series(f"results_data/{data_path}.txt",
-                                                f"results_data/{data_path}_memory_absolute_time_series.png",
-                                                percent=False)
+                                                   f"results_data/{data_path}_memory_absolute_time_series.png",
+                                                   percent=False)
         
-        print("==== Tick Network Series ====")
+        print("==== Network ====")
         common.plot.network_speeds_time_series(f"results_data/{data_path}.txt",
-                                                f"results_data/{data_path}_network_speeds_time_series.png")
+                                               f"results_data/{data_path}_network_speeds_time_series.png")
 
 if __name__ == '__main__':
-    #create_data()
+    create_data()
     process_data()

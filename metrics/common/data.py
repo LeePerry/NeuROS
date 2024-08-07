@@ -76,19 +76,23 @@ class Parser:
     def samples(self):
         return self._samples
 
-def dropped_packet_summary(data):
+def dropped_packet_summary(data, aliases=None):
     prefix = "\[INFO\] \[\d*\.?\d+\] \[.*\]: "
     alphanumeric = "[a-zA-Z0-9_]*"
     sending_type_parser = Parser(f"{prefix}Sending ({alphanumeric})", type=str)
     data.read(sending_type_parser.parse)
     sent_counts = {}
     for message_type in sending_type_parser.samples():
+        if aliases:
+            message_type = aliases.get(message_type, message_type)
         if not message_type.startswith("_"):
             sent_counts[message_type] = sent_counts.get(message_type, 0) + 1
     receiving_type_parser = Parser(f"{prefix}Received ({alphanumeric})", type=str)
     data.read(receiving_type_parser.parse)
     received_counts = {}
     for message_type in receiving_type_parser.samples():
+        if aliases:
+            message_type = aliases.get(message_type, message_type)
         if not message_type.startswith("_"):
             received_counts[message_type] = received_counts.get(message_type, 0) + 1
     for message_type, count in sent_counts.items():

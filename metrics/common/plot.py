@@ -135,6 +135,23 @@ def network_speeds_time_series(from_path, to_path):
         "Network Throughput (KB/s)", y_log_scale=True)
     return labels, datasets
 
+def sent_received_packets(combined_data, to_path):
+    groups = combined_data.keys()
+    values = {}
+    for _, data in combined_data.items():
+        message_types = set([k for k in data[0].keys()] + 
+                            [k for k in data[1].keys()])
+        for mt in message_types:
+            sent_name = f"Sent {mt}"
+            if sent_name not in values:
+                values[sent_name] = []
+            values[sent_name].append(data[0][mt])
+            received_name = f"Received {mt}"
+            if received_name not in values:
+                values[received_name] = []
+            values[received_name].append(data[1][mt])
+    common.plot.grouped_multi_bar(to_path, groups, values, ylabel="Number of Packets")
+
 def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]):
     _, ax = plt.subplots(layout='constrained')
     x = np.arange(len(groups))
@@ -146,8 +163,7 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]
         ax.bar_label(rects, padding=3)
         multiplier += 1
     ax.set_xticks(x + (width*1.5), groups)
-    if len(groups) > 1:
-        ax.legend(loc="upper left", ncols=1)
+    ax.legend(loc="best", ncols=1)
     if ylabel:
         ax.set_ylabel(ylabel)
     if xlabel:

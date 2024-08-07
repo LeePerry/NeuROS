@@ -77,7 +77,7 @@ def process_data():
                             xlimits=[1.0, 1.0035],
                             ylimits=[0, 80])
         
-        print("==== Real vs. Simulated Time Summary ====")
+        print("==== Real vs. Simulated Time ====")
         if len(real_time_parser.samples()) != len(sim_time_parser.samples()):
             raise Exception("Different number of sim and real time samples!")
         real_time_samples = real_time_parser.samples()
@@ -117,14 +117,14 @@ def process_data():
         print("==== Dropped Packets NeuROS -> NeuROS ====")
         sent_received_comparison[alias] = common.data.dropped_packet_summary(data)
 
-        print("==== Physics Sim CPU Series ====")
+        print("==== CPU ====")
         labels, datasets = common.plot.all_cpu_time_series(f"results_data/3_physics_simulation_{name}.txt",
                                                            f"results_data/3_physics_simulation_{name}_cpu_time_series.png")
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
             common.data.basic_stats(data)
         
-        print("==== Memory Consumption Series ====")
+        print("==== Memory Consumption ====")
         common.plot.memory_consumption_time_series(f"results_data/3_physics_simulation_{name}.txt",
                                                    f"results_data/3_physics_simulation_{name}_memory_percent_time_series.png")
         labels, datasets = common.plot.memory_consumption_time_series(f"results_data/3_physics_simulation_{name}.txt",
@@ -134,16 +134,18 @@ def process_data():
             print(f"____ {label} ____")
             common.data.basic_stats(data)
 
-        print("==== Tick Network Series ====")
+        print("==== Network ====")
         labels, datasets = common.plot.network_speeds_time_series(f"results_data/3_physics_simulation_{name}.txt",
                                                                   f"results_data/3_physics_simulation_{name}_network_speeds_time_series.png")
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
             common.data.basic_stats(data)
 
-    print("~~~ Combined Graphs ~~~")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("Combined Graphs")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     
-    print("==== Combined Real vs. Simulated Time Graph ====")
+    print("==== Combined Real vs. Simulated Time ====")
     all_labels = real_sim_comparison.keys()
     all_x = [data[0] for _, data in real_sim_comparison.items()]
     all_y = [data[1] for _, data in real_sim_comparison.items()]
@@ -155,25 +157,11 @@ def process_data():
                            "Simulated Time (seconds)")
     
     print("==== Combined Sent / Received Packets ====")
-    groups = sent_received_comparison.keys()
-    values = {}
-    for _, data in sent_received_comparison.items():
-        message_types = set([k for k in data[0].keys()] + 
-                            [k for k in data[1].keys()])
-        for mt in message_types:
-            sent_name = f"Sent {mt}"
-            if sent_name not in values:
-                values[sent_name] = []
-            values[sent_name].append(data[0][mt])
-            received_name = f"Received {mt}"
-            if received_name not in values:
-                values[received_name] = []
-            values[received_name].append(data[1][mt])
-    common.plot.grouped_multi_bar(
-        "results_data/3_physics_simulation_combined_packet_counts.png", 
-        groups, values, ylabel="Number of Packets")
+    common.plot.sent_received_packets(
+        sent_received_comparison,
+        "results_data/3_physics_simulation_combined_packet_counts.png")
     
-    print("==== Memory Consumption Series ====")
+    print("==== Memory Consumption ====")
     common.plot.memory_consumption_time_series(
         [f"results_data/3_physics_simulation_{name}.txt" for name in data_paths.keys()],
         "results_data/3_physics_simulation_combined_memory_percent_time_series.png",
@@ -185,5 +173,5 @@ def process_data():
         percent=False)
 
 if __name__ == '__main__':
-    #create_data()
+    create_data()
     process_data()
