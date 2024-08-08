@@ -4,9 +4,12 @@ import re
 import numpy as np
 
 def basic_stats(data):
+    mean = np.mean(data)
+    std = np.std(data)
     print(f"Count: {len(data)}")
-    print(f"Mean: {np.mean(data)}")
-    print(f"Standard Deviation: {np.std(data)}")
+    print(f"Mean: {mean}")
+    print(f"Standard Deviation: {std}")
+    return mean, std
 
 def percentage_within_x_of_target(data, target, x):
     count = 0
@@ -43,9 +46,9 @@ class Parser:
 
     @classmethod
     def for_network_speed(cls, send=False):
-        return cls("\[INFO\] \[.*\] \[system-load-monitor\]: Network: " + 
+        return cls("\[INFO\] \[.*\] \[system-load-monitor\]: Network: " +
                    ("\[\d+, (\d+)\]" if send else "\[(\d+), \d+\]"))
-    
+
     @classmethod
     def for_memory_consumption(cls, percent=True):
         return cls("\[INFO\] \[.*\] \[system-load-monitor\]: Memory: " +
@@ -99,3 +102,9 @@ def dropped_packet_summary(data, aliases=None):
         dropped = count - received_counts.get(message_type, 0)
         print(f"{message_type}: {dropped * 100 / count}%")
     return sent_counts, received_counts
+
+def dropped_packet_percentage(data):
+    sent_counts, received_counts = data
+    sent     = sum(x for _, x in sent_counts.items())
+    received = sum(x for _, x in received_counts.items())
+    return received * 100 / sent

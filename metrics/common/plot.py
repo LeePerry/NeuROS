@@ -5,8 +5,12 @@ import numpy as np
 
 import common.data
 
-#main_colour = "teal"
-#plt.style.use('seaborn-v0_8-pastel')
+DROPPED_PACKETS = "Packet Loss"
+DROPPED_PACKET_PERCENT = "Packet Loss Rate"
+CPU_MEAN = "Mean CPU Utilisation"
+MEMORY_MEAN = "Mean Memory Consumption"
+SIM_TIME_PERCENT_OF_REAL = "Percentage of Real Time Speed"
+
 plt.style.use('tableau-colorblind10')
 
 def histogram(path, data, x_axis, relative_frequency=False, bins=20, xlimits=None, ylimits=None):
@@ -18,8 +22,8 @@ def histogram(path, data, x_axis, relative_frequency=False, bins=20, xlimits=Non
         plt.ylim(ylimits)
     if relative_frequency:
         data = np.array(data)
-        ax.hist(data, 
-                bins=bins, 
+        ax.hist(data,
+                bins=bins,
                 weights=np.zeros_like(data) + 100.0 / data.size)
         ax.set_ylabel('Frequency (%)', size=12)
     else:
@@ -52,7 +56,7 @@ def multi_line(path, all_labels, all_x, all_y, x_axis, y_axis):
     plt.savefig(path)
     plt.close()
 
-def multi_time_series(path, datasets, labels, y_axis, y_lim=[], 
+def multi_time_series(path, datasets, labels, y_axis, y_lim=[],
                       y_log_scale=False):
     fig = plt.figure()
     ax = fig.add_subplot(111)
@@ -86,11 +90,11 @@ def all_cpu_time_series(from_path, to_path, range_start=0, range_stop=-1):
         to_path, datasets, labels, "CPU Usage (%)", [0, 100])
     return labels, datasets
 
-def memory_consumption_time_series(from_paths, to_path, percent=True, 
+def memory_consumption_time_series(from_paths, to_path, percent=True,
                                    labels=["Default"]):
     if not isinstance(from_paths, list):
         from_paths = [from_paths]
-    
+
     gigabytes = 1024 * 1024 * 1024
     all_data = []
     for from_path in from_paths:
@@ -127,7 +131,7 @@ def network_speeds_time_series(from_path, to_path):
     data.read(parser.parse)
     receive_speeds = np.array(parser.samples())
     receive_speeds /= 1024
-    
+
     labels = ["Sent", "Received"]
     datasets = [send_speeds, receive_speeds]
     common.plot.multi_time_series(
@@ -135,11 +139,11 @@ def network_speeds_time_series(from_path, to_path):
         "Network Throughput (KB/s)", y_log_scale=True)
     return labels, datasets
 
-def sent_received_packets(combined_data, to_path):
+def sent_received_packets(combined_data, to_path, xlabelrot=None):
     groups = combined_data.keys()
     values = {}
     for _, data in combined_data.items():
-        message_types = set([k for k in data[0].keys()] + 
+        message_types = set([k for k in data[0].keys()] +
                             [k for k in data[1].keys()])
         for mt in message_types:
             sent_name = f"Sent {mt}"
@@ -150,9 +154,27 @@ def sent_received_packets(combined_data, to_path):
             if received_name not in values:
                 values[received_name] = []
             values[received_name].append(data[1][mt])
-    common.plot.grouped_multi_bar(to_path, groups, values, ylabel="Number of Packets")
+    common.plot.grouped_multi_bar(
+        to_path, groups, values, ylabel="Number of Packets", xlabelrot=xlabelrot)
 
-def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]):
+def horizontal_bar(to_path, values, xlabel=None, ylabel=None, xlim=[]):
+    fig, ax = plt.subplots()
+    y_pos = np.arange(len(values))
+    ax.barh(y_pos, [v for _, v in values.items()], align='center')
+    ax.set_yticks(y_pos, labels=values.keys())
+    ax.invert_yaxis()
+    if xlabel:
+        ax.set_xlabel(xlabel)
+    if ylabel:
+        ax.set_ylabel(ylabel)
+    if xlim:
+        ax.set_xlim(xlim)
+    fig.tight_layout()
+    plt.savefig(to_path)
+    plt.close()
+
+def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None,
+                      ylim=[], xlabelrot=None):
     _, ax = plt.subplots(layout='constrained')
     x = np.arange(len(groups))
     width = 1 / (len(values.keys()) + 1)
@@ -162,7 +184,7 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]
         rects = ax.bar(x + offset, measurement, width, label=attribute)
         ax.bar_label(rects, padding=3)
         multiplier += 1
-    ax.set_xticks(x + (width*1.5), groups)
+    ax.set_xticks(x + (width * 0.5 * (len(values) - 1)), groups)
     ax.legend(loc="best", ncols=1)
     if ylabel:
         ax.set_ylabel(ylabel)
@@ -170,5 +192,7 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None, ylim=[]
         ax.set_ylabel(xlabel)
     if ylim:
         ax.set_ylim(ylim)
+    if xlabelrot:
+        ax.tick_params(axis='x', labelrotation=xlabelrot)
     plt.savefig(to_path)
     plt.close()

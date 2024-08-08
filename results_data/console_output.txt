@@ -195,6 +195,9 @@ Combined Graphs
 
 
  #### COMPLETE NEUROROBOTICS EXPERIMENT ####
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tick Controlled (20ms Interval)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.04945208662380948
 ==== Dropped Packets NeuROS -> NeuROS ====
@@ -232,6 +235,9 @@ ____ Received ____
 Count: 297
 Mean: 28857.133052530513
 Standard Deviation: 495726.9500453481
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tick Controlled (60ms Interval)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.016459655153913715
 ==== Dropped Packets NeuROS -> NeuROS ====
@@ -269,6 +275,9 @@ ____ Received ____
 Count: 297
 Mean: 28874.967477509468
 Standard Deviation: 496052.8816203317
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tick Controlled (100ms Interval)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.009853961564408481
 ==== Dropped Packets NeuROS -> NeuROS ====
@@ -306,6 +315,9 @@ ____ Received ____
 Count: 296
 Mean: 28990.96445444468
 Standard Deviation: 497214.67442703096
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Strict Synchronisation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.010488312580854295
 ==== Dropped Packets NeuROS -> NeuROS ====
@@ -343,6 +355,9 @@ ____ Received ____
 Count: 297
 Mean: 28913.03323929398
 Standard Deviation: 496704.8034029268
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+No Discard Limit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.22402388734874615
 ==== Dropped Packets NeuROS -> NeuROS ====
@@ -380,6 +395,9 @@ ____ Received ____
 Count: 297
 Mean: 28939.336891045874
 Standard Deviation: 497031.6073987201
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Asynchronous Gazebo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.2503102606032565
 ==== Dropped Packets NeuROS -> NeuROS ====
