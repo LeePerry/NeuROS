@@ -1,0 +1,21 @@
+{
+    "nodes" : ["nodes/robot/asynchronous.json",
+               "nodes/snn/node.json",
+               "nodes/visualiser/node.json"],
+    "connections" : [{
+        "source_node"       : "robot",
+        "source_output"     : "ground_truth",
+        "destination_node"  : "visualiser",
+        "destination_input" : "ground_truth"
+    }, {
+        "source_node"       : "robot",
+        "source_output"     : "imu",
+        "destination_node"  : "snn",
+        "destination_input" : "imu"
+    }, {
+        "source_node"       : "snn",
+        "source_output"     : "odom_estimate",
+        "destination_node"  : "visualiser",
+        "destination_input" : "odom_estimate"
+    }]
+}

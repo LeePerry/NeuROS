@@ -18,19 +18,19 @@ data_paths = { "1_elevator_standard"            : "Strict Synchronisation",
 
 def create_data():
     """
-    Generates the results data by running the 3_physics_simulation example for 
+    Generates the results data by running the 3_physics_simulation example for
     5 minutes and writing the results to a file.
     """
     for name in data_paths.keys():
         print("==== STARTING NEW EXPERIMENT ====")
         data = common.data.Writer(f"results_data/3_physics_simulation_{name}.txt")
         common.run.process_for(
-            ["./launch.py", "--monitor-system-load", "--project", 
+            ["./launch.py", "--monitor-system-load", "--project",
                 f"./examples/3_physics_simulation/elevator/{name}.json"],
             5 * 60,
             data.write)
         print("==== WAITING (PLEASE CHECK ALL PROCESSES ARE STOPPED) ====")
-        time.sleep(60 * 2)
+        time.sleep(10)
 
 def process_data():
     """
@@ -41,7 +41,7 @@ def process_data():
     """
     real_sim_comparison = {}
     sent_received_comparison = {}
-    
+
     for name, alias in data_paths.items():
 
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -59,7 +59,7 @@ def process_data():
                             real_time_intervals,
                             "Interval (seconds)",
                             relative_frequency=False,
-                            bins=np.arange(min(real_time_intervals), max(real_time_intervals) + binwidth, binwidth), 
+                            bins=np.arange(min(real_time_intervals), max(real_time_intervals) + binwidth, binwidth),
                             xlimits=[2.5, 6.5],
                             ylimits=[0, 20])
 
@@ -76,7 +76,7 @@ def process_data():
                             bins=np.arange(min(sim_time_intervals), max(sim_time_intervals) + binwidth, binwidth),
                             xlimits=[1.0, 1.0035],
                             ylimits=[0, 80])
-        
+
         print("==== Real vs. Simulated Time ====")
         if len(real_time_parser.samples()) != len(sim_time_parser.samples()):
             raise Exception("Different number of sim and real time samples!")
@@ -101,7 +101,7 @@ def process_data():
         member_index = 0
         while group_index < len(real_time_samples):
             current_group = []
-            while (member_index < len(level_samples) and 
+            while (member_index < len(level_samples) and
                     level_samples[member_index] <= real_time_samples[group_index]):
                 current_group.append(level_samples[member_index])
                 member_index += 1
@@ -123,7 +123,7 @@ def process_data():
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
             common.data.basic_stats(data)
-        
+
         print("==== Memory Consumption ====")
         common.plot.memory_consumption_time_series(f"results_data/3_physics_simulation_{name}.txt",
                                                    f"results_data/3_physics_simulation_{name}_memory_percent_time_series.png")
@@ -144,7 +144,7 @@ def process_data():
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print("Combined Graphs")
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-    
+
     print("==== Combined Real vs. Simulated Time ====")
     all_labels = real_sim_comparison.keys()
     all_x = [data[0] for _, data in real_sim_comparison.items()]
@@ -155,12 +155,12 @@ def process_data():
                            all_y,
                            "Real Time (seconds)",
                            "Simulated Time (seconds)")
-    
+
     print("==== Combined Sent / Received Packets ====")
     common.plot.sent_received_packets(
         sent_received_comparison,
         "results_data/3_physics_simulation_combined_packet_counts.png")
-    
+
     print("==== Memory Consumption ====")
     common.plot.memory_consumption_time_series(
         [f"results_data/3_physics_simulation_{name}.txt" for name in data_paths.keys()],

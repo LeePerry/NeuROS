@@ -196,3 +196,224 @@ Combined Graphs
 
  #### COMPLETE NEUROROBOTICS EXPERIMENT ####
 ==== Real vs. Simulated Time ====
+Average Time Ratio: 0.04945208662380948
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 1.5492957746478873%
+odom_estimate: 80.95909732016925%
+ground_truth: 80.81805359661494%
+==== CPU ====
+____ Core 1 ____
+Count: 296
+Mean: 43.508783783783784
+Standard Deviation: 24.598317425028075
+____ Core 2 ____
+Count: 296
+Mean: 40.84054054054054
+Standard Deviation: 23.19196138063335
+____ Core 3 ____
+Count: 296
+Mean: 44.42668918918919
+Standard Deviation: 23.9889360164367
+____ Core 4 ____
+Count: 296
+Mean: 46.880067567567565
+Standard Deviation: 25.29088424059369
+==== Memory Consumption ====
+____ Default ____
+Count: 297
+Mean: 1.9595079261445838
+Standard Deviation: 0.052541245026579
+==== Network ====
+____ Sent ____
+Count: 297
+Mean: 7393.438703440656
+Standard Deviation: 126434.0663828876
+____ Received ____
+Count: 297
+Mean: 28857.133052530513
+Standard Deviation: 495726.9500453481
+==== Real vs. Simulated Time ====
+Average Time Ratio: 0.016459655153913715
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 0.4219409282700422%
+odom_estimate: 44.30379746835443%
+ground_truth: 38.983050847457626%
+==== CPU ====
+____ Core 1 ____
+Count: 296
+Mean: 30.960472972972976
+Standard Deviation: 26.353467099314937
+____ Core 2 ____
+Count: 296
+Mean: 27.10101351351351
+Standard Deviation: 24.48390878747368
+____ Core 3 ____
+Count: 296
+Mean: 36.293581081081086
+Standard Deviation: 29.07293588011661
+____ Core 4 ____
+Count: 296
+Mean: 30.8375
+Standard Deviation: 26.81580021269731
+==== Memory Consumption ====
+____ Default ____
+Count: 297
+Mean: 1.948017595592974
+Standard Deviation: 0.05329945470455136
+==== Network ====
+____ Sent ____
+Count: 297
+Mean: 7392.453125
+Standard Deviation: 126435.76344346582
+____ Received ____
+Count: 297
+Mean: 28874.967477509468
+Standard Deviation: 496052.8816203317
+==== Real vs. Simulated Time ====
+Average Time Ratio: 0.009853961564408481
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 2.112676056338028%
+odom_estimate: 15.492957746478874%
+ground_truth: 4.964539007092198%
+==== CPU ====
+____ Core 1 ____
+Count: 295
+Mean: 22.51627118644068
+Standard Deviation: 22.193995362794553
+____ Core 2 ____
+Count: 295
+Mean: 25.44440677966102
+Standard Deviation: 24.04897603593349
+____ Core 3 ____
+Count: 295
+Mean: 25.474915254237285
+Standard Deviation: 23.535153251086772
+____ Core 4 ____
+Count: 295
+Mean: 30.79525423728813
+Standard Deviation: 26.59696767193853
+==== Memory Consumption ====
+____ Default ____
+Count: 296
+Mean: 1.953094701509218
+Standard Deviation: 0.05875623050903323
+==== Network ====
+____ Sent ____
+Count: 296
+Mean: 7416.892000765414
+Standard Deviation: 126650.69286463942
+____ Received ____
+Count: 296
+Mean: 28990.96445444468
+Standard Deviation: 497214.67442703096
+==== Real vs. Simulated Time ====
+Average Time Ratio: 0.010488312580854295
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 0.0%
+odom_estimate: 0.6666666666666666%
+ground_truth: 0.6622516556291391%
+==== CPU ====
+____ Core 1 ____
+Count: 297
+Mean: 26.287542087542086
+Standard Deviation: 28.734196002056372
+____ Core 2 ____
+Count: 297
+Mean: 30.47676767676768
+Standard Deviation: 29.27674004046906
+____ Core 3 ____
+Count: 297
+Mean: 27.868013468013473
+Standard Deviation: 29.173016112799576
+____ Core 4 ____
+Count: 297
+Mean: 32.22996632996633
+Standard Deviation: 29.994474423774495
+==== Memory Consumption ====
+____ Default ____
+Count: 297
+Mean: 1.964282270232435
+Standard Deviation: 0.056023390868814416
+==== Network ====
+____ Sent ____
+Count: 297
+Mean: 7392.768166692971
+Standard Deviation: 126438.46097319345
+____ Received ____
+Count: 297
+Mean: 28913.03323929398
+Standard Deviation: 496704.8034029268
+==== Real vs. Simulated Time ====
+Average Time Ratio: 0.22402388734874615
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 0.0%
+odom_estimate: 96.171802054155%
+ground_truth: 96.13947696139476%
+==== CPU ====
+____ Core 1 ____
+Count: 296
+Mean: 65.17567567567568
+Standard Deviation: 17.01645912933179
+____ Core 2 ____
+Count: 296
+Mean: 64.49695945945946
+Standard Deviation: 17.799028904530225
+____ Core 3 ____
+Count: 296
+Mean: 61.28783783783784
+Standard Deviation: 16.548252154808036
+____ Core 4 ____
+Count: 296
+Mean: 66.54594594594595
+Standard Deviation: 18.37735966969985
+==== Memory Consumption ====
+____ Default ____
+Count: 297
+Mean: 1.970168001322634
+Standard Deviation: 0.055849427914016835
+==== Network ====
+____ Sent ____
+Count: 297
+Mean: 7400.185829650673
+Standard Deviation: 126439.9754838445
+____ Received ____
+Count: 297
+Mean: 28939.336891045874
+Standard Deviation: 497031.6073987201
+==== Real vs. Simulated Time ====
+Average Time Ratio: 0.2503102606032565
+==== Dropped Packets NeuROS -> NeuROS ====
+imu: 0.5283648498331479%
+odom_estimate: 96.91323692992214%
+ground_truth: 96.91237830319889%
+==== CPU ====
+____ Core 1 ____
+Count: 296
+Mean: 80.64864864864865
+Standard Deviation: 12.786059165538862
+____ Core 2 ____
+Count: 296
+Mean: 85.13547297297296
+Standard Deviation: 16.854614567195807
+____ Core 3 ____
+Count: 296
+Mean: 80.21621621621621
+Standard Deviation: 13.133987548578821
+____ Core 4 ____
+Count: 296
+Mean: 86.06756756756756
+Standard Deviation: 16.138788746104233
+==== Memory Consumption ====
+____ Default ____
+Count: 297
+Mean: 1.9819982766302346
+Standard Deviation: 0.05639538518017974
+==== Network ====
+____ Sent ____
+Count: 297
+Mean: 7401.186825941709
+Standard Deviation: 126441.82963720715
+____ Received ____
+Count: 297
+Mean: 28959.21225931187
+Standard Deviation: 497357.2382668737

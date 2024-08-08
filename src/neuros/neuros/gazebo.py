@@ -41,7 +41,7 @@ class Gazebo:
         self._info = None
         self._ecm = None
         self.step_synchronous()
-        self._launch_gui(verbosity)
+        #self._launch_gui(verbosity)
         self._launch_bridge()
 
     def get_topic_list(self):
@@ -270,11 +270,11 @@ class Gazebo:
         # wait until all topics have become available (bridge is initialised)
         logger = self._node.get_ros_node().get_logger().info
         external_topics = set(
-            [i.external_topic 
-                for i in self._node._config.inputs 
+            [i.external_topic
+                for i in self._node._config.inputs
                 if i.gazebo_type is not None] +
-            [o.external_topic 
-                for o in self._node._config.outputs 
+            [o.external_topic
+                for o in self._node._config.outputs
                 if o.gazebo_type is not None])
         while external_topics:
             logger(f"Waiting for Gazebo topics: {external_topics}...")

@@ -29,7 +29,7 @@ def assume_yes():
 
 def check_docker_installation():
     """
-    Checks to see if docker is installed, and if is is not then exit the 
+    Checks to see if docker is installed, and if is is not then exit the
     process with error code 1.
     """
     print("Checking Docker...")
@@ -78,7 +78,7 @@ def download_latest_ros2(yes):
 
 def _build_image(name, directory="docker"):
     """
-    Builds a particular NeuROS Docker image. If the build fails then an 
+    Builds a particular NeuROS Docker image. If the build fails then an
     exception is raised.
 
     Parameters:
@@ -114,7 +114,7 @@ def build_docker_images(yes):
 
 def build_neuros():
     """
-    Builds the NeuROS ROS2 workspace, which results in a single ROS2 node 
+    Builds the NeuROS ROS2 workspace, which results in a single ROS2 node
     capable of loading any user plugin.
 
     If there is an error, then exit the process with error code 1.
@@ -128,7 +128,7 @@ def build_neuros():
 
 def build_examples(yes):
     """
-    Builds all of the bundled example projects, including custom Docker 
+    Builds all of the bundled example projects, including custom Docker
     images.
 
     If there is an error, then exit the process with error code 1.
@@ -191,12 +191,15 @@ def main():
     print("================================================================================")
     print("")
     print("")
-    print("    You're ready to start using NeuROS!")
+    print("    Congratulations! You're ready to start using NeuROS.")
     print("")
-    print("    Read the documentation at:")
+    print("    Read the documentation:")
     print("        ./docs/build/html/index.html")
     print("")
-    print("    Or run an example with:")
+    print("    Get help with command line options:")
+    print("        ./launch.py --help")
+    print("")
+    print("    Or dive straight in and run a basic example:")
     print("        ./launch.py --project ./examples/1_tick/clock/clock.json")
     print("")
     print("")

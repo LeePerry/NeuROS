@@ -10,7 +10,7 @@ import sys
 from metric_1_tick import process_data as plot1
 from metric_2_synchronisation import process_data as plot2
 from metric_3_physics_simulation import process_data as plot3
-from metric_4_brain_simulation import process_data as plot4
+from metric_4_neurorobotics import process_data as plot4
 
 if __name__ == '__main__':
     with open("results_data/console_output.txt", 'w') as sys.stdout:

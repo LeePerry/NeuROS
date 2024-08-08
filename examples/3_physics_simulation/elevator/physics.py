@@ -14,6 +14,9 @@ from neuros.gazebo import Gazebo
 class Physics:
 
     def __init__(self, node):
+        """
+        Initaliset the simulation with the settings from the project config.
+        """
         self.simulator = Gazebo(node, os.environ["NEUROS_MODEL"])
         self.timestamp = 0
         self.async_execution = (os.environ.get("NEUROS_ASYNC_SIM") == "enabled")
@@ -21,10 +24,17 @@ class Physics:
             self.simulator.run_asynchronous()
 
     def step(self):
+        """
+        Progress the physics simulation forward by one step (if in synchronous
+        mode, else do nothing).
+        """
         if not self.async_execution:
             self.simulator.step_synchronous()
 
     def should_log_timestamp(self, seconds):
+        """
+        Filter for periodic logging of the simulated time.
+        """
         if seconds > self.timestamp:
             self.timestamp = seconds + 1
             return True
@@ -50,6 +60,10 @@ def handle_command(node, command):
 
 @neuros_function(inputs="_clock")
 def log_sim_time(node, clock):
+    """
+    This hook simply receives the simulated time from Gazebo and logs it
+    against the corresponding real time for performance analysis purposes.
+    """
     simulation = node.get_user_data()
     seconds = clock.clock.sec + (clock.clock.nanosec / 1_000_000_000)
     if simulation.should_log_timestamp(seconds):
