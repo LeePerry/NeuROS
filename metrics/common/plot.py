@@ -2,11 +2,15 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 
 import common.data
 
+DIGIT="-?\d*\.?\d+"
+
+HEAD_DIRECTION_ESTIMATE = "Head Direction Estimate"
 DROPPED_PACKETS = "Packet Loss"
-DROPPED_PACKET_PERCENT = "Packet Loss Rate"
+DELIVERED_PACKET_PERCENT = "Packet Delivery Rate"
 CPU_MEAN = "Mean CPU Utilisation"
 MEMORY_MEAN = "Mean Memory Consumption"
 SIM_TIME_PERCENT_OF_REAL = "Percentage of Real Time Speed"
@@ -186,13 +190,32 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None,
         multiplier += 1
     ax.set_xticks(x + (width * 0.5 * (len(values) - 1)), groups)
     ax.legend(loc="best", ncols=1)
+    if xlabel:
+        ax.set_xlabel(xlabel)
     if ylabel:
         ax.set_ylabel(ylabel)
-    if xlabel:
-        ax.set_ylabel(xlabel)
     if ylim:
         ax.set_ylim(ylim)
     if xlabelrot:
         ax.tick_params(axis='x', labelrotation=xlabelrot)
+    plt.savefig(to_path)
+    plt.close()
+
+def head_direction(to_path, values, xlabel=None, ylabel=None):
+    fig = plt.figure()
+    fig.set_size_inches(8, 2)
+    ax = fig.add_subplot(111)
+    for label, data in values.items():
+        x, y = data
+        ax.scatter(y, x, label=label)
+    if xlabel:
+        ax.set_xlabel(xlabel)
+    if ylabel:
+        ax.set_ylabel(ylabel)
+    if len(values) > 1:
+        plt.legend(loc='upper left')
+    ax.set_yticks([-math.pi, 0, math.pi])
+    ax.set_yticklabels(["$-\pi$", "$0$", "$\pi$"])
+    ax.set_ylim(-math.pi, math.pi)
     plt.savefig(to_path)
     plt.close()

@@ -4194,7 +4194,6 @@ libEGL warning: failed to open /dev/dri/card0: Permission denied
 [INFO] [1723131053.349335] [system-load-monitor]: Network: [40730, 41710]
 [0m[INFO] [1723131054.121930321] [visualiser]: Received odom_estimate[0m
 [0m[INFO] [1723131054.126016081] [visualiser]: Spiking Neural Network: [159, 292.3883354663849][0m
-[0m[INFO] [1723131054.150290196] [snn]: Sending odom_estimate[0m
 [INFO] [1723131054.350886] [system-load-monitor]: CPU: [5.2, 3.9, 98.0, 1.0]
 [INFO] [1723131054.351272] [system-load-monitor]: Memory: [2123440128, 31.9]
 [INFO] [1723131054.351816] [system-load-monitor]: Network: [40998, 41978]
@@ -4217,7 +4216,6 @@ libEGL warning: failed to open /dev/dri/card0: Permission denied
 [0m[INFO] [1723131056.016480345] [robot]: Received _clock[0m
 [0m[INFO] [1723131056.022952795] [robot]: Received _clock[0m
 [0m[INFO] [1723131056.026527048] [robot]: Received _ground_truth[0m
-[0m[INFO] [1723131056.029654660] [robot]: Sending ground_truth[0m
 [0m[INFO] [1723131056.031441044] [robot]: Received _imu[0m
 [0m[INFO] [1723131056.033547043] [robot]: Received _clock[0m
 [INFO] [1723131056.355780] [system-load-monitor]: CPU: [4.1, 4.1, 64.4, 42.0]
