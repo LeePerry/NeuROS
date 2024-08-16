@@ -158,8 +158,8 @@ def process_data():
 
     print("==== Combined Sent / Received Packets ====")
     common.plot.sent_received_packets(
-        sent_received_comparison,
-        "results_data/3_physics_simulation_combined_packet_counts.png")
+        "results_data/3_physics_simulation_combined_packet_counts.png",
+        sent_received_comparison)
 
     print("==== Memory Consumption ====")
     common.plot.memory_consumption_time_series(

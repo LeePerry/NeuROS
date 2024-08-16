@@ -30,10 +30,10 @@ def create_data():
     for name in data_paths.keys():
         print(f"==== STARTING {name} ====")
         data = common.data.Writer(f"results_data/4_neurorobotics_{name}.txt")
-        common.run.process_for(
+        common.run.process_for_simulated_duration(
             ["./launch.py", "--monitor-system-load", "--project",
                 f"examples/4_neurorobotics/whiskeye/{name}.json"],
-            5 * 60,
+            20,
             data.write)
         print("==== WAITING (PLEASE CHECK ALL PROCESSES ARE STOPPED) ====")
         time.sleep(10)
@@ -73,14 +73,17 @@ def process_nrp_data():
                 print(f"Adding {t_bucket}")
                 spike = statistics.mode(t_bucket)
                 x.append(((spike - 90) / 90) * math.pi)
-                y.append(t_bucket_centre / 1000)
+                y.append(t_bucket_centre / 4500)
                 t_bucket = []
             t_bucket_high += t_bucket_width
             t_bucket_centre += t_bucket_width
+    combined[common.plot.HEAD_DIRECTION_ESTIMATE][alias] = (x, y)
     common.plot.head_direction(
             f"results_data/4_nrp_head_direction_prediction.png",
             { alias : (x, y)}, # "Ground Truth" : (gt_x, gt_y),
-            xlabel="Real Time (seconds)", ylabel="Head Direction (rad)")
+            xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
+
+    # https://github.com/TomKnowles1994/HeadDirectionPredNet/blob/main/NEST/HD_SNN_corrections.ipynb
 
     print("==== Real vs. Simulated Time ====")
     data = common.data.Reader("results_data/nrp/time_stats.txt")
@@ -139,7 +142,7 @@ def process_data():
         data = common.data.Reader(data_path)
 
         print("==== Head Direction Prediction ====")
-        prefix = "\[INFO\] \[.*\] \[visualiser\]: Ground Truth: \[geometry_msgs.msg.Quaternion"
+        prefix = "\[INFO\] \[.*\] \[robot\]: Ground Truth: \[geometry_msgs.msg.Quaternion"
         gt_z_parser = common.data.Parser(f"{prefix}\(x=0.0, y=0.0, z=({D}), w={D}\), {D}\]")
         data.read(gt_z_parser.parse)
         gt_w_parser = common.data.Parser(f"{prefix}\(x=0.0, y=0.0, z={D}, w=({D})\), {D}\]")
@@ -151,7 +154,7 @@ def process_data():
             gt_x.append(math.atan2(2.0 * (w * z), 1.0 - 2.0 * (z * z)))
         gt_y = gt_t_parser.samples()
         gt_y = [s - gt_y[0] for s in gt_y]
-        prefix = "\[INFO\] \[.*\] \[visualiser\]: Spiking Neural Network: "
+        prefix = "\[INFO\] \[.*\] \[snn\]: Spiking Neural Network: "
         angle_parser = common.data.Parser(f"{prefix}\[({D}), {D}\]")
         data.read(angle_parser.parse)
         t_parser = common.data.Parser(f"{prefix}\[{D}, ({D})\]")
@@ -160,10 +163,12 @@ def process_data():
         x = [(s / 180) * math.pi for s in x]
         y = t_parser.samples()
         y = [s - y[0] for s in y]
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE]["Ground Truth"] = (gt_x, gt_y)
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE][alias] = (x, y)
         common.plot.head_direction(
             f"results_data/4_neurorobotics_{name}_head_direction_prediction.png",
             {"Ground Truth" : (gt_x, gt_y), alias : (x, y)},
-            xlabel="Real Time (seconds)", ylabel="Head Direction (rad)")
+            xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
         print("==== Real vs. Simulated Time ====")
         real_time_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Simulated time: .*")
@@ -188,8 +193,8 @@ def process_data():
         combined[common.plot.DROPPED_PACKETS][alias] = pkt_loss
         combined[common.plot.DELIVERED_PACKET_PERCENT][alias] = common.data.dropped_packet_percentage(pkt_loss)
         common.plot.sent_received_packets(
-            { "Complete Neurorobotics Experiment" : pkt_loss},
-            f"results_data/4_neurorobotics_{name}_packet_counts.png")
+            f"results_data/4_neurorobotics_{name}_packet_counts.png",
+            { "Complete Neurorobotics Experiment" : pkt_loss})
 
         print("==== CPU ====")
         cpus = []
@@ -218,9 +223,14 @@ def process_data():
             print(f"____ {label} ____")
             common.data.basic_stats(data)
 
+    common.plot.head_direction(
+        "results_data/4_neurorobotics_combined_head_direction_estimate.png",
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE],
+        xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
+
     common.plot.sent_received_packets(
-        combined[common.plot.DROPPED_PACKETS],
         "results_data/4_neurorobotics_combined_packet_counts.png",
+        combined[common.plot.DROPPED_PACKETS],
         xlabelrot=90)
 
     common.plot.horizontal_bar(

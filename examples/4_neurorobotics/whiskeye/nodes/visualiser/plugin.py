@@ -6,9 +6,8 @@ import time
 from neuros.hooks import neuros_initialise, neuros_function
 from neuros.visualise import VisualiseRotations
 
-GROUND_TRUTH    = "Ground Truth"
-PRED_NET_OUTPUT = "Predictive Coding Network"
-SNN_OUTPUT      = "Spiking Neural Network"
+GROUND_TRUTH = "Ground Truth"
+SNN_OUTPUT   = "Spiking Neural Network"
 
 def ring_mean_activity(data, centre = True):
     # Data is expected to be a single ring's activity history of shape (timesteps, ring_size)
@@ -39,7 +38,6 @@ def ring_mean_activity(data, centre = True):
 def initialise(node):
     visualiser = VisualiseRotations('Head Direction', duration=60*5)
     visualiser.add_quaternion(GROUND_TRUTH, "g")
-    visualiser.add_degrees(PRED_NET_OUTPUT, "b")
     visualiser.add_degrees(SNN_OUTPUT, "r")
     node.set_user_data((time.time(), visualiser))
 
@@ -47,24 +45,10 @@ def initialise(node):
 def receive_ground_truth(node, ground_truth):
     started, visualiser = node.get_user_data()
     angle = ground_truth.pose.orientation
-    t = time.time() - started
-    node.get_ros_node().get_logger().info(f"Ground Truth: [{angle}, {t}]")
-    visualiser.plot(GROUND_TRUTH, angle, t)
-
-@neuros_function(inputs="head_dir_prediction")
-def receive_head_dir_prediction(node, prediction):
-    started, visualiser = node.get_user_data()
-    normalised = np.array(prediction.data)
-    normalised = (normalised + abs(np.min(normalised, axis=0))) * 100
-    angle = (ring_mean_activity(normalised) * 2) - 180
-    t = time.time() - started
-    node.get_ros_node().get_logger().info(f"Predictive Coding Network: [{angle}, {t}]")
-    visualiser.plot(PRED_NET_OUTPUT, angle, t)
+    visualiser.plot(GROUND_TRUTH, angle, time.time() - started)
 
 @neuros_function(inputs="odom_estimate")
 def receive_odom_estimate(node, estimate):
     started, visualiser = node.get_user_data()
     angle = ((estimate.data % 120) * (360 // 120) - 180)
-    t = time.time() - started
-    node.get_ros_node().get_logger().info(f"Spiking Neural Network: [{angle}, {t}]")
-    visualiser.plot(SNN_OUTPUT, angle, t)
+    visualiser.plot(SNN_OUTPUT, angle, time.time() - started)

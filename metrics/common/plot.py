@@ -143,7 +143,7 @@ def network_speeds_time_series(from_path, to_path):
         "Network Throughput (KB/s)", y_log_scale=True)
     return labels, datasets
 
-def sent_received_packets(combined_data, to_path, xlabelrot=None):
+def sent_received_packets(to_path, combined_data, xlabelrot=None):
     groups = combined_data.keys()
     values = {}
     for _, data in combined_data.items():
@@ -203,19 +203,20 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None,
 
 def head_direction(to_path, values, xlabel=None, ylabel=None):
     fig = plt.figure()
-    fig.set_size_inches(8, 2)
     ax = fig.add_subplot(111)
+    #fig.set_size_inches(8, 2)
     for label, data in values.items():
         x, y = data
-        ax.scatter(y, x, label=label)
+        ax.scatter(y, x, label=label, s=3)
     if xlabel:
         ax.set_xlabel(xlabel)
     if ylabel:
         ax.set_ylabel(ylabel)
     if len(values) > 1:
-        plt.legend(loc='upper left')
+        plt.legend(loc='upper right')
     ax.set_yticks([-math.pi, 0, math.pi])
     ax.set_yticklabels(["$-\pi$", "$0$", "$\pi$"])
     ax.set_ylim(-math.pi, math.pi)
+    fig.tight_layout()
     plt.savefig(to_path)
     plt.close()

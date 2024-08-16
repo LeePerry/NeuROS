@@ -345,244 +345,244 @@ Tick Controlled (20ms Interval)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.04945208662380948
+Average Time Ratio: 0.04950510312479429
 ==== Dropped Packets NeuROS -> NeuROS ====
-imu: 1.5492957746478873%
-odom_estimate: 80.95909732016925%
-ground_truth: 80.81805359661494%
+imu: 1.1976047904191616%
+odom_estimate: 83.61638361638362%
+ground_truth: 83.61638361638362%
 ==== CPU ====
 ____ Core 1 ____
-Count: 296
-Mean: 43.508783783783784
-Standard Deviation: 24.598317425028075
+Count: 413
+Mean: 44.22493946731235
+Standard Deviation: 21.880738437829596
 ____ Core 2 ____
-Count: 296
-Mean: 40.84054054054054
-Standard Deviation: 23.19196138063335
+Count: 413
+Mean: 43.41622276029056
+Standard Deviation: 22.69157673009069
 ____ Core 3 ____
-Count: 296
-Mean: 44.42668918918919
-Standard Deviation: 23.9889360164367
+Count: 413
+Mean: 49.42009685230024
+Standard Deviation: 25.92103501338158
 ____ Core 4 ____
-Count: 296
-Mean: 46.880067567567565
-Standard Deviation: 25.29088424059369
+Count: 413
+Mean: 44.860774818401936
+Standard Deviation: 23.8988599600477
 ==== Memory Consumption ====
 ____ Default ____
-Count: 297
-Mean: 1.9595079261445838
-Standard Deviation: 0.052541245026579
+Count: 414
+Mean: 1.280286871868631
+Standard Deviation: 0.05221952464389671
 ==== Network ====
 ____ Sent ____
-Count: 297
-Mean: 7393.438703440656
-Standard Deviation: 126434.0663828876
+Count: 414
+Mean: 44.32217362998188
+Standard Deviation: 9.414563138097531
 ____ Received ____
-Count: 297
-Mean: 28857.133052530513
-Standard Deviation: 495726.9500453481
+Count: 414
+Mean: 43.90043308423913
+Standard Deviation: 9.585024212206196
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Tick Controlled (60ms Interval)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.016459655153913715
+Average Time Ratio: 0.016623517254712745
 ==== Dropped Packets NeuROS -> NeuROS ====
-imu: 0.4219409282700422%
-odom_estimate: 44.30379746835443%
-ground_truth: 38.983050847457626%
+imu: 0.2994011976047904%
+odom_estimate: 70.15968063872255%
+ground_truth: 69.43056943056943%
 ==== CPU ====
 ____ Core 1 ____
-Count: 296
-Mean: 30.960472972972976
-Standard Deviation: 26.353467099314937
+Count: 1211
+Mean: 31.30264244426094
+Standard Deviation: 28.05762195754687
 ____ Core 2 ____
-Count: 296
-Mean: 27.10101351351351
-Standard Deviation: 24.48390878747368
+Count: 1211
+Mean: 29.016597853014037
+Standard Deviation: 25.704609828979663
 ____ Core 3 ____
-Count: 296
-Mean: 36.293581081081086
-Standard Deviation: 29.07293588011661
+Count: 1211
+Mean: 36.680181668042934
+Standard Deviation: 31.151451042149002
 ____ Core 4 ____
-Count: 296
-Mean: 30.8375
-Standard Deviation: 26.81580021269731
+Count: 1211
+Mean: 34.50511973575557
+Standard Deviation: 29.661067079512243
 ==== Memory Consumption ====
 ____ Default ____
-Count: 297
-Mean: 1.948017595592974
-Standard Deviation: 0.05329945470455136
+Count: 1212
+Mean: 1.2962956601637032
+Standard Deviation: 0.033082470711687934
 ==== Network ====
 ____ Sent ____
-Count: 297
-Mean: 7392.453125
-Standard Deviation: 126435.76344346582
+Count: 1212
+Mean: 42.567738951629536
+Standard Deviation: 4.749112196062297
 ____ Received ____
-Count: 297
-Mean: 28874.967477509468
-Standard Deviation: 496052.8816203317
+Count: 1212
+Mean: 48.28070773385932
+Standard Deviation: 233.58591273750483
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Tick Controlled (100ms Interval)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.009853961564408481
+Average Time Ratio: 0.009985313638353666
 ==== Dropped Packets NeuROS -> NeuROS ====
-imu: 2.112676056338028%
-odom_estimate: 15.492957746478874%
-ground_truth: 4.964539007092198%
+imu: 0.998003992015968%
+odom_estimate: 61.477045908183634%
+ground_truth: 59.84015984015984%
 ==== CPU ====
 ____ Core 1 ____
-Count: 295
-Mean: 22.51627118644068
-Standard Deviation: 22.193995362794553
+Count: 2010
+Mean: 27.455273631840797
+Standard Deviation: 30.321931615011337
 ____ Core 2 ____
-Count: 295
-Mean: 25.44440677966102
-Standard Deviation: 24.04897603593349
+Count: 2010
+Mean: 23.53104477611941
+Standard Deviation: 27.55688176734241
 ____ Core 3 ____
-Count: 295
-Mean: 25.474915254237285
-Standard Deviation: 23.535153251086772
+Count: 2010
+Mean: 34.0539303482587
+Standard Deviation: 34.7387984304748
 ____ Core 4 ____
-Count: 295
-Mean: 30.79525423728813
-Standard Deviation: 26.59696767193853
+Count: 2010
+Mean: 30.69601990049751
+Standard Deviation: 32.755857690106815
 ==== Memory Consumption ====
 ____ Default ____
-Count: 296
-Mean: 1.953094701509218
-Standard Deviation: 0.05875623050903323
+Count: 2011
+Mean: 1.3073885370877654
+Standard Deviation: 0.028369546950955626
 ==== Network ====
 ____ Sent ____
-Count: 296
-Mean: 7416.892000765414
-Standard Deviation: 126650.69286463942
+Count: 2011
+Mean: 42.25918095008702
+Standard Deviation: 4.6206205964104505
 ____ Received ____
-Count: 296
-Mean: 28990.96445444468
-Standard Deviation: 497214.67442703096
+Count: 2011
+Mean: 56.82796086368722
+Standard Deviation: 697.5546558461509
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Strict Synchronisation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.010488312580854295
+Average Time Ratio: 0.0017723763266196996
 ==== Dropped Packets NeuROS -> NeuROS ====
-imu: 0.0%
-odom_estimate: 0.0%
+imu: 1.1976047904191616%
+odom_estimate: 0.0999000999000999%
 ground_truth: 0.0%
 ==== CPU ====
 ____ Core 1 ____
-Count: 297
-Mean: 26.287542087542086
-Standard Deviation: 28.734196002056372
+Count: 11874
+Mean: 19.90264443321543
+Standard Deviation: 29.758702373141176
 ____ Core 2 ____
-Count: 297
-Mean: 30.47676767676768
-Standard Deviation: 29.27674004046906
+Count: 11874
+Mean: 26.32785918814216
+Standard Deviation: 32.250642135555715
 ____ Core 3 ____
-Count: 297
-Mean: 27.868013468013473
-Standard Deviation: 29.173016112799576
+Count: 11874
+Mean: 28.050084217618323
+Standard Deviation: 36.17206829753204
 ____ Core 4 ____
-Count: 297
-Mean: 32.22996632996633
-Standard Deviation: 29.994474423774495
+Count: 11874
+Mean: 32.46876368536298
+Standard Deviation: 35.977158297856995
 ==== Memory Consumption ====
 ____ Default ____
-Count: 297
-Mean: 1.964282270232435
-Standard Deviation: 0.056023390868814416
+Count: 11875
+Mean: 1.3520857081363076
+Standard Deviation: 0.025597264294863184
 ==== Network ====
 ____ Sent ____
-Count: 297
-Mean: 7392.768166692971
-Standard Deviation: 126438.46097319345
+Count: 11875
+Mean: 41.66357401315789
+Standard Deviation: 2.637706813785196
 ____ Received ____
-Count: 297
-Mean: 28913.03323929398
-Standard Deviation: 496704.8034029268
+Count: 11875
+Mean: 46.56595328947368
+Standard Deviation: 639.891305861831
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 No Discard Limit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.22402388734874615
+Average Time Ratio: 0.21059113431087348
 ==== Dropped Packets NeuROS -> NeuROS ====
 imu: 0.0%
-odom_estimate: 96.171802054155%
-ground_truth: 96.13947696139476%
+odom_estimate: 93.11377245508982%
+ground_truth: 93.10689310689311%
 ==== CPU ====
 ____ Core 1 ____
-Count: 296
-Mean: 65.17567567567568
-Standard Deviation: 17.01645912933179
+Count: 104
+Mean: 64.07115384615385
+Standard Deviation: 21.374511569214516
 ____ Core 2 ____
-Count: 296
-Mean: 64.49695945945946
-Standard Deviation: 17.799028904530225
+Count: 104
+Mean: 62.025000000000006
+Standard Deviation: 21.08279352202425
 ____ Core 3 ____
-Count: 296
-Mean: 61.28783783783784
-Standard Deviation: 16.548252154808036
+Count: 104
+Mean: 59.772115384615375
+Standard Deviation: 21.153966061723096
 ____ Core 4 ____
-Count: 296
-Mean: 66.54594594594595
-Standard Deviation: 18.37735966969985
+Count: 104
+Mean: 60.92596153846154
+Standard Deviation: 17.417144489047764
 ==== Memory Consumption ====
 ____ Default ____
-Count: 297
-Mean: 1.970168001322634
-Standard Deviation: 0.055849427914016835
+Count: 105
+Mean: 1.249821544828869
+Standard Deviation: 0.0900746061046668
 ==== Network ====
 ____ Sent ____
-Count: 297
-Mean: 7400.185829650673
-Standard Deviation: 126439.9754838445
+Count: 105
+Mean: 52.33943452380952
+Standard Deviation: 14.459195004862147
 ____ Received ____
-Count: 297
-Mean: 28939.336891045874
-Standard Deviation: 497031.6073987201
+Count: 105
+Mean: 2875.745163690476
+Standard Deviation: 28808.448220194947
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Asynchronous Gazebo
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.2503102606032565
+Average Time Ratio: 0.2535148664963941
 ==== Dropped Packets NeuROS -> NeuROS ====
-imu: 0.5283648498331479%
-odom_estimate: 96.91323692992214%
-ground_truth: 96.91237830319889%
+imu: 0.6986027944111777%
+odom_estimate: 94.31137724550898%
+ground_truth: 94.3056943056943%
 ==== CPU ====
 ____ Core 1 ____
-Count: 296
-Mean: 80.64864864864865
-Standard Deviation: 12.786059165538862
+Count: 87
+Mean: 82.0183908045977
+Standard Deviation: 20.224513001457474
 ____ Core 2 ____
-Count: 296
-Mean: 85.13547297297296
-Standard Deviation: 16.854614567195807
+Count: 87
+Mean: 76.5632183908046
+Standard Deviation: 23.619449977257464
 ____ Core 3 ____
-Count: 296
-Mean: 80.21621621621621
-Standard Deviation: 13.133987548578821
+Count: 87
+Mean: 79.34597701149426
+Standard Deviation: 23.243448240620708
 ____ Core 4 ____
-Count: 296
-Mean: 86.06756756756756
-Standard Deviation: 16.138788746104233
+Count: 87
+Mean: 77.82758620689656
+Standard Deviation: 24.89614146189815
 ==== Memory Consumption ====
 ____ Default ____
-Count: 297
-Mean: 1.9819982766302346
-Standard Deviation: 0.05639538518017974
+Count: 88
+Mean: 1.2449120608243076
+Standard Deviation: 0.0925537597104397
 ==== Network ====
 ____ Sent ____
-Count: 297
-Mean: 7401.186825941709
-Standard Deviation: 126441.82963720715
+Count: 88
+Mean: 54.36219371448863
+Standard Deviation: 17.567830314726223
 ____ Received ____
-Count: 297
-Mean: 28959.21225931187
-Standard Deviation: 497357.2382668737
+Count: 88
+Mean: 3445.521906072443
+Standard Deviation: 31645.336009019713

@@ -50,6 +50,16 @@ class Robot:
             logger.info(f"Simulated time: {seconds}")
 
     def step(self, sensor_data):
+
+        # log ground truth
+        ground_truth = sensor_data[0]
+        if ground_truth is not None:
+            a = ground_truth.pose.orientation
+            t = timestamp_to_seconds(ground_truth.header.stamp)
+            self.node.get_ros_node().get_logger().info(
+                f"Ground Truth: [{a}, {t}]")
+
+        # step the physics sim
         if self.realtime:
             if self.first_step:
                 self.first_step = False
@@ -57,8 +67,9 @@ class Robot:
         else:
             self.simulator.step_synchronous(Robot.STEP_SIZE)
 
+        # optional motion commands
         if self.sim_time > self.initialise_neck_duration:
-            return sensor_data + self.perform_motion(sensor_data[0])
+            return sensor_data + self.perform_motion(ground_truth)
 
     def perform_motion(self, ground_truth):
         if (self.first_motion or self.randomise) and ground_truth:
