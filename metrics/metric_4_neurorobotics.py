@@ -199,7 +199,8 @@ def process_data():
         print("==== CPU ====")
         cpus = []
         labels, datasets = common.plot.all_cpu_time_series(
-            data_path, f"results_data/4_neurorobotics_{name}_cpu_time_series.png")
+            data_path, f"results_data/4_neurorobotics_{name}_cpu_time_series.png",
+            range_stop=3 * 60)
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
             cpus.append(common.data.basic_stats(data)[0])

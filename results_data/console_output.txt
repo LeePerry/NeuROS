@@ -352,21 +352,21 @@ odom_estimate: 83.61638361638362%
 ground_truth: 83.61638361638362%
 ==== CPU ====
 ____ Core 1 ____
-Count: 413
-Mean: 44.22493946731235
-Standard Deviation: 21.880738437829596
+Count: 180
+Mean: 42.029444444444444
+Standard Deviation: 19.717368815962523
 ____ Core 2 ____
-Count: 413
-Mean: 43.41622276029056
-Standard Deviation: 22.69157673009069
+Count: 180
+Mean: 41.49888888888889
+Standard Deviation: 21.350487865591397
 ____ Core 3 ____
-Count: 413
-Mean: 49.42009685230024
-Standard Deviation: 25.92103501338158
+Count: 180
+Mean: 51.40388888888889
+Standard Deviation: 25.686592620121857
 ____ Core 4 ____
-Count: 413
-Mean: 44.860774818401936
-Standard Deviation: 23.8988599600477
+Count: 180
+Mean: 43.71388888888889
+Standard Deviation: 23.40258476676096
 ==== Memory Consumption ====
 ____ Default ____
 Count: 414
@@ -393,21 +393,21 @@ odom_estimate: 70.15968063872255%
 ground_truth: 69.43056943056943%
 ==== CPU ====
 ____ Core 1 ____
-Count: 1211
-Mean: 31.30264244426094
-Standard Deviation: 28.05762195754687
+Count: 180
+Mean: 27.614999999999995
+Standard Deviation: 25.502469324884338
 ____ Core 2 ____
-Count: 1211
-Mean: 29.016597853014037
-Standard Deviation: 25.704609828979663
+Count: 180
+Mean: 26.634999999999994
+Standard Deviation: 21.249061351818188
 ____ Core 3 ____
-Count: 1211
-Mean: 36.680181668042934
-Standard Deviation: 31.151451042149002
+Count: 180
+Mean: 32.79555555555556
+Standard Deviation: 27.790317702838365
 ____ Core 4 ____
-Count: 1211
-Mean: 34.50511973575557
-Standard Deviation: 29.661067079512243
+Count: 180
+Mean: 36.13222222222222
+Standard Deviation: 28.53407642248038
 ==== Memory Consumption ====
 ____ Default ____
 Count: 1212
@@ -434,21 +434,21 @@ odom_estimate: 61.477045908183634%
 ground_truth: 59.84015984015984%
 ==== CPU ====
 ____ Core 1 ____
-Count: 2010
-Mean: 27.455273631840797
-Standard Deviation: 30.321931615011337
+Count: 180
+Mean: 18.858333333333334
+Standard Deviation: 21.34248208776727
 ____ Core 2 ____
-Count: 2010
-Mean: 23.53104477611941
-Standard Deviation: 27.55688176734241
+Count: 180
+Mean: 17.81111111111111
+Standard Deviation: 21.05284327297725
 ____ Core 3 ____
-Count: 2010
-Mean: 34.0539303482587
-Standard Deviation: 34.7387984304748
+Count: 180
+Mean: 22.055555555555554
+Standard Deviation: 24.33566249634068
 ____ Core 4 ____
-Count: 2010
-Mean: 30.69601990049751
-Standard Deviation: 32.755857690106815
+Count: 180
+Mean: 24.016666666666666
+Standard Deviation: 25.567393514222584
 ==== Memory Consumption ====
 ____ Default ____
 Count: 2011
@@ -475,21 +475,21 @@ odom_estimate: 0.0999000999000999%
 ground_truth: 0.0%
 ==== CPU ====
 ____ Core 1 ____
-Count: 11874
-Mean: 19.90264443321543
-Standard Deviation: 29.758702373141176
+Count: 180
+Mean: 24.812222222222225
+Standard Deviation: 27.242757764537785
 ____ Core 2 ____
-Count: 11874
-Mean: 26.32785918814216
-Standard Deviation: 32.250642135555715
+Count: 180
+Mean: 25.279999999999998
+Standard Deviation: 25.835559904046114
 ____ Core 3 ____
-Count: 11874
-Mean: 28.050084217618323
-Standard Deviation: 36.17206829753204
+Count: 180
+Mean: 30.21555555555555
+Standard Deviation: 31.17310240544317
 ____ Core 4 ____
-Count: 11874
-Mean: 32.46876368536298
-Standard Deviation: 35.977158297856995
+Count: 180
+Mean: 36.89333333333333
+Standard Deviation: 33.26639211643553
 ==== Memory Consumption ====
 ____ Default ____
 Count: 11875
@@ -516,21 +516,21 @@ odom_estimate: 93.11377245508982%
 ground_truth: 93.10689310689311%
 ==== CPU ====
 ____ Core 1 ____
-Count: 104
-Mean: 64.07115384615385
-Standard Deviation: 21.374511569214516
+Count: 105
+Mean: 64.0047619047619
+Standard Deviation: 21.283256915785014
 ____ Core 2 ____
-Count: 104
-Mean: 62.025000000000006
-Standard Deviation: 21.08279352202425
+Count: 105
+Mean: 62.16285714285715
+Standard Deviation: 21.029205347587922
 ____ Core 3 ____
-Count: 104
-Mean: 59.772115384615375
-Standard Deviation: 21.153966061723096
+Count: 105
+Mean: 59.8542857142857
+Standard Deviation: 21.069662363427742
 ____ Core 4 ____
-Count: 104
-Mean: 60.92596153846154
-Standard Deviation: 17.417144489047764
+Count: 105
+Mean: 60.95238095238095
+Standard Deviation: 17.33610103492047
 ==== Memory Consumption ====
 ____ Default ____
 Count: 105
@@ -557,21 +557,21 @@ odom_estimate: 94.31137724550898%
 ground_truth: 94.3056943056943%
 ==== CPU ====
 ____ Core 1 ____
-Count: 87
-Mean: 82.0183908045977
-Standard Deviation: 20.224513001457474
+Count: 88
+Mean: 82.12045454545455
+Standard Deviation: 20.131793935616265
 ____ Core 2 ____
-Count: 87
-Mean: 76.5632183908046
-Standard Deviation: 23.619449977257464
+Count: 88
+Mean: 76.64431818181819
+Standard Deviation: 23.49704458183153
 ____ Core 3 ____
-Count: 87
-Mean: 79.34597701149426
-Standard Deviation: 23.243448240620708
+Count: 88
+Mean: 79.58068181818182
+Standard Deviation: 23.2144589443859
 ____ Core 4 ____
-Count: 87
-Mean: 77.82758620689656
-Standard Deviation: 24.89614146189815
+Count: 88
+Mean: 77.77613636363637
+Standard Deviation: 24.758933164333847
 ==== Memory Consumption ====
 ____ Default ____
 Count: 88
