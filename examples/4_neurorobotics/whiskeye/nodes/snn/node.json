@@ -6,6 +6,6 @@
                      "type" : "sensor_msgs.msg.Imu" },
                    { "name" : "odom_correction",
                      "type" : "std_msgs.msg.Float32MultiArray" }],
-    "outputs"   : [{ "name" : "odom_estimate",
+    "outputs"   : [{ "name" : "head_direction_estimate",
                      "type" : "std_msgs.msg.Int32" }]
 }

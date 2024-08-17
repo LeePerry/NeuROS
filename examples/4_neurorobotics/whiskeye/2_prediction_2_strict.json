@@ -16,9 +16,9 @@
         "discard_limit"     : 0
     }, {
         "source_node"       : "snn",
-        "source_output"     : "odom_estimate",
+        "source_output"     : "head_direction_estimate",
         "destination_node"  : "visualiser",
-        "destination_input" : "odom_estimate",
+        "destination_input" : "head_direction_estimate",
         "discard_limit"     : 0
     }]
 }

@@ -6,6 +6,6 @@
                        "type" : "geometry_msgs.msg.PoseStamped" },
                      { "name" : "head_dir_prediction",
                        "type" : "std_msgs.msg.Float32MultiArray" },
-                     { "name" : "odom_estimate",
+                     { "name" : "head_direction_estimate",
                        "type" : "std_msgs.msg.Int32" }]
 }

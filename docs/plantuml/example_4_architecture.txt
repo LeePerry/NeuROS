@@ -2,6 +2,6 @@
 hide empty description
 [*] -down-> Gazebo : rotation_command
 Gazebo -down-> Visualiser : ground_truth
-Gazebo -right-> Spiking_Neural_Network : imu_reading
+Gazebo -right-> Spiking_Neural_Network : imu
 Spiking_Neural_Network -down-> Visualiser : head_direction_estimate
 @enduml

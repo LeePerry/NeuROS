@@ -70,7 +70,6 @@ def process_nrp_data():
             t_bucket.append(id)
         else:
             if t_bucket:
-                print(f"Adding {t_bucket}")
                 spike = statistics.mode(t_bucket)
                 x.append(((spike - 90) / 90) * math.pi)
                 y.append(t_bucket_centre / 4500)
@@ -101,7 +100,7 @@ def process_nrp_data():
 
     print("==== Dropped Packets NeuROS -> NeuROS ====")
     # TODO NEED TO VERIFY THIS!
-    combined[common.plot.DELIVERED_PACKET_PERCENT][alias] = 100
+    #combined[common.plot.DELIVERED_PACKET_PERCENT][alias] = 100
 
     print("==== CPU ====")
     cpus = []
@@ -187,6 +186,20 @@ def process_data():
                         sim_time_samples,
                         "Real Time (seconds)",
                         "Simulated Time (seconds)")
+
+        print("==== Dropped Packets Gazebo -> NeuROS ====")
+        gt_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Received _ground_truth")
+        data.read(gt_parser.parse)
+        expected_gt_count = 1001
+        received_gt_count = len(gt_parser.samples())
+        dropped_gt_count = expected_gt_count - received_gt_count
+        print(f"Ground Truth: {dropped_gt_count * 100 / received_gt_count}%")
+        imu_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Received _imu")
+        data.read(imu_parser.parse)
+        expected_imu_count = 1002
+        received_imu_count = len(imu_parser.samples())
+        dropped_imu_count = expected_imu_count - received_imu_count
+        print(f"IMU: {dropped_imu_count * 100 / received_imu_count}%")
 
         print("==== Dropped Packets NeuROS -> NeuROS ====")
         pkt_loss = common.data.dropped_packet_summary(data, aliases={"odom_correction" : "head_dir_prediction"})

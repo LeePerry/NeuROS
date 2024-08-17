@@ -47,8 +47,8 @@ def receive_ground_truth(node, ground_truth):
     angle = ground_truth.pose.orientation
     visualiser.plot(GROUND_TRUTH, angle, time.time() - started)
 
-@neuros_function(inputs="odom_estimate")
-def receive_odom_estimate(node, estimate):
+@neuros_function(inputs="head_direction_estimate")
+def receive_head_direction_estimate(node, estimate):
     started, visualiser = node.get_user_data()
     angle = ((estimate.data % 120) * (360 // 120) - 180)
     visualiser.plot(SNN_OUTPUT, angle, time.time() - started)

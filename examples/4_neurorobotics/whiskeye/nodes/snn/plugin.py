@@ -14,7 +14,7 @@ def initialise(node):
     node.set_user_data(Model(ring_model='Grid'))
 
 @neuros_function(inputs=["imu", Optional("odom_correction")],
-                 outputs=Optional("odom_estimate"))
+                 outputs=Optional("head_direction_estimate"))
 def estimate_odometry(node, imu, odom_correction):
     model = node.get_user_data()
     if odom_correction:
@@ -28,6 +28,6 @@ def estimate_odometry(node, imu, odom_correction):
         node.get_ros_node().get_logger().info(
             f"Spiking Neural Network: [{angle}, {t}]")
 
-        odom_estimate = node.make_packet("odom_estimate")
-        odom_estimate.data = int(estimate)
-        return odom_estimate
+        head_direction_estimate = node.make_packet("head_direction_estimate")
+        head_direction_estimate.data = int(estimate)
+        return head_direction_estimate
