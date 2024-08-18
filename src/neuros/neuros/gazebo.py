@@ -41,7 +41,7 @@ class Gazebo:
         self._info = None
         self._ecm = None
         self.step_synchronous()
-        #self._launch_gui(verbosity)
+        self._launch_gui(verbosity)
         self._launch_bridge()
 
     def get_topic_list(self):

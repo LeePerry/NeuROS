@@ -1,5 +1,5 @@
 {
-    "nodes" : ["nodes/robot/asynchronous.json",
+    "nodes" : ["nodes/robot/strict_synchronisation.json",
                "nodes/snn/node.json",
                "nodes/visualiser/node.json"],
     "connections" : [{

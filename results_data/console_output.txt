@@ -492,42 +492,42 @@ Hybrid Approach
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
-Average Time Ratio: 0.2295177630940519
+Average Time Ratio: 0.19886004190030437
 ==== Dropped Packets Gazebo -> NeuROS ====
 Ground Truth: 0.0%
 IMU: 0.0%
 ==== Dropped Packets NeuROS -> NeuROS ====
 imu: 0.0%
-head_direction_estimate: 94.11177644710578%
-ground_truth: 94.2057942057942%
+head_direction_estimate: 92.91417165668663%
+ground_truth: 92.9070929070929%
 ==== CPU ====
 ____ Core 1 ____
-Count: 97
-Mean: 84.48247422680411
-Standard Deviation: 17.978148307281653
+Count: 111
+Mean: 64.9027027027027
+Standard Deviation: 19.336654542904117
 ____ Core 2 ____
-Count: 97
-Mean: 75.59587628865978
-Standard Deviation: 21.466511524130404
+Count: 111
+Mean: 61.82882882882884
+Standard Deviation: 18.291598954767508
 ____ Core 3 ____
-Count: 97
-Mean: 86.28041237113403
-Standard Deviation: 19.38525127101166
+Count: 111
+Mean: 64.57657657657657
+Standard Deviation: 18.942135475924573
 ____ Core 4 ____
-Count: 97
-Mean: 72.54123711340206
-Standard Deviation: 21.69921254962203
+Count: 111
+Mean: 61.466666666666676
+Standard Deviation: 17.711508618340154
 ==== Memory Consumption ====
 ____ Default ____
-Count: 97
-Mean: 2.7103483062429525
-Standard Deviation: 0.08961868550708556
+Count: 111
+Mean: 2.776269345670133
+Standard Deviation: 0.07928381802747952
 ==== Network ====
 ____ Sent ____
-Count: 97
-Mean: 332.4256201675258
-Standard Deviation: 2510.776367360775
+Count: 111
+Mean: 532.795115427928
+Standard Deviation: 5012.364047953417
 ____ Received ____
-Count: 97
-Mean: 3618.3036404639174
-Standard Deviation: 34902.30935029256
+Count: 111
+Mean: 4781.910736908784
+Standard Deviation: 49584.91987268084

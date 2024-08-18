@@ -26,6 +26,7 @@ HYBRID_ALIAS = "Hybrid Approach"
 hybrid_approch_data_paths = { "2_prediction_5_mixed" : HYBRID_ALIAS }
 
 NRP_ALIAS = "Neurorobotics Platform (NRP)"
+GT_ALIAS = "Ground Truth"
 
 def create_hybrid_approach_data():
     """
@@ -101,7 +102,7 @@ def process_nrp_data():
     combined[common.plot.HEAD_DIRECTION_ESTIMATE][alias] = (x, y)
     common.plot.head_direction(
             f"results_data/4_nrp_head_direction_prediction.png",
-            { alias : (x, y)}, # "Ground Truth" : (gt_x, gt_y),
+            { alias : (x, y)},
             xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
     # https://github.com/TomKnowles1994/HeadDirectionPredNet/blob/main/NEST/HD_SNN_corrections.ipynb
@@ -185,11 +186,11 @@ def process_hybrid_approach_data():
         x = [(s / 180) * math.pi for s in x]
         y = t_parser.samples()
         y = [s - y[0] for s in y]
-        combined[common.plot.HEAD_DIRECTION_ESTIMATE]["Ground Truth"] = (gt_x, gt_y)
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE][GT_ALIAS] = (gt_x, gt_y)
         combined[common.plot.HEAD_DIRECTION_ESTIMATE][alias] = (x, y)
         common.plot.head_direction(
             f"results_data/4_neurorobotics_{name}_head_direction_prediction.png",
-            {"Ground Truth" : (gt_x, gt_y), alias : (x, y)},
+            {GT_ALIAS : (gt_x, gt_y), alias : (x, y)},
             xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
         print("==== Real vs. Simulated Time ====")
@@ -300,11 +301,11 @@ def process_data():
         x = [(s / 180) * math.pi for s in x]
         y = t_parser.samples()
         y = [s - y[0] for s in y]
-        combined[common.plot.HEAD_DIRECTION_ESTIMATE]["Ground Truth"] = (gt_x, gt_y)
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE][GT_ALIAS] = (gt_x, gt_y)
         combined[common.plot.HEAD_DIRECTION_ESTIMATE][alias] = (x, y)
         common.plot.head_direction(
             f"results_data/4_neurorobotics_{name}_head_direction_prediction.png",
-            {"Ground Truth" : (gt_x, gt_y), alias : (x, y)},
+            {GT_ALIAS : (gt_x, gt_y), alias : (x, y)},
             xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
         print("==== Real vs. Simulated Time ====")
@@ -411,6 +412,7 @@ def process_data():
         "results_data/4_neurorobotics_hybrid_comparison_head_direction_estimate.png",
         {
             NRP_ALIAS : combined[common.plot.HEAD_DIRECTION_ESTIMATE][NRP_ALIAS],
+            GT_ALIAS : combined[common.plot.HEAD_DIRECTION_ESTIMATE][GT_ALIAS],
             HYBRID_ALIAS : hybrid_data[common.plot.HEAD_DIRECTION_ESTIMATE][HYBRID_ALIAS]
         },
         xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
