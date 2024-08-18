@@ -164,6 +164,7 @@ def sent_received_packets(to_path, combined_data, xlabelrot=None):
 def horizontal_bar(to_path, values, xlabel=None, ylabel=None, xlim=[]):
     fig, ax = plt.subplots()
     y_pos = np.arange(len(values))
+    fig.set_size_inches(6.4, 4.8 * (len(values) / 7))
     ax.barh(y_pos, [v for _, v in values.items()], align='center')
     ax.set_yticks(y_pos, labels=values.keys())
     ax.invert_yaxis()

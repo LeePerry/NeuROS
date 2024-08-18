@@ -201,7 +201,6 @@ Neurorobotics Platform (NRP)
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
 Average Time Ratio: 0.13955690057944956
-==== Dropped Packets NeuROS -> NeuROS ====
 ==== CPU ====
 ____ Core 1 ____
 Count: 416
@@ -489,7 +488,7 @@ Count: 88
 Mean: 3445.521906072443
 Standard Deviation: 31645.336009019713
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Mixed Approach
+Hybrid Approach
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ==== Head Direction Prediction ====
 ==== Real vs. Simulated Time ====
