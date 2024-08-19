@@ -425,6 +425,14 @@ def process_data():
         },
         xlabel="Sim Speed as Percentage of Real Time (%)")
 
+    common.plot.horizontal_bar(
+        "results_data/4_neurorobotics_hybrid_comparison_cpu_utilisation.png",
+        {
+            NRP_ALIAS : combined[common.plot.CPU_MEAN][NRP_ALIAS],
+            HYBRID_ALIAS : hybrid_data[common.plot.CPU_MEAN][HYBRID_ALIAS]
+        },
+        xlabel="Mean CPU Utilisation (%)")
+
     return combined
 
 if __name__ == '__main__':
