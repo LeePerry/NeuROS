@@ -64,10 +64,13 @@ def create_data():
 def process_nrp_data():
     combined = { common.plot.HEAD_DIRECTION_ESTIMATE  : {},
                  common.plot.DROPPED_PACKETS          : {},
-                 common.plot.DELIVERED_PACKET_PERCENT   : {},
+                 common.plot.DELIVERED_PACKET_PERCENT : {},
                  common.plot.CPU_MEAN                 : {},
+                 common.plot.CPU_SAMPLES              : {},
                  common.plot.MEMORY_MEAN              : {},
-                 common.plot.SIM_TIME_PERCENT_OF_REAL : {} }
+                 common.plot.MEMORY_SAMPLES           : {},
+                 common.plot.SIM_TIME_PERCENT_OF_REAL : {},
+                 common.plot.SIM_VS_REAL_TIME_SAMPLES : {} }
 
     alias = NRP_ALIAS
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -105,8 +108,6 @@ def process_nrp_data():
             { alias : (x, y)},
             xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
-    # https://github.com/TomKnowles1994/HeadDirectionPredNet/blob/main/NEST/HD_SNN_corrections.ipynb
-
     print("==== Real vs. Simulated Time ====")
     data = common.data.Reader("results_data/nrp/time_stats.txt")
     real_time_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[nrp-sim-real-time-logger\]: Simulated time: .*")
@@ -121,25 +122,38 @@ def process_nrp_data():
     combined[common.plot.SIM_TIME_PERCENT_OF_REAL][alias] = speed * 100
     print(f"Average Time Ratio: {speed}")
 
+    sim_deltas = np.diff(np.array(sim_time_samples))
+    real_deltas = np.diff(np.array(real_time_samples))
+    combined[common.plot.SIM_VS_REAL_TIME_SAMPLES][alias] = sim_deltas / real_deltas
+
     print("==== CPU ====")
-    cpus = []
+    all_cores = []
     labels, datasets = common.plot.all_cpu_time_series(
-        system_load_data_path, f"results_data/4_nrp_cpu_time_series.png")
+        system_load_data_path, f"results_data/4_nrp_cpu_time_series.png",
+        range_stop=3 * 60)
     for label, data in zip(labels, datasets):
         print(f"____ {label} ____")
-        cpus.append(common.data.basic_stats(data)[0])
-    combined[common.plot.CPU_MEAN][alias] = np.mean(cpus)
+        all_cores += data
+        common.data.basic_stats(data)
+    print(f"____ Combined ____")
+    mean, _ = common.data.basic_stats(all_cores)
+    combined[common.plot.CPU_MEAN][alias] = mean
+    combined[common.plot.CPU_SAMPLES][alias] = all_cores
 
     print("==== Memory Consumption ====")
     common.plot.memory_consumption_time_series(
         system_load_data_path, f"results_data/4_nrp_memory_percent_time_series.png")
-    memory = []
+    all_memory = []
     labels, datasets = common.plot.memory_consumption_time_series(
         system_load_data_path, f"results_data/4_nrp_memory_absolute_time_series.png", percent=False)
     for label, data in zip(labels, datasets):
         print(f"____ {label} ____")
-        memory.append(common.data.basic_stats(data)[0])
-    combined[common.plot.MEMORY_MEAN][alias] = np.mean(memory)
+        all_memory += data.tolist()
+        common.data.basic_stats(data)
+    print(f"____ Combined ____")
+    mean, _ = common.data.basic_stats(all_memory)
+    combined[common.plot.MEMORY_MEAN][alias] = mean
+    combined[common.plot.MEMORY_SAMPLES][alias] = all_memory
 
     return combined
 
@@ -151,10 +165,13 @@ def process_hybrid_approach_data():
     D = common.plot.DIGIT
     combined = { common.plot.HEAD_DIRECTION_ESTIMATE  : {},
                  common.plot.DROPPED_PACKETS          : {},
-                 common.plot.DELIVERED_PACKET_PERCENT   : {},
+                 common.plot.DELIVERED_PACKET_PERCENT : {},
                  common.plot.CPU_MEAN                 : {},
+                 common.plot.CPU_SAMPLES              : {},
                  common.plot.MEMORY_MEAN              : {},
-                 common.plot.SIM_TIME_PERCENT_OF_REAL : {} }
+                 common.plot.MEMORY_SAMPLES           : {},
+                 common.plot.SIM_TIME_PERCENT_OF_REAL : {},
+                 common.plot.SIM_VS_REAL_TIME_SAMPLES : {} }
 
     for name, alias in hybrid_approch_data_paths.items():
 
@@ -211,6 +228,10 @@ def process_hybrid_approach_data():
                         "Real Time (seconds)",
                         "Simulated Time (seconds)")
 
+        sim_deltas = np.diff(np.array(sim_time_samples))
+        real_deltas = np.diff(np.array(real_time_samples))
+        combined[common.plot.SIM_VS_REAL_TIME_SAMPLES][alias] = sim_deltas / real_deltas
+
         print("==== Dropped Packets Gazebo -> NeuROS ====")
         gt_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Received _ground_truth")
         data.read(gt_parser.parse)
@@ -229,30 +250,38 @@ def process_hybrid_approach_data():
         pkt_loss = common.data.dropped_packet_summary(data, aliases={"odom_correction" : "head_dir_prediction"})
         combined[common.plot.DROPPED_PACKETS][alias] = pkt_loss
         combined[common.plot.DELIVERED_PACKET_PERCENT][alias] = common.data.dropped_packet_percentage(pkt_loss)
-        common.plot.sent_received_packets(
+        common.plot.sent_received_packets_per_connection(
             f"results_data/4_neurorobotics_{name}_packet_counts.png",
             { "Complete Neurorobotics Experiment" : pkt_loss})
 
         print("==== CPU ====")
-        cpus = []
+        all_cores = []
         labels, datasets = common.plot.all_cpu_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_cpu_time_series.png",
             range_stop=3 * 60)
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
-            cpus.append(common.data.basic_stats(data)[0])
-        combined[common.plot.CPU_MEAN][alias] = np.mean(cpus)
+            all_cores += data
+            common.data.basic_stats(data)
+        print(f"____ Combined ____")
+        mean, _ = common.data.basic_stats(all_cores)
+        combined[common.plot.CPU_MEAN][alias] = mean
+        combined[common.plot.CPU_SAMPLES][alias] = all_cores
 
         print("==== Memory Consumption ====")
         common.plot.memory_consumption_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_memory_percent_time_series.png")
-        memory = []
+        all_memory = []
         labels, datasets = common.plot.memory_consumption_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_memory_absolute_time_series.png", percent=False)
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
-            memory.append(common.data.basic_stats(data)[0])
-        combined[common.plot.MEMORY_MEAN][alias] = np.mean(memory)
+            all_memory += data.tolist()
+            common.data.basic_stats(data)
+        print(f"____ Combined ____")
+        mean, _ = common.data.basic_stats(all_memory)
+        combined[common.plot.MEMORY_MEAN][alias] = mean
+        combined[common.plot.MEMORY_SAMPLES][alias] = all_memory
 
         print("==== Network ====")
         labels, datasets = common.plot.network_speeds_time_series(
@@ -326,6 +355,10 @@ def process_data():
                         "Real Time (seconds)",
                         "Simulated Time (seconds)")
 
+        sim_deltas = np.diff(np.array(sim_time_samples))
+        real_deltas = np.diff(np.array(real_time_samples))
+        combined[common.plot.SIM_VS_REAL_TIME_SAMPLES][alias] = sim_deltas / real_deltas
+
         print("==== Dropped Packets Gazebo -> NeuROS ====")
         gt_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Received _ground_truth")
         data.read(gt_parser.parse)
@@ -344,30 +377,38 @@ def process_data():
         pkt_loss = common.data.dropped_packet_summary(data, aliases={"odom_correction" : "head_dir_prediction"})
         combined[common.plot.DROPPED_PACKETS][alias] = pkt_loss
         combined[common.plot.DELIVERED_PACKET_PERCENT][alias] = common.data.dropped_packet_percentage(pkt_loss)
-        common.plot.sent_received_packets(
+        common.plot.sent_received_packets_per_connection(
             f"results_data/4_neurorobotics_{name}_packet_counts.png",
             { "Complete Neurorobotics Experiment" : pkt_loss})
 
         print("==== CPU ====")
-        cpus = []
+        all_cores = []
         labels, datasets = common.plot.all_cpu_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_cpu_time_series.png",
             range_stop=3 * 60)
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
-            cpus.append(common.data.basic_stats(data)[0])
-        combined[common.plot.CPU_MEAN][alias] = np.mean(cpus)
+            all_cores += data
+            common.data.basic_stats(data)
+        print(f"____ Combined ____")
+        mean, _ = common.data.basic_stats(all_cores)
+        combined[common.plot.CPU_MEAN][alias] = mean
+        combined[common.plot.CPU_SAMPLES][alias] = all_cores
 
         print("==== Memory Consumption ====")
         common.plot.memory_consumption_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_memory_percent_time_series.png")
-        memory = []
+        all_memory = []
         labels, datasets = common.plot.memory_consumption_time_series(
             data_path, f"results_data/4_neurorobotics_{name}_memory_absolute_time_series.png", percent=False)
         for label, data in zip(labels, datasets):
             print(f"____ {label} ____")
-            memory.append(common.data.basic_stats(data)[0])
-        combined[common.plot.MEMORY_MEAN][alias] = np.mean(memory)
+            all_memory += data.tolist()
+            common.data.basic_stats(data)
+        print(f"____ Combined ____")
+        mean, _ = common.data.basic_stats(all_memory)
+        combined[common.plot.MEMORY_MEAN][alias] = mean
+        combined[common.plot.MEMORY_SAMPLES][alias] = all_memory
 
         print("==== Network ====")
         labels, datasets = common.plot.network_speeds_time_series(
@@ -391,20 +432,25 @@ def process_data():
         combined[common.plot.DELIVERED_PACKET_PERCENT],
         xlabel="Packets Delivered (%)")
 
-    common.plot.horizontal_bar(
+    common.plot.box_and_whisker(
         "results_data/4_neurorobotics_combined_cpu_utilisation.png",
-        combined[common.plot.CPU_MEAN],
-        xlabel="Mean CPU Utilisation (%)")
+        combined[common.plot.CPU_SAMPLES],
+        xlabel="CPU Utilisation (%)")
 
-    common.plot.horizontal_bar(
+    common.plot.box_and_whisker(
         "results_data/4_neurorobotics_combined_memory_consumption.png",
-        combined[common.plot.MEMORY_MEAN],
-        xlabel="Mean Memory Consumption (GB)")
+        combined[common.plot.MEMORY_SAMPLES],
+        xlabel="Memory Consumption (GB)", xlim=[0, 4])
 
     common.plot.horizontal_bar(
         "results_data/4_neurorobotics_percent_of_real_time_speed.png",
         combined[common.plot.SIM_TIME_PERCENT_OF_REAL],
         xlabel="Sim Speed as Percentage of Real Time (%)")
+
+    #common.plot.box_and_whisker(
+    #    "results_data/4_neurorobotics_percent_of_real_time_speed.png",
+    #    combined[common.plot.SIM_VS_REAL_TIME_SAMPLES],
+    #    xlabel="Sim Speed as Percentage of Real Time (%)")
 
     hybrid_data = process_hybrid_approach_data()
 
@@ -425,13 +471,13 @@ def process_data():
         },
         xlabel="Sim Speed as Percentage of Real Time (%)")
 
-    common.plot.horizontal_bar(
+    common.plot.box_and_whisker(
         "results_data/4_neurorobotics_hybrid_comparison_cpu_utilisation.png",
         {
-            NRP_ALIAS : combined[common.plot.CPU_MEAN][NRP_ALIAS],
-            HYBRID_ALIAS : hybrid_data[common.plot.CPU_MEAN][HYBRID_ALIAS]
+            NRP_ALIAS : combined[common.plot.CPU_SAMPLES][NRP_ALIAS],
+            HYBRID_ALIAS : hybrid_data[common.plot.CPU_SAMPLES][HYBRID_ALIAS]
         },
-        xlabel="Mean CPU Utilisation (%)")
+        xlabel="CPU Utilisation (%)")
 
     return combined
 

@@ -203,23 +203,31 @@ Neurorobotics Platform (NRP)
 Average Time Ratio: 0.13955690057944956
 ==== CPU ====
 ____ Core 1 ____
-Count: 416
-Mean: 93.26057692307693
-Standard Deviation: 3.420256914248907
+Count: 180
+Mean: 92.9572222222222
+Standard Deviation: 3.8078724090954803
 ____ Core 2 ____
-Count: 416
-Mean: 92.81442307692308
-Standard Deviation: 3.4266817395379516
+Count: 180
+Mean: 92.48055555555555
+Standard Deviation: 3.685589011002813
 ____ Core 3 ____
-Count: 416
-Mean: 92.35889423076922
-Standard Deviation: 3.924634687600945
+Count: 180
+Mean: 91.89611111111113
+Standard Deviation: 4.255289047355445
 ____ Core 4 ____
-Count: 416
-Mean: 93.11850961538462
-Standard Deviation: 3.5298137739480957
+Count: 180
+Mean: 92.58666666666666
+Standard Deviation: 4.093007587472947
+____ Combined ____
+Count: 720
+Mean: 92.4801388888889
+Standard Deviation: 3.985087825971954
 ==== Memory Consumption ====
 ____ Default ____
+Count: 417
+Mean: 3.295094259065404
+Standard Deviation: 0.03621016627900962
+____ Combined ____
 Count: 417
 Mean: 3.295094259065404
 Standard Deviation: 0.03621016627900962
@@ -253,8 +261,16 @@ ____ Core 4 ____
 Count: 180
 Mean: 43.71388888888889
 Standard Deviation: 23.40258476676096
+____ Combined ____
+Count: 720
+Mean: 44.66152777777777
+Standard Deviation: 22.9966713871403
 ==== Memory Consumption ====
 ____ Default ____
+Count: 414
+Mean: 1.280286871868631
+Standard Deviation: 0.05221952464389671
+____ Combined ____
 Count: 414
 Mean: 1.280286871868631
 Standard Deviation: 0.05221952464389671
@@ -297,8 +313,16 @@ ____ Core 4 ____
 Count: 180
 Mean: 36.13222222222222
 Standard Deviation: 28.53407642248038
+____ Combined ____
+Count: 720
+Mean: 30.794444444444444
+Standard Deviation: 26.21211546048087
 ==== Memory Consumption ====
 ____ Default ____
+Count: 1212
+Mean: 1.2962956601637032
+Standard Deviation: 0.033082470711687934
+____ Combined ____
 Count: 1212
 Mean: 1.2962956601637032
 Standard Deviation: 0.033082470711687934
@@ -341,8 +365,16 @@ ____ Core 4 ____
 Count: 180
 Mean: 24.016666666666666
 Standard Deviation: 25.567393514222584
+____ Combined ____
+Count: 720
+Mean: 20.685416666666665
+Standard Deviation: 23.287411861674922
 ==== Memory Consumption ====
 ____ Default ____
+Count: 2011
+Mean: 1.3073885370877654
+Standard Deviation: 0.028369546950955626
+____ Combined ____
 Count: 2011
 Mean: 1.3073885370877654
 Standard Deviation: 0.028369546950955626
@@ -385,8 +417,16 @@ ____ Core 4 ____
 Count: 180
 Mean: 36.89333333333333
 Standard Deviation: 33.26639211643553
+____ Combined ____
+Count: 720
+Mean: 29.30027777777778
+Standard Deviation: 29.928484201334125
 ==== Memory Consumption ====
 ____ Default ____
+Count: 11875
+Mean: 1.3520857081363076
+Standard Deviation: 0.025597264294863184
+____ Combined ____
 Count: 11875
 Mean: 1.3520857081363076
 Standard Deviation: 0.025597264294863184
@@ -429,8 +469,16 @@ ____ Core 4 ____
 Count: 105
 Mean: 60.95238095238095
 Standard Deviation: 17.33610103492047
+____ Combined ____
+Count: 420
+Mean: 61.74357142857143
+Standard Deviation: 20.304923906874055
 ==== Memory Consumption ====
 ____ Default ____
+Count: 105
+Mean: 1.249821544828869
+Standard Deviation: 0.0900746061046668
+____ Combined ____
 Count: 105
 Mean: 1.249821544828869
 Standard Deviation: 0.0900746061046668
@@ -473,8 +521,16 @@ ____ Core 4 ____
 Count: 88
 Mean: 77.77613636363637
 Standard Deviation: 24.758933164333847
+____ Combined ____
+Count: 352
+Mean: 79.03039772727274
+Standard Deviation: 23.05663634156699
 ==== Memory Consumption ====
 ____ Default ____
+Count: 88
+Mean: 1.2449120608243076
+Standard Deviation: 0.0925537597104397
+____ Combined ____
 Count: 88
 Mean: 1.2449120608243076
 Standard Deviation: 0.0925537597104397
@@ -517,8 +573,16 @@ ____ Core 4 ____
 Count: 111
 Mean: 61.466666666666676
 Standard Deviation: 17.711508618340154
+____ Combined ____
+Count: 444
+Mean: 63.1936936936937
+Standard Deviation: 18.64583995474294
 ==== Memory Consumption ====
 ____ Default ____
+Count: 111
+Mean: 2.776269345670133
+Standard Deviation: 0.07928381802747952
+____ Combined ____
 Count: 111
 Mean: 2.776269345670133
 Standard Deviation: 0.07928381802747952

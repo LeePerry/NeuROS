@@ -12,8 +12,11 @@ HEAD_DIRECTION_ESTIMATE = "Head Direction Estimate"
 DROPPED_PACKETS = "Packet Loss"
 DELIVERED_PACKET_PERCENT = "Packet Delivery Rate"
 CPU_MEAN = "Mean CPU Utilisation"
+CPU_SAMPLES = "All CPU Utilisation Samples"
 MEMORY_MEAN = "Mean Memory Consumption"
+MEMORY_SAMPLES = "All Memory Consumption Samples"
 SIM_TIME_PERCENT_OF_REAL = "Percentage of Real Time Speed"
+SIM_VS_REAL_TIME_SAMPLES = "All Sim vs. Real Time Samples"
 
 plt.style.use('tableau-colorblind10')
 
@@ -161,12 +164,44 @@ def sent_received_packets(to_path, combined_data, xlabelrot=None):
     common.plot.grouped_multi_bar(
         to_path, groups, values, ylabel="Number of Packets", xlabelrot=xlabelrot)
 
+def sent_received_packets_per_connection(to_path, combined_data):
+    groups = combined_data.keys()
+    values = {}
+    for _, data in combined_data.items():
+        message_types = set([k for k in data[0].keys()] +
+                            [k for k in data[1].keys()])
+        for mt in message_types:
+            sent_count = data[0][mt]
+            received_count = data[1][mt]
+            values[mt] = (received_count * 100) / sent_count
+    common.plot.horizontal_bar(to_path, values, xlabel="Packets Delivered (%)")
+
 def horizontal_bar(to_path, values, xlabel=None, ylabel=None, xlim=[]):
     fig, ax = plt.subplots()
     y_pos = np.arange(len(values))
-    fig.set_size_inches(6.4, 4.8 * (len(values) / 7))
-    ax.barh(y_pos, [v for _, v in values.items()], align='center')
+    fig.set_size_inches(8, 0.5 + (len(values) * 0.4))
+    ax.barh(y_pos, [v for _, v in values.items()], height=0.75, align='center',
+            facecolor='w', edgecolor='k')
     ax.set_yticks(y_pos, labels=values.keys())
+    ax.invert_yaxis()
+    if xlabel:
+        ax.set_xlabel(xlabel)
+    if ylabel:
+        ax.set_ylabel(ylabel)
+    if xlim:
+        ax.set_xlim(xlim)
+    fig.tight_layout()
+    plt.savefig(to_path)
+    plt.close()
+
+def box_and_whisker(to_path, values, xlabel=None, ylabel=None, xlim=[]):
+    fig, ax = plt.subplots()
+    #y_pos = np.arange(len(values))
+    fig.set_size_inches(8, 0.5 + (len(values) * 0.4))
+    ax.boxplot(values.values(), vert=False, widths=0.75, notch=True,
+               flierprops={'marker': 'o', 'markersize': 3})
+    ax.set_yticklabels(values.keys())
+    #ax.set_yticks(y_pos, labels=values.keys())
     ax.invert_yaxis()
     if xlabel:
         ax.set_xlabel(xlabel)
@@ -205,7 +240,10 @@ def grouped_multi_bar(to_path, groups, values, xlabel=None, ylabel=None,
 def head_direction(to_path, values, xlabel=None, ylabel=None):
     fig = plt.figure()
     ax = fig.add_subplot(111)
-    #fig.set_size_inches(8, 2)
+    ax.set_yticks([-math.pi, 0, math.pi])
+    ax.set_yticklabels(["$-\pi$", "$0$", "$\pi$"])
+    ax.set_ylim(-math.pi, math.pi)
+    fig.set_size_inches(8, 2.5)
     for label, data in values.items():
         x, y = data
         ax.scatter(y, x, label=label, s=3)
@@ -214,10 +252,7 @@ def head_direction(to_path, values, xlabel=None, ylabel=None):
     if ylabel:
         ax.set_ylabel(ylabel)
     if len(values) > 1:
-        plt.legend(loc='upper right')
-    ax.set_yticks([-math.pi, 0, math.pi])
-    ax.set_yticklabels(["$-\pi$", "$0$", "$\pi$"])
-    ax.set_ylim(-math.pi, math.pi)
+        ax.legend(loc='center left', bbox_to_anchor=(1, 0.5))
     fig.tight_layout()
     plt.savefig(to_path)
     plt.close()
