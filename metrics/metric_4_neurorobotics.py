@@ -62,15 +62,16 @@ def create_data():
     create_hybrid_approach_data()
 
 def process_nrp_data():
-    combined = { common.plot.HEAD_DIRECTION_ESTIMATE  : {},
-                 common.plot.DROPPED_PACKETS          : {},
-                 common.plot.DELIVERED_PACKET_PERCENT : {},
-                 common.plot.CPU_MEAN                 : {},
-                 common.plot.CPU_SAMPLES              : {},
-                 common.plot.MEMORY_MEAN              : {},
-                 common.plot.MEMORY_SAMPLES           : {},
-                 common.plot.SIM_TIME_PERCENT_OF_REAL : {},
-                 common.plot.SIM_VS_REAL_TIME_SAMPLES : {} }
+    combined = { common.plot.HEAD_DIRECTION_ESTIMATE       : {},
+                 common.plot.HEAD_DIRECTION_ESTIMATE_ERROR : {},
+                 common.plot.DROPPED_PACKETS               : {},
+                 common.plot.DELIVERED_PACKET_PERCENT      : {},
+                 common.plot.CPU_MEAN                      : {},
+                 common.plot.CPU_SAMPLES                   : {},
+                 common.plot.MEMORY_MEAN                   : {},
+                 common.plot.MEMORY_SAMPLES                : {},
+                 common.plot.SIM_TIME_PERCENT_OF_REAL      : {},
+                 common.plot.SIM_VS_REAL_TIME_SAMPLES      : {} }
 
     alias = NRP_ALIAS
     print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
@@ -122,9 +123,7 @@ def process_nrp_data():
     combined[common.plot.SIM_TIME_PERCENT_OF_REAL][alias] = speed * 100
     print(f"Average Time Ratio: {speed}")
 
-    sim_deltas = np.diff(np.array(sim_time_samples))
-    real_deltas = np.diff(np.array(real_time_samples))
-    combined[common.plot.SIM_VS_REAL_TIME_SAMPLES][alias] = sim_deltas / real_deltas
+    combined[common.plot.SIM_VS_REAL_TIME_SAMPLES][alias] = [speed]
 
     print("==== CPU ====")
     all_cores = []
@@ -163,15 +162,16 @@ def process_hybrid_approach_data():
     """
 
     D = common.plot.DIGIT
-    combined = { common.plot.HEAD_DIRECTION_ESTIMATE  : {},
-                 common.plot.DROPPED_PACKETS          : {},
-                 common.plot.DELIVERED_PACKET_PERCENT : {},
-                 common.plot.CPU_MEAN                 : {},
-                 common.plot.CPU_SAMPLES              : {},
-                 common.plot.MEMORY_MEAN              : {},
-                 common.plot.MEMORY_SAMPLES           : {},
-                 common.plot.SIM_TIME_PERCENT_OF_REAL : {},
-                 common.plot.SIM_VS_REAL_TIME_SAMPLES : {} }
+    combined = { common.plot.HEAD_DIRECTION_ESTIMATE       : {},
+                 common.plot.HEAD_DIRECTION_ESTIMATE_ERROR : {},
+                 common.plot.DROPPED_PACKETS               : {},
+                 common.plot.DELIVERED_PACKET_PERCENT      : {},
+                 common.plot.CPU_MEAN                      : {},
+                 common.plot.CPU_SAMPLES                   : {},
+                 common.plot.MEMORY_MEAN                   : {},
+                 common.plot.MEMORY_SAMPLES                : {},
+                 common.plot.SIM_TIME_PERCENT_OF_REAL      : {},
+                 common.plot.SIM_VS_REAL_TIME_SAMPLES      : {} }
 
     for name, alias in hybrid_approch_data_paths.items():
 
@@ -337,6 +337,11 @@ def process_data():
             {GT_ALIAS : (gt_x, gt_y), alias : (x, y)},
             xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
 
+        twopi = math.pi * 2
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE_ERROR][alias] = [
+            min(x1 - x2, (x1 + twopi) - x2, (x1 - twopi) - x2, key=abs)
+            for x1, x2 in zip(x, gt_x)]
+
         print("==== Real vs. Simulated Time ====")
         real_time_parser = common.data.Parser("\[INFO\] \[(\d*\.?\d+)\] \[robot\]: Simulated time: .*")
         data.read(real_time_parser.parse)
@@ -420,7 +425,13 @@ def process_data():
     common.plot.head_direction(
         "results_data/4_neurorobotics_combined_head_direction_estimate.png",
         combined[common.plot.HEAD_DIRECTION_ESTIMATE],
-        xlabel="Simulated Time (seconds)", ylabel="Head Direction (rad)")
+        xlabel="Simulated Time (seconds)", ylabel="Head Direction Estimate (rad)")
+
+    common.plot.box_and_whisker(
+        "results_data/4_neurorobotics_combined_head_direction_estimate_error.png",
+        combined[common.plot.HEAD_DIRECTION_ESTIMATE_ERROR],
+        xlabel="Head Direction Estimate Error (rad)",
+        xlim=[-math.pi, math.pi])
 
     common.plot.sent_received_packets(
         "results_data/4_neurorobotics_combined_packet_counts.png",
@@ -442,15 +453,10 @@ def process_data():
         combined[common.plot.MEMORY_SAMPLES],
         xlabel="Memory Consumption (GB)", xlim=[0, 4])
 
-    common.plot.horizontal_bar(
+    common.plot.box_and_whisker(
         "results_data/4_neurorobotics_percent_of_real_time_speed.png",
-        combined[common.plot.SIM_TIME_PERCENT_OF_REAL],
+        combined[common.plot.SIM_VS_REAL_TIME_SAMPLES],
         xlabel="Sim Speed as Percentage of Real Time (%)")
-
-    #common.plot.box_and_whisker(
-    #    "results_data/4_neurorobotics_percent_of_real_time_speed.png",
-    #    combined[common.plot.SIM_VS_REAL_TIME_SAMPLES],
-    #    xlabel="Sim Speed as Percentage of Real Time (%)")
 
     hybrid_data = process_hybrid_approach_data()
 

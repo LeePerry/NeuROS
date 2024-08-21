@@ -9,6 +9,7 @@ import common.data
 DIGIT="-?\d*\.?\d+"
 
 HEAD_DIRECTION_ESTIMATE = "Head Direction Estimate"
+HEAD_DIRECTION_ESTIMATE_ERROR = "Head Direction Estimate Error"
 DROPPED_PACKETS = "Packet Loss"
 DELIVERED_PACKET_PERCENT = "Packet Delivery Rate"
 CPU_MEAN = "Mean CPU Utilisation"
