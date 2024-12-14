@@ -1,6 +1,6 @@
 # NeuROS
 
-An Integration Framework for Heterogeneous Computational Systems Neuroscience
+A Distributed Integration Framework for Heterogeneous Computational Systems Neuroscience
 
 MIT License
 
